@@ -27,7 +27,9 @@ public class FirstPersonControl : MonoBehaviour {
 
      	// if(Camera.current != null) {
         	transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
-        	transform.Rotate(new Vector3(yRotateVal, xRotateVal, 0.0f ));
+        	transform.Rotate(new Vector3(yRotateVal, 0.0f, 0.0f ));
+
+        	transform.RotateAround(transform.position, Vector3.up, xRotateVal);
      	// }
 
 	}

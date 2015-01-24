@@ -1,6 +1,6 @@
 # cs194-project
 
-Some notes from Chase:
+some notes from Chase:
 
 On Unity:
 	Hopefully you have Unity installed and are starting to get comfortable with its UI.

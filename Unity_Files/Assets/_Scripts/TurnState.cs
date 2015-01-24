@@ -68,12 +68,17 @@ public class TurnState : MonoBehaviour {
     }
 
 
-    enum PlayerEnum{ P1, P2, P3, P4};
+
+    
 
 
     int numPlayers = 4;
     int currentPlayerIndex;
     int numTurns = 0;
+
+
+    // Replace this with actual players later.
+    enum PlayerEnum{ P1, P2, P3, P4};   
     PlayerEnum[] playerOrder = {PlayerEnum.P1, PlayerEnum.P2, PlayerEnum.P3, PlayerEnum.P4};
 
 

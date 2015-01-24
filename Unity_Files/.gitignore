@@ -19,6 +19,12 @@ obj/
 *.unityproj
 *.booproj
 
+# ============= #
+# 3ds max files #
+# ============= #
+Models/
+
+
 # ============ #
 # OS generated #
 # ============ #

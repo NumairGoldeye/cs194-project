@@ -12,6 +12,7 @@ GameObject:
   - 23: {fileID: 2341038}
   - 95: {fileID: 9541038}
   - 64: {fileID: 6492146}
+  - 114: {fileID: 11418942}
   m_Layer: 0
   m_Name: TilePrefab
   m_TagString: Untagged
@@ -86,6 +87,17 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11418942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class TileClass : MonoBehaviour {
 
-	ResourceType type;
-	int diceValue;
+	public ResourceType type;
+	public int diceValue;
 
 	private void getInfo () {
 		GameObject go = GameObject.Find ("GameManager");

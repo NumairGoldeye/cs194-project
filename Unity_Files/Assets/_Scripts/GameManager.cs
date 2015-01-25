@@ -24,20 +24,35 @@ public class GameManager : MonoBehaviour {
 	private static int[] tileCounts = {4, 4, 3, 3, 4, 1};
 	// The dice numbers for each tyle, in order
 	private static int[] diceNumbers =
-		{5, 2, 6, 3, 8, 10, 9, 12, 11, 4, 8, 10, 9, 4, 5, 6, 3, 11, 0};
+		{5, 2, 6, 3, 8, 10, 9, 12, 11, 4, 8, 10, 9, 4, 5, 6, 3, 11};
 
-	List<ResourceType> tiles;
+	List<TileInfo> tiles;
 
 	private void createTiles () {
-		tiles = new List<ResourceType>();
+		tiles = new List<TileInfo>();
 		tilesRemaining = numTiles;
-		
+
+		List<ResourceType> tileResources = new List<ResourceType> ();
+
 		foreach(ResourceType tile in Enum.GetValues(typeof(ResourceType))) {
 			for (int i = 0; i < tileCounts[(int)tile]; i++) {
-				tiles.Add(tile);
+				tileResources.Add(tile);
 			}
 		}
-		tiles.Shuffle ();
+		tileResources.Shuffle ();
+
+		int resourceIndex = 0;
+		int numberIndex = 0;
+		while (resourceIndex < tileResources.Count) {
+			ResourceType type = tileResources[resourceIndex];
+			if (type == ResourceType.desert) {
+				tiles.Add(new TileInfo(type, 0));
+			} else {
+				tiles.Add(new TileInfo(type, diceNumbers[numberIndex]));
+				numberIndex++;
+			}
+			resourceIndex++;
+		}
 	}
 	                          
 
@@ -51,12 +66,10 @@ public class GameManager : MonoBehaviour {
 			return new TileInfo(ResourceType.sheep, 2); //returns sheep to not crash program
 		}
 
-		// TODO(khalilsg): Currently does not handle desert's tyle number correctly.
-		ResourceType val = tiles[tilesRemaining - 1];
-		int diceNum = diceNumbers [tilesRemaining - 1];
+		TileInfo val = tiles[tilesRemaining - 1];
 		tilesRemaining--;
 
-		return new TileInfo(val, diceNum);
+		return val;
 	}
 
 	public bool validBuild() {

@@ -16,8 +16,11 @@ TurnState.instance.isPlacingRoad();
 TurnState.instance.isPlacingCity();
 
 
-
 */
+
+
+
+
 public class TurnState : MonoBehaviour {
 
 	// This is a Singleton

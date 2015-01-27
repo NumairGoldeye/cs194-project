@@ -55,8 +55,9 @@ public class Player : MonoBehaviour {
 		resourceCounts = new int[5];
 
 		AddResource(ResourceType.sheep, 200);
-		LogResources();
+		// LogResources();
 		
+		// Debugger.Log("Foo", "Something amazing");
 	}
 	
 	// Update is called once per frame
@@ -78,17 +79,17 @@ public class Player : MonoBehaviour {
 	// Returns the number of a specific resource that a player has
 	// returns -1 on terrible terrible failure
 	public int GetResourceCount(ResourceType resource){
-
 		// Debug.Log((int)resource);
 		return resourceCounts[(int) resource];
 
 	}
 
 	// Call this if you want to see how many of each Resource a player has
-	void LogResources(){
+	// you need it to pass it the Debugger flag
+	void LogResources(string flag){
 		foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
 			if (ResourceType.desert != res)
-				Debug.Log(res.ToString() + GetResourceCount(res));
+				Debugger.Log(flag, res.ToString() + GetResourceCount(res));
 		}
 	}
 

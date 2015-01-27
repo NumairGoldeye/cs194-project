@@ -61,7 +61,7 @@ public class TurnState : MonoBehaviour {
  
     void Start()
     {
-    	Debug.Log("TurnState start");
+    	// Debug.Log("TurnState start");
     	currentPlayerIndex = ArrayUtility.IndexOf(playerOrder, PlayerEnum.P1);
     }
 
@@ -69,11 +69,6 @@ public class TurnState : MonoBehaviour {
     void Update(){
 
     }
-
-
-
-    
-
 
     int numPlayers = 4;
     int currentPlayerIndex;
@@ -92,7 +87,7 @@ public class TurnState : MonoBehaviour {
 
  	void LogCurrentPlayerTurn(){
  		nextPlayerTurn();
- 		Debug.Log(currentPlayerIndex);
+ 		// Debug.Log(currentPlayerIndex);
  	} 
 
 

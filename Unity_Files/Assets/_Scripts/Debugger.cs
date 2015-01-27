@@ -30,6 +30,8 @@ Debugger.Log('foo', "Some string");// Prints "some string"
 Debugger.Log('bar', "Some other string"); // Prints "some other string"
 
 
+TODO: make a debugger that accepts multiple flags
+
 */
 public class Debugger : MonoBehaviour {
 
@@ -63,7 +65,7 @@ public class Debugger : MonoBehaviour {
 	public static void RevertFlag(){
 		string temp = currentFlag;
 		currentFlag = lastFlag;
-		lastFlag = currentFlag;
+		lastFlag = temp;
 	}
 
 	public static void Log(string flag, string message){

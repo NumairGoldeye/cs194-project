@@ -313,6 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &79090534
 Prefab:
   m_ObjectHideFlags: 0
@@ -401,6 +403,46 @@ Prefab:
   m_RootGameObject: {fileID: 925235376}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &169659235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 169659237}
+  - 114: {fileID: 169659236}
+  m_Layer: 0
+  m_Name: Debugger
+  m_TagString: Debugger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &169659236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 169659235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2a54edd6af14089a55f02f07529e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugFlag: Foo
+--- !u!4 &169659237
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 169659235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1288737626}
+  m_RootOrder: 1
 --- !u!1001 &219924893
 Prefab:
   m_ObjectHideFlags: 0
@@ -677,6 +719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &416925911
 Prefab:
   m_ObjectHideFlags: 0
@@ -824,6 +868,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &446131647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &842038302
 Prefab:
   m_ObjectHideFlags: 0
@@ -1604,6 +1652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &883111072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &925235376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,6 +2184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &1030942277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,6 +2289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &1097569800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,6 +2599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &1180617198
 Prefab:
   m_ObjectHideFlags: 0
@@ -2698,6 +2756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &1217618473
 Prefab:
   m_ObjectHideFlags: 0
@@ -2853,6 +2913,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1936237541}
+  - {fileID: 169659237}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!1001 &1299141814
@@ -3046,6 +3107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &1369843714
 Prefab:
   m_ObjectHideFlags: 0
@@ -3193,6 +3256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &1462784905
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,6 +3361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &1569209251
 Prefab:
   m_ObjectHideFlags: 0
@@ -3487,6 +3554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &1642050278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3889,6 +3958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &1783036207
 GameObject:
   m_ObjectHideFlags: 0
@@ -4237,6 +4308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &1893543514
 Prefab:
   m_ObjectHideFlags: 0
@@ -4491,6 +4564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1001 &2019493366
 Prefab:
   m_ObjectHideFlags: 0
@@ -4638,6 +4713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0
 --- !u!1 &2120986842
 GameObject:
   m_ObjectHideFlags: 0
@@ -4740,3 +4817,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeb2ebddff9c6141954cd5efab004c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  diceValue: 0

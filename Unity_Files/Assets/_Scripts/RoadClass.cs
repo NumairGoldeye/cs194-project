@@ -9,7 +9,6 @@ public class RoadClass : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		built = false;
-		visible = false;
 		makeInvisible();
 	}
 	

@@ -5,11 +5,13 @@ public class SettlementClass : MonoBehaviour {
 
 	private bool built;
 	private bool visible;
+	private bool upgrading;
 	public GameObject settlements;
+	public GameObject city;
 	// Use this for initialization
 	void Start () {
 		built = false;
-		visible = false;
+		upgrading = false;
 		makeInvisible();
 	}
 	
@@ -22,19 +24,23 @@ public class SettlementClass : MonoBehaviour {
 		return built;
 	}
 
-	private void upgradeToCity() {
-
+	public void upgradeAbility() {
+		if (isBuilt ())
+			upgrading = true;
 	}
 
+	private void upgradeToCity() {
+		built = false;
+		makeInvisible();
+		city.SendMessage("makeVisible");
+	}
+	
 	public void toggleSettlements() {
 		if (!built) {
 			if (!visible)
 				makeVisible();
 			else
 				makeInvisible();
-		} else {
-			//Upgrade to city
-			upgradeToCity();
 		}
 	}
 	void makeInvisible() {
@@ -52,10 +58,15 @@ public class SettlementClass : MonoBehaviour {
 	}
 	
 	void OnMouseDown() {
-		built = true;
-		Color temp = renderer.material.color;
-		temp.a = 1;
-		renderer.material.color = temp;
-		settlements.BroadcastMessage ("toggleSettlements");
+		if (!built) {
+			built = true;
+			Color temp = renderer.material.color;
+			temp.a = 1;
+			renderer.material.color = temp;
+			settlements.BroadcastMessage ("toggleSettlements");
+		} else {
+			if (upgrading)
+				upgradeToCity();
+		}
 	}
 }

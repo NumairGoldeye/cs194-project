@@ -27,7 +27,7 @@ foreach(string resName in Enum.GetNames(typeof(ResourceType))){
 
 */
 
-public enum ResourceType {none, sheep, wood, brick, ore, wheat, desert};
+public enum ResourceType {sheep, wood, brick, ore, wheat, desert};
 
 public class ResourceClass {
 

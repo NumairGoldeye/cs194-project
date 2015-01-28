@@ -74,9 +74,29 @@ public class Debugger : MonoBehaviour {
 		}
 	}
 
-	public static void Log(int flag, string message ){
-		Log(flag.ToString(), message);
+	public static void LogError(string flag, string message){
+		if (flag == currentFlag || currentFlag == allFlag){
+			Debug.LogError(message);
+		}
 	}
+
+	// public static void LogException(string flag, string message){
+	// 	if (flag == currentFlag || currentFlag == allFlag){
+	// 		Debug.LogException(message);
+	// 	}
+	// }
+
+	public static void LogWarning(string flag, string message){
+		if (flag == currentFlag || currentFlag == allFlag){
+			Debug.LogWarning(message);
+		}
+	}
+
+	// public static void Log(int flag, string message ){
+	// 	Log(flag.ToString(), message);
+	// }
+
+
 
 
 }

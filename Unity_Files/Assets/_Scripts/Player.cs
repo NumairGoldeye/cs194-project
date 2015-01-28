@@ -25,17 +25,9 @@ public class Player : MonoBehaviour {
 	}
 
 	public static Player tempPlayer = null;
-
 	public static void CreatePlayer(string name, Color color){
 		// adds a player logic
 	}
-
-
-	public static Player GetPlayerForTurn(int turnNum){
-		return null;
-	}
-
-
 
 	
 	public string playerName; 
@@ -45,6 +37,7 @@ public class Player : MonoBehaviour {
 	// Each index corresponds to a the ResourceType by enum
 	// resourceCounts[0] should be the number of sheep
 	public int[] resourceCounts;
+	public int[] devCardCounts; 
 
 	// resources
 	// dev cards 
@@ -54,10 +47,13 @@ public class Player : MonoBehaviour {
 		playerCount = 0;
 		resourceCounts = new int[5];
 
-		AddResource(ResourceType.sheep, 200);
+		// AddResource(ResourceType.ore, 3);
+		// AddResource(ResourceType.wheat, 2);
 		// LogResources();
-		
-		// Debugger.Log("Foo", "Something amazing");
+		// Debugger.Log("Charlie", "Something amazing");
+		// BuyManager.Test(this);
+		// BuyManager.PurchaseForPlayer(BuyableType.city, this);
+		// BuyManager.Test(this);	
 	}
 	
 	// Update is called once per frame
@@ -76,12 +72,23 @@ public class Player : MonoBehaviour {
 		return true;
 	}
 
+	// Call if you want to 
+	// Don't know why i want it to return anything. sigh
+	public bool RemoveResource(ResourceType resource, int amount = 1){
+		resourceCounts[(int)resource] -= amount;
+		return true;
+	}
+
+	// CHecks if a player at least has some number of resources
+	public bool HasResourceAmount(ResourceType resource, int amount){
+		return GetResourceCount(resource) >= amount;
+	}
+
 	// Returns the number of a specific resource that a player has
 	// returns -1 on terrible terrible failure
 	public int GetResourceCount(ResourceType resource){
 		// Debug.Log((int)resource);
 		return resourceCounts[(int) resource];
-
 	}
 
 	// Call this if you want to see how many of each Resource a player has
@@ -92,6 +99,21 @@ public class Player : MonoBehaviour {
 				Debugger.Log(flag, res.ToString() + GetResourceCount(res));
 		}
 	}
+
+	public bool HasCard(DevCardType devCard){
+		return devCardCounts[(int) devCard] > 0;
+	}
+
+	public bool AddDevCard(DevCardType devCard){
+		devCardCounts[(int)devCard] += 1;
+		return true;
+	}
+
+	public bool RemoveDevCard(DevCardType devCard){
+		devCardCounts[(int)devCard] -= 1;
+		return true;
+	}
+
 
 
 

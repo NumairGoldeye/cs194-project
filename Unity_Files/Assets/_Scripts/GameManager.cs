@@ -72,9 +72,6 @@ public class GameManager : MonoBehaviour {
 		return val;
 	}
 
-	public bool validBuild() {
-		return true;
-	}
 	// Use this for initialization
 	void Start () {
 	

@@ -4,10 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 
 // BuyManager does all the logic for purchasing
-// The UI will call this to see if certain things should be activatable
-// or not
 
-// WOW this is not modular at all.
+
+/*
+
+// Usage: 
+
+// TO check if player can buy something
+BuyManager.PlayerCanBuy(BuyableType.road, player);
+
+// To acually purchase and remove resources from the player
+BuyManager.PurchaseForPlayer(BuyableType.road, player);
+
+
+*/
 
 public enum BuyableType { road, settlement, city, devCard};
 

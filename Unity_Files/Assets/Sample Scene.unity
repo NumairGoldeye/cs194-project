@@ -4133,6 +4133,7 @@ MonoBehaviour:
   playerId: 0
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   resourceCounts: 
+  devCardCounts: 
 --- !u!1001 &659621697
 Prefab:
   m_ObjectHideFlags: 0

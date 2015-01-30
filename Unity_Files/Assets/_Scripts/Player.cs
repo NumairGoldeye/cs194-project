@@ -48,12 +48,12 @@ public class Player : MonoBehaviour {
 		resourceCounts = new int[5];
 		devCardCounts = new int[4];
 
-		AddDevCard(DevCardType.knight);
 		// AddDevCard(DevCardType.knight);
 		// AddDevCard(DevCardType.knight);
 		// AddDevCard(DevCardType.knight);
-		AddResource(ResourceType.ore, 3);
-		AddResource(ResourceType.wheat, 2);
+		// AddDevCard(DevCardType.knight);
+		// AddResource(ResourceType.ore, 3);
+		// AddResource(ResourceType.wheat, 2);
 		// LogResources();
 		// Debugger.Log("Charlie", "Something amazing");
 		// BuyManager.Test(this);

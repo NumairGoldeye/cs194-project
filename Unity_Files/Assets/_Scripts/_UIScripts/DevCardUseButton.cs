@@ -23,6 +23,7 @@ public class DevCardUseButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		btn = gameObject.GetComponent<Button>();
+		btn.onClick.AddListener(UseCard);
 	}
 	
 	// Update is called once per frame
@@ -31,6 +32,12 @@ public class DevCardUseButton : MonoBehaviour {
 
 
 		btn.interactable = player.HasCard(cardType);		
+	}
+
+	void UseCard(){
+		player = TurnState.currentPlayer;
+		// BuyManager.PurchaseForPlayer(buyType, player);
+		player.RemoveDevCard(cardType);
 	}
 
 

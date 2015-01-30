@@ -29,5 +29,10 @@ public interface BoardGraph {
 	 * leftwards.
 	 */
 	Edge getEdge(int index);
+
+	/**
+	 * Returns the tile corresponding to the given tile.
+	 */
+	TileClass getTile(int index);
 	
 }

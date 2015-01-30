@@ -46,9 +46,14 @@ public class Player : MonoBehaviour {
 	void Start () {
 		playerCount = 0;
 		resourceCounts = new int[5];
+		devCardCounts = new int[4];
 
-		// AddResource(ResourceType.ore, 3);
-		// AddResource(ResourceType.wheat, 2);
+		AddDevCard(DevCardType.knight);
+		// AddDevCard(DevCardType.knight);
+		// AddDevCard(DevCardType.knight);
+		// AddDevCard(DevCardType.knight);
+		AddResource(ResourceType.ore, 3);
+		AddResource(ResourceType.wheat, 2);
 		// LogResources();
 		// Debugger.Log("Charlie", "Something amazing");
 		// BuyManager.Test(this);
@@ -98,6 +103,10 @@ public class Player : MonoBehaviour {
 			if (ResourceType.desert != res)
 				Debugger.Log(flag, res.ToString() + GetResourceCount(res));
 		}
+	}
+
+	public int DevCardCount(DevCardType devCard){
+		return devCardCounts[(int) devCard];
 	}
 
 	public bool HasCard(DevCardType devCard){

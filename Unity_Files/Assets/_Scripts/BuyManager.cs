@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 0414 // variable assigned but not used.
+
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;

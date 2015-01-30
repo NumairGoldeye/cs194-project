@@ -8,8 +8,8 @@ public class DevCard : MonoBehaviour {
 	// chance out of 100 for [knight, road, year, monopoly]
 	static int[] cardChances;
 
-	// Gives a random card
-	public static DevCardType DrawCard(){
+	// Todo Gives a random card
+	public static DevCardType DrawRandomCard(){
 		return DevCardType.knight;
 	}
 

@@ -5,6 +5,17 @@ public class TileClass : MonoBehaviour {
 
 	public ResourceType type;
 	public int diceValue;
+	public int tileNumber;
+
+	private void displayDiceNumber (){
+		if (diceValue > 0) {
+			GetComponentInChildren <TextMesh>().text = diceValue.ToString ();
+		}
+		else {//Don't display a number if it is desert
+			GetComponentInChildren <TextMesh>().text = "";
+		}
+	}
+
 
 	private void getInfo () {
 		GameObject go = GameObject.Find ("GameManager");
@@ -12,6 +23,7 @@ public class TileClass : MonoBehaviour {
 		GameManager.TileInfo info = gm.assignTileInfo ();
 		type = info.type;
 		diceValue = info.diceNumber;
+		displayDiceNumber ();
 		// Debug.Log ("Type:" + type + " DiceNumber:" + diceValue);
 	}
 

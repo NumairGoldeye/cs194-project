@@ -12,7 +12,7 @@ public class TileClass : MonoBehaviour {
 		GameManager.TileInfo info = gm.assignTileInfo ();
 		type = info.type;
 		diceValue = info.diceNumber;
-		Debugger.Log ("chase", "Type:" + type + " DiceNumber:" + diceValue);
+		// Debug.Log ("Type:" + type + " DiceNumber:" + diceValue);
 	}
 
 	private void getMaterial () {

@@ -1,26 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RoadClass : MonoBehaviour {
+public class SettlementClass : MonoBehaviour {
 
 	private bool built;
 	private bool visible;
-	public GameObject roads;
+	private bool upgrading;
+	public GameObject settlements;
+	public GameObject city;
 	// Use this for initialization
 	void Start () {
 		built = false;
+		upgrading = false;
 		makeInvisible();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+	
 	}
 
 	public bool isBuilt() {
 		return built;
 	}
 
-	public void toggleRoad() {
+	public void upgradeAbility() {
+		if (isBuilt ())
+			upgrading = true;
+	}
+
+	private void upgradeToCity() {
+		built = false;
+		makeInvisible();
+		city.SendMessage("makeVisible");
+	}
+	
+	public void toggleSettlements() {
 		if (!built) {
 			if (!visible)
 				makeVisible();
@@ -34,20 +49,24 @@ public class RoadClass : MonoBehaviour {
 		temp.a = 0;
 		renderer.material.color = temp;		
 	}
-
+	
 	void makeVisible() {
 		visible = true;
 		Color temp = renderer.material.color;
 		temp.a = 0.8f;
 		renderer.material.color = temp;
 	}
-
+	
 	void OnMouseDown() {
-		built = true;
-		Color temp = renderer.material.color;
-		temp.a = 1;
-		renderer.material.color = temp;
-		roads.BroadcastMessage ("toggleRoad");
-//		gameObject.SendMessageUpwards ("toggleChildren");
+		if (!built) {
+			built = true;
+			Color temp = renderer.material.color;
+			temp.a = 1;
+			renderer.material.color = temp;
+			settlements.BroadcastMessage ("toggleSettlements");
+		} else {
+			if (upgrading)
+				upgradeToCity();
+		}
 	}
 }

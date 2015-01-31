@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class CityClass : MonoBehaviour {
-
-	private bool visible;
+	
 	// Use this for initialization
 	void Start () {
 		makeInvisible();
@@ -15,16 +14,14 @@ public class CityClass : MonoBehaviour {
 	}
 
 	void makeInvisible() {
-		visible = false;
 		Color temp = renderer.material.color;
 		temp.a = 0;
 		renderer.material.color = temp;		
 	}
 	
 	void makeVisible() {
-		visible = true;
 		Color temp = renderer.material.color;
-		temp.a = 0.8f;
+		temp.a = 1f;
 		renderer.material.color = temp;
 	}
 }

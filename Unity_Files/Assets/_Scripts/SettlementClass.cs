@@ -59,6 +59,7 @@ public class SettlementClass : MonoBehaviour {
 	
 	void OnMouseDown() {
 		if (!built) {
+			if (!visible) return;
 			built = true;
 			Color temp = renderer.material.color;
 			temp.a = 1;

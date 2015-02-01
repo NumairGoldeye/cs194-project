@@ -43,7 +43,7 @@ public class RoadClass : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if (!visible) return;
+		if (!visible || built) return;
 		built = true;
 		Color temp = renderer.material.color;
 		temp.a = 1;

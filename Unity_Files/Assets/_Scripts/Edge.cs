@@ -29,6 +29,11 @@ public class Edge {
 		return this.Equals(other);
 	}
 
+	public override int GetHashCode() {
+		// 17 and 31 are prime.
+		return 17 * vertex1Index.GetHashCode() + 31 * vertex2Index.GetHashCode();
+	}
+
 	/* Compares based on the vertex indicies.  Will not work as expected if verticies and indicies are not consistent. */
 	public bool Equals(Edge other) {
 		return this.vertex1Index == other.vertex1Index

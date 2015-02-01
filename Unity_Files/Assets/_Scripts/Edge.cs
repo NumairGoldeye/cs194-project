@@ -9,12 +9,12 @@ public class Edge {
 
 	// TODO: Consider, is it ideal to have both the actual verticies and the indicies?  Is
 	// there a way to infer the information from eachother without breaking abstraction?
-	public Edge (Vertex vertex1, Vertex vertex2, int vertex1Index, int vertex2Index) {
+	public Edge (Vertex vertex1, Vertex vertex2, int vertex1Index, int vertex2Index, RoadClass road) {
 		this.vertex1 = vertex1;
 		this.vertex2 = vertex2;
 		this.vertex1Index = vertex1Index;
 		this.vertex2Index = vertex2Index;
-		this.road = null;
+		this.road = road;
 	}
 
 	public bool hasRoad() {

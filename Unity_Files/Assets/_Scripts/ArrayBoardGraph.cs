@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class ArrayBoardGraph : BoardGraph {
 
-	private List<Vertex> verticies = new List<Vertex>();
-	private List<Edge> edges = new List<Edge>();
-	private List<TileClass> tiles = new List<TileClass>();
+	protected List<Vertex> verticies = new List<Vertex>();
+	protected List<Edge> edges = new List<Edge>();
+	protected List<TileClass> tiles = new List<TileClass>();
 
 	public Vertex getVertex(int index) {
 		return verticies[index];

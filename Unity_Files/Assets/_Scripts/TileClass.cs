@@ -6,6 +6,7 @@ public class TileClass : MonoBehaviour {
 	public ResourceType type;
 	public int diceValue;
 	public int tileNumber;
+	public bool hasRobber;
 
 	private void displayDiceNumber (){
 		if (diceValue > 0) {

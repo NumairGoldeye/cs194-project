@@ -28,6 +28,13 @@ public class GameManager : MonoBehaviour {
 
 	List<TileInfo> tiles;
 
+	public bool diceRolled = false;
+	private Texture2D[] diceImageArray = new Texture2D[6];
+	private bool diceImagesLoaded = false;
+
+	public UnityEngine.UI.RawImage die1Image;
+	public UnityEngine.UI.RawImage die2Image;
+
 	private void createTiles () {
 		tiles = new List<TileInfo>();
 		tilesRemaining = numTiles;
@@ -56,10 +63,6 @@ public class GameManager : MonoBehaviour {
 	}
 	                          
 
-	void Awake () {
-		createTiles ();
-	}
-
 	public TileInfo assignTileInfo () {
 		if (tilesRemaining <= 0) {
 			Debug.LogError("Tried to assign tiles past tile limit");
@@ -70,6 +73,75 @@ public class GameManager : MonoBehaviour {
 		tilesRemaining--;
 
 		return val;
+	}
+
+	void distributeResources (int roll) {
+		//TODO: implement once we can index through tiles
+	}
+
+	void displayDice(int die1, int die2) {
+		DiceImages images = GetComponent<DiceImages> ();
+
+		switch (die1) {
+			case 1:
+				die1Image.texture = images.dice1;
+				break;
+			case 2:
+				die1Image.texture = images.dice2;
+				break;
+			case 3:
+				die1Image.texture = images.dice3;
+				break;
+			case 4:
+				die1Image.texture = images.dice4;
+				break;
+			case 5:
+				die1Image.texture = images.dice5;
+				break;
+			case 6:
+				die1Image.texture = images.dice6;
+				break;
+		}
+
+		switch (die2) {
+			case 1:
+				die2Image.texture = images.dice1;
+				break;
+			case 2:
+				die2Image.texture = images.dice2;
+				break;
+			case 3:
+				die2Image.texture = images.dice3;
+				break;
+			case 4:
+				die2Image.texture = images.dice4;
+				break;
+			case 5:
+				die2Image.texture = images.dice5;
+				break;
+			case 6:
+				die2Image.texture = images.dice6;
+				break;
+		}
+	}
+
+
+	public void rollDice (){
+		if (diceRolled) return; //can't roll the dice more than once per turn
+		
+		diceRolled = true;
+		
+		int die1 = UnityEngine.Random.Range (1, 7);
+		int die2 = UnityEngine.Random.Range (1, 7);
+		int roll = die1 + die2;
+
+		displayDice (die1, die2);
+		
+		distributeResources (roll);//Todo, implement once we can index through 
+	}
+
+	void Awake () {
+		createTiles ();
 	}
 
 	// Use this for initialization

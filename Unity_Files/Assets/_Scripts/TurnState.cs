@@ -53,6 +53,9 @@ public class TurnState : MonoBehaviour {
     	// Debug.Log("TurnState start");
     	currentPlayerIndex = ArrayUtility.IndexOf(playerOrder, PlayerEnum.P1);
         TurnState.currentPlayer = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+		GameObject go = GameObject.Find ("GameManager");
+		gm = (GameManager)go.GetComponent (typeof(GameManager));
     }
 
     void Update(){
@@ -62,6 +65,9 @@ public class TurnState : MonoBehaviour {
     int numPlayers = 4;
     int currentPlayerIndex = 0;
     int numTurns = 0;
+
+
+	private GameManager gm;
 
 
     // Replace this with actual players later.
@@ -94,6 +100,7 @@ public class TurnState : MonoBehaviour {
     void NextPlayerTurn(){
     	numTurns++;
     	currentPlayerIndex = numTurns % numPlayers;
+		gm.diceRolled = false;
     }
 
  	void LogCurrentPlayerTurn(){

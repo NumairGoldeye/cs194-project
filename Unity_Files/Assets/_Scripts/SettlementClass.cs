@@ -8,10 +8,14 @@ public class SettlementClass : MonoBehaviour {
 	private bool upgrading;
 	public GameObject settlements;
 	public GameObject city;
+
+	public int ownerId;
+
 	// Use this for initialization
 	void Start () {
 		built = false;
 		upgrading = false;
+		ownerId = -1;
 		makeInvisible();
 	}
 	

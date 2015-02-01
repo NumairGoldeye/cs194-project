@@ -6,10 +6,14 @@ public class RoadClass : MonoBehaviour {
 	private bool built;
 	private bool visible;
 	public GameObject roads;
+
+	public int ownerId;
+
 	// Use this for initialization
 	void Start () {
 		built = false;
 		makeInvisible();
+		ownerId = -1;
 	}
 	
 	// Update is called once per frame

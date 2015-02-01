@@ -7,6 +7,24 @@ public class ArrayBoardGraph : BoardGraph {
 	protected List<Edge> edges = new List<Edge>();
 	protected List<TileClass> tiles = new List<TileClass>();
 
+	public int EdgeCount {
+		get {
+			return edges.Count;
+		}
+	}
+
+	public int VertexCount {
+		get {
+			return verticies.Count;
+		}
+	}
+
+	public int TileCount {
+		get {
+			return tiles.Count;
+		}
+	}
+
 	public Vertex getVertex(int index) {
 		return verticies[index];
 	}

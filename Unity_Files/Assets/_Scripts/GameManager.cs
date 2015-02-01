@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour {
 
 	List<TileInfo> tiles;
 
-	public bool diceRolled = false;
-
 	public UnityEngine.UI.RawImage die1Image;
 	public UnityEngine.UI.RawImage die2Image;
 
@@ -125,10 +123,7 @@ public class GameManager : MonoBehaviour {
 
 
 	public void rollDice (){
-		if (diceRolled) return; //can't roll the dice more than once per turn
-		
-		diceRolled = true;
-		
+
 		int die1 = UnityEngine.Random.Range (1, 7);
 		int die2 = UnityEngine.Random.Range (1, 7);
 		int roll = die1 + die2;

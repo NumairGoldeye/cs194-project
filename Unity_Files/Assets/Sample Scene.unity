@@ -2713,7 +2713,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1447773772}
         m_MethodName: BroadcastMessage
         m_Mode: 5
         m_Arguments:
@@ -3961,7 +3961,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 711624870}
         m_MethodName: BroadcastMessage
         m_Mode: 5
         m_Arguments:
@@ -20218,7 +20218,6 @@ GameObject:
   - 222: {fileID: 1035165038}
   - 114: {fileID: 1035165037}
   - 114: {fileID: 1035165036}
-  - 114: {fileID: 1035165035}
   m_Layer: 5
   m_Name: SettlementButton
   m_TagString: Untagged
@@ -20244,17 +20243,6 @@ RectTransform:
   m_AnchoredPosition: {x: 90, y: -119}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &1035165035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1035165033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63df75dec1dba4feaa5230b37f5ae5a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1035165036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24271,7 +24259,6 @@ GameObject:
   - 222: {fileID: 1246179859}
   - 114: {fileID: 1246179858}
   - 114: {fileID: 1246179857}
-  - 114: {fileID: 1246179856}
   m_Layer: 5
   m_Name: UpgradeToCityButton
   m_TagString: Untagged
@@ -24297,17 +24284,6 @@ RectTransform:
   m_AnchoredPosition: {x: 267, y: -119}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &1246179856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1246179854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63df75dec1dba4feaa5230b37f5ae5a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1246179857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27907,7 +27883,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1447773772}
         m_MethodName: BroadcastMessage
         m_Mode: 5
         m_Arguments:
@@ -33610,7 +33586,6 @@ GameObject:
   - 222: {fileID: 1701557954}
   - 114: {fileID: 1701557953}
   - 114: {fileID: 1701557952}
-  - 114: {fileID: 1701557955}
   m_Layer: 5
   m_Name: RoadsButton
   m_TagString: Untagged
@@ -33716,17 +33691,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1701557950}
---- !u!114 &1701557955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1701557950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63df75dec1dba4feaa5230b37f5ae5a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1705946198
 GameObject:
   m_ObjectHideFlags: 0

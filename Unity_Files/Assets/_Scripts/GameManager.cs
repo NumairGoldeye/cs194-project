@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour {
 	List<TileInfo> tiles;
 
 	public bool diceRolled = false;
-	private Texture2D[] diceImageArray = new Texture2D[6];
-	private bool diceImagesLoaded = false;
 
 	public UnityEngine.UI.RawImage die1Image;
 	public UnityEngine.UI.RawImage die2Image;

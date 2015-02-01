@@ -26,4 +26,5 @@ public class Vertex {
 	public bool hasSettlement() {
 		return settlement.isBuilt();
 	}
+
 }

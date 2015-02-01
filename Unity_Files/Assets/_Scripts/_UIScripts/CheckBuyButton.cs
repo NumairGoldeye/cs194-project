@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -21,6 +21,7 @@ public class CheckBuyButton : MonoBehaviour {
 	}
 
 	void Purchase(){
+		// The purchase should actulaly only happen after the thing is buit
 		player = TurnState.currentPlayer;
 		BuyManager.PurchaseForPlayer(buyType, player);
 	}

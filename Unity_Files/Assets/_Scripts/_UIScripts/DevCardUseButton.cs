@@ -35,8 +35,10 @@ public class DevCardUseButton : MonoBehaviour {
 	}
 
 	void UseCard(){
+
 		player = TurnState.currentPlayer;
-		// BuyManager.PurchaseForPlayer(buyType, player);
+
+		// The purchase should actulaly only happen after the thing is buit
 		player.RemoveDevCard(cardType);
 	}
 

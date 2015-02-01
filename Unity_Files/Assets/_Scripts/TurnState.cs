@@ -1,6 +1,8 @@
 using UnityEngine;
-using System.Collections;
 using UnityEditor;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 
 /*
@@ -14,8 +16,6 @@ to provide booleans for an internal state machine
 TurnState.instance.isPlayerTurn(1);
 TurnState.instance.isPlacingRoad();
 TurnState.instance.isPlacingCity();
-
-
 
 Turns have the following order: 
 
@@ -37,72 +37,118 @@ End turn button
 */
 
 
-
+public enum TurnStateType {roll, trade, build};
 
 public class TurnState : MonoBehaviour {
 
+    public static Player currentPlayer {
+        get; set;
+    }
+    
+    
+    private static TurnState _instance;
+    public static TurnState instance {
+        get {
+            //If _instance hasn't been set yet, we grab it from the scene!
+            //This will only happen the first time this reference is used.
+            if(_instance == null)
+                _instance = GameObject.FindObjectOfType<TurnState>();
+            return _instance;
+        }
+    }
 
-    void Awake()
-    {
+
+    public static Player[] players = new Player[4];
+    public static int numPlayers = 2;
+    public static TurnStateType stateType = TurnStateType.roll;
+    public static int numTurns = 0;
+
+    // Just for public inspector stuff
+    public Player thisCurrentPlayer; 
+    public Player[] thisPlayers;
+    
+
+    public static void NextTurnState(){
+        Array tsTypes  = Enum.GetValues(typeof(TurnStateType));
+        int numTurnStates = tsTypes.Length;
+        stateType++;
+        if (numTurnStates == (int)stateType){
+            stateType = (TurnStateType)tsTypes.GetValue(0);
+            EndTurn();
+        }
+    }
+
+    // Chantes the current Player...
+    public static void EndTurn(){
+        numTurns++;
+        // Debugger.Log("TurnState", "EndTurn");
+        int index = numTurns % numPlayers;
+        currentPlayer = players[index];
+        
+        // TODO uhhh
+        // stateType = TurnStateType.roll;
+    }
+
+
+
+
+    void Awake(){
+        _instance = this;
 
     }
 
  
-    void Start()
-    {
+    void Start(){
     	// Debug.Log("TurnState start");
-    	currentPlayerIndex = ArrayUtility.IndexOf(playerOrder, PlayerEnum.P1);
-        TurnState.currentPlayer = GameObject.FindWithTag("Player").GetComponent<Player>();
+    	// currentPlayerIndex = ArrayUtility.IndexOf(playerOrder, PlayerEnum.P1);
+
+
+        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+
+        // TurnState.players = playerObjects.Select(p => p.GetComponent<Player>());
+        for( int i = 0; i < playerObjects.Length; i ++){
+            TurnState.players[i] = playerObjects[i].GetComponent<Player>();
+        }
+
+        TurnState.currentPlayer = TurnState.players[0];
+        thisCurrentPlayer = TurnState.currentPlayer;
+
+        thisPlayers = TurnState.players;
+
     }
 
     void Update(){
-
     }
-
-    int numPlayers = 4;
-    int currentPlayerIndex = 0;
-    int numTurns = 0;
-
-
-    // Replace this with actual players later.
-    enum PlayerEnum{ P1, P2, P3, P4};   
-    PlayerEnum[] playerOrder = {PlayerEnum.P1, PlayerEnum.P2, PlayerEnum.P3, PlayerEnum.P4};
-    // static Player[] players = new Player[]{};
-    
-    public static Player currentPlayer;
-
-    enum TurnPart {roll, trade, build};
-    enum UIState { 
-        // onTurnNormal, offTurnNormal, 
-        // showBuy, showBuyRoad, showBuyCity, showBuySettlement, showBuyDev,
-        // showDevCard, showKnight, showYearPlenty, showMonopoly, showRoadLaying,
-        //showTrade?  argh
-
-
-    };
-    
 
     void StartTurn(){
-
-    }
-
-    void EndTurn(){
-
     }
 
 
-    void NextPlayerTurn(){
-    	numTurns++;
-    	currentPlayerIndex = numTurns % numPlayers;
+    /*
+
+    How the buttons will work
+
+    Roll Dice phase
+        roll dice and dev buttons
+            click roll dice to 
+                roll dice 
+                show the end phase button
+                show trade button
+    trade phase
+        trade, dev, end phase
+            click trade dice to
+                trade!
+            click end phase to
+    build phase
+        build, dev, end turn
+
+    
+
+    */
+
+    void EnterTradePhase(){
+        TurnState.stateType = TurnStateType.trade;
     }
-
- 	void LogCurrentPlayerTurn(){
- 		NextPlayerTurn();
- 		Debugger.Log("TurnState", currentPlayerIndex.ToString());
- 	} 
-
-
-
 
 
 

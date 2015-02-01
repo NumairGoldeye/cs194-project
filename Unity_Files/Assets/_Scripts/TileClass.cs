@@ -17,15 +17,11 @@ public class TileClass : MonoBehaviour {
 		}
 	}
 
-
-	private void getInfo () {
-		GameObject go = GameObject.Find ("GameManager");
-		GameManager gm = (GameManager)go.GetComponent (typeof(GameManager));
-		GameManager.TileInfo info = gm.assignTileInfo ();
-		type = info.type;
-		diceValue = info.diceNumber;
+	public void assignType(int diceNumber, ResourceType assignedType){
+		type = assignedType;
+		diceValue = diceNumber;
 		displayDiceNumber ();
-		// Debug.Log ("Type:" + type + " DiceNumber:" + diceValue);
+		getMaterial ();
 	}
 
 	private void getMaterial () {
@@ -54,8 +50,7 @@ public class TileClass : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		getInfo ();	
-		getMaterial ();	
+
 	}
 	
 	// Update is called once per frame

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 // The graph used for a standard game of Catan.
@@ -26,8 +27,10 @@ public class StandardBoardGraph : ArrayBoardGraph {
 	}
 
 	private void addTiles() {
-		for (int i = 0; i < NUM_TILES; i++) {
-			tiles.Add(new TileClass());
+
+		foreach (GameObject tile in GameObject.FindGameObjectsWithTag ("Tile"))
+		{
+			tiles.Add(tile.GetComponent<TileClass>());
 		}
 	}
 

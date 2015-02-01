@@ -8,6 +8,8 @@ using System.Collections.Generic;
  * */
 public class GameManager : MonoBehaviour {
 
+	private BoardGraph graph;
+
 	public struct TileInfo {
 		public int diceNumber;
 		public ResourceType type; 
@@ -19,7 +21,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private static int numTiles = 19; //number of tiles in play
-	private int tilesRemaining; 
 
 	private static int[] tileCounts = {4, 4, 3, 3, 4, 1};
 	// The dice numbers for each tyle, in order
@@ -33,7 +34,6 @@ public class GameManager : MonoBehaviour {
 
 	private void createTiles () {
 		tiles = new List<TileInfo>();
-		tilesRemaining = numTiles;
 
 		List<ResourceType> tileResources = new List<ResourceType> ();
 
@@ -56,20 +56,19 @@ public class GameManager : MonoBehaviour {
 			}
 			resourceIndex++;
 		}
+
+		assignTileInfo ();
 	}
 	                          
 
-	public TileInfo assignTileInfo () {
-		if (tilesRemaining <= 0) {
-			Debug.LogError("Tried to assign tiles past tile limit");
-			return new TileInfo(ResourceType.sheep, 2); //returns sheep to not crash program
+	public void assignTileInfo () {
+
+		for (int i = 0; i < numTiles; i++) {
+			TileClass tile = graph.getTile (i);
+			tile.assignType(tiles[tile.tileNumber].diceNumber, tiles[tile.tileNumber].type);
 		}
-
-		TileInfo val = tiles[tilesRemaining - 1];
-		tilesRemaining--;
-
-		return val;
 	}
+
 
 	void distributeResources (int roll) {
 		//TODO: implement once we can index through tiles
@@ -134,6 +133,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Awake () {
+		graph = StandardBoardGraph.Instance;
 		createTiles ();
 	}
 

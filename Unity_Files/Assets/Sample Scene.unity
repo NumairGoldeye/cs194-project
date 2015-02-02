@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1216323827}
+  ownerId: 0
 --- !u!23 &1248978
 Renderer:
   m_ObjectHideFlags: 0
@@ -890,6 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &38992569
 Renderer:
   m_ObjectHideFlags: 0
@@ -1312,6 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &67795252
 Renderer:
   m_ObjectHideFlags: 0
@@ -1409,6 +1412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &71477894
 Renderer:
   m_ObjectHideFlags: 0
@@ -1997,6 +2002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1291458442}
+  ownerId: 0
 --- !u!23 &91416732
 Renderer:
   m_ObjectHideFlags: 0
@@ -2082,6 +2088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &100367077
 Renderer:
   m_ObjectHideFlags: 0
@@ -2168,6 +2176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &108534143
 Renderer:
   m_ObjectHideFlags: 0
@@ -2253,6 +2262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &109677076
 Renderer:
   m_ObjectHideFlags: 0
@@ -2405,6 +2416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &116068739
 Renderer:
   m_ObjectHideFlags: 0
@@ -2780,6 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &133733316
 Renderer:
   m_ObjectHideFlags: 0
@@ -2866,6 +2879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &134730401
 Renderer:
   m_ObjectHideFlags: 0
@@ -3009,6 +3023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1371000793}
+  ownerId: 0
 --- !u!23 &140244555
 Renderer:
   m_ObjectHideFlags: 0
@@ -3162,6 +3177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1882351054}
+  ownerId: 0
 --- !u!23 &150551119
 Renderer:
   m_ObjectHideFlags: 0
@@ -3676,6 +3692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 576195395}
+  ownerId: 0
 --- !u!23 &178987958
 Renderer:
   m_ObjectHideFlags: 0
@@ -3762,6 +3779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &179080811
 Renderer:
   m_ObjectHideFlags: 0
@@ -4050,6 +4068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &202991868
 Renderer:
   m_ObjectHideFlags: 0
@@ -4261,6 +4281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 712943163}
+  ownerId: 0
 --- !u!23 &209648626
 Renderer:
   m_ObjectHideFlags: 0
@@ -4512,6 +4533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2135469527}
+  ownerId: 0
 --- !u!23 &228753342
 Renderer:
   m_ObjectHideFlags: 0
@@ -4651,6 +4673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 881836828}
+  ownerId: 0
 --- !u!23 &232953638
 Renderer:
   m_ObjectHideFlags: 0
@@ -5626,6 +5649,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &322285579
 Renderer:
   m_ObjectHideFlags: 0
@@ -5960,6 +5985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1576534271}
+  ownerId: 0
 --- !u!23 &351956222
 Renderer:
   m_ObjectHideFlags: 0
@@ -6047,6 +6073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 109677073}
+  ownerId: 0
 --- !u!23 &353176483
 Renderer:
   m_ObjectHideFlags: 0
@@ -6133,6 +6160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &354342451
 Renderer:
   m_ObjectHideFlags: 0
@@ -6627,6 +6655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &379291159
 Renderer:
   m_ObjectHideFlags: 0
@@ -6758,6 +6787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1747746078}
+  ownerId: 0
 --- !u!23 &382758470
 Renderer:
   m_ObjectHideFlags: 0
@@ -6844,6 +6874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &390787169
 Renderer:
   m_ObjectHideFlags: 0
@@ -7081,6 +7112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &399010593
 Renderer:
   m_ObjectHideFlags: 0
@@ -7320,6 +7353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1030939334}
+  ownerId: 0
 --- !u!23 &405026234
 Renderer:
   m_ObjectHideFlags: 0
@@ -7796,6 +7830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 322285576}
+  ownerId: 0
 --- !u!23 &421955132
 Renderer:
   m_ObjectHideFlags: 0
@@ -7922,6 +7957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &430919912
 Renderer:
   m_ObjectHideFlags: 0
@@ -8492,6 +8528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &446057996
 Renderer:
   m_ObjectHideFlags: 0
@@ -8578,6 +8616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &446131650
 Renderer:
   m_ObjectHideFlags: 0
@@ -8775,6 +8814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &461430629
 Renderer:
   m_ObjectHideFlags: 0
@@ -8861,6 +8902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &462705861
 Renderer:
   m_ObjectHideFlags: 0
@@ -8947,6 +8989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &463082538
 Renderer:
   m_ObjectHideFlags: 0
@@ -9272,6 +9315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &478258811
 Renderer:
   m_ObjectHideFlags: 0
@@ -9439,6 +9483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &488823886
 Renderer:
   m_ObjectHideFlags: 0
@@ -9526,6 +9571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1951680005}
+  ownerId: 0
 --- !u!23 &499121347
 Renderer:
   m_ObjectHideFlags: 0
@@ -9612,6 +9658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &499239411
 Renderer:
   m_ObjectHideFlags: 0
@@ -9842,6 +9889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &502877780
 Renderer:
   m_ObjectHideFlags: 0
@@ -10536,6 +10585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &556332200
 Renderer:
   m_ObjectHideFlags: 0
@@ -10792,6 +10843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1201483328}
+  ownerId: 0
 --- !u!23 &565681974
 Renderer:
   m_ObjectHideFlags: 0
@@ -11119,6 +11171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &576195398
 Renderer:
   m_ObjectHideFlags: 0
@@ -11204,6 +11258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &577891704
 Renderer:
   m_ObjectHideFlags: 0
@@ -11437,6 +11493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &599483390
 Renderer:
   m_ObjectHideFlags: 0
@@ -11645,6 +11702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &606244249
 Renderer:
   m_ObjectHideFlags: 0
@@ -11730,6 +11788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &616344846
 Renderer:
   m_ObjectHideFlags: 0
@@ -12213,6 +12273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 461430626}
+  ownerId: 0
 --- !u!23 &656504637
 Renderer:
   m_ObjectHideFlags: 0
@@ -12350,6 +12411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &665019509
 Renderer:
   m_ObjectHideFlags: 0
@@ -13197,6 +13260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &694479376
 Renderer:
   m_ObjectHideFlags: 0
@@ -13626,6 +13691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &712943166
 Renderer:
   m_ObjectHideFlags: 0
@@ -13711,6 +13778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &717495491
 Renderer:
   m_ObjectHideFlags: 0
@@ -14074,6 +14143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &732337818
 Renderer:
   m_ObjectHideFlags: 0
@@ -14160,6 +14230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &732934669
 Renderer:
   m_ObjectHideFlags: 0
@@ -14317,6 +14388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 71477891}
+  ownerId: 0
 --- !u!23 &736761012
 Renderer:
   m_ObjectHideFlags: 0
@@ -14834,6 +14906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &762637102
 Renderer:
   m_ObjectHideFlags: 0
@@ -15029,6 +15103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 717495488}
+  ownerId: 0
 --- !u!23 &768069177
 Renderer:
   m_ObjectHideFlags: 0
@@ -15185,6 +15260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &770219676
 Renderer:
   m_ObjectHideFlags: 0
@@ -15374,6 +15450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &788251117
 Renderer:
   m_ObjectHideFlags: 0
@@ -16104,6 +16182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &843271000
 Renderer:
   m_ObjectHideFlags: 0
@@ -16219,6 +16299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &848232953
 Renderer:
   m_ObjectHideFlags: 0
@@ -16306,6 +16387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 100367074}
+  ownerId: 0
 --- !u!23 &848812650
 Renderer:
   m_ObjectHideFlags: 0
@@ -16392,6 +16474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &851301574
 Renderer:
   m_ObjectHideFlags: 0
@@ -16619,6 +16702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1108175482}
+  ownerId: 0
 --- !u!23 &868416947
 Renderer:
   m_ObjectHideFlags: 0
@@ -16705,6 +16789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &869746264
 Renderer:
   m_ObjectHideFlags: 0
@@ -16990,6 +17075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &881836831
 Renderer:
   m_ObjectHideFlags: 0
@@ -17488,6 +17575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1124697619}
+  ownerId: 0
 --- !u!23 &907440562
 Renderer:
   m_ObjectHideFlags: 0
@@ -17575,6 +17663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1553543755}
+  ownerId: 0
 --- !u!23 &912629619
 Renderer:
   m_ObjectHideFlags: 0
@@ -17661,6 +17750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &920578168
 Renderer:
   m_ObjectHideFlags: 0
@@ -17747,6 +17837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &925235379
 Renderer:
   m_ObjectHideFlags: 0
@@ -18099,6 +18190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 399010590}
+  ownerId: 0
 --- !u!23 &951043671
 Renderer:
   m_ObjectHideFlags: 0
@@ -18346,6 +18438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &965751501
 Renderer:
   m_ObjectHideFlags: 0
@@ -18506,6 +18599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 446057993}
+  ownerId: 0
 --- !u!23 &967434742
 Renderer:
   m_ObjectHideFlags: 0
@@ -18593,6 +18687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1202061160}
+  ownerId: 0
 --- !u!23 &968470115
 Renderer:
   m_ObjectHideFlags: 0
@@ -18679,6 +18774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &968916991
 Renderer:
   m_ObjectHideFlags: 0
@@ -18878,6 +18974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &977342880
 Renderer:
   m_ObjectHideFlags: 0
@@ -19083,6 +19180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &992665995
 Renderer:
   m_ObjectHideFlags: 0
@@ -19746,6 +19844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1019957053
 Renderer:
   m_ObjectHideFlags: 0
@@ -20007,6 +20106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2037821363}
+  ownerId: 0
 --- !u!23 &1027341323
 Renderer:
   m_ObjectHideFlags: 0
@@ -20092,6 +20192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1030939337
 Renderer:
   m_ObjectHideFlags: 0
@@ -20286,6 +20388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1034841013
 Renderer:
   m_ObjectHideFlags: 0
@@ -20373,6 +20476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 202991865}
+  ownerId: 0
 --- !u!23 &1046665274
 Renderer:
   m_ObjectHideFlags: 0
@@ -21218,6 +21322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1108175485
 Renderer:
   m_ObjectHideFlags: 0
@@ -21303,6 +21409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1109141643
 Renderer:
   m_ObjectHideFlags: 0
@@ -21573,6 +21681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1124697622
 Renderer:
   m_ObjectHideFlags: 0
@@ -22480,6 +22590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1167532461
 Renderer:
   m_ObjectHideFlags: 0
@@ -22567,6 +22678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 502877777}
+  ownerId: 0
 --- !u!23 &1171189305
 Renderer:
   m_ObjectHideFlags: 0
@@ -23158,6 +23270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1201483331
 Renderer:
   m_ObjectHideFlags: 0
@@ -23243,6 +23357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1202061163
 Renderer:
   m_ObjectHideFlags: 0
@@ -23436,6 +23552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1210375650
 Renderer:
   m_ObjectHideFlags: 0
@@ -23523,6 +23641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2041281267}
+  ownerId: 0
 --- !u!23 &1211986046
 Renderer:
   m_ObjectHideFlags: 0
@@ -23640,6 +23759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1216323830
 Renderer:
   m_ObjectHideFlags: 0
@@ -23887,6 +24008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1224658959
 Renderer:
   m_ObjectHideFlags: 0
@@ -24026,6 +24148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1569353321}
+  ownerId: 0
 --- !u!23 &1236836488
 Renderer:
   m_ObjectHideFlags: 0
@@ -24112,6 +24235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1237899436
 Renderer:
   m_ObjectHideFlags: 0
@@ -24251,6 +24375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1983339595}
+  ownerId: 0
 --- !u!23 &1241885988
 Renderer:
   m_ObjectHideFlags: 0
@@ -24338,6 +24463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1586134193}
+  ownerId: 0
 --- !u!23 &1252722395
 Renderer:
   m_ObjectHideFlags: 0
@@ -24476,6 +24602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1267421042
 Renderer:
   m_ObjectHideFlags: 0
@@ -24842,6 +24969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1291458445
 Renderer:
   m_ObjectHideFlags: 0
@@ -25089,6 +25218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1294377592
 Renderer:
   m_ObjectHideFlags: 0
@@ -25926,6 +26057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1884130399}
+  ownerId: 0
 --- !u!23 &1340700698
 Renderer:
   m_ObjectHideFlags: 0
@@ -26012,6 +26144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1344033396
 Renderer:
   m_ObjectHideFlags: 0
@@ -26209,6 +26342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1752554821}
+  ownerId: 0
 --- !u!23 &1349748754
 Renderer:
   m_ObjectHideFlags: 0
@@ -26296,6 +26430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1294377589}
+  ownerId: 0
 --- !u!23 &1355560720
 Renderer:
   m_ObjectHideFlags: 0
@@ -26489,6 +26624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1371000796
 Renderer:
   m_ObjectHideFlags: 0
@@ -26628,6 +26765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 843270997}
+  ownerId: 0
 --- !u!23 &1380736534
 Renderer:
   m_ObjectHideFlags: 0
@@ -26770,6 +26908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1392134408
 Renderer:
   m_ObjectHideFlags: 0
@@ -26900,6 +27039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1408949112
 Renderer:
   m_ObjectHideFlags: 0
@@ -27193,6 +27333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1423652555
 Renderer:
   m_ObjectHideFlags: 0
@@ -27278,6 +27419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1423679140
 Renderer:
   m_ObjectHideFlags: 0
@@ -27548,6 +27691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1441055073
 Renderer:
   m_ObjectHideFlags: 0
@@ -27635,6 +27779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 577891701}
+  ownerId: 0
 --- !u!23 &1444413270
 Renderer:
   m_ObjectHideFlags: 0
@@ -28060,6 +28205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1452685244
 Renderer:
   m_ObjectHideFlags: 0
@@ -28191,6 +28337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2068843111}
+  ownerId: 0
 --- !u!23 &1458003854
 Renderer:
   m_ObjectHideFlags: 0
@@ -28452,6 +28599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 665019506}
+  ownerId: 0
 --- !u!23 &1472861595
 Renderer:
   m_ObjectHideFlags: 0
@@ -28568,6 +28716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 788251114}
+  ownerId: 0
 --- !u!23 &1482929851
 Renderer:
   m_ObjectHideFlags: 0
@@ -28735,6 +28884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1505851588
 Renderer:
   m_ObjectHideFlags: 0
@@ -28821,6 +28971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1506565311
 Renderer:
   m_ObjectHideFlags: 0
@@ -28950,6 +29101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1511167283
 Renderer:
   m_ObjectHideFlags: 0
@@ -29037,6 +29190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 616344843}
+  ownerId: 0
 --- !u!23 &1512856440
 Renderer:
   m_ObjectHideFlags: 0
@@ -29124,6 +29278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1639785005}
+  ownerId: 0
 --- !u!23 &1517891600
 Renderer:
   m_ObjectHideFlags: 0
@@ -29277,6 +29432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1511167280}
+  ownerId: 0
 --- !u!23 &1524708213
 Renderer:
   m_ObjectHideFlags: 0
@@ -29363,6 +29519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1526056958
 Renderer:
   m_ObjectHideFlags: 0
@@ -29501,6 +29658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1534927200
 Renderer:
   m_ObjectHideFlags: 0
@@ -29863,6 +30021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1109141640}
+  ownerId: 0
 --- !u!23 &1547941773
 Renderer:
   m_ObjectHideFlags: 0
@@ -30216,6 +30375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1553543758
 Renderer:
   m_ObjectHideFlags: 0
@@ -30289,6 +30450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1562047513
 Renderer:
   m_ObjectHideFlags: 0
@@ -30431,6 +30594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1567360608
 Renderer:
   m_ObjectHideFlags: 0
@@ -30568,6 +30732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1569353324
 Renderer:
   m_ObjectHideFlags: 0
@@ -30697,6 +30863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1576534274
 Renderer:
   m_ObjectHideFlags: 0
@@ -30857,6 +31025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1562047511}
+  ownerId: 0
 --- !u!23 &1585604350
 Renderer:
   m_ObjectHideFlags: 0
@@ -30954,6 +31123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1586134196
 Renderer:
   m_ObjectHideFlags: 0
@@ -31228,6 +31399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1592705947
 Renderer:
   m_ObjectHideFlags: 0
@@ -31549,6 +31721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1607573158
 Renderer:
   m_ObjectHideFlags: 0
@@ -31635,6 +31808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1610748937
 Renderer:
   m_ObjectHideFlags: 0
@@ -31721,6 +31895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1615275573
 Renderer:
   m_ObjectHideFlags: 0
@@ -32284,6 +32459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1639785008
 Renderer:
   m_ObjectHideFlags: 0
@@ -32714,6 +32891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 762637099}
+  ownerId: 0
 --- !u!23 &1658725329
 Renderer:
   m_ObjectHideFlags: 0
@@ -33024,6 +33202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2143300186}
+  ownerId: 0
 --- !u!23 &1675596451
 Renderer:
   m_ObjectHideFlags: 0
@@ -33110,6 +33289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1678480200
 Renderer:
   m_ObjectHideFlags: 0
@@ -33354,6 +33534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1693735984
 Renderer:
   m_ObjectHideFlags: 0
@@ -33694,6 +33875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1710527006
 Renderer:
   m_ObjectHideFlags: 0
@@ -33986,6 +34169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1731316382
 Renderer:
   m_ObjectHideFlags: 0
@@ -34153,6 +34337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1735209445
 Renderer:
   m_ObjectHideFlags: 0
@@ -34282,6 +34467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1743003245
 Renderer:
   m_ObjectHideFlags: 0
@@ -34368,6 +34555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1743961198
 Renderer:
   m_ObjectHideFlags: 0
@@ -34455,6 +34643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1743003242}
+  ownerId: 0
 --- !u!23 &1746122541
 Renderer:
   m_ObjectHideFlags: 0
@@ -34540,6 +34729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1747746081
 Renderer:
   m_ObjectHideFlags: 0
@@ -34625,6 +34816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1752554824
 Renderer:
   m_ObjectHideFlags: 0
@@ -35024,6 +35217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1788976128
 Renderer:
   m_ObjectHideFlags: 0
@@ -35723,6 +35917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1835877203
 Renderer:
   m_ObjectHideFlags: 0
@@ -35861,6 +36056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1840908417
 Renderer:
   m_ObjectHideFlags: 0
@@ -35947,6 +36143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1843415934
 Renderer:
   m_ObjectHideFlags: 0
@@ -36033,6 +36230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1849622659
 Renderer:
   m_ObjectHideFlags: 0
@@ -36176,6 +36374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1710527003}
+  ownerId: 0
 --- !u!23 &1859097543
 Renderer:
   m_ObjectHideFlags: 0
@@ -36318,6 +36517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1865000239
 Renderer:
   m_ObjectHideFlags: 0
@@ -36635,6 +36835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1882351057
 Renderer:
   m_ObjectHideFlags: 0
@@ -36772,6 +36974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1884130402
 Renderer:
   m_ObjectHideFlags: 0
@@ -37287,6 +37491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1910562550
 Renderer:
   m_ObjectHideFlags: 0
@@ -37512,6 +37717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1929079155
 Renderer:
   m_ObjectHideFlags: 0
@@ -37701,6 +37907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1951680008
 Renderer:
   m_ObjectHideFlags: 0
@@ -37918,6 +38126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1957520535
 Renderer:
   m_ObjectHideFlags: 0
@@ -38070,6 +38280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &1962669459
 Renderer:
   m_ObjectHideFlags: 0
@@ -38277,6 +38488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &1983339598
 Renderer:
   m_ObjectHideFlags: 0
@@ -38795,6 +39008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &2010463034
 Renderer:
   m_ObjectHideFlags: 0
@@ -38881,6 +39095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &2019492690
 Renderer:
   m_ObjectHideFlags: 0
@@ -39413,6 +39628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 694479373}
+  ownerId: 0
 --- !u!23 &2037599519
 Renderer:
   m_ObjectHideFlags: 0
@@ -39498,6 +39714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &2037821366
 Renderer:
   m_ObjectHideFlags: 0
@@ -39585,6 +39803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1210375647}
+  ownerId: 0
 --- !u!23 &2037985532
 Renderer:
   m_ObjectHideFlags: 0
@@ -39726,6 +39945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &2041281270
 Renderer:
   m_ObjectHideFlags: 0
@@ -40005,6 +40226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &2053347478
 Renderer:
   m_ObjectHideFlags: 0
@@ -40090,6 +40312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &2068843114
 Renderer:
   m_ObjectHideFlags: 0
@@ -40440,6 +40664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &2083697613
 Renderer:
   m_ObjectHideFlags: 0
@@ -40570,6 +40795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &2088815328
 Renderer:
   m_ObjectHideFlags: 0
@@ -40778,6 +41004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1423679137}
+  ownerId: 0
 --- !u!23 &2100775990
 Renderer:
   m_ObjectHideFlags: 0
@@ -40865,6 +41092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1957520532}
+  ownerId: 0
 --- !u!23 &2101046991
 Renderer:
   m_ObjectHideFlags: 0
@@ -40952,6 +41180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 556332197}
+  ownerId: 0
 --- !u!23 &2102318808
 Renderer:
   m_ObjectHideFlags: 0
@@ -41038,6 +41267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  ownerId: 0
 --- !u!23 &2105678557
 Renderer:
   m_ObjectHideFlags: 0
@@ -41543,6 +41773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &2135469530
 Renderer:
   m_ObjectHideFlags: 0
@@ -41790,6 +42022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b454a41df5425db0eea632e75a183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerId: 0
+  built: 0
 --- !u!23 &2143300189
 Renderer:
   m_ObjectHideFlags: 0

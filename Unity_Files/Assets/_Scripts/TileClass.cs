@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+
 
 public class TileClass : MonoBehaviour {
 
@@ -7,6 +8,7 @@ public class TileClass : MonoBehaviour {
 	public int diceValue;
 	public int tileNumber;
 	public bool hasRobber;
+	private List<int> vertices;
 
 	private void displayDiceNumber (){
 		if (diceValue > 0) {
@@ -48,6 +50,9 @@ public class TileClass : MonoBehaviour {
 		}
 	}
 
+	public void init() {
+		vertices = new List<int>();
+	}
 	// Use this for initialization
 	void Start () {
 
@@ -56,5 +61,14 @@ public class TileClass : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void addVertex(int vertex) {
+//		Debugger.Log ("Vertex", v.settlement.isBuilt ().ToString());
+		vertices.Add (vertex);
+	}
+
+	public List<int> getVertices() {
+		return vertices;
 	}
 }

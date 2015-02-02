@@ -31,6 +31,7 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		foreach (GameObject tile in GameObject.FindGameObjectsWithTag ("Tile"))
 		{
 			tiles.Add(tile.GetComponent<TileClass>());
+			tile.GetComponent<TileClass>().init();
 		}
 	}
 
@@ -105,6 +106,9 @@ public class StandardBoardGraph : ArrayBoardGraph {
 
 		Vertex v = new Vertex(tilesToAdd, portsToAdd, new CityClass(), new SettlementClass());
 		verticies.Add(v);
+		foreach (int i in tileIndicies) {
+			tiles[i].addVertex(VertexCount-1);
+		}
 	}
 
 	// See note for addVerticies.

@@ -71,7 +71,28 @@ public class GameManager : MonoBehaviour {
 
 
 	void distributeResources (int roll) {
-		//TODO: implement once we can index through tiles
+		BoardGraph graph = StandardBoardGraph.Instance;
+		//Loop through the tiles and give out resources for ones with the corresponding die roll.
+		for (int index = 0; index < graph.TileCount; index++) {
+			TileClass tile = graph.getTile(index);
+			if (roll == tile.diceValue) {
+				//This is assuming that each tile keeps track of its vertices
+				List<int> vertices = tile.getVertices();
+				for (int i = 0; i < vertices.Count; i++) {
+//					Debugger.Log("Settlement", graph.getVertex(vertices[i]).settlement.isBuilt().ToString());
+					if (graph.getVertex(vertices[i]).settlement.isBuilt()) {
+						//this is assuming that the settlements and cities are storing the playerID
+						Player p = TurnState.players[graph.getVertex(vertices[i]).settlement.getPlayer()];
+//						Debugger.Log("Player ID", p.playerId.ToString());
+						p.AddResource(tile.type, 1);
+					}	
+					if (graph.getVertex(vertices[i]).city.isBuilt()) {
+						Player p = TurnState.players[graph.getVertex(vertices[i]).city.getPlayer()];
+						p.AddResource(tile.type, 2);
+					}
+				}
+			}
+		}
 	}
 
 	void displayDice(int die1, int die2) {
@@ -129,7 +150,7 @@ public class GameManager : MonoBehaviour {
 
 		displayDice (die1, die2);
 		
-		distributeResources (roll);//Todo, implement once we can index through 
+		distributeResources (roll);
 	}
 
 	void Awake () {

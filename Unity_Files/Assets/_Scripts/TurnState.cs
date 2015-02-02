@@ -89,9 +89,6 @@ public class TurnState : MonoBehaviour {
         // stateType = TurnStateType.roll;
     }
 
-
-
-
     void Awake(){
         _instance = this;
 

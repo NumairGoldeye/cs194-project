@@ -24,6 +24,10 @@ public class SettlementClass : MonoBehaviour {
 	
 	}
 
+	public int getPlayer() {
+		return ownerId;
+	}
+
 	public bool isBuilt() {
 		return built;
 	}
@@ -68,6 +72,7 @@ public class SettlementClass : MonoBehaviour {
 			Color temp = renderer.material.color;
 			temp.a = 1;
 			renderer.material.color = temp;
+			ownerId = TurnState.currentPlayer.playerId;
 			settlements.BroadcastMessage ("toggleSettlements");
 		} else {
 			if (upgrading)

@@ -13,7 +13,7 @@ public class DevCard : MonoBehaviour {
 	static DevCardType monopoly = DevCardType.monopoly;
 	static DevCardType victoryPoint = DevCardType.victoryPoint;
 
-	static DevCardType[] devCardsByChance = new DevCardType[] {knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint}
+	static DevCardType[] devCardsByChance = new DevCardType[] {knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint};
 
 	// Todo Gives a random card
 	public static DevCardType RandomCard(){

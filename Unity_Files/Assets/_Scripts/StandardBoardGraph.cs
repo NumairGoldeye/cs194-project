@@ -225,10 +225,10 @@ public class StandardBoardGraph : ArrayBoardGraph {
 			addRoadBetween (17, 23);
 			addRoadBetween (23, 18);
 			addRoadBetween (18, 24);
-			addRoadBetween (24, 29);
+			addRoadBetween (24, 19);
 			addRoadBetween (19, 25);
 			addRoadBetween (25, 20);
-			addRoadBetween (10, 16);
+			addRoadBetween (20, 26);
 			addRoadBetween (21, 27);
 			addRoadBetween (22, 28);
 			addRoadBetween (23, 29);
@@ -249,7 +249,7 @@ public class StandardBoardGraph : ArrayBoardGraph {
 			addRoadBetween (34, 39);
 			addRoadBetween (35, 40);
 			addRoadBetween (36, 41);
-			addRoadBetween (37, 41);
+			addRoadBetween (37, 42);
 			addRoadBetween (38, 43);
 			addRoadBetween (43, 39);
 			addRoadBetween (39, 44);

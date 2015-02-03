@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 public class ArrayBoardGraph : BoardGraph {
 
-	protected List<Vertex> verticies = new List<Vertex>();
-	protected List<Edge> edges = new List<Edge>();
+	protected List<SettlementClass> settlements = new List<SettlementClass>();
+	protected List<RoadClass> roads = new List<RoadClass>();
 	protected List<TileClass> tiles = new List<TileClass>();
 
-	public int EdgeCount {
+	public int RoadCount {
 		get {
-			return edges.Count;
+			return roads.Count;
 		}
 	}
 
-	public int VertexCount {
+	public int SettlementCount {
 		get {
-			return verticies.Count;
+			return settlements.Count;
 		}
 	}
 
@@ -25,27 +25,27 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 	}
 
-	public Vertex getVertex(int index) {
-		return verticies[index];
+	public SettlementClass getSettlement(int index) {
+		return settlements[index];
 	}
 
-	public List<Edge> getEdges(int vertexIndex) {
-		Vertex v = getVertex(vertexIndex);
-		return getEdges(v);
+	public List<RoadClass> getRoads(int settlementIndex) {
+		SettlementClass s = getSettlement(settlementIndex);
+		return getRoads(s);
 	}
 
-	public List<Edge> getEdges(Vertex vertex) {
-		List<Edge> result = new List<Edge>();
-		foreach (Edge e in edges) {
-			if (e.vertex1 == vertex || e.vertex2 == vertex) {
-				result.Add(e);
+	public List<RoadClass> getRoads(SettlementClass settlement) {
+		List<RoadClass> result = new List<RoadClass>();
+		foreach (RoadClass rd in roads) {
+			if (rd.settlement1 == settlement || rd.settlement2 == settlement) {
+				result.Add(rd);
 			}
 		}
 		return result;
 	}
 
-	public Edge getEdge(int index) {
-		return edges[index];
+	public RoadClass getRoad(int index) {
+		return roads[index];
 	}
 
 	public TileClass getTile(int index) {

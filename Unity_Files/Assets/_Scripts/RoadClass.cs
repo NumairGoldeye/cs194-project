@@ -5,6 +5,10 @@ public class RoadClass : MonoBehaviour {
 
 	private bool built;
 	private bool visible;
+
+	public SettlementClass settlement1;
+	public SettlementClass settlement2;
+
 	public GameObject roads;
 
 	public int edgeIndex; // The index of the edge this road is on.

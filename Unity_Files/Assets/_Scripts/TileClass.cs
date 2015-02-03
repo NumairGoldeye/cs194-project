@@ -8,7 +8,8 @@ public class TileClass : MonoBehaviour {
 	public int diceValue;
 	public int tileNumber;
 	public bool hasRobber;
-	private List<int> vertices;
+
+	private List<SettlementClass> settlements = new List<SettlementClass>();
 
 	// The index of the POSITION of this tile on the board. Tiles are indexed in row-major order.
 	public int tileIndex;
@@ -53,9 +54,7 @@ public class TileClass : MonoBehaviour {
 		}
 	}
 
-	public void init() {
-		vertices = new List<int>();
-	}
+
 	// Use this for initialization
 	void Start () {
 
@@ -66,12 +65,12 @@ public class TileClass : MonoBehaviour {
 	
 	}
 
-	public void addVertex(int vertex) {
+	public void addSettlement(SettlementClass settlement) {
 //		Debugger.Log ("Vertex", v.settlement.isBuilt ().ToString());
-		vertices.Add (vertex);
+		settlements.Add (settlement);
 	}
 
-	public List<int> getVertices() {
-		return vertices;
+	public List<SettlementClass> getSettlements() {
+		return settlements;
 	}
 }

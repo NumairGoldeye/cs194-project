@@ -78,20 +78,20 @@ public class GameManager : MonoBehaviour {
 			//TODO Check if the robber is occupying this tile
 			if (roll == tile.diceValue) {
 				//This is assuming that each tile keeps track of its vertices
-				List<int> vertices = tile.getVertices();
-				for (int i = 0; i < vertices.Count; i++) {
+				List<SettlementClass> settlements = tile.getSettlements();
+				foreach (SettlementClass settlement in settlements) {
 //					Debugger.Log("Settlement", graph.getVertex(vertices[i]).settlement.isBuilt().ToString());
 					//TODO Consolidate Cities
-					if (graph.getVertex(vertices[i]).settlement.isBuilt()) {
+					if (settlement.isBuilt()) {
 						//this is assuming that the settlements and cities are storing the playerID
-						Player p = TurnState.players[graph.getVertex(vertices[i]).settlement.getPlayer()];
+						Player p = TurnState.players[settlement.getPlayer()];
 //						Debugger.Log("Player ID", p.playerId.ToString());
 						p.AddResource(tile.type, 1);
 					}	
 					// TODO: Might not work correctly w/ consolidated cities.  If things are getting 3 resources with cities,
 					// this is likely why.
-					if (graph.getVertex(vertices[i]).settlement.city) {
-						Player p = TurnState.players[graph.getVertex(vertices[i]).settlement.getPlayer()];
+					if (settlement.city) {
+						Player p = TurnState.players[settlement.getPlayer()];
 						p.AddResource(tile.type, 2);
 					}
 				}

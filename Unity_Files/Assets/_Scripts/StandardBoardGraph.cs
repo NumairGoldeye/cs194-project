@@ -13,14 +13,14 @@ public class StandardBoardGraph : ArrayBoardGraph {
 	private static StandardBoardGraph instance;
 
 	private const int NUM_TILES = 19;
-	private const int NUM_EDGES = 72;
-	private const int NUM_VERTEXES = 54;
+	private const int NUM_ROADS = 72;
+	private const int NUM_SETTLEMENTS = 54;
 	
 	private StandardBoardGraph() {
 		// Must maintain this order; edges depend on verticies, and verticies depend on tiles.
 		addTiles();
-		addVerticies();
-		addEdges();
+		addSettlements();
+		addRoads();
 	}
 
 	public static StandardBoardGraph Instance {
@@ -36,7 +36,6 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Tile");
 		foreach (GameObject tileObject in gameObjects) {
 			tiles.Add(tileObject.GetComponent<TileClass>());
-			tileObject.GetComponent<TileClass>().init();
 		}
 		tiles.Sort(new tileIndexComparer());
 	}
@@ -48,80 +47,140 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		}
 	}
 
-	// There are cleaner ways to add these than to hardcode then umbers, but
-	// it probably isn't worth the effort.  Some options, however:
-	//		1) Use text files (like csvs) that map list the edges and verticies.
-	//		2) Use some sort of math to figure it out.
-	private void addVerticies() {
-		addVertexBetween (0);
-		addVertexBetween (1);
-		addVertexBetween (2);
-		addVertexBetween (0);
-		addVertexBetween (0, 1);
-		addVertexBetween (1, 2);
-		addVertexBetween (2);
-		addVertexBetween (0, 3);
-		addVertexBetween (0, 1, 4);
-		addVertexBetween (1, 2, 5);
-		addVertexBetween (2, 6);
-		addVertexBetween (3);
-		addVertexBetween (0, 3, 4);
-		addVertexBetween (1, 4, 5);
-		addVertexBetween (2, 5, 6);
-		addVertexBetween (6);
-		addVertexBetween (3, 7);
-		addVertexBetween (3, 4, 8);
-		addVertexBetween (4, 5, 9);
-		addVertexBetween (5, 6, 10);
-		addVertexBetween (6, 11);
-		addVertexBetween (7);
-		addVertexBetween (3, 7, 8);
-		addVertexBetween (4, 8, 9);
-		addVertexBetween (5, 9, 10);
-		addVertexBetween (6, 10, 11);
-		addVertexBetween (11);
-		addVertexBetween (7);
-		addVertexBetween (7, 8, 12);
-		addVertexBetween (8, 9, 13);
-		addVertexBetween (9, 10, 14);
-		addVertexBetween (10, 11, 15);
-		addVertexBetween (11);
-		addVertexBetween (7, 12);
-		addVertexBetween (8, 12, 13);
-		addVertexBetween (9, 13, 14);
-		addVertexBetween (10, 14, 15);
-		addVertexBetween (11, 15);
-		addVertexBetween (12);
-		addVertexBetween (12, 13, 16);
-		addVertexBetween (13, 14, 17);
-		addVertexBetween (14, 15, 18);
-		addVertexBetween (15);
-		addVertexBetween (12, 16);
-		addVertexBetween (13, 16, 17);
-		addVertexBetween (14, 17, 18);
-		addVertexBetween (15, 18);
-		addVertexBetween (16);
-		addVertexBetween (16, 17);
-		addVertexBetween (17, 18);
-		addVertexBetween (18);
-		addVertexBetween (16);
-		addVertexBetween (17);
-		addVertexBetween (18);
-	}
-	
-	// TODO: Currently ignores ports.
-	private void addVertexBetween(params int[] tileIndicies) {
-		List<TileClass> tilesToAdd = new List<TileClass>();
-		foreach (int i in tileIndicies) {
-			tilesToAdd.Add(tiles[i]);
-		}
-		List<PortClass> portsToAdd = new List<PortClass>();
+	private void addSettlements() {
 
-		Vertex v = new Vertex(tilesToAdd, portsToAdd, getSettlementOnIndex(verticies.Count));
-		verticies.Add(v);
-		foreach (int i in tileIndicies) {
-			tiles[i].addVertex(VertexCount-1);
+		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Settlement");
+		// Uses array to construct to correct order for settlements, then adds them to the list in order.
+		SettlementClass[] settlementArray = new SettlementClass[NUM_SETTLEMENTS];
+		foreach (GameObject gameObject in gameObjects) {
+			SettlementClass settlement = gameObject.GetComponentInChildren<SettlementClass>();
+			settlementArray[settlement.vertexIndex] = settlement;
 		}
+		foreach (SettlementClass s in settlementArray) {
+			settlements.Add(s);
+		}
+		addSettlementsToTile ();
+	}
+
+	private void addSettlementsToTile() {
+		addSettlementToTile(0, 0);
+		addSettlementToTile(3, 0);
+		addSettlementToTile(4, 0);
+		addSettlementToTile(7, 0);
+		addSettlementToTile(8, 0);
+		addSettlementToTile(12, 0);
+		addSettlementToTile(1, 1);
+		addSettlementToTile(4, 1);
+		addSettlementToTile(5, 1);
+		addSettlementToTile(8, 1);
+		addSettlementToTile(9, 1);
+		addSettlementToTile(13, 1);
+		addSettlementToTile(2, 2);
+		addSettlementToTile(5, 2);
+		addSettlementToTile(6, 2);
+		addSettlementToTile(9, 2);
+		addSettlementToTile(10, 2);
+		addSettlementToTile(14, 2);
+		addSettlementToTile(7, 3);
+		addSettlementToTile(11, 3);
+		addSettlementToTile(12, 3);
+		addSettlementToTile(16, 3);
+		addSettlementToTile(17, 3);
+		addSettlementToTile(22, 3);
+		addSettlementToTile(8, 4);
+		addSettlementToTile(12, 4);
+		addSettlementToTile(13, 4);
+		addSettlementToTile(17, 4);
+		addSettlementToTile(18, 4);
+		addSettlementToTile(23, 4);
+		addSettlementToTile(9, 5);
+		addSettlementToTile(13, 5);
+		addSettlementToTile(14, 5);
+		addSettlementToTile(18, 5);
+		addSettlementToTile(19, 5);
+		addSettlementToTile(24, 5);
+		addSettlementToTile(10, 6);
+		addSettlementToTile(14, 6);
+		addSettlementToTile(15, 6);
+		addSettlementToTile(19, 6);
+		addSettlementToTile(20, 6);
+		addSettlementToTile(25, 6);
+		addSettlementToTile(16, 7);
+		addSettlementToTile(21, 7);
+		addSettlementToTile(22, 7);
+		addSettlementToTile(27, 7);
+		addSettlementToTile(28, 7);
+		addSettlementToTile(33, 7);
+		addSettlementToTile(17, 8);
+		addSettlementToTile(22, 8);
+		addSettlementToTile(23, 8);
+		addSettlementToTile(28, 8);
+		addSettlementToTile(29, 8);
+		addSettlementToTile(34, 8);
+		addSettlementToTile(18, 9);
+		addSettlementToTile(23, 9);
+		addSettlementToTile(24, 9);
+		addSettlementToTile(29, 9);
+		addSettlementToTile(30, 9);
+		addSettlementToTile(35, 9);
+		addSettlementToTile(19, 10);
+		addSettlementToTile(24, 10);
+		addSettlementToTile(25, 10);
+		addSettlementToTile(30, 10);
+		addSettlementToTile(31, 10);
+		addSettlementToTile(36, 10);
+		addSettlementToTile(20, 11);
+		addSettlementToTile(25, 11);
+		addSettlementToTile(26, 11);
+		addSettlementToTile(31, 11);
+		addSettlementToTile(32, 11);
+		addSettlementToTile(37, 11);
+		addSettlementToTile(28, 12);
+		addSettlementToTile(33, 12);
+		addSettlementToTile(34, 12);
+		addSettlementToTile(38, 12);
+		addSettlementToTile(39, 12);
+		addSettlementToTile(43, 12);
+		addSettlementToTile(29, 13);
+		addSettlementToTile(34, 13);
+		addSettlementToTile(35, 13);
+		addSettlementToTile(39, 13);
+		addSettlementToTile(40, 13);
+		addSettlementToTile(44, 13);
+		addSettlementToTile(30, 14);
+		addSettlementToTile(35, 14);
+		addSettlementToTile(36, 14);
+		addSettlementToTile(40, 14);
+		addSettlementToTile(41, 14);
+		addSettlementToTile(45, 14);
+		addSettlementToTile(31, 15);
+		addSettlementToTile(36, 15);
+		addSettlementToTile(37, 15);
+		addSettlementToTile(41, 15);
+		addSettlementToTile(42, 15);
+		addSettlementToTile(46, 15);
+		addSettlementToTile(39, 16);
+		addSettlementToTile(43, 16);
+		addSettlementToTile(44, 16);
+		addSettlementToTile(47, 16);
+		addSettlementToTile(48, 16);
+		addSettlementToTile(51, 16);
+		addSettlementToTile(40, 17);
+		addSettlementToTile(44, 17);
+		addSettlementToTile(45, 17);
+		addSettlementToTile(48, 17);
+		addSettlementToTile(49, 17);
+		addSettlementToTile(52, 17);
+		addSettlementToTile(41, 18);
+		addSettlementToTile(45, 18);
+		addSettlementToTile(46, 18);
+		addSettlementToTile(49, 18);
+		addSettlementToTile(50, 18);
+		addSettlementToTile(53, 18);
+	}
+
+	private void addSettlementToTile(int settlementId, int tileId) {
+		tiles[tileId].addSettlement (settlements[settlementId]);
 	}
 
 	private SettlementClass getSettlementOnIndex(int vertexIndex) {
@@ -136,86 +195,88 @@ public class StandardBoardGraph : ArrayBoardGraph {
 	}
 
 	// See note for addVerticies.
-	private void addEdges() {
-			addEdgeBetween (0, 3);
-			addEdgeBetween (0, 4);
-			addEdgeBetween (1, 4);
-			addEdgeBetween (1, 5);
-			addEdgeBetween (5, 2);
-			addEdgeBetween (2, 6);
-			addEdgeBetween (3, 7);
-			addEdgeBetween (4, 8);
-			addEdgeBetween (5, 9);
-			addEdgeBetween (6, 10);
-			addEdgeBetween (7, 11);
-			addEdgeBetween (7, 12);
-			addEdgeBetween (8, 13);
-			addEdgeBetween (13, 9);
-			addEdgeBetween (9, 14);
-			addEdgeBetween (14, 10);
-			addEdgeBetween (10, 15);
-			addEdgeBetween (11, 16);
-			addEdgeBetween (12, 17);
-			addEdgeBetween (13, 18);
-			addEdgeBetween (14, 19);
-			addEdgeBetween (15, 20);
-			addEdgeBetween (16, 21);
-			addEdgeBetween (16, 22);
-			addEdgeBetween (22, 17);
-			addEdgeBetween (17, 23);
-			addEdgeBetween (23, 18);
-			addEdgeBetween (18, 24);
-			addEdgeBetween (24, 29);
-			addEdgeBetween (19, 25);
-			addEdgeBetween (25, 20);
-			addEdgeBetween (10, 16);
-			addEdgeBetween (21, 27);
-			addEdgeBetween (22, 28);
-			addEdgeBetween (23, 29);
-			addEdgeBetween (24, 30);
-			addEdgeBetween (25, 31);
-			addEdgeBetween (26, 32);
-			addEdgeBetween (27, 33);
-			addEdgeBetween (33, 28);
-			addEdgeBetween (28, 34);
-			addEdgeBetween (34, 29);
-			addEdgeBetween (29, 35);
-			addEdgeBetween (35, 30);
-			addEdgeBetween (30, 36);
-			addEdgeBetween (36, 31);
-			addEdgeBetween (31, 37);
-			addEdgeBetween (37, 32);
-			addEdgeBetween (33, 38);
-			addEdgeBetween (34, 39);
-			addEdgeBetween (35, 40);
-			addEdgeBetween (36, 41);
-			addEdgeBetween (37, 41);
-			addEdgeBetween (38, 43);
-			addEdgeBetween (43, 39);
-			addEdgeBetween (39, 44);
-			addEdgeBetween (44, 40);
-			addEdgeBetween (40, 45);
-			addEdgeBetween (45, 41);
-			addEdgeBetween (41, 46);
-			addEdgeBetween (46, 42);
-			addEdgeBetween (43, 47);
-			addEdgeBetween (44, 48);
-			addEdgeBetween (45, 49);
-			addEdgeBetween (46, 50);
-			addEdgeBetween (47, 51);
-			addEdgeBetween (51, 48);
-			addEdgeBetween (48, 52);
-			addEdgeBetween (52, 49);
-			addEdgeBetween (49, 53);
-			addEdgeBetween (53, 50);
+	private void addRoads() {
+			addRoadBetween (0, 3);
+			addRoadBetween (0, 4);
+			addRoadBetween (1, 4);
+			addRoadBetween (1, 5);
+			addRoadBetween (5, 2);
+			addRoadBetween (2, 6);
+			addRoadBetween (3, 7);
+			addRoadBetween (4, 8);
+			addRoadBetween (5, 9);
+			addRoadBetween (6, 10);
+			addRoadBetween (7, 11);
+			addRoadBetween (7, 12);
+			addRoadBetween (8, 13);
+			addRoadBetween (13, 9);
+			addRoadBetween (9, 14);
+			addRoadBetween (14, 10);
+			addRoadBetween (10, 15);
+			addRoadBetween (11, 16);
+			addRoadBetween (12, 17);
+			addRoadBetween (13, 18);
+			addRoadBetween (14, 19);
+			addRoadBetween (15, 20);
+			addRoadBetween (16, 21);
+			addRoadBetween (16, 22);
+			addRoadBetween (22, 17);
+			addRoadBetween (17, 23);
+			addRoadBetween (23, 18);
+			addRoadBetween (18, 24);
+			addRoadBetween (24, 29);
+			addRoadBetween (19, 25);
+			addRoadBetween (25, 20);
+			addRoadBetween (10, 16);
+			addRoadBetween (21, 27);
+			addRoadBetween (22, 28);
+			addRoadBetween (23, 29);
+			addRoadBetween (24, 30);
+			addRoadBetween (25, 31);
+			addRoadBetween (26, 32);
+			addRoadBetween (27, 33);
+			addRoadBetween (33, 28);
+			addRoadBetween (28, 34);
+			addRoadBetween (34, 29);
+			addRoadBetween (29, 35);
+			addRoadBetween (35, 30);
+			addRoadBetween (30, 36);
+			addRoadBetween (36, 31);
+			addRoadBetween (31, 37);
+			addRoadBetween (37, 32);
+			addRoadBetween (33, 38);
+			addRoadBetween (34, 39);
+			addRoadBetween (35, 40);
+			addRoadBetween (36, 41);
+			addRoadBetween (37, 41);
+			addRoadBetween (38, 43);
+			addRoadBetween (43, 39);
+			addRoadBetween (39, 44);
+			addRoadBetween (44, 40);
+			addRoadBetween (40, 45);
+			addRoadBetween (45, 41);
+			addRoadBetween (41, 46);
+			addRoadBetween (46, 42);
+			addRoadBetween (43, 47);
+			addRoadBetween (44, 48);
+			addRoadBetween (45, 49);
+			addRoadBetween (46, 50);
+			addRoadBetween (47, 51);
+			addRoadBetween (51, 48);
+			addRoadBetween (48, 52);
+			addRoadBetween (52, 49);
+			addRoadBetween (49, 53);
+			addRoadBetween (53, 50);
 	}
 
-	private void addEdgeBetween(int vertex1Index, int vertex2Index) {
-		Vertex v1 = verticies[vertex1Index];
-		Vertex v2 = verticies[vertex2Index];
+	private void addRoadBetween(int settlement1index, int settlement2index) {
+		SettlementClass s1 = settlements[settlement1index];
+		SettlementClass s2 = settlements[settlement2index];
 		// If too slow, there are more efficient ways to do this.
-		Edge e = new Edge(v1, v2, vertex1Index, vertex2Index, getRoadOnEdge(edges.Count));
-		edges.Add(e);
+		RoadClass rd = getRoadOnEdge(roads.Count);
+		roads.Add(rd);
+		rd.settlement1 = s1;
+		rd.settlement2 = s2;
 	}
 
 	private RoadClass getRoadOnEdge(int roadIndex) {

@@ -6,33 +6,33 @@ using System.Collections.Generic;
 
 public interface BoardGraph {
 
-	int EdgeCount { get; }
-	int VertexCount { get; }
+	int RoadCount { get; }
+	int SettlementCount { get; }
 	int TileCount { get; }
 
-	/** Returns the vertex corresponding to the given index for that space on the board.
+	/** Returns the Settlement corresponding to the given index for that space on the board.
 	 *
-	 * The verticies are indexed starting at 0, starting at the leftmost tile in the top
+	 * The Settlements are indexed starting at 0, starting at the leftmost tile in the top
 	 * row.  They ascend in row-major order.
 	 */
-	Vertex getVertex(int index);
+	SettlementClass getSettlement(int index);
 	
 	/**
-	 * Returns all of the edges connected to the vertex with the given index.
+	 * Returns all of the roads connected to the settlement with the given index.
 	 */
-	List<Edge> getEdges(int vertexIndex);
+	List<RoadClass> getRoads(int settlementIndex);
 	
 	/**
-	 * Returns all of the edges connected to the given vertex.
+	 * Returns all of the roads connected to the given settlement.
 	 */
-	List<Edge> getEdges(Vertex vertex);
+	List<RoadClass> getRoads(SettlementClass settlement);
 	
 	/** Returns the edge corresponding to the given index for that space on the board.
 	 *
 	 * The edges are indexed starting at 0, starting at the very top of the board, and increaing
 	 * leftwards.
 	 */
-	Edge getEdge(int index);
+	RoadClass getRoad(int index);
 
 	/**
 	 * Returns the tile corresponding to the given tile.

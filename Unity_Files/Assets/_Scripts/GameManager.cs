@@ -88,8 +88,10 @@ public class GameManager : MonoBehaviour {
 //						Debugger.Log("Player ID", p.playerId.ToString());
 						p.AddResource(tile.type, 1);
 					}	
-					if (graph.getVertex(vertices[i]).city.isBuilt()) {
-						Player p = TurnState.players[graph.getVertex(vertices[i]).city.getPlayer()];
+					// TODO: Might not work correctly w/ consolidated cities.  If things are getting 3 resources with cities,
+					// this is likely why.
+					if (graph.getVertex(vertices[i]).settlement.city) {
+						Player p = TurnState.players[graph.getVertex(vertices[i]).settlement.getPlayer()];
 						p.AddResource(tile.type, 2);
 					}
 				}

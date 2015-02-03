@@ -14,6 +14,9 @@ public class StandardBoardGraph : ArrayBoardGraph {
 
 	private const int NUM_TILES = 19;
 	private const int NUM_EDGES = 72;
+	private const int NUM_VERTEXES = 54;
+
+	private int i;
 
 	private StandardBoardGraph() {
 		// Must maintain this order; edges depend on verticies, and verticies depend on tiles.
@@ -116,7 +119,7 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		}
 		List<PortClass> portsToAdd = new List<PortClass>();
 
-		Vertex v = new Vertex(tilesToAdd, portsToAdd, new CityClass(), new SettlementClass());
+		Vertex v = new Vertex(tilesToAdd, portsToAdd, new SettlementClass());
 		verticies.Add(v);
 		foreach (int i in tileIndicies) {
 			tiles[i].addVertex(VertexCount-1);
@@ -125,86 +128,84 @@ public class StandardBoardGraph : ArrayBoardGraph {
 
 	// See note for addVerticies.
 	private void addEdges() {
-		for (int i = 0; i < NUM_EDGES; ++i) {
-			addEdgeBetween (i, 0, 3);
-			addEdgeBetween (i, 0, 4);
-			addEdgeBetween (i, 1, 4);
-			addEdgeBetween (i, 1, 5);
-			addEdgeBetween (i, 5, 2);
-			addEdgeBetween (i, 2, 6);
-			addEdgeBetween (i, 3, 7);
-			addEdgeBetween (i, 4, 8);
-			addEdgeBetween (i, 5, 9);
-			addEdgeBetween (i, 6, 10);
-			addEdgeBetween (i, 7, 11);
-			addEdgeBetween (i, 7, 12);
-			addEdgeBetween (i, 8, 13);
-			addEdgeBetween (i, 13, 9);
-			addEdgeBetween (i, 9, 14);
-			addEdgeBetween (i, 14, 10);
-			addEdgeBetween (i, 10, 15);
-			addEdgeBetween (i, 11, 16);
-			addEdgeBetween (i, 12, 17);
-			addEdgeBetween (i, 13, 18);
-			addEdgeBetween (i, 14, 19);
-			addEdgeBetween (i, 15, 20);
-			addEdgeBetween (i, 16, 21);
-			addEdgeBetween (i, 16, 22);
-			addEdgeBetween (i, 22, 17);
-			addEdgeBetween (i, 17, 23);
-			addEdgeBetween (i, 23, 18);
-			addEdgeBetween (i, 18, 24);
-			addEdgeBetween (i, 24, 29);
-			addEdgeBetween (i, 19, 25);
-			addEdgeBetween (i, 25, 20);
-			addEdgeBetween (i, 10, 16);
-			addEdgeBetween (i, 21, 27);
-			addEdgeBetween (i, 22, 28);
-			addEdgeBetween (i, 23, 29);
-			addEdgeBetween (i, 24, 30);
-			addEdgeBetween (i, 25, 31);
-			addEdgeBetween (i, 26, 32);
-			addEdgeBetween (i, 27, 33);
-			addEdgeBetween (i, 33, 28);
-			addEdgeBetween (i, 28, 34);
-			addEdgeBetween (i, 34, 29);
-			addEdgeBetween (i, 29, 35);
-			addEdgeBetween (i, 35, 30);
-			addEdgeBetween (i, 30, 36);
-			addEdgeBetween (i, 36, 31);
-			addEdgeBetween (i, 31, 37);
-			addEdgeBetween (i, 37, 32);
-			addEdgeBetween (i, 33, 38);
-			addEdgeBetween (i, 34, 39);
-			addEdgeBetween (i, 35, 40);
-			addEdgeBetween (i, 36, 41);
-			addEdgeBetween (i, 37, 41);
-			addEdgeBetween (i, 38, 43);
-			addEdgeBetween (i, 43, 39);
-			addEdgeBetween (i, 39, 44);
-			addEdgeBetween (i, 44, 40);
-			addEdgeBetween (i, 40, 45);
-			addEdgeBetween (i, 45, 41);
-			addEdgeBetween (i, 41, 46);
-			addEdgeBetween (i, 46, 42);
-			addEdgeBetween (i, 43, 47);
-			addEdgeBetween (i, 44, 48);
-			addEdgeBetween (i, 45, 49);
-			addEdgeBetween (i, 46, 50);
-			addEdgeBetween (i, 47, 51);
-			addEdgeBetween (i, 51, 48);
-			addEdgeBetween (i, 48, 52);
-			addEdgeBetween (i, 52, 49);
-			addEdgeBetween (i, 49, 53);
-			addEdgeBetween (i, 53, 50);
-		}
+			addEdgeBetween (0, 3);
+			addEdgeBetween (0, 4);
+			addEdgeBetween (1, 4);
+			addEdgeBetween (1, 5);
+			addEdgeBetween (5, 2);
+			addEdgeBetween (2, 6);
+			addEdgeBetween (3, 7);
+			addEdgeBetween (4, 8);
+			addEdgeBetween (5, 9);
+			addEdgeBetween (6, 10);
+			addEdgeBetween (7, 11);
+			addEdgeBetween (7, 12);
+			addEdgeBetween (8, 13);
+			addEdgeBetween (13, 9);
+			addEdgeBetween (9, 14);
+			addEdgeBetween (14, 10);
+			addEdgeBetween (10, 15);
+			addEdgeBetween (11, 16);
+			addEdgeBetween (12, 17);
+			addEdgeBetween (13, 18);
+			addEdgeBetween (14, 19);
+			addEdgeBetween (15, 20);
+			addEdgeBetween (16, 21);
+			addEdgeBetween (16, 22);
+			addEdgeBetween (22, 17);
+			addEdgeBetween (17, 23);
+			addEdgeBetween (23, 18);
+			addEdgeBetween (18, 24);
+			addEdgeBetween (24, 29);
+			addEdgeBetween (19, 25);
+			addEdgeBetween (25, 20);
+			addEdgeBetween (10, 16);
+			addEdgeBetween (21, 27);
+			addEdgeBetween (22, 28);
+			addEdgeBetween (23, 29);
+			addEdgeBetween (24, 30);
+			addEdgeBetween (25, 31);
+			addEdgeBetween (26, 32);
+			addEdgeBetween (27, 33);
+			addEdgeBetween (33, 28);
+			addEdgeBetween (28, 34);
+			addEdgeBetween (34, 29);
+			addEdgeBetween (29, 35);
+			addEdgeBetween (35, 30);
+			addEdgeBetween (30, 36);
+			addEdgeBetween (36, 31);
+			addEdgeBetween (31, 37);
+			addEdgeBetween (37, 32);
+			addEdgeBetween (33, 38);
+			addEdgeBetween (34, 39);
+			addEdgeBetween (35, 40);
+			addEdgeBetween (36, 41);
+			addEdgeBetween (37, 41);
+			addEdgeBetween (38, 43);
+			addEdgeBetween (43, 39);
+			addEdgeBetween (39, 44);
+			addEdgeBetween (44, 40);
+			addEdgeBetween (40, 45);
+			addEdgeBetween (45, 41);
+			addEdgeBetween (41, 46);
+			addEdgeBetween (46, 42);
+			addEdgeBetween (43, 47);
+			addEdgeBetween (44, 48);
+			addEdgeBetween (45, 49);
+			addEdgeBetween (46, 50);
+			addEdgeBetween (47, 51);
+			addEdgeBetween (51, 48);
+			addEdgeBetween (48, 52);
+			addEdgeBetween (52, 49);
+			addEdgeBetween (49, 53);
+			addEdgeBetween (53, 50);
 	}
 
-	private void addEdgeBetween(int edgeIndex, int vertex1Index, int vertex2Index) {
+	private void addEdgeBetween(int vertex1Index, int vertex2Index) {
 		Vertex v1 = verticies[vertex1Index];
 		Vertex v2 = verticies[vertex2Index];
 		// If too slow, there are more efficient ways to do this.
-		Edge e = new Edge(v1, v2, vertex1Index, vertex2Index, getRoadOnEdge(edgeIndex));
+		Edge e = new Edge(v1, v2, vertex1Index, vertex2Index, getRoadOnEdge(edges.Count));
 		edges.Add(e);
 	}
 

@@ -10,6 +10,9 @@ public class TileClass : MonoBehaviour {
 	public bool hasRobber;
 	private List<int> vertices;
 
+	// The index of the POSITION of this tile on the board. Tiles are indexed in row-major order.
+	public int tileIndex;
+
 	private void displayDiceNumber (){
 		if (diceValue > 0) {
 			GetComponentInChildren <TextMesh>().text = diceValue.ToString ();

@@ -7,6 +7,8 @@ public class RoadClass : MonoBehaviour {
 	private bool visible;
 	public GameObject roads;
 
+	public int edgeIndex; // The index of the edge this road is on.
+
 	public int ownerId;
 
 	// Use this for initialization

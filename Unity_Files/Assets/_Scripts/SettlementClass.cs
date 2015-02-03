@@ -8,7 +8,7 @@ public class SettlementClass : MonoBehaviour {
 	private bool upgrading;
 	public GameObject settlements;
 	public GameObject city;
-	public int settlementID;
+	public int vertexIndex;
 	public int ownerId;
 
 	// Use this for initialization

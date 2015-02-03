@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1216323827}
+  vertexIndex: 31
   ownerId: 0
 --- !u!23 &1248978
 Renderer:
@@ -208,6 +209,10 @@ Prefab:
     - target: {fileID: 141038, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
@@ -408,6 +413,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1216323827}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1248975}
@@ -459,6 +468,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -676,6 +689,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 0
   hasRobber: 0
+  tileIndex: 2
 --- !u!1001 &36663318
 Prefab:
   m_ObjectHideFlags: 0
@@ -891,6 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 27
   ownerId: 0
 --- !u!23 &38992569
 Renderer:
@@ -1022,6 +1037,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 665019506}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1472861592}
@@ -1036,7 +1055,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 59254540}
   m_Layer: 0
-  m_Name: Settlement 34
+  m_Name: Settlement 52
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1103,6 +1122,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 38
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1962669456}
@@ -1154,6 +1177,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -1211,6 +1238,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1586134193}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1252722392}
@@ -1314,6 +1345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 44
   ownerId: 0
 --- !u!23 &67795252
 Renderer:
@@ -1790,6 +1822,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 1781932330}
@@ -1908,6 +1944,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 56
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1929079152}
@@ -2002,6 +2042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1291458442}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &91416732
 Renderer:
@@ -2176,6 +2217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 43
   ownerId: 0
 --- !u!23 &108534143
 Renderer:
@@ -2416,6 +2458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 0
   ownerId: 0
 --- !u!23 &116068739
 Renderer:
@@ -2468,7 +2511,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 118714382}
   m_Layer: 0
-  m_Name: Settlement 43
+  m_Name: Settlement 30
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2557,7 +2600,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 127177658}
   m_Layer: 0
-  m_Name: Settlement 31
+  m_Name: Settlement 45
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2728,7 +2771,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 133299580}
   m_Layer: 0
-  m_Name: Settlement 9
+  m_Name: Settlement 10
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2792,6 +2835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 35
   ownerId: 0
 --- !u!23 &133733316
 Renderer:
@@ -2879,6 +2923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 48
   ownerId: 0
 --- !u!23 &134730401
 Renderer:
@@ -2973,6 +3018,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1423679137}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 2100775987}
@@ -3023,6 +3072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1371000793}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &140244555
 Renderer:
@@ -3177,6 +3227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1882351054}
+  vertexIndex: 9
   ownerId: 0
 --- !u!23 &150551119
 Renderer:
@@ -3550,6 +3601,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 925235376}
@@ -3601,6 +3656,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -3692,6 +3751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 576195395}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &178987958
 Renderer:
@@ -3779,6 +3839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 15
   ownerId: 0
 --- !u!23 &179080811
 Renderer:
@@ -3831,7 +3892,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 182264926}
   m_Layer: 0
-  m_Name: Settlement 12
+  m_Name: Settlement 5
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4281,6 +4342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 712943163}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &209648626
 Renderer:
@@ -4370,6 +4432,10 @@ Prefab:
     - target: {fileID: 141038, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
@@ -4468,7 +4534,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 225808436}
   m_Layer: 0
-  m_Name: Settlement 53
+  m_Name: Settlement 7
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4533,6 +4599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2135469527}
+  vertexIndex: 12
   ownerId: 0
 --- !u!23 &228753342
 Renderer:
@@ -4623,6 +4690,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 41
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1408949109}
@@ -4673,6 +4744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 881836828}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &232953638
 Renderer:
@@ -4767,6 +4839,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1639785005}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1517891597}
@@ -4937,6 +5013,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 762637099}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1658725326}
@@ -4988,6 +5068,10 @@ Prefab:
     - target: {fileID: 141038, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
@@ -5306,7 +5390,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 286069749}
   m_Layer: 0
-  m_Name: Settlement 23
+  m_Name: Settlement 34
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5372,6 +5456,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -5586,7 +5674,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 310921374}
   m_Layer: 0
-  m_Name: Settlement 42
+  m_Name: Settlement 47
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5740,6 +5828,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 965751498}
@@ -5754,7 +5846,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 328131610}
   m_Layer: 0
-  m_Name: Settlement 3
+  m_Name: Settlement 24
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5820,6 +5912,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -5985,6 +6081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1576534271}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &351956222
 Renderer:
@@ -6073,6 +6170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 109677073}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &353176483
 Renderer:
@@ -6160,6 +6258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 25
   ownerId: 0
 --- !u!23 &354342451
 Renderer:
@@ -6486,6 +6585,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 202991865}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1046665271}
@@ -6655,6 +6758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 17
   ownerId: 0
 --- !u!23 &379291159
 Renderer:
@@ -6787,6 +6891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1747746078}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &382758470
 Renderer:
@@ -6874,6 +6979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 58
   ownerId: 0
 --- !u!23 &390787169
 Renderer:
@@ -7069,6 +7175,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 17
   hasRobber: 0
+  tileIndex: 4
 --- !u!1 &399010590
 GameObject:
   m_ObjectHideFlags: 0
@@ -7353,6 +7460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1030939334}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &405026234
 Renderer:
@@ -7591,6 +7699,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 882847620}
@@ -7643,6 +7755,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1592705944}
@@ -7657,7 +7773,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 419557666}
   m_Layer: 0
-  m_Name: Settlement 40
+  m_Name: Settlement 41
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7785,6 +7901,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 5
   hasRobber: 0
+  tileIndex: 17
 --- !u!1 &421955129
 GameObject:
   m_ObjectHideFlags: 0
@@ -7830,6 +7947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 322285576}
+  vertexIndex: 19
   ownerId: 0
 --- !u!23 &421955132
 Renderer:
@@ -7920,6 +8038,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1034841010}
@@ -7957,6 +8079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 51
   ownerId: 0
 --- !u!23 &430919912
 Renderer:
@@ -8173,7 +8296,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437721999}
   m_Layer: 0
-  m_Name: Settlement 25
+  m_Name: Settlement 28
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8239,6 +8362,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 53
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -8616,6 +8743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 31
   ownerId: 0
 --- !u!23 &446131650
 Renderer:
@@ -8902,6 +9030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 50
   ownerId: 0
 --- !u!23 &462705861
 Renderer:
@@ -8989,6 +9118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 62
   ownerId: 0
 --- !u!23 &463082538
 Renderer:
@@ -9315,6 +9445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 69
   ownerId: 0
 --- !u!23 &478258811
 Renderer:
@@ -9367,7 +9498,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 481603206}
   m_Layer: 0
-  m_Name: Settlement 20
+  m_Name: Settlement 32
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9434,6 +9565,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 430919910}
@@ -9483,6 +9618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 2
   ownerId: 0
 --- !u!23 &488823886
 Renderer:
@@ -9571,6 +9707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1951680005}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &499121347
 Renderer:
@@ -9658,6 +9795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 46
   ownerId: 0
 --- !u!23 &499239411
 Renderer:
@@ -9710,7 +9848,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 499462010}
   m_Layer: 0
-  m_Name: Settlement 33
+  m_Name: Settlement 49
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10063,7 +10201,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 517252319}
   m_Layer: 0
-  m_Name: Settlement 4
+  m_Name: Settlement 18
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10230,6 +10368,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 133733313}
@@ -10348,6 +10490,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 58
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 390787166}
@@ -10456,6 +10602,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 920578165}
@@ -10508,6 +10658,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 1030942277}
@@ -10522,7 +10676,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 554128927}
   m_Layer: 0
-  m_Name: Settlement 35
+  m_Name: Settlement 53
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10638,7 +10792,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 560643880}
   m_Layer: 0
-  m_Name: Settlement 22
+  m_Name: Settlement 42
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10843,6 +10997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1201483328}
+  vertexIndex: 5
   ownerId: 0
 --- !u!23 &565681974
 Renderer:
@@ -10932,6 +11087,10 @@ Prefab:
     - target: {fileID: 141038, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
@@ -11349,6 +11508,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 32
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1678480197}
@@ -11429,7 +11592,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 596143347}
   m_Layer: 0
-  m_Name: Settlement 7
+  m_Name: Settlement 12
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11493,6 +11656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 47
   ownerId: 0
 --- !u!23 &599483390
 Renderer:
@@ -11702,6 +11866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 65
   ownerId: 0
 --- !u!23 &606244249
 Renderer:
@@ -11883,6 +12048,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 2135469527}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 228753339}
@@ -11935,6 +12104,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1392134405}
@@ -11986,6 +12159,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -12108,6 +12285,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -12273,6 +12454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 461430626}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &656504637
 Renderer:
@@ -12824,6 +13006,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 851301571}
@@ -13097,6 +13283,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 33
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1607573155}
@@ -13350,6 +13540,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -13869,6 +14063,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 179080808}
@@ -14143,6 +14341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 28
   ownerId: 0
 --- !u!23 &732337818
 Renderer:
@@ -14230,6 +14429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 54
   ownerId: 0
 --- !u!23 &732934669
 Renderer:
@@ -14388,6 +14588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 71477891}
+  vertexIndex: 4
   ownerId: 0
 --- !u!23 &736761012
 Renderer:
@@ -14592,6 +14793,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 44
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 67795250}
@@ -14687,6 +14892,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -14857,6 +15066,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -15058,6 +15271,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 9
   hasRobber: 0
+  tileIndex: 3
 --- !u!1 &768069174
 GameObject:
   m_ObjectHideFlags: 0
@@ -15103,6 +15317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 717495488}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &768069177
 Renderer:
@@ -15260,6 +15475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 66
   ownerId: 0
 --- !u!23 &770219676
 Renderer:
@@ -15350,6 +15566,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 61
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1505851585}
@@ -15401,6 +15621,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -15744,6 +15968,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2010463031}
@@ -15758,7 +15986,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 802468090}
   m_Layer: 0
-  m_Name: Settlement 29
+  m_Name: Settlement 40
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15833,6 +16061,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1562047511}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1585604348}
@@ -15847,7 +16079,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 803469505}
   m_Layer: 0
-  m_Name: Settlement 17
+  m_Name: Settlement 25
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15918,6 +16150,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1201483328}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 565681971}
@@ -16025,6 +16261,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -16134,6 +16374,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 1421962433}
@@ -16235,7 +16479,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 847769502}
   m_Layer: 0
-  m_Name: Settlement 11
+  m_Name: Settlement 2
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16299,6 +16543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 9
   ownerId: 0
 --- !u!23 &848232953
 Renderer:
@@ -16387,6 +16632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 100367074}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &848812650
 Renderer:
@@ -16474,6 +16720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 4
   ownerId: 0
 --- !u!23 &851301574
 Renderer:
@@ -16702,6 +16949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1108175482}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &868416947
 Renderer:
@@ -16789,6 +17037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 10
   ownerId: 0
 --- !u!23 &869746264
 Renderer:
@@ -16878,6 +17127,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -16975,6 +17228,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1237899433}
@@ -17026,6 +17283,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -17293,6 +17554,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 18
   hasRobber: 0
+  tileIndex: 9
 --- !u!1 &883111072
 GameObject:
   m_ObjectHideFlags: 0
@@ -17401,6 +17663,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 6
   hasRobber: 0
+  tileIndex: 16
 --- !u!1001 &885417607
 Prefab:
   m_ObjectHideFlags: 0
@@ -17510,7 +17773,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 902752920}
   m_Layer: 0
-  m_Name: Settlement 54
+  m_Name: Settlement 11
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17575,6 +17838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1124697619}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &907440562
 Renderer:
@@ -17663,6 +17927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1553543755}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &912629619
 Renderer:
@@ -17750,6 +18015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 37
   ownerId: 0
 --- !u!23 &920578168
 Renderer:
@@ -17837,6 +18103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 16
   ownerId: 0
 --- !u!23 &925235379
 Renderer:
@@ -17889,7 +18156,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 932412740}
   m_Layer: 0
-  m_Name: Settlement 52
+  m_Name: Settlement 3
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17955,6 +18222,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -18190,6 +18461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 399010590}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &951043671
 Renderer:
@@ -18308,7 +18580,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 962018715}
   m_Layer: 0
-  m_Name: Settlement 2
+  m_Name: Settlement 9
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18438,6 +18710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 23
   ownerId: 0
 --- !u!23 &965751501
 Renderer:
@@ -18534,7 +18807,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 966712338}
   m_Layer: 0
-  m_Name: Settlement 41
+  m_Name: Settlement 43
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18599,6 +18872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 446057993}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &967434742
 Renderer:
@@ -18687,6 +18961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1202061160}
+  vertexIndex: 15
   ownerId: 0
 --- !u!23 &968470115
 Renderer:
@@ -18774,6 +19049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 39
   ownerId: 0
 --- !u!23 &968916991
 Renderer:
@@ -18908,6 +19184,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 446131647}
@@ -18922,7 +19202,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 975942791}
   m_Layer: 0
-  m_Name: Settlement 18
+  m_Name: Settlement 26
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18974,6 +19254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 21
   ownerId: 0
 --- !u!23 &977342880
 Renderer:
@@ -19180,6 +19461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 5
   ownerId: 0
 --- !u!23 &992665995
 Renderer:
@@ -19739,6 +20021,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 992665992}
@@ -19795,6 +20081,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1202061160}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 968470112}
@@ -19844,6 +20134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 18
   ownerId: 0
 --- !u!23 &1019957053
 Renderer:
@@ -20061,6 +20352,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 3
   hasRobber: 0
+  tileIndex: 15
 --- !u!1 &1027341320
 GameObject:
   m_ObjectHideFlags: 0
@@ -20106,6 +20398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2037821363}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1027341323
 Renderer:
@@ -20344,6 +20637,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 7
   hasRobber: 0
+  tileIndex: 12
 --- !u!1 &1034841010
 GameObject:
   m_ObjectHideFlags: 0
@@ -20388,6 +20682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 11
   ownerId: 0
 --- !u!23 &1034841013
 Renderer:
@@ -20476,6 +20771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 202991865}
+  vertexIndex: 2
   ownerId: 0
 --- !u!23 &1046665274
 Renderer:
@@ -20609,6 +20905,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -20872,7 +21172,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1080607266}
   m_Layer: 0
-  m_Name: Settlement 13
+  m_Name: Settlement 1
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21038,6 +21338,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -21229,6 +21533,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -21506,7 +21814,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1111867974}
   m_Layer: 0
-  m_Name: Settlement 28
+  m_Name: Settlement 17
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21618,7 +21926,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1117864723}
   m_Layer: 0
-  m_Name: Settlement 32
+  m_Name: Settlement 48
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21937,6 +22245,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 764286922}
@@ -21988,6 +22300,10 @@ Prefab:
     - target: {fileID: 141038, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
@@ -22373,6 +22689,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 14
   hasRobber: 0
+  tileIndex: 14
 --- !u!1 &1158049122
 GameObject:
   m_ObjectHideFlags: 0
@@ -22541,6 +22858,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 488823883}
@@ -22590,6 +22911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 24
   ownerId: 0
 --- !u!23 &1167532461
 Renderer:
@@ -22678,6 +23000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 502877777}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1171189305
 Renderer:
@@ -22772,6 +23095,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 322285576}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 19
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 421955129}
@@ -23044,6 +23371,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -23509,6 +23840,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 15
   hasRobber: 0
+  tileIndex: 13
 --- !u!1 &1210375647
 GameObject:
   m_ObjectHideFlags: 0
@@ -23641,6 +23973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2041281267}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1211986046
 Renderer:
@@ -23812,7 +24145,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1217436034}
   m_Layer: 0
-  m_Name: Settlement 38
+  m_Name: Settlement 46
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23878,6 +24211,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -24008,6 +24345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 60
   ownerId: 0
 --- !u!23 &1224658959
 Renderer:
@@ -24098,6 +24436,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1534927197}
@@ -24148,6 +24490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1569353321}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1236836488
 Renderer:
@@ -24235,6 +24578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 30
   ownerId: 0
 --- !u!23 &1237899436
 Renderer:
@@ -24325,6 +24669,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 71
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1743961195}
@@ -24375,6 +24723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1983339595}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1241885988
 Renderer:
@@ -24463,6 +24812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1586134193}
+  vertexIndex: 14
   ownerId: 0
 --- !u!23 &1252722395
 Renderer:
@@ -24553,6 +24903,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 599483387}
@@ -24602,6 +24956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 67
   ownerId: 0
 --- !u!23 &1267421042
 Renderer:
@@ -25309,6 +25664,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 1209360720}
@@ -25605,6 +25964,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1735209442}
@@ -25789,6 +26152,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 2028914316}
@@ -25902,6 +26269,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 1
   hasRobber: 0
+  tileIndex: 6
 --- !u!1 &1331030170
 GameObject:
   m_ObjectHideFlags: 0
@@ -25911,7 +26279,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1331030171}
   m_Layer: 0
-  m_Name: Settlement 46
+  m_Name: Settlement 33
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25940,7 +26308,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1334265528}
   m_Layer: 0
-  m_Name: Settlement 37
+  m_Name: Settlement 51
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26007,6 +26375,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 354342448}
@@ -26057,6 +26429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1884130399}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1340700698
 Renderer:
@@ -26144,6 +26517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 34
   ownerId: 0
 --- !u!23 &1344033396
 Renderer:
@@ -26285,6 +26659,7 @@ MonoBehaviour:
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   resourceCounts: 
   devCardCounts: 
+  lastCardTypeDrawn: 0
 --- !u!4 &1349390630
 Transform:
   m_ObjectHideFlags: 0
@@ -26342,6 +26717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1752554821}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1349748754
 Renderer:
@@ -26430,6 +26806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1294377589}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1355560720
 Renderer:
@@ -26576,6 +26953,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 36075324}
@@ -26715,6 +27096,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 63
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1849622656}
@@ -26765,6 +27150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 843270997}
+  vertexIndex: 8
   ownerId: 0
 --- !u!23 &1380736534
 Renderer:
@@ -26859,6 +27245,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1109141640}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1547941770}
@@ -26908,6 +27298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 45
   ownerId: 0
 --- !u!23 &1392134408
 Renderer:
@@ -27039,6 +27430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 41
   ownerId: 0
 --- !u!23 &1408949112
 Renderer:
@@ -27161,7 +27553,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1413008616}
   m_Layer: 0
-  m_Name: Settlement 21
+  m_Name: Settlement 37
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27289,6 +27681,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 11
   hasRobber: 0
+  tileIndex: 1
 --- !u!1 &1423652552
 GameObject:
   m_ObjectHideFlags: 0
@@ -27333,6 +27726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 68
   ownerId: 0
 --- !u!23 &1423652555
 Renderer:
@@ -27576,6 +27970,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 48
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 134730398}
@@ -27691,6 +28089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 6
   ownerId: 0
 --- !u!23 &1441055073
 Renderer:
@@ -27779,6 +28178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 577891701}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1444413270
 Renderer:
@@ -28019,6 +28419,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1743003242}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1746122538}
@@ -28205,6 +28609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 8
   ownerId: 0
 --- !u!23 &1452685244
 Renderer:
@@ -28337,6 +28742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2068843111}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1458003854
 Renderer:
@@ -28488,6 +28894,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 12
   hasRobber: 0
+  tileIndex: 5
 --- !u!1 &1463723635
 GameObject:
   m_ObjectHideFlags: 0
@@ -28599,6 +29006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 665019506}
+  vertexIndex: 13
   ownerId: 0
 --- !u!23 &1472861595
 Renderer:
@@ -28651,7 +29059,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1478806609}
   m_Layer: 0
-  m_Name: Settlement 36
+  m_Name: Settlement 50
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28716,6 +29124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 788251114}
+  vertexIndex: 6
   ownerId: 0
 --- !u!23 &1482929851
 Renderer:
@@ -28768,7 +29177,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1485093357}
   m_Layer: 0
-  m_Name: Settlement 26
+  m_Name: Settlement 23
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28835,6 +29244,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 606244246}
@@ -28884,6 +29297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 61
   ownerId: 0
 --- !u!23 &1505851588
 Renderer:
@@ -28971,6 +29385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 20
   ownerId: 0
 --- !u!23 &1506565311
 Renderer:
@@ -29190,6 +29605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 616344843}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1512856440
 Renderer:
@@ -29278,6 +29694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1639785005}
+  vertexIndex: 26
   ownerId: 0
 --- !u!23 &1517891600
 Renderer:
@@ -29432,6 +29849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1511167280}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1524708213
 Renderer:
@@ -29519,6 +29937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 19
   ownerId: 0
 --- !u!23 &1526056958
 Renderer:
@@ -29609,6 +30028,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 67
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1267421039}
@@ -29658,6 +30081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 64
   ownerId: 0
 --- !u!23 &1534927200
 Renderer:
@@ -29780,7 +30204,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1535337608}
   m_Layer: 0
-  m_Name: Settlement 24
+  m_Name: Settlement 29
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30021,6 +30445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1109141640}
+  vertexIndex: 25
   ownerId: 0
 --- !u!23 &1547941773
 Renderer:
@@ -30261,6 +30686,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1882351054}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 150551116}
@@ -30594,6 +31023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 49
   ownerId: 0
 --- !u!23 &1567360608
 Renderer:
@@ -30683,6 +31113,10 @@ Prefab:
     - target: {fileID: 141038, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
@@ -30972,7 +31406,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1581925018}
   m_Layer: 0
-  m_Name: Settlement 51
+  m_Name: Settlement 0
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31025,6 +31459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1562047511}
+  vertexIndex: 18
   ownerId: 0
 --- !u!23 &1585604350
 Renderer:
@@ -31350,6 +31785,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1835877200}
@@ -31399,6 +31838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 3
   ownerId: 0
 --- !u!23 &1592705947
 Renderer:
@@ -31451,7 +31891,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1592736100}
   m_Layer: 0
-  m_Name: Settlement 50
+  m_Name: Settlement 16
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31721,6 +32161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 33
   ownerId: 0
 --- !u!23 &1607573158
 Renderer:
@@ -31808,6 +32249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 13
   ownerId: 0
 --- !u!23 &1610748937
 Renderer:
@@ -31895,6 +32337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 59
   ownerId: 0
 --- !u!23 &1615275573
 Renderer:
@@ -31984,6 +32427,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -32081,6 +32528,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 869746261}
@@ -32132,6 +32583,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -32303,6 +32758,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 1893469397}
@@ -32416,6 +32875,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 2
   hasRobber: 0
+  tileIndex: 11
 --- !u!1 &1639785005
 GameObject:
   m_ObjectHideFlags: 0
@@ -32730,7 +33190,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1647711207}
   m_Layer: 0
-  m_Name: Settlement 6
+  m_Name: Settlement 13
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32796,6 +33256,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -32891,6 +33355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 762637099}
+  vertexIndex: 1
   ownerId: 0
 --- !u!23 &1658725329
 Renderer:
@@ -33067,7 +33532,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1674807323}
   m_Layer: 0
-  m_Name: Settlement 19
+  m_Name: Settlement 31
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33202,6 +33667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2143300186}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1675596451
 Renderer:
@@ -33289,6 +33755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 32
   ownerId: 0
 --- !u!23 &1678480200
 Renderer:
@@ -33534,6 +34001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 22
   ownerId: 0
 --- !u!23 &1693735984
 Renderer:
@@ -33700,7 +34168,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1708637422}
   m_Layer: 0
-  m_Name: Settlement 5
+  m_Name: Settlement 14
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33827,6 +34295,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 71477891}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 736761009}
@@ -34010,6 +34482,10 @@ Prefab:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
   m_RootGameObject: {fileID: 883111072}
@@ -34169,6 +34645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 40
   ownerId: 0
 --- !u!23 &1731316382
 Renderer:
@@ -34221,7 +34698,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1731445179}
   m_Layer: 0
-  m_Name: Settlement 14
+  m_Name: Settlement 4
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34288,6 +34765,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 68
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1423652552}
@@ -34337,6 +34818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 7
   ownerId: 0
 --- !u!23 &1735209445
 Renderer:
@@ -34555,6 +35037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 71
   ownerId: 0
 --- !u!23 &1743961198
 Renderer:
@@ -34643,6 +35126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1743003242}
+  vertexIndex: 24
   ownerId: 0
 --- !u!23 &1746122541
 Renderer:
@@ -34907,6 +35391,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 28
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 732337815}
@@ -35032,6 +35520,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 848232950}
@@ -35145,6 +35637,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 10
   hasRobber: 0
+  tileIndex: 0
 --- !u!1 &1783036207
 GameObject:
   m_ObjectHideFlags: 0
@@ -35219,6 +35712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 53
   ownerId: 0
 --- !u!23 &1788976128
 Renderer:
@@ -35623,6 +36117,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1731316379}
@@ -35870,6 +36368,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 788251114}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1482929848}
@@ -35919,6 +36421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 55
   ownerId: 0
 --- !u!23 &1835877203
 Renderer:
@@ -36009,6 +36512,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1019957050}
@@ -36058,6 +36565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 26
   ownerId: 0
 --- !u!23 &1840908417
 Renderer:
@@ -36145,6 +36653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 52
   ownerId: 0
 --- !u!23 &1843415934
 Renderer:
@@ -36232,6 +36741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 63
   ownerId: 0
 --- !u!23 &1849622659
 Renderer:
@@ -36376,6 +36886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1710527003}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &1859097543
 Renderer:
@@ -36470,6 +36981,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1957520532}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 2101046988}
@@ -36519,6 +37034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 42
   ownerId: 0
 --- !u!23 &1865000239
 Renderer:
@@ -36608,6 +37124,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -36928,6 +37448,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2105678554}
@@ -37029,7 +37553,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1886353755}
   m_Layer: 0
-  m_Name: Settlement 1
+  m_Name: Settlement 19
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37114,7 +37638,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1887470420}
   m_Layer: 0
-  m_Name: Settlement 27
+  m_Name: Settlement 22
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37242,6 +37766,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 13
   hasRobber: 0
+  tileIndex: 10
 --- !u!1001 &1893543514
 Prefab:
   m_ObjectHideFlags: 0
@@ -37288,6 +37813,10 @@ Prefab:
     - target: {fileID: 141038, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
@@ -37383,7 +37912,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1899269310}
   m_Layer: 0
-  m_Name: Settlement 47
+  m_Name: Settlement 38
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37493,6 +38022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 29
   ownerId: 0
 --- !u!23 &1910562550
 Renderer:
@@ -37611,7 +38141,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1920784033}
   m_Layer: 0
-  m_Name: Settlement 30
+  m_Name: Settlement 44
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37719,6 +38249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 56
   ownerId: 0
 --- !u!23 &1929079155
 Renderer:
@@ -37809,6 +38340,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2088815325}
@@ -37860,6 +38395,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -38282,6 +38821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 38
   ownerId: 0
 --- !u!23 &1962669459
 Renderer:
@@ -38441,6 +38981,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
@@ -38671,6 +39215,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 8
   hasRobber: 0
+  tileIndex: 7
 --- !u!1 &1996583087
 GameObject:
   m_ObjectHideFlags: 0
@@ -38746,7 +39291,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2002930411}
   m_Layer: 0
-  m_Name: Settlement 49
+  m_Name: Settlement 21
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39010,6 +39555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 70
   ownerId: 0
 --- !u!23 &2010463034
 Renderer:
@@ -39097,6 +39643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 12
   ownerId: 0
 --- !u!23 &2019492690
 Renderer:
@@ -39186,6 +39733,10 @@ Prefab:
     - target: {fileID: 141038, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418942, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
+      propertyPath: tileIndex
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6b3fd984b17a342bff1bcb2a87b0a3, type: 2}
@@ -39416,6 +39967,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2019492687}
@@ -39529,6 +40084,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 16
   hasRobber: 0
+  tileIndex: 8
 --- !u!1001 &2032713641
 Prefab:
   m_ObjectHideFlags: 0
@@ -39630,6 +40186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 694479373}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &2037599519
 Renderer:
@@ -39805,6 +40362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1210375647}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &2037985532
 Renderer:
@@ -39899,6 +40457,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 843270997}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1380736531}
@@ -40038,6 +40600,10 @@ Prefab:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 39
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 968916988}
@@ -40052,7 +40618,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2044162257}
   m_Layer: 0
-  m_Name: Settlement 10
+  m_Name: Settlement 6
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40228,6 +40794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 57
   ownerId: 0
 --- !u!23 &2053347478
 Renderer:
@@ -40411,7 +40978,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2071978477}
   m_Layer: 0
-  m_Name: Settlement 45
+  m_Name: Settlement 35
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40666,6 +41233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 36
   ownerId: 0
 --- !u!23 &2083697613
 Renderer:
@@ -40797,6 +41365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 14
   ownerId: 0
 --- !u!23 &2088815328
 Renderer:
@@ -41006,6 +41575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1423679137}
+  vertexIndex: 10
   ownerId: 0
 --- !u!23 &2100775990
 Renderer:
@@ -41094,6 +41664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1957520532}
+  vertexIndex: 20
   ownerId: 0
 --- !u!23 &2101046991
 Renderer:
@@ -41182,6 +41753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 556332197}
+  vertexIndex: 0
   ownerId: 0
 --- !u!23 &2102318808
 Renderer:
@@ -41269,6 +41841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roads: {fileID: 711624870}
+  edgeIndex: 1
   ownerId: 0
 --- !u!23 &2105678557
 Renderer:
@@ -41576,7 +42149,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2116386002}
   m_Layer: 0
-  m_Name: Settlement 48
+  m_Name: Settlement 27
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41703,6 +42276,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 4
   hasRobber: 0
+  tileIndex: 18
 --- !u!1 &2126350960
 GameObject:
   m_ObjectHideFlags: 0
@@ -41712,7 +42286,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2126350961}
   m_Layer: 0
-  m_Name: Settlement 44
+  m_Name: Settlement 36
   m_TagString: Settlement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41863,6 +42437,7 @@ MonoBehaviour:
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   resourceCounts: 
   devCardCounts: 
+  lastCardTypeDrawn: 0
 --- !u!1 &2142378147
 GameObject:
   m_ObjectHideFlags: 0
@@ -41975,6 +42550,10 @@ Prefab:
     - target: {fileID: 199156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
       propertyPath: m_TagString
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: edgeIndex
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}

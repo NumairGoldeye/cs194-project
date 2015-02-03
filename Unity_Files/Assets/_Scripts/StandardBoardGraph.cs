@@ -5,6 +5,9 @@ using System.Collections.Generic;
 // The graph used for a standard game of Catan.
 // It is a Singleton, in order to get the instance, use
 // <code>BoardGraph graph = StandardBoardGraph.Instance;</code>
+using System.Collections;
+
+
 public class StandardBoardGraph : ArrayBoardGraph {
 
 	private static StandardBoardGraph instance;
@@ -27,11 +30,18 @@ public class StandardBoardGraph : ArrayBoardGraph {
 	}
 
 	private void addTiles() {
+		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Tile");
+		foreach (GameObject tileObject in gameObjects) {
+			tiles.Add(tileObject.GetComponent<TileClass>());
+			tileObject.GetComponent<TileClass>().init();
+		}
+		tiles.Sort(new tileIndexComparer());
+	}
 
-		foreach (GameObject tile in GameObject.FindGameObjectsWithTag ("Tile"))
-		{
-			tiles.Add(tile.GetComponent<TileClass>());
-			tile.GetComponent<TileClass>().init();
+	/** Compares tiles by their index. */
+	private class tileIndexComparer : IComparer<TileClass> {
+		public int Compare(TileClass a, TileClass b) {
+			return a.tileIndex.CompareTo(b.tileIndex);
 		}
 	}
 

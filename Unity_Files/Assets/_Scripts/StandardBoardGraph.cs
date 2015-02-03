@@ -15,9 +15,7 @@ public class StandardBoardGraph : ArrayBoardGraph {
 	private const int NUM_TILES = 19;
 	private const int NUM_EDGES = 72;
 	private const int NUM_VERTEXES = 54;
-
-	private int i;
-
+	
 	private StandardBoardGraph() {
 		// Must maintain this order; edges depend on verticies, and verticies depend on tiles.
 		addTiles();
@@ -119,11 +117,22 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		}
 		List<PortClass> portsToAdd = new List<PortClass>();
 
-		Vertex v = new Vertex(tilesToAdd, portsToAdd, new SettlementClass());
+		Vertex v = new Vertex(tilesToAdd, portsToAdd, getSettlementOnIndex(verticies.Count));
 		verticies.Add(v);
 		foreach (int i in tileIndicies) {
 			tiles[i].addVertex(VertexCount-1);
 		}
+	}
+
+	private SettlementClass getSettlementOnIndex(int vertexIndex) {
+		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Settlement");
+		foreach (GameObject obj in gameObjects) {
+			SettlementClass settlement = obj.GetComponentInChildren<SettlementClass>();
+			if (settlement.vertexIndex == vertexIndex) {
+				return settlement;
+			}
+		}
+		return null;
 	}
 
 	// See note for addVerticies.

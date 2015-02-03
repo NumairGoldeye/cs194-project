@@ -16,7 +16,7 @@ public class DevCard : MonoBehaviour {
 	static DevCardType monopoly = DevCardType.monopoly;
 	static DevCardType victoryPoint = DevCardType.victoryPoint;
 
-<<<<<<< HEAD
+
 	static DevCardType[] devCardsByChance = new DevCardType[] { knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint };
 
 
@@ -25,9 +25,6 @@ public class DevCard : MonoBehaviour {
 
 	private static Dictionary<DevCardType, string> devCardDescriptions = new Dictionary<DevCardType, string>();
 	
-=======
-	static DevCardType[] devCardsByChance = new DevCardType[] {knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint};
->>>>>>> FETCH_HEAD
 
 	// Todo Gives a random card
 	public static DevCardType RandomCard(){

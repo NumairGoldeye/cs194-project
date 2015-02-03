@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
 	public int[] devCardCounts; 
 
 	private List<SettlementClass> settlements;
-	private List<CityClass> cities;
+	// private List<CityClass> cities;
 	private List<RoadClass> roads;
 
 	// resources
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
 		devCardCounts = new int[4];
 
 		settlements = new List<SettlementClass>();
-		cities = new List<CityClass>();
+		// cities = new List<CityClass>();
 		roads = new List<RoadClass>();
 
 		// AddDevCard(DevCardType.knight);
@@ -143,9 +143,11 @@ public class Player : MonoBehaviour {
 		settlements.Add(newSettlement);
 	}
 	//  Will remove settlements from the settlements list
-	public void AddCity(CityClass newCity){
-		cities.Add(newCity);
-	}
+	// public void AddCity(CityClass newCity){
+	// 	settlements.Remove(newCity.settlement)
+
+	// 	cities.Add(newCity);
+	// }
 
 	// Returns an typed array
 	public RoadClass[] GetRoads(){
@@ -156,9 +158,9 @@ public class Player : MonoBehaviour {
 		return settlements.ToArray();
 	}
 
-	public CityClass[] GetCities(){
-		return cities.ToArray();
-	}
+	// public CityClass[] GetCities(){
+	// 	return cities.ToArray();
+	// }
 
 
 

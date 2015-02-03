@@ -39,6 +39,8 @@ public class Player : MonoBehaviour {
 	public int[] resourceCounts;
 	public int[] devCardCounts; 
 
+	public DevCardType lastCardTypeDrawn;
+
 	private List<SettlementClass> settlements;
 	// private List<CityClass> cities;
 	private List<RoadClass> roads;
@@ -53,8 +55,10 @@ public class Player : MonoBehaviour {
 		playerName = "Player " + Player.playerCount.ToString();
 		Player.playerCount++;
 
-		resourceCounts = new int[5];
-		devCardCounts = new int[4];
+		// -1 for the desert
+		resourceCounts = new int[Enum.GetNames(typeof(ResourceType)).Length - 1];
+
+		devCardCounts = new int[Enum.GetNames(typeof(DevCardType)).Length];
 
 		settlements = new List<SettlementClass>();
 		// cities = new List<CityClass>();
@@ -125,8 +129,16 @@ public class Player : MonoBehaviour {
 		return devCardCounts[(int) devCard] > 0;
 	}
 
+	// Adds a random type and returns it.
+	public DevCardType DrawRandomCard(){
+		DevCardType newCardType = DevCard.RandomCard();
+		AddDevCard(newCardType);
+		return newCardType;
+	}
+
 	public bool AddDevCard(DevCardType devCard){
 		devCardCounts[(int)devCard] += 1;
+		lastCardTypeDrawn = devCard;
 		return true;
 	}
 

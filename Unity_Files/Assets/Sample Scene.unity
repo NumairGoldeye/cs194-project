@@ -741,6 +741,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 616344843}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1512856437}
@@ -1994,7 +1998,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448446, guid: 077a8693ce5cd492fa12c2b44d933fb0, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 077a8693ce5cd492fa12c2b44d933fb0, type: 2}
@@ -2046,7 +2050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1291458442}
-  vertexIndex: 0
+  vertexIndex: 27
   ownerId: 0
 --- !u!23 &91416732
 Renderer:
@@ -3078,7 +3082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1371000793}
-  vertexIndex: 0
+  vertexIndex: 41
   ownerId: 0
 --- !u!23 &140244555
 Renderer:
@@ -3218,7 +3222,7 @@ Transform:
   m_LocalScale: {x: .0499999896, y: .25, z: .049999997}
   m_Children: []
   m_Father: {fileID: 962018715}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &150551118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3460,6 +3464,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1371000793}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 41
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 140244552}
@@ -3757,7 +3765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 576195395}
-  vertexIndex: 0
+  vertexIndex: 43
   ownerId: 0
 --- !u!23 &178987958
 Renderer:
@@ -4350,7 +4358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 712943163}
-  vertexIndex: 0
+  vertexIndex: 35
   ownerId: 0
 --- !u!23 &209648626
 Renderer:
@@ -4818,7 +4826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 881836828}
-  vertexIndex: 0
+  vertexIndex: 37
   ownerId: 0
 --- !u!23 &232953638
 Renderer:
@@ -5654,6 +5662,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 881836828}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 232953635}
@@ -6244,7 +6256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 109677073}
-  vertexIndex: 0
+  vertexIndex: 42
   ownerId: 0
 --- !u!23 &353176483
 Renderer:
@@ -6965,7 +6977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1747746078}
-  vertexIndex: 0
+  vertexIndex: 44
   ownerId: 0
 --- !u!23 &382758470
 Renderer:
@@ -7534,7 +7546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1030939334}
-  vertexIndex: 0
+  vertexIndex: 22
   ownerId: 0
 --- !u!23 &405026234
 Renderer:
@@ -8497,6 +8509,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 717495488}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 768069174}
@@ -8968,6 +8984,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 399010590}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 951043668}
@@ -9287,6 +9307,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1752554821}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1349748751}
@@ -9781,7 +9805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1951680005}
-  vertexIndex: 0
+  vertexIndex: 33
   ownerId: 0
 --- !u!23 &499121347
 Renderer:
@@ -10053,6 +10077,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1884130399}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1340700695}
@@ -10346,6 +10374,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 694479373}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 21
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 2037599516}
@@ -10624,6 +10656,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 109677073}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 42
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 353176480}
@@ -12571,7 +12607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 461430626}
-  vertexIndex: 0
+  vertexIndex: 39
   ownerId: 0
 --- !u!23 &656504637
 Renderer:
@@ -13266,6 +13302,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1124697619}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 28
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 907440559}
@@ -15638,7 +15678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 717495488}
-  vertexIndex: 0
+  vertexIndex: 40
   ownerId: 0
 --- !u!23 &768069177
 Renderer:
@@ -16532,6 +16572,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 461430626}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 39
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 656504634}
@@ -16644,6 +16688,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1951680005}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 33
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 499121344}
@@ -16954,7 +17002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 100367074}
-  vertexIndex: 0
+  vertexIndex: 47
   ownerId: 0
 --- !u!23 &848812650
 Renderer:
@@ -17271,7 +17319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1108175482}
-  vertexIndex: 0
+  vertexIndex: 49
   ownerId: 0
 --- !u!23 &868416947
 Renderer:
@@ -18081,6 +18129,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1553543755}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 912629616}
@@ -18160,7 +18212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1124697619}
-  vertexIndex: 0
+  vertexIndex: 28
   ownerId: 0
 --- !u!23 &907440562
 Renderer:
@@ -18365,7 +18417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1553543755}
-  vertexIndex: 0
+  vertexIndex: 23
   ownerId: 0
 --- !u!23 &912629619
 Renderer:
@@ -19020,7 +19072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 399010590}
-  vertexIndex: 0
+  vertexIndex: 45
   ownerId: 0
 --- !u!23 &951043671
 Renderer:
@@ -19155,8 +19207,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1882351055}
   - {fileID: 150551117}
+  - {fileID: 1882351055}
   m_Father: {fileID: 1447773773}
   m_RootOrder: 9
 --- !u!1 &963946336
@@ -19431,7 +19483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 446057993}
-  vertexIndex: 0
+  vertexIndex: 48
   ownerId: 0
 --- !u!23 &967434742
 Renderer:
@@ -21591,6 +21643,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 2143300186}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1675596448}
@@ -21717,6 +21773,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 2068843111}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1458003851}
@@ -21802,6 +21862,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 100367074}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 848812647}
@@ -23559,7 +23623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 502877777}
-  vertexIndex: 0
+  vertexIndex: 30
   ownerId: 0
 --- !u!23 &1171189305
 Renderer:
@@ -24536,7 +24600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2041281267}
-  vertexIndex: 0
+  vertexIndex: 46
   ownerId: 0
 --- !u!23 &1211986046
 Renderer:
@@ -25053,7 +25117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1569353321}
-  vertexIndex: 0
+  vertexIndex: 38
   ownerId: 0
 --- !u!23 &1236836488
 Renderer:
@@ -26420,6 +26484,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1511167280}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 36
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1524708210}
@@ -26476,6 +26544,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 576195395}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 43
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 178987955}
@@ -27059,7 +27131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1884130399}
-  vertexIndex: 0
+  vertexIndex: 17
   ownerId: 0
 --- !u!23 &1340700698
 Renderer:
@@ -27347,7 +27419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1752554821}
-  vertexIndex: 0
+  vertexIndex: 34
   ownerId: 0
 --- !u!23 &1349748754
 Renderer:
@@ -27436,7 +27508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1294377589}
-  vertexIndex: 0
+  vertexIndex: 32
   ownerId: 0
 --- !u!23 &1355560720
 Renderer:
@@ -27531,6 +27603,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1747746078}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 44
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 382758467}
@@ -29192,6 +29268,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 712943163}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 209648623}
@@ -29374,7 +29454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2068843111}
-  vertexIndex: 0
+  vertexIndex: 29
   ownerId: 0
 --- !u!23 &1458003854
 Renderer:
@@ -30237,7 +30317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 616344843}
-  vertexIndex: 0
+  vertexIndex: 52
   ownerId: 0
 --- !u!23 &1512856440
 Renderer:
@@ -30481,7 +30561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1511167280}
-  vertexIndex: 0
+  vertexIndex: 36
   ownerId: 0
 --- !u!23 &1524708213
 Renderer:
@@ -31302,7 +31382,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 148240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
       propertyPath: m_Name
@@ -32026,6 +32106,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1294377589}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 32
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1355560717}
@@ -32367,6 +32451,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1108175482}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 49
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 868416944}
@@ -34302,7 +34390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 2143300186}
-  vertexIndex: 0
+  vertexIndex: 51
   ownerId: 0
 --- !u!23 &1675596451
 Renderer:
@@ -34874,6 +34962,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1291458442}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 27
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 91416729}
@@ -36576,6 +36668,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 502877777}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1171189302}
@@ -37668,6 +37764,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 446057993}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 48
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 967434739}
@@ -38176,7 +38276,7 @@ Transform:
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 962018715}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1882351056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38456,6 +38556,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 556332197}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 2102318805}
@@ -40260,6 +40364,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1210375647}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 53
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 2037985529}
@@ -40813,6 +40921,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1569353321}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 38
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1236836485}
@@ -41034,6 +41146,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 2041281267}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 46
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 1211986043}
@@ -41084,7 +41200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 694479373}
-  vertexIndex: 0
+  vertexIndex: 21
   ownerId: 0
 --- !u!23 &2037599519
 Renderer:
@@ -41260,7 +41376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 1210375647}
-  vertexIndex: 0
+  vertexIndex: 53
   ownerId: 0
 --- !u!23 &2037985532
 Renderer:
@@ -41647,6 +41763,10 @@ Prefab:
       propertyPath: city
       value: 
       objectReference: {fileID: 1030939334}
+    - target: {fileID: 11448240, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
+      propertyPath: vertexIndex
+      value: 22
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62158731a481e47e0b1b2dbc9accf45d, type: 2}
   m_RootGameObject: {fileID: 405026231}
@@ -42655,7 +42775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   city: {fileID: 556332197}
-  vertexIndex: 0
+  vertexIndex: 50
   ownerId: 0
 --- !u!23 &2102318808
 Renderer:

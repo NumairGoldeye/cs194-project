@@ -75,11 +75,13 @@ public class GameManager : MonoBehaviour {
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
 		for (int index = 0; index < graph.TileCount; index++) {
 			TileClass tile = graph.getTile(index);
+			//TODO Check if the robber is occupying this tile
 			if (roll == tile.diceValue) {
 				//This is assuming that each tile keeps track of its vertices
 				List<int> vertices = tile.getVertices();
 				for (int i = 0; i < vertices.Count; i++) {
 //					Debugger.Log("Settlement", graph.getVertex(vertices[i]).settlement.isBuilt().ToString());
+					//TODO Consolidate Cities
 					if (graph.getVertex(vertices[i]).settlement.isBuilt()) {
 						//this is assuming that the settlements and cities are storing the playerID
 						Player p = TurnState.players[graph.getVertex(vertices[i]).settlement.getPlayer()];

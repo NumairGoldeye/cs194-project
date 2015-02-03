@@ -8,7 +8,7 @@ public class SettlementClass : MonoBehaviour {
 	private bool upgrading;
 	public GameObject settlements;
 	public GameObject city;
-
+	public int settlementID;
 	public int ownerId;
 
 	// Use this for initialization
@@ -74,9 +74,12 @@ public class SettlementClass : MonoBehaviour {
 			renderer.material.color = temp;
 			ownerId = TurnState.currentPlayer.playerId;
 			settlements.BroadcastMessage ("toggleSettlements");
+			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);
 		} else {
-			if (upgrading)
+			if (upgrading) {
+				BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
 				upgradeToCity();
+			}
 		}
 	}
 }

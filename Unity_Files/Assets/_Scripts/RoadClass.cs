@@ -53,6 +53,6 @@ public class RoadClass : MonoBehaviour {
 		temp.a = 1;
 		renderer.material.color = temp;
 		roads.BroadcastMessage ("toggleRoad");
-//		gameObject.SendMessageUpwards ("toggleChildren");
+		BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 	}
 }

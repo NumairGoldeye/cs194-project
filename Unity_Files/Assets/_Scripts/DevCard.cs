@@ -16,6 +16,7 @@ public class DevCard : MonoBehaviour {
 	static DevCardType monopoly = DevCardType.monopoly;
 	static DevCardType victoryPoint = DevCardType.victoryPoint;
 
+<<<<<<< HEAD
 	static DevCardType[] devCardsByChance = new DevCardType[] { knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint };
 
 
@@ -24,6 +25,9 @@ public class DevCard : MonoBehaviour {
 
 	private static Dictionary<DevCardType, string> devCardDescriptions = new Dictionary<DevCardType, string>();
 	
+=======
+	static DevCardType[] devCardsByChance = new DevCardType[] {knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint};
+>>>>>>> FETCH_HEAD
 
 	// Todo Gives a random card
 	public static DevCardType RandomCard(){
@@ -54,11 +58,11 @@ public class DevCard : MonoBehaviour {
 		DevCard.devCardNames.Add(yearOfPlenty, "Year of Plenty");
 		DevCard.devCardNames.Add(monopoly, "Monopoly!");
 		DevCard.devCardNames.Add(victoryPoint, "Library");
-		DevCard.devCardNames.Add(knight, "Move the Robber and take a random resource from a neighboring player");
-		DevCard.devCardNames.Add(roadBuilding, "Build two roads");
-		DevCard.devCardNames.Add(yearOfPlenty, "Take two of any resource");
-		DevCard.devCardNames.Add(monopoly, "Name a resource type. All players must give all resouces of that type to you");
-		DevCard.devCardNames.Add(victoryPoint, "+1 Victory Point");
+		DevCard.devCardDescriptions.Add(knight, "Move the Robber and take a random resource from a neighboring player");
+		DevCard.devCardDescriptions.Add(roadBuilding, "Build two roads");
+		DevCard.devCardDescriptions.Add(yearOfPlenty, "Take two of any resource");
+		DevCard.devCardDescriptions.Add(monopoly, "Name a resource type. All players must give all resouces of that type to you");
+		DevCard.devCardDescriptions.Add(victoryPoint, "+1 Victory Point");
 	}
 
 	// Use this for initialization

@@ -94,3 +94,34 @@ private bool playerHasBuildingOnVertex(Vertex v, int playerId) {
   }
   return false;
 }
+
+/***************************** Actual Building ***********************/
+
+public void buildRoad(Road road, Player p) {
+  BuyManager.PurchaseForPlayer(BuyableType.road, p);
+  road.ownerId = p.playerId;
+  road.built = true;
+  // TODO: How exactly does this work?
+  road.setColor(p.color);
+  road.makeVisible();
+}
+
+public void buildCity(CityClass city, SettlementClass settlment, Player p) {
+  BuyManager.PurchaseForPlayer(BuyableType.city, p);
+  settlement.built = false;
+  city.built = true;
+  city.ownerId = p.playerId
+  // TODO: How exactly does this work?
+  city.setColor(p.color);
+  city.makeVisible();
+  settlement.makeInvisible();
+}
+
+public void buildSettlment(SettlementClass settlment) {
+  BuyManager.PurchaseForPlayer(BuyableType.settlement, p);
+  settlement.ownerId = p.playerId;
+  settlement.built = true;
+  // TODO: How exactly does this work?
+  settlement.setColor(p.color);
+  settlement.makeVisible();
+}

@@ -194,7 +194,9 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		return null;
 	}
 
-	// See note for addVerticies.
+	// The order of the arguments does not matter, but the order in which you add these matters
+	// VERY VERY VERY VERY MUCH.  IF YOU ARRANGE THEM WRONG, THINGS WILL BREAK.  DO NOT REARRANGE THEM
+	// WITHOUT A VERY GOOD REASON!
 	private void addRoads() {
 			addRoadBetween (0, 3);
 			addRoadBetween (0, 4);

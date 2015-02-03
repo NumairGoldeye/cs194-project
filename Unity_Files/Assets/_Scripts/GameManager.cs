@@ -82,15 +82,12 @@ public class GameManager : MonoBehaviour {
 				foreach (SettlementClass settlement in settlements) {
 //					Debugger.Log("Settlement", graph.getVertex(vertices[i]).settlement.isBuilt().ToString());
 					//TODO Consolidate Cities
-					if (settlement.isBuilt()) {
+					if (settlement.isBuilt() && !settlement.isCity()) {
 						//this is assuming that the settlements and cities are storing the playerID
 						Player p = TurnState.players[settlement.getPlayer()];
 //						Debugger.Log("Player ID", p.playerId.ToString());
 						p.AddResource(tile.type, 1);
-					}	
-					// TODO: Might not work correctly w/ consolidated cities.  If things are getting 3 resources with cities,
-					// this is likely why.
-					if (settlement.city) {
+					} else if (settlement.isBuilt() && settlement.isCity()) {
 						Player p = TurnState.players[settlement.getPlayer()];
 						p.AddResource(tile.type, 2);
 					}

@@ -8,6 +8,7 @@ public class SettlementClass : MonoBehaviour {
 	private bool upgrading;
 	public GameObject settlements;
 	public GameObject city;
+	public bool hasCity;
 	public int vertexIndex;
 	public int ownerId;
 
@@ -17,11 +18,16 @@ public class SettlementClass : MonoBehaviour {
 		upgrading = false;
 		ownerId = -1;
 		makeInvisible();
+		hasCity = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public bool isCity() {
+		return hasCity;
 	}
 
 	public int getPlayer() {
@@ -31,7 +37,7 @@ public class SettlementClass : MonoBehaviour {
 	public bool isBuilt() {
 		return built;
 	}
-
+	
 	public void upgradeAbility() {
 		if (isBuilt ())
 			upgrading = true;

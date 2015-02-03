@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
 
 	
 	public string playerName; 
-	public int playerId;
+	public int playerId = 0;
 	public Color playerColor;
 
 	// Each index corresponds to a the ResourceType by enum
@@ -39,14 +39,26 @@ public class Player : MonoBehaviour {
 	public int[] resourceCounts;
 	public int[] devCardCounts; 
 
+	private List<SettlementClass> settlements;
+	private List<CityClass> cities;
+	private List<RoadClass> roads;
+
 	// resources
 	// dev cards 
 
 	// Use this for initialization
 	void Start () {
-		playerCount = 0;
+		// Gives everyone a unique playerId
+		playerId = Player.playerCount;
+		playerName = "Player " + Player.playerCount.ToString();
+		Player.playerCount++;
+
 		resourceCounts = new int[5];
 		devCardCounts = new int[4];
+
+		settlements = new List<SettlementClass>();
+		cities = new List<CityClass>();
+		roads = new List<RoadClass>();
 
 		// AddDevCard(DevCardType.knight);
 		// AddDevCard(DevCardType.knight);
@@ -123,9 +135,30 @@ public class Player : MonoBehaviour {
 		return true;
 	}
 
+	public void AddRoad(RoadClass newRoad){
+		roads.Add(newRoad);
+	}
 
+	public void AddSettlement(SettlementClass newSettlement){
+		settlements.Add(newSettlement);
+	}
+	//  Will remove settlements from the settlements list
+	public void AddCity(CityClass newCity){
+		cities.Add(newCity);
+	}
 
+	// Returns an typed array
+	public RoadClass[] GetRoads(){
+		return roads.ToArray();
+	}
 
+	public SettlementClass[] GetSettlementss(){
+		return settlements.ToArray();
+	}
+
+	public CityClass[] GetCities(){
+		return cities.ToArray();
+	}
 
 
 

@@ -122,6 +122,10 @@ public static class BuyManager {
 				}
 			}
 		}
+
+		if (buyable == BuyableType.devCard){
+			player.DrawRandomCard();
+		}
 	}
 
 

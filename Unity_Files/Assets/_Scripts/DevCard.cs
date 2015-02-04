@@ -21,8 +21,6 @@ public class DevCard : MonoBehaviour {
 
 
 	private static Dictionary<DevCardType, string> devCardNames = new Dictionary<DevCardType, string>();
-	
-
 	private static Dictionary<DevCardType, string> devCardDescriptions = new Dictionary<DevCardType, string>();
 	
 
@@ -49,12 +47,33 @@ public class DevCard : MonoBehaviour {
 		}
 	}
 
+	// Carries out the effects of the monopoly on the players...
+	// returns number of resources gained
+	// 
+	public static int EnactMonopoly(Player mainPlayer, ResourceType resource){
+		Player[] otherPlayers = Player.OtherPlayers(mainPlayer);
+
+		int totalResourceCount = 0;
+		int thisCount = 0;
+
+		foreach(Player p in otherPlayers){
+			thisCount = p.GetResourceCount(resource);
+			p.RemoveResource(resource, thisCount);
+			
+			totalResourceCount += thisCount;
+		}
+
+		mainPlayer.AddResource(resource, totalResourceCount);
+		return totalResourceCount;
+	}
+
 	void Awake(){
 		DevCard.devCardNames.Add(knight, "Knight");
 		DevCard.devCardNames.Add(roadBuilding, "Road Building");
 		DevCard.devCardNames.Add(yearOfPlenty, "Year of Plenty");
 		DevCard.devCardNames.Add(monopoly, "Monopoly!");
 		DevCard.devCardNames.Add(victoryPoint, "Library");
+		
 		DevCard.devCardDescriptions.Add(knight, "Move the Robber and take a random resource from a neighboring player");
 		DevCard.devCardDescriptions.Add(roadBuilding, "Build two roads");
 		DevCard.devCardDescriptions.Add(yearOfPlenty, "Take two of any resource");

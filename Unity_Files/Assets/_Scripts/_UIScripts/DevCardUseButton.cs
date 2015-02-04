@@ -12,6 +12,26 @@ that activate dev cards
 This script disables the button if the player doesn't have enough 
 of the specific dev card
 
+UI guidelines
+
+
+Knight will do something weird;
+
+Monopoly will
+	show the 5 resource panel - requires you to click confirm or cancel
+	clicking confirm enacts the monopoly and creates the alert panel
+
+RoadBuilding will
+	show the roadbuilding panel with a cancel button
+	will allow you to build 2 roads by changing the turnstate somehow
+
+Year of plenty will
+	show the 5 resource panel - requires you to click confirm or cancel
+	clicking confirm gives you the two things and creates the alert panel
+
+
+
+
 */
 
 public class DevCardUseButton : MonoBehaviour {
@@ -29,17 +49,34 @@ public class DevCardUseButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		player = TurnState.currentPlayer;
-
-
 		btn.interactable = player.HasCard(cardType);		
 	}
 
 	void UseCard(){
 
 		player = TurnState.currentPlayer;
-
-		// The purchase should actulaly only happen after the thing is buit
+		
+		// Need something to track knights
 		player.RemoveDevCard(cardType);
+
+//		switch (cardType){
+//		case DevCardType.knight:
+//			Debug.Log()"Knights not implemented. Hah!");
+//			break;
+//		case DevCardType.monopoly:
+//			break;
+//		case DevCardType.roadBuilding:
+//			break;
+//		case DevCardType.victoryPoint:
+//			break;
+//		case DevCardType.yearOfPlenty:
+//			break;
+//				
+//		}
+
+
+
+
 	}
 
 

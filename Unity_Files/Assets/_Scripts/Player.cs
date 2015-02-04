@@ -25,10 +25,9 @@ public class Player : MonoBehaviour {
 	}
 
 	public static Player tempPlayer = null;
-	public static void CreatePlayer(string name, Color color){
-		// adds a player logic
-	}
-
+	// Max players = 4
+	public static int maxPlayers = 4;
+	public static Player[] allPlayers = new Player[4];
 	
 	public string playerName; 
 	public int playerId = 0;
@@ -40,10 +39,29 @@ public class Player : MonoBehaviour {
 	public int[] devCardCounts; 
 
 	public DevCardType lastCardTypeDrawn;
+	public int numUsedKnights = 0;
 
 	private List<SettlementClass> settlements;
 	// private List<CityClass> cities;
 	private List<RoadClass> roads;
+
+
+	public static void StorePlayer(Player player){
+		// Player.playerCount++; - make sure this is called somewhere in Start()
+		allPlayers[playerCount] = player;
+	}
+
+	public static Player[] OtherPlayers(Player player){
+		Player[] otherPlayers = new Player[ playerCount - 1 ];
+		int index = 0;
+		foreach(Player p in allPlayers){
+			if (p != player){
+				otherPlayers[index] = p;
+				index++;
+			}
+		}
+		return otherPlayers;
+	}
 
 	// resources
 	// dev cards 
@@ -54,6 +72,7 @@ public class Player : MonoBehaviour {
 		playerId = Player.playerCount;
 		playerName = "Player " + Player.playerCount.ToString();
 		Player.playerCount++;
+		Player.StorePlayer(this);
 
 		// -1 for the desert
 		resourceCounts = new int[Enum.GetNames(typeof(ResourceType)).Length - 1];

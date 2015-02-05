@@ -75,9 +75,11 @@ public class SettlementClass : MonoBehaviour {
 		if (!built) {
 			if (!visible) return;
 			built = true;
-			Color temp = renderer.material.color;
-			temp.a = 1;
-			renderer.material.color = temp;
+//			Color temp = renderer.material.color;
+//			temp.a = 1;
+			renderer.material.color = TurnState.currentPlayer.playerColor;
+
+
 			ownerId = TurnState.currentPlayer.playerId;
 			settlements.BroadcastMessage ("toggleSettlements");
 			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);

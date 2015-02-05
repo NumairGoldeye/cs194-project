@@ -28,6 +28,7 @@ public class Player : MonoBehaviour {
 	// Max players = 4
 	public static int maxPlayers = 4;
 	public static Player[] allPlayers = new Player[4];
+	public static Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
 	
 	public string playerName; 
 	public int playerId = 0;
@@ -73,6 +74,10 @@ public class Player : MonoBehaviour {
 		playerName = "Player " + Player.playerCount.ToString();
 		Player.playerCount++;
 		Player.StorePlayer(this);
+
+		// They will actually choose this later
+		playerColor = Player.playerColors[playerId];
+
 
 		// -1 for the desert
 		resourceCounts = new int[Enum.GetNames(typeof(ResourceType)).Length - 1];

@@ -36,7 +36,11 @@ Year of plenty will
 
 public class DevCardUseButton : MonoBehaviour {
 
-	public DevCardType cardType; // should be set in inspector
+	// should be set in inspector
+	public DevCardType cardType; 
+	public TurnSubStateType stateType;
+
+	// don't need
 	public Player player;
 	Button btn; 
 
@@ -57,7 +61,12 @@ public class DevCardUseButton : MonoBehaviour {
 		player = TurnState.currentPlayer;
 		
 		// Need something to track knights
-		player.RemoveDevCard(cardType);
+//		player.RemoveDevCard(cardType);
+
+
+		TurnState.SetSubStateType(stateType);
+
+		TurnState.chosenResource = ResourceType.desert;
 
 //		switch (cardType){
 //		case DevCardType.knight:

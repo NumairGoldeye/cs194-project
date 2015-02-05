@@ -47,6 +47,24 @@ public class DevCard : MonoBehaviour {
 		}
 	}
 
+	public static string ExecutedCardDesc(DevCardType type, int info){
+		switch (type){
+		case DevCardType.knight:
+			return "You have played a knight and robbed so and so";
+		case DevCardType.monopoly:
+			return "You have played a monopoly and gained " + info.ToString() + " " + TurnState.chosenResource.ToString();
+		case DevCardType.roadBuilding:
+			return "You have built two roads? Do i even need this?";
+		case DevCardType.victoryPoint:
+			return " Buhhh";
+		case DevCardType.yearOfPlenty:
+			return "You have gained " + info.ToString() + " " + TurnState.chosenResource.ToString();
+				
+		}
+
+		return "you've messed up - executedCardDesc in DevCard.cs";
+	}
+
 	// Carries out the effects of the monopoly on the players...
 	// returns number of resources gained
 	// 
@@ -65,6 +83,25 @@ public class DevCard : MonoBehaviour {
 
 		mainPlayer.AddResource(resource, totalResourceCount);
 		return totalResourceCount;
+	}
+
+	public static int EnactYearOfPlenty(Player mainPlayer, ResourceType resource){
+		mainPlayer.AddResource(resource, 2);
+		return 2;
+	}
+
+	// To be called by a UI element
+	public static int ExecuteCard(DevCardType cardType){
+		Player p = TurnState.currentPlayer;
+		ResourceType r = TurnState.chosenResource;
+		// probably could just do this with a function map
+		switch (cardType){
+		case DevCardType.monopoly: 
+			return EnactMonopoly(p, r);
+		case DevCardType.yearOfPlenty:
+			return EnactYearOfPlenty(p, r);
+		}
+		return -1;
 	}
 
 	void Awake(){

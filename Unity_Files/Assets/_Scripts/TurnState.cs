@@ -39,6 +39,8 @@ End turn button
 
 public enum TurnStateType {roll, trade, build};
 
+public enum TurnSubStateType {none, monopolyChoose, yearOfPlentyChoose, roadBuilding, robbering};
+
 public class TurnState : MonoBehaviour {
 
     public static Player currentPlayer {
@@ -61,7 +63,11 @@ public class TurnState : MonoBehaviour {
     public static Player[] players = new Player[4];
     public static int numPlayers = 2;
     public static TurnStateType stateType = TurnStateType.roll;
-    public static int numTurns = 0;
+	public static TurnSubStateType subStateType = TurnSubStateType.none;
+    
+	public static int numTurns = 0;
+	public static ResourceType chosenResource = ResourceType.desert;
+
 
     // Just for public inspector stuff
     public Player thisCurrentPlayer; 
@@ -89,7 +95,38 @@ public class TurnState : MonoBehaviour {
         // stateType = TurnStateType.roll;
     }
 
-    void Awake(){
+	// Returns the DevCardType for each particular TurnSubStateType
+	public static DevCardType DevTypeForSubstate(){
+//		Debug.Log (subStateType.ToString());
+
+		switch (subStateType){
+		case TurnSubStateType.monopolyChoose: 
+			return DevCardType.monopoly;
+		case TurnSubStateType.roadBuilding:
+			return DevCardType.roadBuilding;
+		case TurnSubStateType.yearOfPlentyChoose:
+			return DevCardType.yearOfPlenty;
+		case TurnSubStateType.robbering:
+			return DevCardType.knight;
+		}
+		// Some default...
+		return (DevCardType) (-1);
+	}
+
+	public static void SetSubStateType(TurnSubStateType state){
+		subStateType = state;
+	}
+
+	public static void ResetSubStateType2(){
+		TurnState.subStateType = TurnSubStateType.none;
+	}
+
+	public void ResetSubStateType(){
+		TurnState.subStateType = TurnSubStateType.none;
+	}
+
+	
+	void Awake(){
         _instance = this;
 
     }
@@ -146,7 +183,6 @@ public class TurnState : MonoBehaviour {
     void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
     }
-
 
 
 

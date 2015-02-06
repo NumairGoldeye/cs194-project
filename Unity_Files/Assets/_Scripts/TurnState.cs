@@ -135,6 +135,10 @@ public class TurnState : MonoBehaviour {
 	// Returns true if the second time a road is built for roadbuilding
 	// Stores it just in case
 	public static bool CheckSecondRoadBuilt(RoadClass road){
+		if (TurnState.subStateType != TurnSubStateType.roadBuilding){
+			return true;
+		}
+
 		if (!firstRoadBuilt){
 			firstRoadBuilt = true;
 			firstRoad = road;

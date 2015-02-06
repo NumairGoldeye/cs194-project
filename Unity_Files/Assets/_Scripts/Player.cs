@@ -93,8 +93,8 @@ public class Player : MonoBehaviour {
 		 AddDevCard(DevCardType.roadBuilding);
 		 AddDevCard(DevCardType.knight);
 		 AddDevCard(DevCardType.monopoly);
-		 AddResource(ResourceType.ore, 2);
-		 AddResource(ResourceType.wheat, 2);
+		 AddResource(ResourceType.wood, 2);
+		 AddResource(ResourceType.brick, 2);
 		// LogResources();
 		// Debugger.Log("Charlie", "Something amazing");
 		// BuyManager.Test(this);

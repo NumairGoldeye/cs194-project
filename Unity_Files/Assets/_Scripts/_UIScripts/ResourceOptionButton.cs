@@ -27,7 +27,7 @@ public class ResourceOptionButton : MonoBehaviour {
 	// Text txt; // set this later
 
 	static Color selectedColor = new Color(1.0f,1.0f,1.0f);
-	static Color unselectedColor = new Color(.8f,.8f,.8f);
+	static Color unselectedColor = new Color(.4f,.4f,.4f);
 
 
 	// button should have a highlighted state - currently set in inspector

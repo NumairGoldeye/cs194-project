@@ -19,7 +19,7 @@ public class CurrentPlayerText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// player = TurnState.currentPlayer;
-		txt.text = "CurrentPlayer: " + TurnState.currentPlayer.name;
+		txt.text = TurnState.currentPlayer.name + "'s Turn";
 	}
 
 }

@@ -7,8 +7,8 @@ using System.Collections;
 
 public class UIManager : MonoBehaviour {
 
-	public GameObject[] disableOnStart = new GameObject[6];
-	public GameObject[] enableOnStart = new GameObject[6];
+	public GameObject[] disableOnStart = new GameObject[8];
+	public GameObject[] enableOnStart = new GameObject[8];
 
 
 	// The gameobject that houses all the UI

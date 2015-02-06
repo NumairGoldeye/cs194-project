@@ -56,7 +56,8 @@ public class Player : MonoBehaviour {
 		Player[] otherPlayers = new Player[ playerCount - 1 ];
 		int index = 0;
 		foreach(Player p in allPlayers){
-			if (p != player){
+			if (p != player && p != null){
+				Debugger.Log("Player", p.playerName);
 				otherPlayers[index] = p;
 				index++;
 			}
@@ -91,9 +92,9 @@ public class Player : MonoBehaviour {
 		// AddDevCard(DevCardType.knight);
 		// AddDevCard(DevCardType.knight);
 		// AddDevCard(DevCardType.knight);
-		// AddDevCard(DevCardType.knight);
-		// AddResource(ResourceType.ore, 3);
-		// AddResource(ResourceType.wheat, 2);
+		 AddDevCard(DevCardType.monopoly);
+		 AddResource(ResourceType.ore, 2);
+		 AddResource(ResourceType.wheat, 2);
 		// LogResources();
 		// Debugger.Log("Charlie", "Something amazing");
 		// BuyManager.Test(this);

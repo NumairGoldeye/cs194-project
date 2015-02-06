@@ -80,7 +80,7 @@ public class DevCard : MonoBehaviour {
 			
 			totalResourceCount += thisCount;
 		}
-
+		// Todo - log which player loses what...
 		mainPlayer.AddResource(resource, totalResourceCount);
 		return totalResourceCount;
 	}

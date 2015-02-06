@@ -30130,7 +30130,7 @@ GameObject:
   - 114: {fileID: 1437273755}
   - 114: {fileID: 1437273757}
   m_Layer: 5
-  m_Name: ResourceSubText
+  m_Name: DevSubText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32195,7 +32195,7 @@ GameObject:
   - 114: {fileID: 1525591438}
   - 114: {fileID: 1525591440}
   m_Layer: 5
-  m_Name: ResourceTitleText
+  m_Name: DevTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

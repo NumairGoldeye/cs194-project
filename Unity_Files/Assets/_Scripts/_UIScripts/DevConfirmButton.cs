@@ -12,7 +12,7 @@ onlick in inspector should show alert panel
 
  */
 
-public class ResourceConfirmButton : MonoBehaviour {
+public class DevConfirmButton : MonoBehaviour {
 
 	// Set in inspector
 	public GameObject alertPanel;

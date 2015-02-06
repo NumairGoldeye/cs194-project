@@ -4,8 +4,8 @@ using System.Collections;
 
 
 // Makes sure the little text at the top of the 5 Resource panel is righ
-public class Resource5Subtext : MonoBehaviour {
-	
+public class Dev5TitleText : MonoBehaviour {
+
 	// Should set
 	Text txt;
 	
@@ -17,6 +17,6 @@ public class Resource5Subtext : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		DevCardType currentDev = TurnState.DevTypeForSubstate();
-		txt.text = DevCard.DescForCardType(currentDev);
+		txt.text = DevCard.NameForCardType(currentDev);
 	}
 }

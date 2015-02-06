@@ -55,10 +55,19 @@ public class RoadClass : MonoBehaviour {
 	void OnMouseDown() {
 		if (!visible || built) return;
 		built = true;
-		Color temp = renderer.material.color;
-		temp.a = 1;
-		renderer.material.color = temp;
-		roads.BroadcastMessage ("toggleRoad");
+//		Color temp = renderer.material.color;
+//		temp.a = 1;
+//		renderer.material.color = temp;
+		renderer.material.color = TurnState.currentPlayer.playerColor;
+
+		// If roadbuilding, allow a second road.. 
+		// TODO - undo buttons?
+		if (TurnState.subStateType == TurnSubStateType.roadBuilding){
+			TurnState.ResetSubStateType2();
+		} else {
+			roads.BroadcastMessage ("toggleRoad");
+		}
+
 		BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 	}
 }

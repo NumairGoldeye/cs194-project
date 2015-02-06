@@ -62,11 +62,10 @@ public class RoadClass : MonoBehaviour {
 
 		// If roadbuilding, allow a second road.. 
 		// TODO - undo buttons?
-		if (TurnState.subStateType == TurnSubStateType.roadBuilding){
-			TurnState.ResetSubStateType2();
-		} else {
+		if (TurnState.CheckSecondRoadBuilt()){
 			roads.BroadcastMessage ("toggleRoad");
 		}
+		
 
 		BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 	}

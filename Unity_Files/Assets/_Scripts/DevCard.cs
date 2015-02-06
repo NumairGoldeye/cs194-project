@@ -91,6 +91,7 @@ public class DevCard : MonoBehaviour {
 	}
 
 	// To be called by a UI element
+	// Doesn't remove the card - the UI element does that.
 	public static int ExecuteCard(DevCardType cardType){
 		Player p = TurnState.currentPlayer;
 		ResourceType r = TurnState.chosenResource;

@@ -8,37 +8,28 @@ using System.Collections.Generic;
 /*
 
 This class is very very important. 
-
-It has 2 functions
-
-to provide booleans for an internal state machine
-
-TurnState.instance.isPlayerTurn(1);
-TurnState.instance.isPlacingRoad();
-TurnState.instance.isPlacingCity();
-
-Turns have the following order: 
-
-Roll Dice 
-Trade
-Build
-
-Needed UI for this proto:
-
-Roll Dice button
-
-Trade button
-Dev Button
-Build Button
-
-End turn button
-
+Tracks lots of global things, like TurnState.currentPlayer
 
 */
 
 
+/*
+
+ */
+
 public enum TurnStateType {roll, trade, build};
 
+
+/*
+
+TurnSubstate is mostly managed in the DevPanel gameobject inside the BuyPanel
+
+The DevUseButtons all open the DevCard Panel, and the UI elements rely on TurnState.substatetype
+in order to tell which card to use
+
+DevConfirmButton is responsible for actually executing the cards
+
+ */
 public enum TurnSubStateType {none, monopolyChoose, yearOfPlentyChoose, roadBuilding, robbering};
 
 public class TurnState : MonoBehaviour {
@@ -61,13 +52,15 @@ public class TurnState : MonoBehaviour {
 
 
     public static Player[] players = new Player[4];
-    public static int numPlayers = 2;
+//    public static int numPlayers = 2;
     public static TurnStateType stateType = TurnStateType.roll;
 	public static TurnSubStateType subStateType = TurnSubStateType.none;
     
 	public static int numTurns = 0;
 	public static ResourceType chosenResource = ResourceType.desert;
-
+	public static bool cardPlayedThisTurn = false;
+	public static bool firstRoadBuilt = false;
+	public static bool secondRoadBuilt = false;
 
     // Just for public inspector stuff
     public Player thisCurrentPlayer; 
@@ -88,12 +81,32 @@ public class TurnState : MonoBehaviour {
     public static void EndTurn(){
         numTurns++;
         // Debugger.Log("TurnState", "EndTurn");
-        int index = numTurns % numPlayers;
+        int index = numTurns % Player.playerCount;
         currentPlayer = players[index];
-        
-        // TODO uhhh
-        // stateType = TurnStateType.roll;
+
+		// Some simple resets
+		cardPlayedThisTurn = false;
+		firstRoadBuilt = false;
+		secondRoadBuilt = false;
     }
+
+	// Returns true if the second time a road is built for roadbuilding
+	public static bool CheckSecondRoadBuilt(){
+		if (!firstRoadBuilt){
+			firstRoadBuilt = true;
+			return false;
+		} else {
+			secondRoadBuilt = true;
+			return true;
+		}
+	}
+
+	// Card is played when the confirmbutton is clicked, not through other things
+	public static bool PlayCardOnConfirm(){
+		return subStateType == TurnSubStateType.monopolyChoose || subStateType == TurnSubStateType.yearOfPlentyChoose;
+	}
+
+
 
 	// Returns the DevCardType for each particular TurnSubStateType
 	public static DevCardType DevTypeForSubstate(){

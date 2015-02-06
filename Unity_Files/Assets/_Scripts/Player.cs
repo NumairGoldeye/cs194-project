@@ -90,8 +90,8 @@ public class Player : MonoBehaviour {
 		roads = new List<RoadClass>();
 
 		// AddDevCard(DevCardType.knight);
-		// AddDevCard(DevCardType.knight);
-		// AddDevCard(DevCardType.knight);
+		 AddDevCard(DevCardType.roadBuilding);
+		 AddDevCard(DevCardType.knight);
 		 AddDevCard(DevCardType.monopoly);
 		 AddResource(ResourceType.ore, 2);
 		 AddResource(ResourceType.wheat, 2);

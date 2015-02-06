@@ -29,17 +29,25 @@ public class DevConfirmButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		btn.interactable = TurnState.chosenResource != ResourceType.desert;
+		if (TurnState.subStateType == TurnSubStateType.monopolyChoose || TurnState.subStateType == TurnSubStateType.yearOfPlentyChoose){
+			btn.interactable = TurnState.chosenResource != ResourceType.desert;
+		} else if (TurnState.subStateType == TurnSubStateType.roadBuilding){
+			btn.interactable = TurnState.secondRoadBuilt;
+		}
 	}
 
 
 	void ExecuteCard(){
+
 		DevCardType cardType = TurnState.DevTypeForSubstate();
-//		Debug.Log (cardType.ToString());
-//		TurnState.currentPlayer.RemoveDevCard()
 		int info = DevCard.ExecuteCard(cardType);
-		alertPanelTxt.text = DevCard.ExecutedCardDesc(cardType, info);
-		alertPanel.SetActive(true);
+		TurnState.currentPlayer.RemoveDevCard(cardType);
+		TurnState.cardPlayedThisTurn = true;
+
+		if (TurnState.PlayCardOnConfirm()){
+			alertPanelTxt.text = DevCard.ExecutedCardDesc(cardType, info);
+			alertPanel.SetActive(true);
+		}
 
 		TurnState.ResetSubStateType2();
 	}

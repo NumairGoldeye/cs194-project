@@ -53,7 +53,7 @@ public class DevCardUseButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		player = TurnState.currentPlayer;
-		btn.interactable = player.HasCard(cardType);		
+		btn.interactable = player.HasCard(cardType) && !TurnState.cardPlayedThisTurn;		
 	}
 
 	void UseCard(){

@@ -29,6 +29,21 @@ in order to tell which card to use
 
 DevConfirmButton is responsible for actually executing the cards
 
+
+Undoing RoadBuilding
+There are 3 ways you can quit from a screen that requires you to undo the roadbuilding
+- ending the turn
+- pressing the close panel button
+- pressing the cancel button
+
+bool middleOfRoadBuilding
+- if a road is built and a card has not been played 
+
+resetRoads 
+- make each road clear its player
+- then make it invisible again?
+
+
  */
 public enum TurnSubStateType {none, monopolyChoose, yearOfPlentyChoose, roadBuilding, robbering};
 
@@ -59,8 +74,14 @@ public class TurnState : MonoBehaviour {
 	public static int numTurns = 0;
 	public static ResourceType chosenResource = ResourceType.desert;
 	public static bool cardPlayedThisTurn = false;
+
+	// Gosh i want to know how to compare objects to null.
 	public static bool firstRoadBuilt = false;
+	public static RoadClass firstRoad = null;
 	public static bool secondRoadBuilt = false;
+	public static RoadClass secondRoad = null;
+
+	public static bool freeBuild;
 
     // Just for public inspector stuff
     public Player thisCurrentPlayer; 
@@ -85,23 +106,47 @@ public class TurnState : MonoBehaviour {
         currentPlayer = players[index];
 
 		// Some simple resets
-		cardPlayedThisTurn = false;
-		firstRoadBuilt = false;
-		secondRoadBuilt = false;
+		ResetTurn();
     }
 
+	public static void ResetTurn(){
+		cardPlayedThisTurn = false;
+		freeBuild = false;
+		// Also need to reset the UI...
+		ClearRoadBuilding();
+		ResetSubStateType2();
+		UIManager.DisableObjs();
+	}
+
+	static void ClearRoadBuilding(){
+		firstRoadBuilt = false;
+		firstRoad = null;
+		secondRoadBuilt = false;
+		secondRoad = null;
+	}
+
+	// Resets the scene once the panel ends 
+	public static void ResetScene(){
+		// clear the roads
+	}
+
+
+
 	// Returns true if the second time a road is built for roadbuilding
-	public static bool CheckSecondRoadBuilt(){
+	// Stores it just in case
+	public static bool CheckSecondRoadBuilt(RoadClass road){
 		if (!firstRoadBuilt){
 			firstRoadBuilt = true;
+			firstRoad = road;
 			return false;
 		} else {
+			secondRoad = road;
 			secondRoadBuilt = true;
 			return true;
 		}
 	}
 
-	// Card is played when the confirmbutton is clicked, not through other things
+	// Card effects are executed when the confirm button is clicked, not through other things
 	public static bool PlayCardOnConfirm(){
 		return subStateType == TurnSubStateType.monopolyChoose || subStateType == TurnSubStateType.yearOfPlentyChoose;
 	}
@@ -126,16 +171,63 @@ public class TurnState : MonoBehaviour {
 		return (DevCardType) (-1);
 	}
 
+
+
 	public static void SetSubStateType(TurnSubStateType state){
 		subStateType = state;
+		switch (subStateType){
+		case TurnSubStateType.roadBuilding:
+			freeBuild = true;
+			break;
+		}
 	}
 
 	public static void ResetSubStateType2(){
-		TurnState.subStateType = TurnSubStateType.none;
+//		Debugger.Log("TurnState", "foo");
+		TurnSubStateType tempState = subStateType;
+		subStateType = TurnSubStateType.none;
+		switch (tempState){
+		case TurnSubStateType.roadBuilding:
+			freeBuild = false;
+			break;
+		}
+
+		// IF the player changes their mind about roadBuilding..
+		if (StillRoadBuilding()){
+			ResetRoadBuilding();
+		}
 	}
 
+	// If there 
+	static bool StillRoadBuilding(){
+		return firstRoadBuilt && !cardPlayedThisTurn;
+	}
+
+	static void ResetRoadBuilding(){
+		if (firstRoadBuilt){
+			firstRoad.ClearPlayer();
+			firstRoad.hideIfPossible();
+			firstRoadBuilt = false;
+			firstRoad = null;
+		}
+		if (secondRoadBuilt){
+			secondRoad.ClearPlayer();
+			secondRoad.hideIfPossible();
+			secondRoad = null;
+			secondRoadBuilt = false;
+		}
+		freeBuild = false;
+	}
+
+
+
+
+
+
+
+
 	public void ResetSubStateType(){
-		TurnState.subStateType = TurnSubStateType.none;
+		TurnState.ResetSubStateType2();
 	}
 
 	

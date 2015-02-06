@@ -38,6 +38,14 @@ public class RoadClass : MonoBehaviour {
 				makeInvisible();
 		}
 	}
+
+	public void hideIfPossible(){
+		if (!built) {
+			makeInvisible();
+		}
+	}
+
+
 	void makeInvisible() {
 		visible = false;
 		Color temp = renderer.material.color;
@@ -52,21 +60,37 @@ public class RoadClass : MonoBehaviour {
 		renderer.material.color = temp;
 	}
 
+	void SetPlayer(Player p){
+		//TODO add to player.roads in a meaningful way
+		renderer.material.color = p.playerColor;
+		ownerId = p.playerId;
+	}
+
+	// To be used if somebody changes their mind about a roadbuilding dev card
+	public void ClearPlayer(){
+		ownerId = -1;
+		renderer.material.color = Color.white;
+		built = false;
+	}
+
+
 	void OnMouseDown() {
 		if (!visible || built) return;
 		built = true;
 //		Color temp = renderer.material.color;
 //		temp.a = 1;
 //		renderer.material.color = temp;
-		renderer.material.color = TurnState.currentPlayer.playerColor;
+//		renderer.material.color = TurnState.currentPlayer.playerColor;
+		SetPlayer(TurnState.currentPlayer);
 
 		// If roadbuilding, allow a second road.. 
 		// TODO - undo buttons?
-		if (TurnState.CheckSecondRoadBuilt()){
+		if (TurnState.CheckSecondRoadBuilt(this)){
 			roads.BroadcastMessage ("toggleRoad");
 		}
 		
-
-		BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
+		if (!TurnState.freeBuild){
+			BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
+		}
 	}
 }

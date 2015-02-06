@@ -12,7 +12,6 @@ public class EndPhaseButton : MonoBehaviour {
 	public Button buildButton;
 	public Button tradeButton;
 
-
 	Button btn;
 
 

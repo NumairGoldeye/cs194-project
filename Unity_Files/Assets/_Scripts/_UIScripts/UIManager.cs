@@ -12,26 +12,44 @@ public class UIManager : MonoBehaviour {
 
 
 	// The gameobject that houses all the UI
-	public GameObject MainUI;
+//	public GameObject MainUI;
+
+	public static UIManager instance = null;
+
+	void Awake(){
+		UIManager.instance = this;
+	}
+
 
 	// Use this for initialization
 	void Start () {
-		foreach(GameObject obj in disableOnStart){
-			if (obj != null){
-				obj.SetActive(false);
-			}
-		}
-		foreach(GameObject obj in enableOnStart){
-			if (obj != null){
-				obj.SetActive(true);
-			}
-		}
+		UIManager.DisableObjs();
+		UIManager.EnableObjs();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+	// Roundabout much
+	public static void DisableObjs(){
+		foreach(GameObject obj in instance.disableOnStart){
+			if (obj != null){
+				obj.SetActive(false);
+			}
+		}
+	}
+
+	public static void EnableObjs(){
+		foreach(GameObject obj in instance.enableOnStart){
+			if (obj != null){
+				obj.SetActive(true);
+			}
+		}
+	}
+
+
 
 	// Puts the MainUI thing in the right place
 	void SetCanvas(){

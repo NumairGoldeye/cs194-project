@@ -60,7 +60,7 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 
 	public List<SettlementClass> getSettlementsForTile(TileClass tile) {
-		return tile.settlements;
+		return tile.getSettlements();
 	}
 
 	public List<SettlementClass> getSettlementsForRoad(RoadClass road) {

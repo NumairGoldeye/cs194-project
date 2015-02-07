@@ -9,7 +9,8 @@ public class TileClass : MonoBehaviour {
 	public int tileNumber;
 	public bool hasRobber;
 
-	public List<SettlementClass> settlements;
+	private List<SettlementClass> settlements = new List<SettlementClass> ();
+
 
 	// The index of the POSITION of this tile on the board. Tiles are indexed in row-major order.
 	public int tileIndex;
@@ -57,7 +58,6 @@ public class TileClass : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		settlements = new List<SettlementClass> ();
 	}
 	
 	// Update is called once per frame

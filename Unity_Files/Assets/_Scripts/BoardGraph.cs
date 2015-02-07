@@ -18,11 +18,6 @@ public interface BoardGraph {
 	SettlementClass getSettlement(int index);
 	
 	/**
-	 * Returns all of the roads connected to the settlement with the given index.
-	 */
-	List<RoadClass> getConnectedRoads(int settlementIndex);
-	
-	/**
 	 * Returns all of the roads connected to the given settlement.
 	 */
 	List<RoadClass> getConnectedRoads(SettlementClass settlement);

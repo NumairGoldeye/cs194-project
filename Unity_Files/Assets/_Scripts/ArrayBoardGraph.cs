@@ -29,11 +29,6 @@ public class ArrayBoardGraph : BoardGraph {
 		return settlements[index];
 	}
 
-	public List<RoadClass> getConnectedRoads(int settlementIndex) {
-		SettlementClass s = getSettlement(settlementIndex);
-		return getConnectedRoads(s);
-	}
-
 	public List<RoadClass> getConnectedRoads(SettlementClass settlement) {
 		List<RoadClass> result = new List<RoadClass>();
 		foreach (RoadClass rd in roads) {

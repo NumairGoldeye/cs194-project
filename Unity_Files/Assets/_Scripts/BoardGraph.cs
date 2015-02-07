@@ -20,13 +20,28 @@ public interface BoardGraph {
 	/**
 	 * Returns all of the roads connected to the settlement with the given index.
 	 */
-	List<RoadClass> getRoads(int settlementIndex);
+	List<RoadClass> getConnectedRoads(int settlementIndex);
 	
 	/**
 	 * Returns all of the roads connected to the given settlement.
 	 */
-	List<RoadClass> getRoads(SettlementClass settlement);
-	
+	List<RoadClass> getConnectedRoads(SettlementClass settlement);
+
+	/**
+	 * Returns all roads adjacent to the given one.
+	 */
+	List<RoadClass> getAdjacentRoads(RoadClass road);
+
+	/**
+	 * Returns all (6) settlements adjacent to the given tile.
+	 */
+	List<SettlementClass> getSettlementsForTile(TileClass tile);
+
+	/**
+	 * Returns all (i.e. both) settlements connected to a given road.
+	 */
+	List<SettlementClass> getSettlementsForRoad(RoadClass road);
+
 	/** Returns the edge corresponding to the given index for that space on the board.
 	 *
 	 * The edges are indexed starting at 0, starting at the very top of the board, and increaing

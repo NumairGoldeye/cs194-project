@@ -777,6 +777,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 0
   hasRobber: 0
+  settlements: []
   tileIndex: 2
 --- !u!1001 &36663318
 Prefab:
@@ -8466,6 +8467,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 17
   hasRobber: 0
+  settlements: []
   tileIndex: 4
 --- !u!1 &399010590
 GameObject:
@@ -9193,6 +9195,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 5
   hasRobber: 0
+  settlements: []
   tileIndex: 17
 --- !u!1 &421955129
 GameObject:
@@ -9991,7 +9994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 0
-  stateType: 4
+  stateType: 0
   player: {fileID: 0}
 --- !u!114 &445103637
 MonoBehaviour:
@@ -14298,7 +14301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7f4636147a4490aba0e187e518044d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 2
+  state: 0
 --- !u!114 &655154242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17194,7 +17197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 1
-  stateType: 3
+  stateType: 0
   player: {fileID: 0}
 --- !u!114 &753095182
 MonoBehaviour:
@@ -17736,6 +17739,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 9
   hasRobber: 0
+  settlements: []
   tileIndex: 3
 --- !u!1 &768069174
 GameObject:
@@ -20166,6 +20170,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 18
   hasRobber: 0
+  settlements: []
   tileIndex: 9
 --- !u!1 &883111072
 GameObject:
@@ -20275,6 +20280,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 6
   hasRobber: 0
+  settlements: []
   tileIndex: 16
 --- !u!1001 &885417607
 Prefab:
@@ -21257,7 +21263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 3
-  stateType: 1
+  stateType: 0
   player: {fileID: 0}
 --- !u!114 &942055308
 MonoBehaviour:
@@ -23601,6 +23607,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 3
   hasRobber: 0
+  settlements: []
   tileIndex: 15
 --- !u!1 &1027341320
 GameObject:
@@ -23887,6 +23894,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 7
   hasRobber: 0
+  settlements: []
   tileIndex: 12
 --- !u!1 &1034841010
 GameObject:
@@ -26535,6 +26543,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 14
   hasRobber: 0
+  settlements: []
   tileIndex: 14
 --- !u!1 &1158049122
 GameObject:
@@ -27973,6 +27982,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 15
   hasRobber: 0
+  settlements: []
   tileIndex: 13
 --- !u!1 &1210375647
 GameObject:
@@ -30540,6 +30550,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 1
   hasRobber: 0
+  settlements: []
   tileIndex: 6
 --- !u!1 &1331030170
 GameObject:
@@ -32351,6 +32362,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 11
   hasRobber: 0
+  settlements: []
   tileIndex: 1
 --- !u!1 &1423652552
 GameObject:
@@ -33712,6 +33724,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 12
   hasRobber: 0
+  settlements: []
   tileIndex: 5
 --- !u!1 &1463723635
 GameObject:
@@ -37814,7 +37827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 2
-  stateType: 2
+  stateType: 0
   player: {fileID: 0}
 --- !u!114 &1631467334
 MonoBehaviour:
@@ -38084,6 +38097,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 2
   hasRobber: 0
+  settlements: []
   tileIndex: 11
 --- !u!1 &1639785005
 GameObject:
@@ -41078,6 +41092,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 10
   hasRobber: 0
+  settlements: []
   tileIndex: 0
 --- !u!1 &1783036207
 GameObject:
@@ -43425,6 +43440,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 13
   hasRobber: 0
+  settlements: []
   tileIndex: 10
 --- !u!1001 &1893543514
 Prefab:
@@ -44958,6 +44974,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 8
   hasRobber: 0
+  settlements: []
   tileIndex: 7
 --- !u!1 &1996583087
 GameObject:
@@ -45840,6 +45857,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 16
   hasRobber: 0
+  settlements: []
   tileIndex: 8
 --- !u!1001 &2032713641
 Prefab:
@@ -47141,7 +47159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7f4636147a4490aba0e187e518044d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
 --- !u!114 &2088580158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48136,6 +48154,7 @@ MonoBehaviour:
   diceValue: 0
   tileNumber: 4
   hasRobber: 0
+  settlements: []
   tileIndex: 18
 --- !u!1 &2126350960
 GameObject:

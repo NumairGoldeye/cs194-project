@@ -85,7 +85,6 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 	
 	public List<RoadClass> BuildableRoads(List<RoadClass> road){
-		
 	}
 	
 	public List<SettlementClass> BuildableSettlements(List<RoadClass> road, List<SettlementClass> settlement){

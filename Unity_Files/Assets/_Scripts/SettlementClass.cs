@@ -66,14 +66,14 @@ public class SettlementClass : MonoBehaviour {
 				hideSettlement();
 		}
 	}
-	void hideSettlement() {
+	public void hideSettlement() {
 		visible = false;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0;
 		settlement.renderer.material.color = temp;		
 	}
 
-	void showSettlement() {
+	public void showSettlement() {
 		visible = true;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0.8f;

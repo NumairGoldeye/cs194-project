@@ -25,12 +25,6 @@ public enum BuyableType { road, settlement, city, devCard};
 
 public static class BuyManager {
 
-	// static int[] roadCost;
-	// static int[] settlementCost;
-	// static int[] cityCost;
-	// static int[] devCardCost;
-
-
 	// Just some shorthand
 	private static ResourceType wood = ResourceType.wood;
 	private static ResourceType sheep = ResourceType.sheep;
@@ -77,11 +71,7 @@ public static class BuyManager {
 	// private static Cost[] buyableCosts = new Cost[] { roadCost, settlementCost, cityCost, devCardCost};
 
 	public static void Test(Player player){
-		// Debugger.Log("Charlie", "Testing Buymanager");
-		// Debug.Log("foo");
-
 		Debugger.Log("Charlie", "Buy city: " + PlayerCanBuy(player, BuyableType.city));
-
 	}
 
 	// Call this everywhere you need it!

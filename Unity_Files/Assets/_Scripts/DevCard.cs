@@ -38,6 +38,10 @@ public class DevCard : MonoBehaviour {
 
 	// Creates the deck to draw from
 	public static void CreateDeck(){
+		int totalCards = deckKnightCount + deckRoadBuildingCount + deckYearCount + deckMonopolyCount + deckVictoryPointCount;
+
+
+
 
 	}
 

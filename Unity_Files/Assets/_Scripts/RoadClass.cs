@@ -46,14 +46,14 @@ public class RoadClass : MonoBehaviour {
 	}
 
 
-	void makeInvisible() {
+	public void makeInvisible() {
 		visible = false;
 		Color temp = renderer.material.color;
 		temp.a = 0;
 		renderer.material.color = temp;		
 	}
 
-	void makeVisible() {
+	public void makeVisible() {
 		visible = true;
 		Color temp = renderer.material.color;
 		temp.a = 0.8f;

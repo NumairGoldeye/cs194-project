@@ -115,6 +115,7 @@ public class SettlementClass : MonoBehaviour {
 				hideSettlement();
 				showCity();
 				TurnState.currentPlayer.victoryPoints++;
+				upgrading = false;
 			}
 		}
 	}

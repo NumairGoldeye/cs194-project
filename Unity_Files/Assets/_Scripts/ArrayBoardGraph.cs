@@ -79,4 +79,21 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 		return result;
 	}
+
+	public int longestroad (List<RoadClass> road){
+		
+	}
+	
+	public List<RoadClass> BuildableRoads(List<RoadClass> road){
+		
+	}
+	
+	public List<SettlementClass> BuildableSettlements(List<RoadClass> road, List<SettlementClass> settlement){
+		
+	}
+	
+	
+	public List<SettlementClass> BuildableCity(List<SettlementClass> settlement){
+		
+	}
 }

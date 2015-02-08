@@ -15,6 +15,27 @@ public class TileClass : MonoBehaviour {
 	// The index of the POSITION of this tile on the board. Tiles are indexed in row-major order.
 	public int tileIndex;
 
+	public void removeResources() {
+		//for now, remove half of each player's resources
+	}
+
+	public void stealResources() {
+		//make a dialogue box pop up, choose one player. random resource
+	}
+
+
+	public void receiveRobber () {
+		getRobber ();
+		removeResources ();//Each player has to remove half of their resources. For now, it will be random
+		stealResources ();//uses turnState.currentPlayer look it up though
+	}
+
+
+	public void getRobber () {
+		GameObject robber = GameObject.Find ("Robber");
+		robber.transform.position = transform.position;
+	}
+
 	private void displayDiceNumber (){
 		if (diceValue > 0) {
 			GetComponentInChildren <TextMesh>().text = diceValue.ToString ();

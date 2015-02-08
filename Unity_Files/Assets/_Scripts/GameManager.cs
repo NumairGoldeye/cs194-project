@@ -67,6 +67,10 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < numTiles; i++) {
 			TileClass tile = graph.getTile (i);
 			tile.assignType(tiles[tile.tileNumber].diceNumber, tiles[tile.tileNumber].type);
+			if (tile.type == ResourceType.desert) 
+				tile.hasRobber = true;
+			else
+				tile.hasRobber = false;
 		}
 	}
 

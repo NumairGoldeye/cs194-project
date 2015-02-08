@@ -16,9 +16,14 @@ public class DevCard : MonoBehaviour {
 	static DevCardType monopoly = DevCardType.monopoly;
 	static DevCardType victoryPoint = DevCardType.victoryPoint;
 
-
+	// variables for creating the deck
 	static DevCardType[] devCardsByChance = new DevCardType[] { knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint };
-
+	static int deckIndex = 0;
+	static int deckKnightCount = 14;
+	static int deckRoadBuildingCount = 2;
+	static int deckYearCount = 2;
+	static int deckMonopolyCount = 2;
+	static int deckVictoryPointCount = 5;
 
 	private static Dictionary<DevCardType, string> devCardNames = new Dictionary<DevCardType, string>();
 	private static Dictionary<DevCardType, string> devCardDescriptions = new Dictionary<DevCardType, string>();
@@ -28,6 +33,14 @@ public class DevCard : MonoBehaviour {
 	public static DevCardType RandomCard(){
 		return devCardsByChance[ Random.Range(0, devCardsByChance.Length)];
 	}
+
+
+
+	// Creates the deck to draw from
+	public static void CreateDeck(){
+
+	}
+
 
 	public static string NameForCardType(DevCardType type){
 		string name = null;
@@ -117,6 +130,8 @@ public class DevCard : MonoBehaviour {
 		DevCard.devCardDescriptions.Add(yearOfPlenty, "Take two of any resource");
 		DevCard.devCardDescriptions.Add(monopoly, "Name a resource type. All players must give all resouces of that type to you");
 		DevCard.devCardDescriptions.Add(victoryPoint, "+1 Victory Point");
+
+		DevCard.createDeck();
 	}
 
 	// Use this for initialization

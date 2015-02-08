@@ -47,6 +47,8 @@ resetRoads
  */
 public enum TurnSubStateType {none, monopolyChoose, yearOfPlentyChoose, roadBuilding, robbering};
 
+
+
 public class TurnState : MonoBehaviour {
 
     public static Player currentPlayer {

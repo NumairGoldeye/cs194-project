@@ -745,6 +745,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 0
+  hasRobber: 0
   tileIndex: 2
 --- !u!1 &37572662
 GameObject:
@@ -1600,8 +1601,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &62820577
 Prefab:
   m_ObjectHideFlags: 0
@@ -3465,8 +3466,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &123016529
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,8 +3582,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &127763813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,8 +3830,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &133733313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4387,8 +4388,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &161615838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,8 +4962,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &187230554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5755,8 +5756,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &227793440
 GameObject:
   m_ObjectHideFlags: 0
@@ -6574,8 +6575,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &288381909
 Prefab:
   m_ObjectHideFlags: 0
@@ -7118,8 +7119,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &323045742
 Prefab:
   m_ObjectHideFlags: 0
@@ -7300,8 +7301,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &335067374
 Prefab:
   m_ObjectHideFlags: 0
@@ -8459,6 +8460,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 17
+  hasRobber: 0
   tileIndex: 4
 --- !u!1 &399267907
 GameObject:
@@ -9214,8 +9216,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &419831424
 GameObject:
   m_ObjectHideFlags: 0
@@ -9323,6 +9325,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 5
+  hasRobber: 0
   tileIndex: 17
 --- !u!1001 &427140448
 Prefab:
@@ -9645,8 +9648,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &438063071
 Prefab:
   m_ObjectHideFlags: 0
@@ -11195,8 +11198,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &484320074
 Prefab:
   m_ObjectHideFlags: 0
@@ -11733,8 +11736,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &499780811
 GameObject:
   m_ObjectHideFlags: 0
@@ -12160,8 +12163,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &520280889
 GameObject:
   m_ObjectHideFlags: 0
@@ -12776,8 +12779,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &560643879
 GameObject:
   m_ObjectHideFlags: 0
@@ -12832,8 +12835,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &563895143
 GameObject:
   m_ObjectHideFlags: 0
@@ -13446,8 +13449,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &598234240
 GameObject:
   m_ObjectHideFlags: 0
@@ -18008,6 +18011,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 9
+  hasRobber: 0
   tileIndex: 3
 --- !u!1 &765956474
 GameObject:
@@ -19198,8 +19202,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &803469504
 GameObject:
   m_ObjectHideFlags: 0
@@ -19254,8 +19258,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &811844315
 GameObject:
   m_ObjectHideFlags: 0
@@ -19798,8 +19802,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &848232950
 GameObject:
   m_ObjectHideFlags: 0
@@ -20759,6 +20763,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 18
+  hasRobber: 0
   tileIndex: 9
 --- !u!1 &883111072
 GameObject:
@@ -20867,6 +20872,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 6
+  hasRobber: 0
   tileIndex: 16
 --- !u!1 &883415506
 GameObject:
@@ -21100,8 +21106,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &905444815
 Prefab:
   m_ObjectHideFlags: 0
@@ -21784,8 +21790,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &932563165
 Prefab:
   m_ObjectHideFlags: 0
@@ -22360,8 +22366,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &963946336
 GameObject:
   m_ObjectHideFlags: 0
@@ -22572,8 +22578,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &968916988
 GameObject:
   m_ObjectHideFlags: 0
@@ -22786,8 +22792,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &977342878
 GameObject:
   m_ObjectHideFlags: 0
@@ -24258,6 +24264,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 3
+  hasRobber: 0
   tileIndex: 15
 --- !u!1 &1023760278
 GameObject:
@@ -24424,6 +24431,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 7
+  hasRobber: 0
   tileIndex: 12
 --- !u!1 &1033617010
 GameObject:
@@ -25373,8 +25381,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1080870018
 GameObject:
   m_ObjectHideFlags: 0
@@ -26055,8 +26063,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1112773877
 GameObject:
   m_ObjectHideFlags: 0
@@ -26194,8 +26202,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1130329172
 GameObject:
   m_ObjectHideFlags: 0
@@ -26717,8 +26725,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1149157533
 GameObject:
   m_ObjectHideFlags: 0
@@ -27132,6 +27140,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 14
+  hasRobber: 0
   tileIndex: 14
 --- !u!1 &1158049122
 GameObject:
@@ -28551,6 +28560,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 15
+  hasRobber: 0
   tileIndex: 13
 --- !u!1001 &1211114064
 Prefab:
@@ -28694,8 +28704,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1217618473
 Prefab:
   m_ObjectHideFlags: 0
@@ -31119,6 +31129,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 1
+  hasRobber: 0
   tileIndex: 6
 --- !u!1 &1331030170
 GameObject:
@@ -31174,8 +31185,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1334265527
 GameObject:
   m_ObjectHideFlags: 0
@@ -31230,8 +31241,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1335640424
 Prefab:
   m_ObjectHideFlags: 0
@@ -31573,6 +31584,7 @@ MonoBehaviour:
   victoryPoints: 0
   resourceCounts: 
   devCardCounts: 
+  totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
   hasLargestArmy: 0
@@ -32706,8 +32718,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1421962433
 GameObject:
   m_ObjectHideFlags: 0
@@ -32815,6 +32827,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 11
+  hasRobber: 0
   tileIndex: 1
 --- !u!1 &1423652552
 GameObject:
@@ -33854,6 +33867,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 12
+  hasRobber: 0
   tileIndex: 5
 --- !u!1 &1463723635
 GameObject:
@@ -34135,8 +34149,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1485093356
 GameObject:
   m_ObjectHideFlags: 0
@@ -34191,8 +34205,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1489252880
 Prefab:
   m_ObjectHideFlags: 0
@@ -35289,8 +35303,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1535794561
 GameObject:
   m_ObjectHideFlags: 0
@@ -36066,8 +36080,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1582662257
 GameObject:
   m_ObjectHideFlags: 0
@@ -36418,8 +36432,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1594027623
 GameObject:
   m_ObjectHideFlags: 0
@@ -37920,6 +37934,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 2
+  hasRobber: 0
   tileIndex: 11
 --- !u!1001 &1634446331
 Prefab:
@@ -38263,8 +38278,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1652346149
 Prefab:
   m_ObjectHideFlags: 0
@@ -38635,8 +38650,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1675057206
 GameObject:
   m_ObjectHideFlags: 0
@@ -39385,8 +39400,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1715207223
 Prefab:
   m_ObjectHideFlags: 0
@@ -39779,8 +39794,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1733682558
 Prefab:
   m_ObjectHideFlags: 0
@@ -40195,8 +40210,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1761556057
 GameObject:
   m_ObjectHideFlags: 0
@@ -40532,6 +40547,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 10
+  hasRobber: 0
   tileIndex: 0
 --- !u!1 &1783036207
 GameObject:
@@ -42701,8 +42717,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1887470419
 GameObject:
   m_ObjectHideFlags: 0
@@ -42757,8 +42773,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1893469397
 GameObject:
   m_ObjectHideFlags: 0
@@ -42866,6 +42882,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 13
+  hasRobber: 0
   tileIndex: 10
 --- !u!1001 &1893543514
 Prefab:
@@ -43057,8 +43074,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1904302808
 GameObject:
   m_ObjectHideFlags: 0
@@ -43381,8 +43398,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1921350440
 Prefab:
   m_ObjectHideFlags: 0
@@ -44428,8 +44445,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1986719259
 Prefab:
   m_ObjectHideFlags: 0
@@ -44863,6 +44880,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 8
+  hasRobber: 0
   tileIndex: 7
 --- !u!1 &1996583087
 GameObject:
@@ -45050,8 +45068,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &2004775386
 GameObject:
   m_ObjectHideFlags: 0
@@ -45721,6 +45739,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 16
+  hasRobber: 0
   tileIndex: 8
 --- !u!1001 &2032905812
 Prefab:
@@ -45990,8 +46009,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &2053347475
 GameObject:
   m_ObjectHideFlags: 0
@@ -46340,8 +46359,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &2073070043
 Prefab:
   m_ObjectHideFlags: 0
@@ -47662,8 +47681,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &2120986842
 GameObject:
   m_ObjectHideFlags: 0
@@ -47770,6 +47789,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 4
+  hasRobber: 0
   tileIndex: 18
 --- !u!1 &2126350960
 GameObject:
@@ -47825,8 +47845,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .25, y: .075000003, z: .25}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &2136236178
 GameObject:
   m_ObjectHideFlags: 0
@@ -47872,6 +47892,7 @@ MonoBehaviour:
   victoryPoints: 0
   resourceCounts: 
   devCardCounts: 
+  totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
   hasLargestArmy: 0

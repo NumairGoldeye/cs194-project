@@ -69,4 +69,14 @@ public class ArrayBoardGraph : BoardGraph {
 		result.Add (road.settlement2);
 		return result;
 	}
+
+	public List<TileClass> getTilesForSettlement(SettlementClass settlement) {
+		List<TileClass> result = new List<TileClass> ();
+		foreach (TileClass t in tiles) {
+			if (t.getSettlements().Contains(settlement) && !result.Contains(t)) {
+				result.Add(t);
+			}
+		}
+		return result;
+	}
 }

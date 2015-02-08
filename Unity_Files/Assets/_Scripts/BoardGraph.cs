@@ -37,6 +37,11 @@ public interface BoardGraph {
 	 */
 	List<SettlementClass> getSettlementsForRoad(RoadClass road);
 
+	/**
+	 * Returns all tiles next to a given settlement.
+	 */
+	List<TileClass> getTilesForSettlement(SettlementClass settlement);
+
 	/** Returns the edge corresponding to the given index for that space on the board.
 	 *
 	 * The edges are indexed starting at 0, starting at the very top of the board, and increaing

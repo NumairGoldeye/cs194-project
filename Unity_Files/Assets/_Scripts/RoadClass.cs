@@ -77,14 +77,11 @@ public class RoadClass : MonoBehaviour {
 	void OnMouseDown() {
 		if (!visible || built) return;
 		built = true;
-//		Color temp = renderer.material.color;
-//		temp.a = 1;
-//		renderer.material.color = temp;
-//		renderer.material.color = TurnState.currentPlayer.playerColor;
 		SetPlayer(TurnState.currentPlayer);
 
 		// If roadbuilding, allow a second road.. 
 		// TODO - undo buttons?
+		//I don't think undo buttons are necessary, they can just cancel and redo it
 		if (TurnState.CheckSecondRoadBuilt(this)){
 			roads.BroadcastMessage ("toggleRoad");
 		}

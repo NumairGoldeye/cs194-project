@@ -53,7 +53,9 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		// Uses array to construct to correct order for settlements, then adds them to the list in order.
 		SettlementClass[] settlementArray = new SettlementClass[NUM_SETTLEMENTS];
 		foreach (GameObject gameObject in gameObjects) {
-			SettlementClass settlement = gameObject.GetComponentInChildren<SettlementClass>();
+
+			SettlementClass settlement = gameObject.GetComponent<SettlementClass>();
+			if (!settlement) continue;
 			settlementArray[settlement.vertexIndex] = settlement;
 		}
 		foreach (SettlementClass s in settlementArray) {
@@ -186,7 +188,7 @@ public class StandardBoardGraph : ArrayBoardGraph {
 	private SettlementClass getSettlementOnIndex(int vertexIndex) {
 		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag ("Settlement");
 		foreach (GameObject obj in gameObjects) {
-			SettlementClass settlement = obj.GetComponentInChildren<SettlementClass>();
+			SettlementClass settlement = obj.GetComponent<SettlementClass>();
 			if (settlement.vertexIndex == vertexIndex) {
 				return settlement;
 			}

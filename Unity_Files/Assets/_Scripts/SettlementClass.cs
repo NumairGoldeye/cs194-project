@@ -3,21 +3,26 @@ using System.Collections;
 
 public class SettlementClass : MonoBehaviour {
 
-	private bool built;
+	private bool built; //is the settlement built?
 	private bool visible;
 	private bool upgrading;
 	public GameObject settlements;
-	public GameObject city;
-	public bool hasCity;
+	private GameObject settlement;
+	private GameObject city;
+	private bool hasCity;
 	public int vertexIndex;
-	public int ownerId;
+	private int ownerId;
 
 	// Use this for initialization
 	void Start () {
+		settlement = transform.FindChild("SettlementObject").gameObject;
+		Debugger.Log ("Settlement", settlement.tag);
+		city = transform.FindChild("CityObject").gameObject;
 		built = false;
 		upgrading = false;
 		ownerId = -1;
-		makeInvisible();
+		hideSettlement ();
+		hideCity ();
 		hasCity = false;
 	}
 	
@@ -26,6 +31,16 @@ public class SettlementClass : MonoBehaviour {
 	
 	}
 
+	private void hideCity() {
+		Color temp = city.renderer.material.color;
+		temp.a = 0;
+		city.renderer.material.color = temp;
+	}
+
+	private void showCity() {
+		city.renderer.material.color = TurnState.currentPlayer.playerColor;
+	}
+	
 	public bool isCity() {
 		return hasCity;
 	}
@@ -43,50 +58,42 @@ public class SettlementClass : MonoBehaviour {
 			upgrading = true;
 	}
 
-	private void upgradeToCity() {
-		built = false;
-		makeInvisible();
-		city.SendMessage("makeVisible");
-	}
-	
 	public void toggleSettlements() {
 		if (!built) {
 			if (!visible)
-				makeVisible();
+				showSettlement();
 			else
-				makeInvisible();
+				hideSettlement();
 		}
 	}
-	void makeInvisible() {
+	void hideSettlement() {
 		visible = false;
-		Color temp = renderer.material.color;
+		Color temp = settlement.renderer.material.color;
 		temp.a = 0;
-		renderer.material.color = temp;		
+		settlement.renderer.material.color = temp;		
 	}
-	
-	void makeVisible() {
+
+	void showSettlement() {
 		visible = true;
-		Color temp = renderer.material.color;
+		Color temp = settlement.renderer.material.color;
 		temp.a = 0.8f;
-		renderer.material.color = temp;
+		settlement.renderer.material.color = temp;
 	}
 	
 	void OnMouseDown() {
 		if (!built) {
 			if (!visible) return;
 			built = true;
-//			Color temp = renderer.material.color;
-//			temp.a = 1;
-			renderer.material.color = TurnState.currentPlayer.playerColor;
-
-
+			settlement.renderer.material.color = TurnState.currentPlayer.playerColor;
 			ownerId = TurnState.currentPlayer.playerId;
 			settlements.BroadcastMessage ("toggleSettlements");
 			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);
 		} else {
 			if (upgrading) {
 				BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
-				upgradeToCity();
+				hasCity = true;
+				hideSettlement();
+				showCity();
 			}
 		}
 	}

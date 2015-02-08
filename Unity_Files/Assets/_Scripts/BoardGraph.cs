@@ -63,7 +63,7 @@ public interface BoardGraph {
 	/**
      * Returns the positions that player can build roads   
      */
-	List<RoadClass> BuildableRoads(List<RoadClass> road);
+	List<RoadClass> BuildableRoads(Player player);
 	
 	
 	/**

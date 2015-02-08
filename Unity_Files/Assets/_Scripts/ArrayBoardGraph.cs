@@ -85,17 +85,33 @@ public class ArrayBoardGraph : BoardGraph {
 		return 0; 
 	}
 	
-	public List<RoadClass> BuildableRoads(List<RoadClass> road){
+	public List<RoadClass> BuildableRoads(Player player){
+
+		//case 1: new postions next to built roads
+		RoadClass[] roads = player.GetRoads();
 		List<RoadClass> result = new List<RoadClass> ();
-		foreach (RoadClass r in road) {
+		foreach (RoadClass r in roads) {
 			List<RoadClass> adjacent = new List<RoadClass> ();
 			adjacent = getAdjacentRoads(r);
 			foreach(RoadClass r2 in adjacent){
-				if(!r2.isBuilt()){
+				if(!r2.isBuilt() && !result.Contains(r2)){
 					result.Add(r2);
 				}
 			}
 		}
+
+		//case 2: new positions next to built settlements
+		SettlementClass[] settlements = player.GetSettlementss();
+		foreach (SettlementClass set in settlements) {
+			List<RoadClass> adjacent2 = new List<RoadClass> ();
+			adjacent2 = getConnectedRoads(set);
+			foreach(RoadClass r2 in adjacent2){
+				if(!r2.isBuilt() && !result.Contains(r2)){
+					result.Add(r2);
+				}
+			}
+		}
+		
 		return result; 
 	}
 	

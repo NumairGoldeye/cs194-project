@@ -100,7 +100,7 @@ public class ArrayBoardGraph : BoardGraph {
 		//cities are buildable where there are settlements but not city; 
 		List<SettlementClass> result = new List<SettlementClass> ();
 		foreach (SettlementClass set in settlements) {
-			if (set.isCity == false) {
+			if (!set.isCity()) {
 				result.Add(set);
 			}
 		}

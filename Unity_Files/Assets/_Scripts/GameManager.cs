@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour {
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
 		for (int index = 0; index < graph.TileCount; index++) {
 			TileClass tile = graph.getTile(index);
-			if (roll == tile.diceValue && !tile.hasRobber()) {
+			if (roll == tile.diceValue && !tile.hasRobber) {
 				//This is assuming that each tile keeps track of its vertices
 				List<SettlementClass> settlements = tile.getSettlements();
 				foreach (SettlementClass settlement in settlements) {

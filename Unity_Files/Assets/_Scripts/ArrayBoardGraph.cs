@@ -121,8 +121,10 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 	
 	
-	public List<SettlementClass> BuildableCity(List<SettlementClass> settlement){
+	public List<SettlementClass> BuildableCity(Player player){
 		//cities are buildable where there are settlements but not city; 
+
+		SettlementClass[] settlements = player.GetSettlementss();
 		List<SettlementClass> result = new List<SettlementClass> ();
 		foreach (SettlementClass set in settlements) {
 			if (!set.isCity()) {

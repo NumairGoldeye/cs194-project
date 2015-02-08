@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3392682}
   - 23: {fileID: 2392682}
   m_Layer: 0
-  m_Name: SinglePolySettlement
+  m_Name: SettlementObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192682}
   m_LocalRotation: {x: 5.96852039e-17, y: .999688566, z: 5.96852039e-17, w: .0249552298}
-  m_LocalPosition: {x: -.281256676, y: -.060059797, z: .220684201}
+  m_LocalPosition: {x: 0, y: -.125, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}

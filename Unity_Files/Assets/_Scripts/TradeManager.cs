@@ -9,12 +9,13 @@ using System.Collections.Generic;
 
 // Usage: 
 
-// TO check if player can buy something
-BuyManager.PlayerCanBuy(BuyableType.road, player);
+// To trade with House:
+// TradeManager.TradeWithHouse(toGet, toGive, player);
 
-// To acually purchase and remove resources from the player
-BuyManager.PurchaseForPlayer(BuyableType.road, player);
-
+// To trade between players:
+// tradeBetweenPlayers(
+	player1, player1ResourceToGive, player1AmountToGive,
+	player2, player2ResourceToGive, player2AmountToGive)
 
 */
 

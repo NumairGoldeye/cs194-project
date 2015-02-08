@@ -10073,7 +10073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 0
-  stateType: 0
+  stateType: 4
   player: {fileID: 0}
 --- !u!114 &445103637
 MonoBehaviour:
@@ -17255,7 +17255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 1
-  stateType: 0
+  stateType: 3
   player: {fileID: 0}
 --- !u!114 &753095182
 MonoBehaviour:
@@ -21318,7 +21318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 3
-  stateType: 0
+  stateType: 1
   player: {fileID: 0}
 --- !u!114 &942055308
 MonoBehaviour:
@@ -37799,7 +37799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 2
-  stateType: 0
+  stateType: 2
   player: {fileID: 0}
 --- !u!114 &1631467334
 MonoBehaviour:

@@ -16,8 +16,8 @@ public class SettlementClass : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		settlement = transform.FindChild("SettlementObject").gameObject;
-		Debugger.Log ("Settlement", settlement.tag);
 		city = transform.FindChild("CityObject").gameObject;
+		Debugger.Log ("City", city.tag);
 		built = false;
 		upgrading = false;
 		ownerId = -1;

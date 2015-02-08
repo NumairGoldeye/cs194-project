@@ -67,7 +67,6 @@ public class TurnState : MonoBehaviour {
 
 
     public static Player[] players = new Player[4];
-//    public static int numPlayers = 2;
     public static TurnStateType stateType = TurnStateType.roll;
 	public static TurnSubStateType subStateType = TurnSubStateType.none;
     
@@ -126,6 +125,7 @@ public class TurnState : MonoBehaviour {
 	}
 
 	// Resets the scene once the panel ends 
+	//TODO is this even used? Should it just toggle all of the roads off?
 	public static void ResetScene(){
 		// clear the roads
 	}

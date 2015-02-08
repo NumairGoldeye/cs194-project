@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour {
 						p.AddResource(tile.type, 1);
 					} else if (settlement.isBuilt() && settlement.isCity()) {
 						Player p = TurnState.players[settlement.getPlayer()];
+//						Debugger.Log("Player ID", p.playerId.ToString());
 						p.AddResource(tile.type, 2);
 					}
 				}

@@ -4670,7 +4670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2a54edd6af14089a55f02f07529e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugFlag: TurnState
+  debugFlag: Robber
 --- !u!4 &169659237
 Transform:
   m_ObjectHideFlags: 0

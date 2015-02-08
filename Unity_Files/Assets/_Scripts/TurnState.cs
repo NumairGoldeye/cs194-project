@@ -169,7 +169,9 @@ public class TurnState : MonoBehaviour {
 		return (DevCardType) (-1);
 	}
 
-
+	public static TurnSubStateType getSubStateType() {
+		return subStateType;
+	}
 
 	public static void SetSubStateType(TurnSubStateType state){
 		subStateType = state;

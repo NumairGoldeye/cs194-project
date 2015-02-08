@@ -86,8 +86,17 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 	
 	public List<RoadClass> BuildableRoads(List<RoadClass> road){
-		return road; 
-
+		List<RoadClass> result = new List<RoadClass> ();
+		foreach (RoadClass r in road) {
+			List<RoadClass> adjacent = new List<RoadClass> ();
+			adjacent = getAdjacentRoads(r);
+			foreach(RoadClass r2 in adjacent){
+				if(!r2.isBuilt()){
+					result.Add(r2);
+				}
+			}
+		}
+		return result; 
 	}
 	
 	public List<SettlementClass> BuildableSettlements(List<RoadClass> road, List<SettlementClass> settlement){

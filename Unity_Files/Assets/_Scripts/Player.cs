@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
 	public string playerName; 
 	public int playerId = 0;
 	public Color playerColor;
+	public int victoryPoints = 0;
 
 	// Each index corresponds to a the ResourceType by enum
 	// resourceCounts[0] should be the number of sheep
@@ -41,9 +42,10 @@ public class Player : MonoBehaviour {
 
 	public DevCardType lastCardTypeDrawn;
 	public int numUsedKnights = 0;
+	public bool hasLargestArmy = false;
+	public bool hasLongestRoad = false;
 
 	private List<SettlementClass> settlements;
-	// private List<CityClass> cities;
 	private List<RoadClass> roads;
 
 

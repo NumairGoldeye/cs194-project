@@ -754,7 +754,7 @@ GameObject:
   - 4: {fileID: 446958}
   - 65: {fileID: 6559622}
   m_Layer: 0
-  m_Name: Settlement
+  m_Name: Settlement 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

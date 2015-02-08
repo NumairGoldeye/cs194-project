@@ -16,8 +16,8 @@ public class SettlementClass : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		settlement = transform.FindChild("SettlementObject").gameObject;
-		Debugger.Log ("Settlement", settlement.tag);
 		city = transform.FindChild("CityObject").gameObject;
+		Debugger.Log ("City", city.tag);
 		built = false;
 		upgrading = false;
 		ownerId = -1;
@@ -31,12 +31,18 @@ public class SettlementClass : MonoBehaviour {
 	
 	}
 
+	/// <summary>
+	/// Hides the city.
+	/// </summary>
 	private void hideCity() {
 		Color temp = city.renderer.material.color;
 		temp.a = 0;
 		city.renderer.material.color = temp;
 	}
 
+	/// <summary>
+	/// Shows the city.
+	/// </summary>
 	private void showCity() {
 		city.renderer.material.color = TurnState.currentPlayer.playerColor;
 	}
@@ -58,6 +64,9 @@ public class SettlementClass : MonoBehaviour {
 			upgrading = true;
 	}
 
+	/// <summary>
+	/// Toggles the settlements.
+	/// </summary>
 	public void toggleSettlements() {
 		if (!built) {
 			if (!visible)
@@ -66,20 +75,31 @@ public class SettlementClass : MonoBehaviour {
 				hideSettlement();
 		}
 	}
+
+	/// <summary>
+	/// Hides the settlement.
+	/// </summary>
 	public void hideSettlement() {
+
 		visible = false;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0;
 		settlement.renderer.material.color = temp;		
 	}
 
+	/// <summary>
+	/// Shows the settlement.
+	/// </summary>
 	public void showSettlement() {
 		visible = true;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0.8f;
 		settlement.renderer.material.color = temp;
 	}
-	
+
+	/// <summary>
+	/// Raises the mouse down event.
+	/// </summary>
 	void OnMouseDown() {
 		if (!built) {
 			if (!visible) return;
@@ -88,12 +108,15 @@ public class SettlementClass : MonoBehaviour {
 			ownerId = TurnState.currentPlayer.playerId;
 			settlements.BroadcastMessage ("toggleSettlements");
 			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);
+			TurnState.currentPlayer.victoryPoints++;
 		} else {
 			if (upgrading) {
 				BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
 				hasCity = true;
 				hideSettlement();
 				showCity();
+				TurnState.currentPlayer.victoryPoints++;
+				upgrading = false;
 			}
 		}
 	}

@@ -42,6 +42,11 @@ public interface BoardGraph {
 	 */
 	List<TileClass> getTilesForSettlement(SettlementClass settlement);
 
+	/**
+	 * Returns all settlements next to a given settlement.
+	 */
+	List<SettlementClass> getSettlementsForSettlement(SettlementClass settlement);
+
 	/** Returns the edge corresponding to the given index for that space on the board.
 	 *
 	 * The edges are indexed starting at 0, starting at the very top of the board, and increaing
@@ -53,5 +58,30 @@ public interface BoardGraph {
 	 * Returns the tile corresponding to the given tile.
 	 */
 	TileClass getTile(int index);
+
+
+	/**
+     * Returns the total length of longest road that belongs to a player 
+     */
+	int longestroad (List<RoadClass> road); //add PlayerId);
+	
+	/**
+     * Returns the positions that player can build roads   
+     */
+	List<RoadClass> BuildableRoads(Player player);
+	
+	
+	/**
+     * Returns the positions that player can build settlement  
+     */
+	List<SettlementClass> BuildableSettlements(Player player);
+	
+	
+	/**
+     * Returns the positions that player can build city; 
+     */
+	List<SettlementClass> BuildableCity(Player player);
+
+
 	
 }

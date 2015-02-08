@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour {
 	public UnityEngine.UI.RawImage die1Image;
 	public UnityEngine.UI.RawImage die2Image;
 
+	/// <summary>
+	/// Creates the tiles.
+	/// </summary>
 	private void createTiles () {
 		tiles = new List<TileInfo>();
 
@@ -61,36 +64,40 @@ public class GameManager : MonoBehaviour {
 
 	}
 	                          
-
+	/// <summary>
+	/// Assigns the tile info.
+	/// </summary>
 	public void assignTileInfo () {
 
 		for (int i = 0; i < numTiles; i++) {
 			TileClass tile = graph.getTile (i);
 			tile.assignType(tiles[tile.tileNumber].diceNumber, tiles[tile.tileNumber].type);
+			if (tile.type == ResourceType.desert) 
+				tile.hasRobber = true;
+			else
+				tile.hasRobber = false;
 		}
 	}
 
-
+	/// <summary>
+	/// Distributes the resources.
+	/// </summary>
+	/// <param name="roll">Roll.</param>
 	void distributeResources (int roll) {
 		BoardGraph graph = StandardBoardGraph.Instance;
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
 		for (int index = 0; index < graph.TileCount; index++) {
 			TileClass tile = graph.getTile(index);
-			//TODO Check if the robber is occupying this tile
-			if (roll == tile.diceValue) {
+			if (roll == tile.diceValue && !tile.hasRobber) {
 				//This is assuming that each tile keeps track of its vertices
 				List<SettlementClass> settlements = tile.getSettlements();
 				foreach (SettlementClass settlement in settlements) {
-//					Debugger.Log("Settlement", graph.getVertex(vertices[i]).settlement.isBuilt().ToString());
-					//TODO Consolidate Cities
 					if (settlement.isBuilt() && !settlement.isCity()) {
 						//this is assuming that the settlements and cities are storing the playerID
 						Player p = TurnState.players[settlement.getPlayer()];
-//						Debugger.Log("Player ID", p.playerId.ToString());
 						p.AddResource(tile.type, 1);
 					} else if (settlement.isBuilt() && settlement.isCity()) {
 						Player p = TurnState.players[settlement.getPlayer()];
-//						Debugger.Log("Player ID", p.playerId.ToString());
 						p.AddResource(tile.type, 2);
 					}
 				}
@@ -98,6 +105,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Displaies the dice.
+	/// </summary>
+	/// <param name="die1">Die1.</param>
+	/// <param name="die2">Die2.</param>
 	void displayDice(int die1, int die2) {
 		DiceImages images = GetComponent<DiceImages> ();
 
@@ -144,7 +156,9 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-
+	/// <summary>
+	/// Rolls the dice.
+	/// </summary>
 	public void rollDice (){
 
 		int die1 = UnityEngine.Random.Range (1, 7);
@@ -156,6 +170,9 @@ public class GameManager : MonoBehaviour {
 		distributeResources (roll);
 	}
 
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
 	void Awake () {
 		graph = StandardBoardGraph.Instance;
 		createTiles ();

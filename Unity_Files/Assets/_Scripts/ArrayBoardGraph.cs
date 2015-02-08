@@ -80,6 +80,23 @@ public class ArrayBoardGraph : BoardGraph {
 		return result;
 	}
 
+	public List<SettlementClass> getSettlementsForSettlement(SettlementClass settlement){
+		List<SettlementClass> result = new List<SettlementClass> ();
+		List<RoadClass> roads = new List<RoadClass> ();
+		roads = getConnectedRoads (settlement);
+		foreach (RoadClass r in roads) {
+			List<SettlementClass> set = new List<SettlementClass>();
+			set = getSettlementsForRoad(r);
+			foreach(SettlementClass s in set){
+			if(!s == settlement){
+					result.Add(s);
+				}
+			}
+		}
+		return result; 
+	}
+
+	
 	public int longestroad (List<RoadClass> road){
 
 		return 0; 
@@ -115,8 +132,31 @@ public class ArrayBoardGraph : BoardGraph {
 		return result; 
 	}
 	
-	public List<SettlementClass> BuildableSettlements(List<RoadClass> road, List<SettlementClass> settlement){
-		return settlement; 
+	public List<SettlementClass> BuildableSettlements(Player player){
+		RoadClass[] roads = player.GetRoads();
+		List<SettlementClass> result = new List<SettlementClass> ();
+        foreach (RoadClass r in roads) {
+			List<SettlementClass> adjacent = new List<SettlementClass> ();
+			adjacent = getSettlementsForRoad(r);
+			foreach(SettlementClass set in adjacent){
+			 if(!set.isBuilt()){
+					List<SettlementClass> adjset = new List<SettlementClass>();
+					adjset = getSettlementsForSettlement(set);
+					bool judge = true; 
+					foreach(SettlementClass s in adjset){
+					if(s.isBuilt()){
+							judge = false; 
+						}
+					}
+					if(judge){
+						result.Add(set);
+					}
+			  }
+			}
+		}
+
+		
+		return result; 
 
 	}
 	

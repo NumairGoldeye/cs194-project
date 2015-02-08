@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
 	// resourceCounts[0] should be the number of sheep
 	public int[] resourceCounts;
 	public int[] devCardCounts; 
+	public int totalResources;
 
 	public DevCardType lastCardTypeDrawn;
 	public int numUsedKnights = 0;
@@ -116,6 +117,7 @@ public class Player : MonoBehaviour {
 	public bool AddResource(ResourceType resource, int amount = 1){
 		// Debug.Log(resource.ToString() + amount);
 		resourceCounts[(int)resource] += amount;
+		totalResources += amount;
 
 		return true;
 	}
@@ -123,13 +125,43 @@ public class Player : MonoBehaviour {
 	// Call if you want to 
 	// Don't know why i want it to return anything. sigh
 	public bool RemoveResource(ResourceType resource, int amount = 1){
+		//TODO: check if there are enough resources to remove
 		resourceCounts[(int)resource] -= amount;
+		totalResources -= amount;
 		return true;
 	}
 
 	// CHecks if a player at least has some number of resources
 	public bool HasResourceAmount(ResourceType resource, int amount){
 		return GetResourceCount(resource) >= amount;
+	}
+
+	public int getTotalResources() {
+		return totalResources;
+	}
+
+	public void removeRandomResource() {
+		int removeIndex = UnityEngine.Random.Range (0, totalResources);
+		int resourcesSeen = 0;
+		for (int i = 0; i < Enum.GetNames(typeof(ResourceType)).Length - 1; i++) {
+			int resourceInBucket = resourceCounts[i];
+			if (resourceInBucket + resourcesSeen > removeIndex) {
+				RemoveResource((ResourceType)i, 1);
+				return;
+			}
+			else {
+				resourcesSeen += resourceCounts[i];
+			}
+		}
+	}
+
+
+	public void removeHalfResources() {
+		//TODO let the players choose
+		int resourcesToRemove = totalResources / 2;
+		for (int i = 0; i < resourcesToRemove; i++) {
+			removeRandomResource();
+		}
 	}
 
 	// Returns the number of a specific resource that a player has

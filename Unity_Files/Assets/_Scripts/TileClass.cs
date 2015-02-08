@@ -16,11 +16,17 @@ public class TileClass : MonoBehaviour {
 	public int tileIndex;
 
 	public void removeResources() {
-		//for now, remove half of each player's resources
+		//Player[] players = (Player[])(GameObject.FindObjectsOfType (typeof(Player))); keeping this here in case
+		Player[] players = Player.allPlayers;
+		foreach (Player player in players) {
+			if (player.getTotalResources() > 7){ //TODO: make 7 into a constant in a reasonable place
+				player.removeHalfResources();
+			}
+		}
 	}
 
 	public void stealResources() {
-		//make a dialogue box pop up, choose one player. random resource
+		//
 	}
 
 
@@ -34,6 +40,7 @@ public class TileClass : MonoBehaviour {
 	public void getRobber () {
 		GameObject robber = GameObject.Find ("Robber");
 		robber.transform.position = transform.position;
+		hasRobber = true;
 	}
 
 	private void displayDiceNumber (){

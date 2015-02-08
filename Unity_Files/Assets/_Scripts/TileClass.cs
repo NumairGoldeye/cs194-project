@@ -7,7 +7,7 @@ public class TileClass : MonoBehaviour {
 	public ResourceType type;
 	public int diceValue;
 	public int tileNumber;
-	private bool robber;
+	public bool hasRobber;
 
 	private List<SettlementClass> settlements = new List<SettlementClass> ();
 
@@ -50,10 +50,6 @@ public class TileClass : MonoBehaviour {
 		diceValue = diceNumber;
 		displayDiceNumber ();
 		getMaterial ();
-	}
-
-	public bool hasRobber() {
-		return robber;
 	}
 
 	private void getMaterial () {

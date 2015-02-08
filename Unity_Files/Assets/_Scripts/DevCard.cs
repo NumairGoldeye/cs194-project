@@ -38,6 +38,10 @@ public class DevCard : MonoBehaviour {
 
 	// Creates the deck to draw from
 	public static void CreateDeck(){
+		int totalCards = deckKnightCount + deckRoadBuildingCount + deckYearCount + deckMonopolyCount + deckVictoryPointCount;
+
+
+
 
 	}
 
@@ -114,6 +118,11 @@ public class DevCard : MonoBehaviour {
 			return EnactMonopoly(p, r);
 		case DevCardType.yearOfPlenty:
 			return EnactYearOfPlenty(p, r);
+		case DevCardType.knight:
+			p.numUsedKnights++;
+			//TODO check if player has largest army
+			return 1;
+			
 		}
 		return -1;
 	}

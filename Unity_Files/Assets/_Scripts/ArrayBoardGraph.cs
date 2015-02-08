@@ -80,33 +80,91 @@ public class ArrayBoardGraph : BoardGraph {
 		return result;
 	}
 
-	public int longestroad (List<RoadClass> road){
-
-		return 0; 
-	}
-	
-	public List<RoadClass> BuildableRoads(List<RoadClass> road){
-		List<RoadClass> result = new List<RoadClass> ();
-		foreach (RoadClass r in road) {
-			List<RoadClass> adjacent = new List<RoadClass> ();
-			adjacent = getAdjacentRoads(r);
-			foreach(RoadClass r2 in adjacent){
-				if(!r2.isBuilt()){
-					result.Add(r2);
+	public List<SettlementClass> getSettlementsForSettlement(SettlementClass settlement){
+		List<SettlementClass> result = new List<SettlementClass> ();
+		List<RoadClass> roads = new List<RoadClass> ();
+		roads = getConnectedRoads (settlement);
+		foreach (RoadClass r in roads) {
+			List<SettlementClass> set = new List<SettlementClass>();
+			set = getSettlementsForRoad(r);
+			foreach(SettlementClass s in set){
+			if(!s == settlement){
+					result.Add(s);
 				}
 			}
 		}
 		return result; 
 	}
+
 	
-	public List<SettlementClass> BuildableSettlements(List<RoadClass> road, List<SettlementClass> settlement){
-		return settlement; 
+	public int longestroad (List<RoadClass> road){
+
+		return 0; 
+	}
+	
+	public List<RoadClass> BuildableRoads(Player player){
+
+		//case 1: new postions next to built roads
+		RoadClass[] roads = player.GetRoads();
+		List<RoadClass> result = new List<RoadClass> ();
+		foreach (RoadClass r in roads) {
+			List<RoadClass> adjacent = new List<RoadClass> ();
+			adjacent = getAdjacentRoads(r);
+			foreach(RoadClass r2 in adjacent){
+				if(!r2.isBuilt() && !result.Contains(r2)){
+					result.Add(r2);
+				}
+			}
+		}
+
+		//case 2: new positions next to built settlements
+		SettlementClass[] settlements = player.GetSettlementss();
+		foreach (SettlementClass set in settlements) {
+			List<RoadClass> adjacent2 = new List<RoadClass> ();
+			adjacent2 = getConnectedRoads(set);
+			foreach(RoadClass r2 in adjacent2){
+				if(!r2.isBuilt() && !result.Contains(r2)){
+					result.Add(r2);
+				}
+			}
+		}
+		
+		return result; 
+	}
+	
+	public List<SettlementClass> BuildableSettlements(Player player){
+		RoadClass[] roads = player.GetRoads();
+		List<SettlementClass> result = new List<SettlementClass> ();
+        foreach (RoadClass r in roads) {
+			List<SettlementClass> adjacent = new List<SettlementClass> ();
+			adjacent = getSettlementsForRoad(r);
+			foreach(SettlementClass set in adjacent){
+			 if(!set.isBuilt()){
+					List<SettlementClass> adjset = new List<SettlementClass>();
+					adjset = getSettlementsForSettlement(set);
+					bool judge = true; 
+					foreach(SettlementClass s in adjset){
+					if(s.isBuilt()){
+							judge = false; 
+						}
+					}
+					if(judge){
+						result.Add(set);
+					}
+			  }
+			}
+		}
+
+		
+		return result; 
 
 	}
 	
 	
-	public List<SettlementClass> BuildableCity(List<SettlementClass> settlement){
+	public List<SettlementClass> BuildableCity(Player player){
 		//cities are buildable where there are settlements but not city; 
+
+		SettlementClass[] settlements = player.GetSettlementss();
 		List<SettlementClass> result = new List<SettlementClass> ();
 		foreach (SettlementClass set in settlements) {
 			if (!set.isCity()) {

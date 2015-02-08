@@ -6,16 +6,8 @@ using System.Collections.Generic;
 
 
 /*
-
-This class is very very important. 
-Tracks lots of global things, like TurnState.currentPlayer
-
+The pipeline will be - CreateGameManager - StartGameManager - TurnStateManager
 */
-
-
-/*
-
- */
 
 public enum TurnStateType {roll, trade, build};
 
@@ -47,8 +39,6 @@ resetRoads
  */
 public enum TurnSubStateType {none, monopolyChoose, yearOfPlentyChoose, roadBuilding, robbering};
 
-
-
 public class TurnState : MonoBehaviour {
 
     public static Player currentPlayer {
@@ -69,6 +59,7 @@ public class TurnState : MonoBehaviour {
 
 
     public static Player[] players = new Player[4];
+//    public static int numPlayers = 2;
     public static TurnStateType stateType = TurnStateType.roll;
 	public static TurnSubStateType subStateType = TurnSubStateType.none;
     
@@ -84,10 +75,12 @@ public class TurnState : MonoBehaviour {
 
 	public static bool freeBuild;
 
+
+	// ----- Instance things ----- //
+
     // Just for public inspector stuff
     public Player thisCurrentPlayer; 
     public Player[] thisPlayers;
-    
 
     public static void NextTurnState(){
         Array tsTypes  = Enum.GetValues(typeof(TurnStateType));
@@ -127,7 +120,6 @@ public class TurnState : MonoBehaviour {
 	}
 
 	// Resets the scene once the panel ends 
-	//TODO is this even used? Should it just toggle all of the roads off?
 	public static void ResetScene(){
 		// clear the roads
 	}

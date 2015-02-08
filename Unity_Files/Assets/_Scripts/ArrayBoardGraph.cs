@@ -81,6 +81,7 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 
 	public int longestroad (List<RoadClass> road){
+
 		return 0; 
 	}
 	
@@ -96,7 +97,14 @@ public class ArrayBoardGraph : BoardGraph {
 	
 	
 	public List<SettlementClass> BuildableCity(List<SettlementClass> settlement){
-		return settlement; 
-
+		//cities are buildable where there are settlements but not city; 
+		List<SettlementClass> result = new List<SettlementClass> ();
+		foreach (SettlementClass set in settlements) {
+			if (!set.isCity) {
+				result.Add(set);
+			}
+		}
+		return result; 
 	}
+
 }

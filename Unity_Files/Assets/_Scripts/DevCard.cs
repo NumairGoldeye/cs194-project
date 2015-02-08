@@ -131,7 +131,7 @@ public class DevCard : MonoBehaviour {
 		DevCard.devCardDescriptions.Add(monopoly, "Name a resource type. All players must give all resouces of that type to you");
 		DevCard.devCardDescriptions.Add(victoryPoint, "+1 Victory Point");
 
-		DevCard.createDeck();
+		DevCard.CreateDeck();
 	}
 
 	// Use this for initialization

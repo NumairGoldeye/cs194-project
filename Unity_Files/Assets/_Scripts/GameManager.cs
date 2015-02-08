@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour {
 	public UnityEngine.UI.RawImage die1Image;
 	public UnityEngine.UI.RawImage die2Image;
 
+	/// <summary>
+	/// Creates the tiles.
+	/// </summary>
 	private void createTiles () {
 		tiles = new List<TileInfo>();
 
@@ -61,7 +64,9 @@ public class GameManager : MonoBehaviour {
 
 	}
 	                          
-
+	/// <summary>
+	/// Assigns the tile info.
+	/// </summary>
 	public void assignTileInfo () {
 
 		for (int i = 0; i < numTiles; i++) {
@@ -74,7 +79,10 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-
+	/// <summary>
+	/// Distributes the resources.
+	/// </summary>
+	/// <param name="roll">Roll.</param>
 	void distributeResources (int roll) {
 		BoardGraph graph = StandardBoardGraph.Instance;
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
@@ -97,6 +105,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Displaies the dice.
+	/// </summary>
+	/// <param name="die1">Die1.</param>
+	/// <param name="die2">Die2.</param>
 	void displayDice(int die1, int die2) {
 		DiceImages images = GetComponent<DiceImages> ();
 
@@ -143,7 +156,9 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-
+	/// <summary>
+	/// Rolls the dice.
+	/// </summary>
 	public void rollDice (){
 
 		int die1 = UnityEngine.Random.Range (1, 7);
@@ -155,6 +170,9 @@ public class GameManager : MonoBehaviour {
 		distributeResources (roll);
 	}
 
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
 	void Awake () {
 		graph = StandardBoardGraph.Instance;
 		createTiles ();

@@ -61,7 +61,7 @@ public class RoadClass : MonoBehaviour {
 	}
 
 	void SetPlayer(Player p){
-		//TODO add to player.roads in a meaningful way
+		p.AddRoad (this);
 		renderer.material.color = p.playerColor;
 		ownerId = p.playerId;
 	}
@@ -79,9 +79,6 @@ public class RoadClass : MonoBehaviour {
 		built = true;
 		SetPlayer(TurnState.currentPlayer);
 
-		// If roadbuilding, allow a second road.. 
-		// TODO - undo buttons?
-		//I don't think undo buttons are necessary, they can just cancel and redo it
 		if (TurnState.CheckSecondRoadBuilt(this)){
 			roads.BroadcastMessage ("toggleRoad");
 		}

@@ -26,7 +26,7 @@ public class TileClass : MonoBehaviour {
 	}
 
 	public void stealResources() {
-		//
+		//TODO
 	}
 
 

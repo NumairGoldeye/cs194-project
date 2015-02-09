@@ -40,8 +40,10 @@ public class RoadClass : MonoBehaviour {
 	}
 
 	public void toggleRoad() {
-		if (isRoadReadyToBeShown(StandardBoardGraph.Instance.BuildableRoads(TurnState.currentPlayer)) && !built)
+		if (isRoadReadyToBeShown(StandardBoardGraph.Instance.BuildableRoads(TurnState.currentPlayer)) && !built && !visible)
 			makeVisible ();
+		else if (visible && !built)
+			makeInvisible();
 	}
 
 	public void hideIfPossible(){

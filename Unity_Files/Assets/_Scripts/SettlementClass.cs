@@ -81,7 +81,7 @@ public class SettlementClass : MonoBehaviour {
 
 
 	public void hideSettlement() {
-		if (built) return;
+		if (built && !hasCity) return;
 		visible = false;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0;

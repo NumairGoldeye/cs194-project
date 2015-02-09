@@ -75,6 +75,8 @@ public class TurnState : MonoBehaviour {
 
 	public static bool freeBuild;
 
+	static GameObject tradeConsole;
+
 
 	// ----- Instance things ----- //
 
@@ -86,6 +88,9 @@ public class TurnState : MonoBehaviour {
         Array tsTypes  = Enum.GetValues(typeof(TurnStateType));
         int numTurnStates = tsTypes.Length;
         stateType++;
+		if (stateType != TurnStateType.trade) {
+			tradeConsole.SetActive (false); // Should only be on during trade phase
+		}
         if (numTurnStates == (int)stateType){
             stateType = (TurnStateType)tsTypes.GetValue(0);
             EndTurn();
@@ -253,6 +258,8 @@ public class TurnState : MonoBehaviour {
         thisCurrentPlayer = TurnState.currentPlayer;
 
         thisPlayers = TurnState.players;
+		tradeConsole = GameObject.Find ("TradeConsole");
+		tradeConsole.SetActive (false); // Should only be on during trade phase
 
     }
 
@@ -287,6 +294,7 @@ public class TurnState : MonoBehaviour {
 
     void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
+		tradeConsole.SetActive (true);
     }
 
 

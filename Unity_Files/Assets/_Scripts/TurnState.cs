@@ -258,9 +258,8 @@ public class TurnState : MonoBehaviour {
         thisCurrentPlayer = TurnState.currentPlayer;
 
         thisPlayers = TurnState.players;
-		tradeConsole = GameObject.Find ("TradeConsole");
-		tradeConsole.SetActive (false); // Should only be on during trade phase
-
+		// This line is REALLY asking for trouble...is there a smarter way to do this?
+		tradeConsole = UIManager.instance.disableOnStart[8];
     }
 
     void Update(){

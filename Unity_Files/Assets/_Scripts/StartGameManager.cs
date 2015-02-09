@@ -38,11 +38,16 @@ public class StartGameManager {
 	public static bool secondPhase = false; // the second countdown phase
 	public static bool builtSettlement = false; // if true, then building road
 
-	public static bool finished = false;
+	public static bool finished = true;
+	public static bool startedUp = false;
 
 
 	// Called in UI manager startup....
 	public static void Startup(){
+		if (startedUp) return;
+
+		finished = false;
+
 		// Opens the UI...
 		// Setups the first player
 		// adds the game objects
@@ -57,6 +62,8 @@ public class StartGameManager {
 		settlements.BroadcastMessage("showSettlement");
 		roads.BroadcastMessage("makeInvisible");
 		TurnState.freeBuild = true;
+
+		startedUp = true;
 	}
 
 	/// <summary>
@@ -82,6 +89,7 @@ public class StartGameManager {
 	public static void NextPhase(){
 //		Debug.Log ("worked");
 		if (finished) return;
+		Startup();
 
 		if (!builtSettlement){
 			// After the current player has built a settlement

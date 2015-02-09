@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SettlementClass : MonoBehaviour {
 
-	private bool built; //is the settlement built?
+	private bool built;
 	private bool visible;
 	private bool upgrading;
 	public GameObject settlements;
@@ -28,7 +29,7 @@ public class SettlementClass : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	/// <summary>
@@ -64,37 +65,52 @@ public class SettlementClass : MonoBehaviour {
 			upgrading = true;
 	}
 
-	/// <summary>
-	/// Toggles the settlements.
-	/// </summary>
-	public void toggleSettlements() {
-		if (!built) {
-			if (!visible)
-				showSettlement();
-			else
-				hideSettlement();
+	private bool isSettlementReadyToBeShown(List<SettlementClass> settlementsToBeShown) {
+		foreach(SettlementClass settlement in settlementsToBeShown) {
+			if (settlement.vertexIndex == vertexIndex)
+				return true;
 		}
+		return false;
 	}
 
-	/// <summary>
-	/// Hides the settlement.
-	/// </summary>
-	public void hideSettlement() {
+	public void toggleSettlements() {
+//		if (isSettlementReadyToBeShown(StandardBoardGraph.Instance.BuildableSettlements(TurnState.currentPlayer)) && !built)
+		if (!built)
+		    showSettlement();
+	}
 
+
+	public void hideSettlement() {
+		if (built) return;
 		visible = false;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0;
 		settlement.renderer.material.color = temp;		
 	}
 
-	/// <summary>
-	/// Shows the settlement.
-	/// </summary>
 	public void showSettlement() {
 		visible = true;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0.8f;
 		settlement.renderer.material.color = temp;
+	}
+
+	private void setPlayerSettlement() {
+		Player p = TurnState.currentPlayer;
+		settlement.renderer.material.color = p.playerColor;
+		ownerId = TurnState.currentPlayer.playerId;
+		BuyManager.PurchaseForPlayer(BuyableType.settlement, p);
+		TurnState.currentPlayer.victoryPoints++;
+		p.AddSettlement(this);
+	}
+
+	private void setPlayerCity() {
+		BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
+		hasCity = true;
+		hideSettlement();
+		showCity();
+		TurnState.currentPlayer.victoryPoints++;
+		upgrading = false;
 	}
 
 	/// <summary>
@@ -104,19 +120,11 @@ public class SettlementClass : MonoBehaviour {
 		if (!built) {
 			if (!visible) return;
 			built = true;
-			settlement.renderer.material.color = TurnState.currentPlayer.playerColor;
-			ownerId = TurnState.currentPlayer.playerId;
-			settlements.BroadcastMessage ("toggleSettlements");
-			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);
-			TurnState.currentPlayer.victoryPoints++;
+			setPlayerSettlement();
+			settlements.BroadcastMessage ("hideSettlement");
 		} else {
 			if (upgrading) {
-				BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
-				hasCity = true;
-				hideSettlement();
-				showCity();
-				TurnState.currentPlayer.victoryPoints++;
-				upgrading = false;
+				setPlayerCity();
 			}
 		}
 	}

@@ -16,8 +16,8 @@ public class TileClass : MonoBehaviour {
 	public int tileIndex;
 
 	public void removeResources() {
-		//Player[] players = (Player[])(GameObject.FindObjectsOfType (typeof(Player))); keeping this here in case
-		Player[] players = Player.allPlayers;
+		Player[] players = (Player[])(GameObject.FindObjectsOfType (typeof(Player))); 
+//		Player[] players = Player.allPlayers;
 		foreach (Player player in players) {
 			if (player.getTotalResources() > 7){ //TODO: make 7 into a constant in a reasonable place
 				player.removeHalfResources();
@@ -29,8 +29,19 @@ public class TileClass : MonoBehaviour {
 		//TODO
 	}
 
+	void OnMouseDown() {
+		if (hasRobber) return;
+		if (GameManager.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) 
+			receiveRobber ();
+	}
+
+	private void removeRobber() {
+		TileClass tileWithRobber = GameManager.getRobberTile ();
+		tileWithRobber.hasRobber = false;
+	}
 
 	public void receiveRobber () {
+		removeRobber ();
 		getRobber ();
 		removeResources ();//Each player has to remove half of their resources. For now, it will be random
 		stealResources ();//uses turnState.currentPlayer look it up though
@@ -41,6 +52,7 @@ public class TileClass : MonoBehaviour {
 		GameObject robber = GameObject.Find ("Robber");
 		robber.transform.position = transform.position;
 		hasRobber = true;
+		GameManager.setRobberTile (this);
 	}
 
 	private void displayDiceNumber (){

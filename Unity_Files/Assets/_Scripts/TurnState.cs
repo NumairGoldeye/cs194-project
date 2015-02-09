@@ -75,6 +75,8 @@ public class TurnState : MonoBehaviour {
 
 	public static bool freeBuild;
 
+	static GameObject tradeConsole;
+
 
 	// ----- Instance things ----- //
 
@@ -86,6 +88,9 @@ public class TurnState : MonoBehaviour {
         Array tsTypes  = Enum.GetValues(typeof(TurnStateType));
         int numTurnStates = tsTypes.Length;
         stateType++;
+		if (stateType != TurnStateType.trade) {
+			tradeConsole.SetActive (false); // Should only be on during trade phase
+		}
         if (numTurnStates == (int)stateType){
             stateType = (TurnStateType)tsTypes.GetValue(0);
             EndTurn();
@@ -169,7 +174,9 @@ public class TurnState : MonoBehaviour {
 		return (DevCardType) (-1);
 	}
 
-
+	public static TurnSubStateType getSubStateType() {
+		return subStateType;
+	}
 
 	public static void SetSubStateType(TurnSubStateType state){
 		subStateType = state;
@@ -251,7 +258,8 @@ public class TurnState : MonoBehaviour {
         thisCurrentPlayer = TurnState.currentPlayer;
 
         thisPlayers = TurnState.players;
-
+		// This line is REALLY asking for trouble...is there a smarter way to do this?
+		tradeConsole = UIManager.instance.disableOnStart[8];
     }
 
     void Update(){
@@ -285,6 +293,7 @@ public class TurnState : MonoBehaviour {
 
     void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
+		tradeConsole.SetActive (true);
     }
 
 

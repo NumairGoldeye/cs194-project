@@ -33,7 +33,7 @@ public class StartGameManager {
 	public static int currentPlayerIndex = 0;
 	
 	public static GameObject settlements;
-	public static GameObject roads;
+	public static GameObject roadsObject;
 
 	public static bool secondPhase = false; // the second countdown phase
 	public static bool builtSettlement = false; // if true, then building road
@@ -51,11 +51,11 @@ public class StartGameManager {
 		UIManager.UpdateMajorUI();
 
 		settlements = GameObject.FindGameObjectWithTag("Settlement").transform.parent.gameObject;
-		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
+		roadsObject = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
 
 		currentPlayer = TurnState.players[0];
 		settlements.BroadcastMessage("showSettlements");
-		roads.BroadcastMessage("makeInvisible");
+		roadsObject.BroadcastMessage("makeInvisible");
 	}
 
 	/// <summary>
@@ -82,7 +82,7 @@ public class StartGameManager {
 		if (!builtSettlement){
 			// After the current player has built a settlement
 			settlements.BroadcastMessage("hideSettlements");
-			roads.BroadcastMessage("makeVisible");
+			roadsObject.BroadcastMessage("makeVisible");
 			builtSettlement = true;
 
 			// Hand out resources for that settlement
@@ -90,7 +90,7 @@ public class StartGameManager {
 		} else {
 			// After the previous player has built their road
 			settlements.BroadcastMessage("showSettlements");
-			roads.BroadcastMessage("makeInvisible");
+			roadsObject.BroadcastMessage("makeInvisible");
 			builtSettlement = false;
 			NextPlayer();
 		}

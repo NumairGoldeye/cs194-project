@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private static int numTiles = 19; //number of tiles in play
+	private static int diceRoll;
+	private static TileClass tileWithRobber;
 
 	private static int[] tileCounts = {4, 4, 3, 3, 4, 1};
 	// The dice numbers for each tyle, in order
@@ -31,6 +33,15 @@ public class GameManager : MonoBehaviour {
 
 	public UnityEngine.UI.RawImage die1Image;
 	public UnityEngine.UI.RawImage die2Image;
+
+	public static void setRobberTile(TileClass tile) {
+		Debugger.Log ("Robber", tile.diceValue.ToString ());
+		tileWithRobber = tile;
+	}
+
+	public static TileClass getRobberTile() {
+		return tileWithRobber;
+	}
 
 	/// <summary>
 	/// Creates the tiles.
@@ -91,6 +102,7 @@ public class GameManager : MonoBehaviour {
 		for (int index = 0; index < graph.TileCount; index++) {
 			TileClass tile = graph.getTile(index);
 			if (roll == tile.diceValue && !tile.hasRobber) {
+//				Debugger.Log("Robber", tile.hasRobber.ToString());
 				//This is assuming that each tile keeps track of its vertices
 				List<SettlementClass> settlements = tile.getSettlements();
 				foreach (SettlementClass settlement in settlements) {
@@ -158,6 +170,10 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public static int getDiceRoll() {
+		return diceRoll;
+	}
+
 	/// <summary>
 	/// Rolls the dice.
 	/// </summary>
@@ -165,11 +181,11 @@ public class GameManager : MonoBehaviour {
 
 		int die1 = UnityEngine.Random.Range (1, 7);
 		int die2 = UnityEngine.Random.Range (1, 7);
-		int roll = die1 + die2;
+		diceRoll = die1 + die2;
 
 		displayDice (die1, die2);
 		
-		distributeResources (roll);
+		distributeResources (diceRoll);
 	}
 
 	/// <summary>

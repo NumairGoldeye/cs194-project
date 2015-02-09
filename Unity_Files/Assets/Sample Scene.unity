@@ -442,6 +442,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1865000236}
@@ -745,6 +749,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 0
+  hasRobber: 0
   tileIndex: 2
 --- !u!1 &37572662
 GameObject:
@@ -1014,7 +1019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 27
   ownerId: 0
 --- !u!23 &38992569
@@ -1600,8 +1605,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &62820577
 Prefab:
   m_ObjectHideFlags: 0
@@ -1665,6 +1670,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1962669456}
@@ -1733,6 +1742,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1843415931}
@@ -1881,7 +1894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 44
   ownerId: 0
 --- !u!23 &67795252
@@ -2572,6 +2585,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1929079152}
@@ -2914,7 +2931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 43
   ownerId: 0
 --- !u!23 &108534143
@@ -3055,6 +3072,111 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!1 &111366184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 111366185}
+  - 222: {fileID: 111366188}
+  - 114: {fileID: 111366187}
+  - 114: {fileID: 111366186}
+  m_Layer: 0
+  m_Name: ComboButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &111366185
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111366184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 348150229}
+  - {fileID: 2034895846}
+  m_Father: {fileID: 981875116}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100.800003, y: 21.5}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &111366186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111366184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 111366187}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &111366187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111366184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &111366188
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111366184}
 --- !u!1 &111717714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,7 +3430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 0
   ownerId: 0
 --- !u!23 &116068739
@@ -3465,8 +3587,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &123016529
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,8 +3703,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &127763813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,8 +3951,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &133733313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3876,7 +3998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 35
   ownerId: 0
 --- !u!23 &133733316
@@ -3966,7 +4088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 48
   ownerId: 0
 --- !u!23 &134730401
@@ -4387,8 +4509,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &161615838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4569,6 +4691,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 925235376}
@@ -4637,6 +4763,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1167532458}
@@ -4669,7 +4799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2a54edd6af14089a55f02f07529e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugFlag: TurnState
+  debugFlag: Settlement
 --- !u!4 &169659237
 Transform:
   m_ObjectHideFlags: 0
@@ -4771,7 +4901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 15
   ownerId: 0
 --- !u!23 &179080811
@@ -4961,8 +5091,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &187230554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5755,8 +5885,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &227793440
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,6 +5977,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1408949109}
@@ -6574,8 +6708,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &288381909
 Prefab:
   m_ObjectHideFlags: 0
@@ -6741,6 +6875,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 108534140}
@@ -7118,8 +7256,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &323045742
 Prefab:
   m_ObjectHideFlags: 0
@@ -7183,6 +7321,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 965751498}
@@ -7300,8 +7442,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &335067374
 Prefab:
   m_ObjectHideFlags: 0
@@ -7365,6 +7507,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1441055070}
@@ -7521,6 +7667,67 @@ RectTransform:
   m_AnchoredPosition: {x: 2, y: -6.5999999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!1 &348150228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 348150229}
+  - 222: {fileID: 348150231}
+  - 114: {fileID: 348150230}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &348150229
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348150228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111366185}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 4, y: -4}
+  m_SizeDelta: {x: 13.5, y: -8}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &348150230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348150228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fae9d73b6e1ea43c0b4fdbefebe47cfa, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &348150231
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 348150228}
 --- !u!1 &354342448
 GameObject:
   m_ObjectHideFlags: 0
@@ -7566,7 +7773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 25
   ownerId: 0
 --- !u!23 &354342451
@@ -8103,6 +8310,7 @@ MonoBehaviour:
   - {fileID: 1837182132}
   - {fileID: 254250054}
   - {fileID: 346578635}
+  - {fileID: 1559447317}
   enableOnStart:
   - {fileID: 790282292}
   - {fileID: 299612261}
@@ -8159,7 +8367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 17
   ownerId: 0
 --- !u!23 &379291159
@@ -8307,7 +8515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 58
   ownerId: 0
 --- !u!23 &390787169
@@ -8459,6 +8667,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 17
+  hasRobber: 0
   tileIndex: 4
 --- !u!1 &399267907
 GameObject:
@@ -9111,6 +9320,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1592705944}
@@ -9214,8 +9427,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &419831424
 GameObject:
   m_ObjectHideFlags: 0
@@ -9323,6 +9536,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 5
+  hasRobber: 0
   tileIndex: 17
 --- !u!1001 &427140448
 Prefab:
@@ -9387,6 +9601,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1034841010}
@@ -9425,7 +9643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 51
   ownerId: 0
 --- !u!23 &430919912
@@ -9645,8 +9863,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &438063071
 Prefab:
   m_ObjectHideFlags: 0
@@ -9710,6 +9928,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1788976125}
@@ -10156,7 +10378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 31
   ownerId: 0
 --- !u!23 &446131650
@@ -10536,7 +10758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 50
   ownerId: 0
 --- !u!23 &462705861
@@ -10626,7 +10848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 62
   ownerId: 0
 --- !u!23 &463082538
@@ -11094,7 +11316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 69
   ownerId: 0
 --- !u!23 &478258811
@@ -11195,8 +11417,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &484320074
 Prefab:
   m_ObjectHideFlags: 0
@@ -11362,6 +11584,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 430919910}
@@ -11470,7 +11696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 2
   ownerId: 0
 --- !u!23 &488823886
@@ -11634,7 +11860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 46
   ownerId: 0
 --- !u!23 &499239411
@@ -11733,8 +11959,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &499780811
 GameObject:
   m_ObjectHideFlags: 0
@@ -12160,8 +12386,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &520280889
 GameObject:
   m_ObjectHideFlags: 0
@@ -12371,6 +12597,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 133733313}
@@ -12505,6 +12735,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 390787166}
@@ -12661,6 +12895,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 920578165}
@@ -12776,8 +13014,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &560643879
 GameObject:
   m_ObjectHideFlags: 0
@@ -12832,8 +13070,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &563895143
 GameObject:
   m_ObjectHideFlags: 0
@@ -13263,6 +13501,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1678480197}
@@ -13446,8 +13688,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &598234240
 GameObject:
   m_ObjectHideFlags: 0
@@ -13532,7 +13774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 47
   ownerId: 0
 --- !u!23 &599483390
@@ -13732,7 +13974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 65
   ownerId: 0
 --- !u!23 &606244249
@@ -14021,6 +14263,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1392134405}
@@ -14147,6 +14393,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1610748934}
@@ -14332,6 +14582,72 @@ Prefab:
   m_RootGameObject: {fileID: 94310064}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &641764890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 641764891}
+  - 222: {fileID: 641764893}
+  - 114: {fileID: 641764892}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &641764891
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 641764890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2086031317}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 21.5, y: 0}
+  m_SizeDelta: {x: -17.5, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &641764892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 641764890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.20000005
+  m_Text: Sheep
+--- !u!222 &641764893
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 641764890}
 --- !u!1001 &644085589
 Prefab:
   m_ObjectHideFlags: 0
@@ -14395,11 +14711,93 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1526056955}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &650458249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 650458250}
+  - 222: {fileID: 650458253}
+  - 114: {fileID: 650458252}
+  - 225: {fileID: 650458251}
+  m_Layer: 0
+  m_Name: Arrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &650458250
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650458249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: .5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 981875116}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 21.5, y: 0}
+  m_Pivot: {x: 1, y: .5}
+--- !u!225 &650458251
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650458249}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &650458252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650458249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u25BC"
+--- !u!222 &650458253
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650458249}
 --- !u!1001 &654293105
 Prefab:
   m_ObjectHideFlags: 0
@@ -14754,6 +15152,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 116068736}
@@ -15510,6 +15912,71 @@ Prefab:
   m_RootGameObject: {fileID: 1477718222}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &677585469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 677585470}
+  - 114: {fileID: 677585471}
+  m_Layer: 0
+  m_Name: ResourceToGet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &677585470
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677585469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .974421442, y: .974421442, z: .974421442}
+  m_Children:
+  - {fileID: 1721904470}
+  m_Father: {fileID: 1559447318}
+  m_RootOrder: 4
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -6.10351562e-05, y: -14}
+  m_SizeDelta: {x: 100.800003, y: 21.5}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &677585471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677585469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d0c4c1224909b41a60c166b4bc314f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactable: 1
+  _itemsToDisplay: 5
+  _hideFirstItem: 0
+  _selectedIndex: 0
+  _items:
+  - _caption: Sheep
+    _image: {fileID: 21300000, guid: fae9d73b6e1ea43c0b4fdbefebe47cfa, type: 3}
+    _isDisabled: 0
+  - _caption: Wheat
+    _image: {fileID: 21300000, guid: 1a02fc33254de42449fbd555c726104d, type: 3}
+    _isDisabled: 0
+  - _caption: Brick
+    _image: {fileID: 21300000, guid: 2da1a6668ca9341b3bc82921e3a0e3d7, type: 3}
+    _isDisabled: 0
+  - _caption: Ore
+    _image: {fileID: 21300000, guid: 5fcf83bd4a80b43058332546aac492a3, type: 3}
+    _isDisabled: 0
+  - _caption: Wood
+    _image: {fileID: 21300000, guid: 773f411d5a75e403bac2aba7ffd3e55b, type: 3}
+    _isDisabled: 0
 --- !u!1001 &678681553
 Prefab:
   m_ObjectHideFlags: 0
@@ -15573,6 +16040,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 851301571}
@@ -15850,6 +16321,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1607573155}
@@ -16017,6 +16492,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 478258808}
@@ -16493,6 +16972,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 179080808}
@@ -16884,7 +17367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 28
   ownerId: 0
 --- !u!23 &732337818
@@ -16974,7 +17457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 54
   ownerId: 0
 --- !u!23 &732934669
@@ -17334,6 +17817,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 67795250}
@@ -17460,6 +17947,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1567360605}
@@ -17683,6 +18174,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 499239408}
@@ -18008,6 +18503,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 9
+  hasRobber: 0
   tileIndex: 3
 --- !u!1 &765956474
 GameObject:
@@ -18270,7 +18766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 66
   ownerId: 0
 --- !u!23 &770219676
@@ -18610,6 +19106,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1505851585}
@@ -18722,6 +19222,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1910562547}
@@ -19139,6 +19643,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2010463031}
@@ -19198,8 +19706,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &803469504
 GameObject:
   m_ObjectHideFlags: 0
@@ -19254,8 +19762,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &811844315
 GameObject:
   m_ObjectHideFlags: 0
@@ -19409,6 +19917,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1615275570}
@@ -19798,8 +20310,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &848232950
 GameObject:
   m_ObjectHideFlags: 0
@@ -19845,7 +20357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 9
   ownerId: 0
 --- !u!23 &848232953
@@ -19935,7 +20447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 4
   ownerId: 0
 --- !u!23 &851301574
@@ -20184,6 +20696,72 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!1 &860637318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 860637319}
+  - 222: {fileID: 860637321}
+  - 114: {fileID: 860637320}
+  m_Layer: 5
+  m_Name: ToGiveLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &860637319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860637318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1559447318}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -30, y: 30}
+  m_SizeDelta: {x: 55, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &860637320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860637318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Give 4:'
+--- !u!222 &860637321
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860637318}
 --- !u!1001 &861522380
 Prefab:
   m_ObjectHideFlags: 0
@@ -20273,7 +20851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 10
   ownerId: 0
 --- !u!23 &869746264
@@ -20381,6 +20959,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1506565308}
@@ -20513,6 +21095,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1237899433}
@@ -20581,6 +21167,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2053347475}
@@ -20759,6 +21349,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 18
+  hasRobber: 0
   tileIndex: 9
 --- !u!1 &883111072
 GameObject:
@@ -20867,6 +21458,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 6
+  hasRobber: 0
   tileIndex: 16
 --- !u!1 &883415506
 GameObject:
@@ -21100,8 +21692,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &905444815
 Prefab:
   m_ObjectHideFlags: 0
@@ -21435,7 +22027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 37
   ownerId: 0
 --- !u!23 &920578168
@@ -21525,7 +22117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 16
   ownerId: 0
 --- !u!23 &925235379
@@ -21784,8 +22376,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &932563165
 Prefab:
   m_ObjectHideFlags: 0
@@ -21849,6 +22441,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 463082535}
@@ -22360,8 +22956,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &963946336
 GameObject:
   m_ObjectHideFlags: 0
@@ -22473,7 +23069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 23
   ownerId: 0
 --- !u!23 &965751501
@@ -22572,8 +23168,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &968916988
 GameObject:
   m_ObjectHideFlags: 0
@@ -22619,7 +23215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 39
   ownerId: 0
 --- !u!23 &968916991
@@ -22727,6 +23323,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 446131647}
@@ -22786,8 +23386,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &977342878
 GameObject:
   m_ObjectHideFlags: 0
@@ -22821,7 +23421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 21
   ownerId: 0
 --- !u!23 &977342880
@@ -22878,6 +23478,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 711624871}
   m_RootOrder: 2
+--- !u!1 &981875115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 981875116}
+  m_Layer: 0
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &981875116
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 981875115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 111366185}
+  - {fileID: 650458250}
+  m_Father: {fileID: 1912332910}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100.800003, y: 21.5}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1 &982108863
 GameObject:
   m_ObjectHideFlags: 0
@@ -23088,7 +23722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 5
   ownerId: 0
 --- !u!23 &992665995
@@ -23820,6 +24454,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 992665992}
@@ -23898,7 +24536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 18
   ownerId: 0
 --- !u!23 &1019957053
@@ -24258,6 +24896,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 3
+  hasRobber: 0
   tileIndex: 15
 --- !u!1 &1023760278
 GameObject:
@@ -24424,6 +25063,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 7
+  hasRobber: 0
   tileIndex: 12
 --- !u!1 &1033617010
 GameObject:
@@ -24528,7 +25168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 11
   ownerId: 0
 --- !u!23 &1034841013
@@ -24920,6 +25560,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1452685241}
@@ -25373,8 +26017,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1080870018
 GameObject:
   m_ObjectHideFlags: 0
@@ -25613,6 +26257,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1344033393}
@@ -25910,6 +26558,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 379291156}
@@ -26055,8 +26707,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1112773877
 GameObject:
   m_ObjectHideFlags: 0
@@ -26194,8 +26846,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1130329172
 GameObject:
   m_ObjectHideFlags: 0
@@ -26717,8 +27369,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1149157533
 GameObject:
   m_ObjectHideFlags: 0
@@ -27132,6 +27784,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 14
+  hasRobber: 0
   tileIndex: 14
 --- !u!1 &1158049122
 GameObject:
@@ -27375,6 +28028,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 488823883}
@@ -27483,7 +28140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 24
   ownerId: 0
 --- !u!23 &1167532461
@@ -28152,6 +28809,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 38992566}
@@ -28551,6 +29212,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 15
+  hasRobber: 0
   tileIndex: 13
 --- !u!1001 &1211114064
 Prefab:
@@ -28694,8 +29356,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1217618473
 Prefab:
   m_ObjectHideFlags: 0
@@ -28759,6 +29421,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 977342878}
@@ -28991,7 +29657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 60
   ownerId: 0
 --- !u!23 &1224658959
@@ -29099,6 +29765,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1534927197}
@@ -29177,7 +29847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 30
   ownerId: 0
 --- !u!23 &1237899436
@@ -29285,6 +29955,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1743961195}
@@ -29558,6 +30232,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 599483387}
@@ -29608,7 +30286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 67
   ownerId: 0
 --- !u!23 &1267421042
@@ -30673,6 +31351,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1735209442}
@@ -31119,6 +31801,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 1
+  hasRobber: 0
   tileIndex: 6
 --- !u!1 &1331030170
 GameObject:
@@ -31174,8 +31857,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1334265527
 GameObject:
   m_ObjectHideFlags: 0
@@ -31230,8 +31913,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1335640424
 Prefab:
   m_ObjectHideFlags: 0
@@ -31295,6 +31978,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 354342448}
@@ -31429,7 +32116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 34
   ownerId: 0
 --- !u!23 &1344033396
@@ -31573,6 +32260,7 @@ MonoBehaviour:
   victoryPoints: 0
   resourceCounts: 
   devCardCounts: 
+  totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
   hasLargestArmy: 0
@@ -31852,6 +32540,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1849622656}
@@ -32071,7 +32763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 45
   ownerId: 0
 --- !u!23 &1392134408
@@ -32479,7 +33171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 41
   ownerId: 0
 --- !u!23 &1408949112
@@ -32706,8 +33398,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1421962433
 GameObject:
   m_ObjectHideFlags: 0
@@ -32815,6 +33507,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 11
+  hasRobber: 0
   tileIndex: 1
 --- !u!1 &1423652552
 GameObject:
@@ -32861,7 +33554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 68
   ownerId: 0
 --- !u!23 &1423652555
@@ -32969,6 +33662,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 134730398}
@@ -33163,7 +33860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 6
   ownerId: 0
 --- !u!23 &1441055073
@@ -33483,7 +34180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 8
   ownerId: 0
 --- !u!23 &1452685244
@@ -33854,6 +34551,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 12
+  hasRobber: 0
   tileIndex: 5
 --- !u!1 &1463723635
 GameObject:
@@ -33921,6 +34619,122 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1463723635}
+--- !u!1 &1470745721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1470745722}
+  - 222: {fileID: 1470745725}
+  - 114: {fileID: 1470745724}
+  - 114: {fileID: 1470745723}
+  - 114: {fileID: 1470745726}
+  m_Layer: 5
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1470745722
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470745721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1489492629}
+  m_Father: {fileID: 1559447318}
+  m_RootOrder: 5
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 1.00000095, y: -53}
+  m_SizeDelta: {x: 100.800003, y: 21.5}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1470745723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470745721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1470745724}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1470745724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470745721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1470745725
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470745721}
+--- !u!114 &1470745726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470745721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737ab53e9085d424d90ad37db0346ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1473303603
 Prefab:
   m_ObjectHideFlags: 0
@@ -34135,8 +34949,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1485093356
 GameObject:
   m_ObjectHideFlags: 0
@@ -34191,8 +35005,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1489252880
 Prefab:
   m_ObjectHideFlags: 0
@@ -34256,11 +35070,81 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 606244246}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1489492628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1489492629}
+  - 222: {fileID: 1489492631}
+  - 114: {fileID: 1489492630}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1489492629
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1489492628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1470745722}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1489492630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1489492628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Trade!
+--- !u!222 &1489492631
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1489492628}
 --- !u!1 &1492347184
 GameObject:
   m_ObjectHideFlags: 0
@@ -34452,7 +35336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 61
   ownerId: 0
 --- !u!23 &1505851588
@@ -34600,7 +35484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 20
   ownerId: 0
 --- !u!23 &1506565311
@@ -34918,7 +35802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 19
   ownerId: 0
 --- !u!23 &1526056958
@@ -35026,6 +35910,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1267421039}
@@ -35120,7 +36008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 64
   ownerId: 0
 --- !u!23 &1534927200
@@ -35289,8 +36177,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1535794561
 GameObject:
   m_ObjectHideFlags: 0
@@ -35385,6 +36273,67 @@ Transform:
   - {fileID: 735141107}
   m_Father: {fileID: 689587664}
   m_RootOrder: 2
+--- !u!1 &1537747157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1537747158}
+  - 222: {fileID: 1537747160}
+  - 114: {fileID: 1537747159}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1537747158
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537747157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2086031317}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 4, y: -4}
+  m_SizeDelta: {x: 13.5, y: -8}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1537747159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537747157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fae9d73b6e1ea43c0b4fdbefebe47cfa, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1537747160
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537747157}
 --- !u!1 &1539479006
 GameObject:
   m_ObjectHideFlags: 0
@@ -35664,6 +36613,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1552057052}
+--- !u!1 &1559447317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1559447318}
+  - 222: {fileID: 1559447320}
+  - 114: {fileID: 1559447319}
+  m_Layer: 5
+  m_Name: TradeConsole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1559447318
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1559447317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1841683950}
+  - {fileID: 860637319}
+  - {fileID: 1912332910}
+  - {fileID: 2033864165}
+  - {fileID: 677585470}
+  - {fileID: 1470745722}
+  m_Father: {fileID: 1641503398}
+  m_RootOrder: 7
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -321, y: 125}
+  m_SizeDelta: {x: 134, y: 150}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1559447319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1559447317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1559447320
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1559447317}
 --- !u!1 &1567360605
 GameObject:
   m_ObjectHideFlags: 0
@@ -35709,7 +36725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 49
   ownerId: 0
 --- !u!23 &1567360608
@@ -36066,8 +37082,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1582662257
 GameObject:
   m_ObjectHideFlags: 0
@@ -36269,6 +37285,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1835877200}
@@ -36319,7 +37339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 3
   ownerId: 0
 --- !u!23 &1592705947
@@ -36418,8 +37438,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1594027623
 GameObject:
   m_ObjectHideFlags: 0
@@ -36843,7 +37863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 33
   ownerId: 0
 --- !u!23 &1607573158
@@ -36933,7 +37953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 13
   ownerId: 0
 --- !u!23 &1610748937
@@ -37023,7 +38043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 59
   ownerId: 0
 --- !u!23 &1615275573
@@ -37261,6 +38281,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 770219673}
@@ -37471,6 +38495,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 869746261}
@@ -37597,6 +38625,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 732934666}
@@ -37920,6 +38952,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 2
+  hasRobber: 0
   tileIndex: 11
 --- !u!1001 &1634446331
 Prefab:
@@ -37997,6 +39030,7 @@ RectTransform:
   - {fileID: 299612262}
   - {fileID: 1837182133}
   - {fileID: 719490926}
+  - {fileID: 1559447318}
   m_Father: {fileID: 12528620}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
@@ -38263,8 +39297,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1652346149
 Prefab:
   m_ObjectHideFlags: 0
@@ -38328,6 +39362,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1224658956}
@@ -38635,8 +39673,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1675057206
 GameObject:
   m_ObjectHideFlags: 0
@@ -38752,7 +39790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 32
   ownerId: 0
 --- !u!23 &1678480200
@@ -39084,7 +40122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 22
   ownerId: 0
 --- !u!23 &1693735984
@@ -39385,8 +40423,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1715207223
 Prefab:
   m_ObjectHideFlags: 0
@@ -39509,6 +40547,40 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1719699541}
+--- !u!1 &1721904469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1721904470}
+  m_Layer: 0
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1721904470
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1721904469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2086031317}
+  - {fileID: 1793367410}
+  m_Father: {fileID: 677585470}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100.800003, y: 21.5}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1 &1727234899
 GameObject:
   m_ObjectHideFlags: 0
@@ -39680,7 +40752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 40
   ownerId: 0
 --- !u!23 &1731316382
@@ -39779,8 +40851,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1733682558
 Prefab:
   m_ObjectHideFlags: 0
@@ -39844,6 +40916,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1423652552}
@@ -39894,7 +40970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 7
   ownerId: 0
 --- !u!23 &1735209445
@@ -40028,7 +41104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 71
   ownerId: 0
 --- !u!23 &1743961198
@@ -40136,6 +41212,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 732337815}
@@ -40195,8 +41275,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1761556057
 GameObject:
   m_ObjectHideFlags: 0
@@ -40420,6 +41500,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 848232950}
@@ -40532,6 +41616,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 10
+  hasRobber: 0
   tileIndex: 0
 --- !u!1 &1783036207
 GameObject:
@@ -40674,7 +41759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 53
   ownerId: 0
 --- !u!23 &1788976128
@@ -40719,6 +41804,84 @@ MeshFilter:
   m_PrefabInternal: {fileID: 438063071}
   m_GameObject: {fileID: 1788976125}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1793367409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1793367410}
+  - 222: {fileID: 1793367413}
+  - 114: {fileID: 1793367412}
+  - 225: {fileID: 1793367411}
+  m_Layer: 0
+  m_Name: Arrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1793367410
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793367409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: .5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1721904470}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 21.5, y: 0}
+  m_Pivot: {x: 1, y: .5}
+--- !u!225 &1793367411
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793367409}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &1793367412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793367409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u25BC"
+--- !u!222 &1793367413
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793367409}
 --- !u!1 &1799943842
 GameObject:
   m_ObjectHideFlags: 0
@@ -41212,6 +42375,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1731316379}
@@ -41643,7 +42810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 55
   ownerId: 0
 --- !u!23 &1835877203
@@ -41814,6 +42981,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1019957050}
@@ -41864,7 +43035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 26
   ownerId: 0
 --- !u!23 &1840908417
@@ -41909,6 +43080,72 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1934767683}
   m_GameObject: {fileID: 1840908414}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1841683949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1841683950}
+  - 222: {fileID: 1841683952}
+  - 114: {fileID: 1841683951}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1841683950
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841683949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1559447318}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 1, y: 60}
+  m_SizeDelta: {x: 67, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1841683951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841683949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 4:1 Trade
+--- !u!222 &1841683952
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841683949}
 --- !u!1 &1843415931
 GameObject:
   m_ObjectHideFlags: 0
@@ -41954,7 +43191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 52
   ownerId: 0
 --- !u!23 &1843415934
@@ -42152,7 +43389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 63
   ownerId: 0
 --- !u!23 &1849622659
@@ -42286,7 +43523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 42
   ownerId: 0
 --- !u!23 &1865000239
@@ -42394,6 +43631,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1693735981}
@@ -42642,6 +43883,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2105678554}
@@ -42701,8 +43946,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1887470419
 GameObject:
   m_ObjectHideFlags: 0
@@ -42757,8 +44002,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1893469397
 GameObject:
   m_ObjectHideFlags: 0
@@ -42866,6 +44111,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 13
+  hasRobber: 0
   tileIndex: 10
 --- !u!1001 &1893543514
 Prefab:
@@ -43057,8 +44303,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &1904302808
 GameObject:
   m_ObjectHideFlags: 0
@@ -43150,7 +44396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 29
   ownerId: 0
 --- !u!23 &1910562550
@@ -43195,6 +44441,71 @@ MeshFilter:
   m_PrefabInternal: {fileID: 786907923}
   m_GameObject: {fileID: 1910562547}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1912332909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1912332910}
+  - 114: {fileID: 1912332911}
+  m_Layer: 0
+  m_Name: ResourceToGive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1912332910
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1912332909}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .974421442, y: .974421442, z: .974421442}
+  m_Children:
+  - {fileID: 981875116}
+  m_Father: {fileID: 1559447318}
+  m_RootOrder: 2
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 1, y: 21}
+  m_SizeDelta: {x: 100.800003, y: 21.5}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1912332911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1912332909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d0c4c1224909b41a60c166b4bc314f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactable: 1
+  _itemsToDisplay: 5
+  _hideFirstItem: 0
+  _selectedIndex: 0
+  _items:
+  - _caption: Sheep
+    _image: {fileID: 21300000, guid: fae9d73b6e1ea43c0b4fdbefebe47cfa, type: 3}
+    _isDisabled: 0
+  - _caption: Wheat
+    _image: {fileID: 21300000, guid: 1a02fc33254de42449fbd555c726104d, type: 3}
+    _isDisabled: 0
+  - _caption: Brick
+    _image: {fileID: 21300000, guid: 2da1a6668ca9341b3bc82921e3a0e3d7, type: 3}
+    _isDisabled: 0
+  - _caption: Ore
+    _image: {fileID: 21300000, guid: 5fcf83bd4a80b43058332546aac492a3, type: 3}
+    _isDisabled: 0
+  - _caption: Wood
+    _image: {fileID: 21300000, guid: 773f411d5a75e403bac2aba7ffd3e55b, type: 3}
+    _isDisabled: 0
 --- !u!1 &1913272614
 GameObject:
   m_ObjectHideFlags: 0
@@ -43381,8 +44692,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1921350440
 Prefab:
   m_ObjectHideFlags: 0
@@ -43530,7 +44841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 56
   ownerId: 0
 --- !u!23 &1929079155
@@ -43638,6 +44949,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2088815325}
@@ -43764,6 +45079,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 1840908414}
@@ -44147,7 +45466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 38
   ownerId: 0
 --- !u!23 &1962669459
@@ -44369,6 +45688,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2083697610}
@@ -44428,8 +45751,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &1986719259
 Prefab:
   m_ObjectHideFlags: 0
@@ -44863,6 +46186,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 8
+  hasRobber: 0
   tileIndex: 7
 --- !u!1 &1996583087
 GameObject:
@@ -45050,8 +46374,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &2004775386
 GameObject:
   m_ObjectHideFlags: 0
@@ -45176,7 +46500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 70
   ownerId: 0
 --- !u!23 &2010463034
@@ -45266,7 +46590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 12
   ownerId: 0
 --- !u!23 &2019492690
@@ -45609,6 +46933,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 2019492687}
@@ -45721,6 +47049,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 16
+  hasRobber: 0
   tileIndex: 8
 --- !u!1001 &2032905812
 Prefab:
@@ -45766,6 +47095,138 @@ Prefab:
   m_RootGameObject: {fileID: 1064239994}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &2033864164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2033864165}
+  - 222: {fileID: 2033864167}
+  - 114: {fileID: 2033864166}
+  m_Layer: 5
+  m_Name: ToGetLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2033864165
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033864164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1559447318}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -29.999939, y: -5}
+  m_SizeDelta: {x: 55, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &2033864166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033864164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Get 1:'
+--- !u!222 &2033864167
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033864164}
+--- !u!1 &2034895845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2034895846}
+  - 222: {fileID: 2034895848}
+  - 114: {fileID: 2034895847}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2034895846
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2034895845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 111366185}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 21.5, y: 0}
+  m_SizeDelta: {x: -17.5, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &2034895847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2034895845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.20000005
+  m_Text: Sheep
+--- !u!222 &2034895848
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2034895845}
 --- !u!1 &2036279838
 GameObject:
   m_ObjectHideFlags: 0
@@ -45931,6 +47392,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 968916988}
@@ -45990,8 +47455,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &2053347475
 GameObject:
   m_ObjectHideFlags: 0
@@ -46037,7 +47502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 57
   ownerId: 0
 --- !u!23 &2053347478
@@ -46340,8 +47805,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1001 &2073070043
 Prefab:
   m_ObjectHideFlags: 0
@@ -46826,7 +48291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 36
   ownerId: 0
 --- !u!23 &2083697613
@@ -46871,6 +48336,111 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1977523169}
   m_GameObject: {fileID: 2083697610}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2086031316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2086031317}
+  - 222: {fileID: 2086031320}
+  - 114: {fileID: 2086031319}
+  - 114: {fileID: 2086031318}
+  m_Layer: 0
+  m_Name: ComboButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2086031317
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086031316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1537747158}
+  - {fileID: 641764891}
+  m_Father: {fileID: 1721904470}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100.800003, y: 21.5}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &2086031318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086031316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2086031319}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2086031319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086031316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2086031320
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086031316}
 --- !u!1 &2086985121
 GameObject:
   m_ObjectHideFlags: 0
@@ -47053,7 +48623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 14
   ownerId: 0
 --- !u!23 &2088815328
@@ -47308,7 +48878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlement1: {fileID: 0}
   settlement2: {fileID: 0}
-  roads: {fileID: 711624870}
+  roadsObject: {fileID: 711624870}
   edgeIndex: 1
   ownerId: 0
 --- !u!23 &2105678557
@@ -47662,8 +49232,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &2120986842
 GameObject:
   m_ObjectHideFlags: 0
@@ -47770,6 +49340,7 @@ MonoBehaviour:
   type: 0
   diceValue: 0
   tileNumber: 4
+  hasRobber: 0
   tileIndex: 18
 --- !u!1 &2126350960
 GameObject:
@@ -47825,8 +49396,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .25, y: .25, z: .25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .100000001, y: .075000003, z: .100000001}
+  m_Center: {x: 0, y: -.075000003, z: 0}
 --- !u!1 &2136236178
 GameObject:
   m_ObjectHideFlags: 0
@@ -47872,6 +49443,7 @@ MonoBehaviour:
   victoryPoints: 0
   resourceCounts: 
   devCardCounts: 
+  totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
   hasLargestArmy: 0
@@ -48005,6 +49577,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499156, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
+      propertyPath: roadsObject
+      value: 
+      objectReference: {fileID: 711624870}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be94c2a4759844ae3a8b637a8a52aa2f, type: 2}
   m_RootGameObject: {fileID: 462705858}

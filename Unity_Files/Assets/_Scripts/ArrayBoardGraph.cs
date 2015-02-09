@@ -79,14 +79,14 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 		return result;
 	}
-
+	
 	public List<SettlementClass> getSettlementsForSettlement(SettlementClass settlement){
 		List<SettlementClass> result = new List<SettlementClass> ();
 		List<RoadClass> connectedRoads = getConnectedRoads (settlement);
-		foreach (RoadClass r in connectedRoads) {
-			List<SettlementClass> set = getSettlementsForRoad(r);
+		foreach (RoadClass road in connectedRoads) {
+			List<SettlementClass> set = getSettlementsForRoad(road);
 			foreach(SettlementClass s in set){
-				if(!s == settlement){
+				if(s != settlement){
 					result.Add(s);
 				}
 			}
@@ -130,42 +130,26 @@ public class ArrayBoardGraph : BoardGraph {
 	public List<SettlementClass> BuildableSettlements(Player player){
 		RoadClass[] playerRoads = player.GetRoads();
 		List<SettlementClass> result = new List<SettlementClass> ();
-        foreach (RoadClass r in playerRoads) {
-			List<SettlementClass> adjacent = new List<SettlementClass> ();
-			adjacent = getSettlementsForRoad(r);
-			foreach(SettlementClass set in adjacent){
-			 if(!set.isBuilt()){
-					List<SettlementClass> adjset = new List<SettlementClass>();
-					adjset = getSettlementsForSettlement(set);
+
+        foreach (RoadClass road in playerRoads) {
+			List<SettlementClass> adjacent = getSettlementsForRoad(road);
+
+			foreach(SettlementClass settlement in adjacent){
+			 	if(!settlement.isBuilt()){
+					List<SettlementClass> adjset = getSettlementsForSettlement(settlement);
 					bool judge = true; 
-					foreach(SettlementClass s in adjset){
-					if(s.isBuilt()){
-							judge = false; 
+
+					foreach(SettlementClass settlement2 in adjset){
+						if(settlement2.isBuilt()){
+								judge = false; 
 						}
 					}
 					if(judge){
-						result.Add(set);
+						result.Add(settlement);
 					}
-			  }
-			}
-		}
-
-		
-		return result; 
-
-	}
-
-	public List<SettlementClass> BuildableCity(Player player){
-		//cities are buildable where there are settlements but not city; 
-
-		SettlementClass[] settlements = player.GetSettlements();
-		List<SettlementClass> result = new List<SettlementClass> ();
-		foreach (SettlementClass set in settlements) {
-			if (!set.isCity()) {
-				result.Add(set);
+			    }
 			}
 		}
 		return result; 
 	}
-
 }

@@ -75,13 +75,4 @@ public interface BoardGraph {
      * Returns the positions that player can build settlement  
      */
 	List<SettlementClass> BuildableSettlements(Player player);
-	
-	
-	/**
-     * Returns the positions that player can build city; 
-     */
-	List<SettlementClass> BuildableCity(Player player);
-
-
-	
 }

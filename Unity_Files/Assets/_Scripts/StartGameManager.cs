@@ -59,7 +59,7 @@ public class StartGameManager {
 		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
 
 		TurnState.currentPlayer = Player.allPlayers[0];
-		settlements.BroadcastMessage("showSettlement");
+		settlements.BroadcastMessage("showSettlementStartup");
 		roads.BroadcastMessage("makeInvisible");
 		TurnState.freeBuild = true;
 
@@ -101,7 +101,7 @@ public class StartGameManager {
 
 		} else {
 			// After the previous player has built their road
-			settlements.BroadcastMessage("showSettlement");
+			settlements.BroadcastMessage("showSettlementStartup");
 			roads.BroadcastMessage("makeInvisible");
 			builtSettlement = false;
 			NextPlayer();

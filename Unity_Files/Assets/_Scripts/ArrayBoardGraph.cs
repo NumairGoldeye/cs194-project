@@ -106,6 +106,15 @@ public class ArrayBoardGraph : BoardGraph {
 		return false;
 	}
 
+	public bool hasConnectingRoad(Player player, SettlementClass settlement) {
+		List<RoadClass> connectedRoads = getConnectedRoads (settlement);
+		foreach(RoadClass road in connectedRoads) {
+			if (road.ownerId != player.playerId) continue;
+			return true;
+		}
+		return false;
+	}
+
 	public int longestroad (List<RoadClass> road){
 
 		return 0; 

@@ -278,10 +278,11 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		SettlementClass s1 = settlements[settlement1index];
 		SettlementClass s2 = settlements[settlement2index];
 		// If too slow, there are more efficient ways to do this.
-		RoadClass rd = getRoadOnEdge(roads.Count);
-		roads.Add(rd);
+		RoadClass rd = getRoadOnEdge(RoadCount);
 		rd.settlement1 = s1;
 		rd.settlement2 = s2;
+		roads.Add(rd);
+//		Debugger.Log ("Settlement", roads.Count.ToString());
 	}
 
 	private RoadClass getRoadOnEdge(int roadIndex) {

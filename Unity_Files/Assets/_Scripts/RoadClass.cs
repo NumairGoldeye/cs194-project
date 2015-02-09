@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RoadClass : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class RoadClass : MonoBehaviour {
 	public SettlementClass settlement1;
 	public SettlementClass settlement2;
 
-	public GameObject roads;
+	public GameObject roadsObject;
 
 	public int edgeIndex; // The index of the edge this road is on.
 
@@ -30,13 +31,17 @@ public class RoadClass : MonoBehaviour {
 		return built;
 	}
 
-	public void toggleRoad() {
-		if (!built) {
-			if (!visible)
-				makeVisible();
-			else
-				makeInvisible();
+	private bool isRoadReadyToBeShown(List<RoadClass> roadsToBeShown) {
+		foreach(RoadClass road in roadsToBeShown) {
+			if (road.settlement1.vertexIndex == settlement1.vertexIndex && road.settlement2.vertexIndex == settlement2.vertexIndex)
+				return true;
 		}
+		return false;
+	}
+
+	public void toggleRoad() {
+		if (!isRoadReadyToBeShown(StandardBoardGraph.Instance.BuildableRoads(TurnState.currentPlayer)) || built) return;
+		makeVisible ();
 	}
 
 	public void hideIfPossible(){
@@ -47,6 +52,7 @@ public class RoadClass : MonoBehaviour {
 
 
 	public void makeInvisible() {
+		if (built) return;
 		visible = false;
 		Color temp = renderer.material.color;
 		temp.a = 0;
@@ -80,7 +86,7 @@ public class RoadClass : MonoBehaviour {
 		SetPlayer(TurnState.currentPlayer);
 
 		if (TurnState.CheckSecondRoadBuilt(this)){
-			roads.BroadcastMessage ("toggleRoad");
+			roadsObject.BroadcastMessage ("makeInvisible");
 		}
 		
 		if (!TurnState.freeBuild){

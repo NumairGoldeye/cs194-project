@@ -97,6 +97,24 @@ public class SettlementClass : MonoBehaviour {
 		settlement.renderer.material.color = temp;
 	}
 
+	private void setPlayerSettlement() {
+		Player p = TurnState.currentPlayer;
+		settlement.renderer.material.color = p.playerColor;
+		ownerId = TurnState.currentPlayer.playerId;
+		BuyManager.PurchaseForPlayer(BuyableType.settlement, p);
+		TurnState.currentPlayer.victoryPoints++;
+		p.AddSettlement(this);
+	}
+
+	private void setPlayerCity() {
+		BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
+		hasCity = true;
+		hideSettlement();
+		showCity();
+		TurnState.currentPlayer.victoryPoints++;
+		upgrading = false;
+	}
+
 	/// <summary>
 	/// Raises the mouse down event.
 	/// </summary>
@@ -104,19 +122,11 @@ public class SettlementClass : MonoBehaviour {
 		if (!built) {
 			if (!visible) return;
 			built = true;
-			settlement.renderer.material.color = TurnState.currentPlayer.playerColor;
-			ownerId = TurnState.currentPlayer.playerId;
+			setPlayerSettlement();
 			settlements.BroadcastMessage ("toggleSettlements");
-			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);
-			TurnState.currentPlayer.victoryPoints++;
 		} else {
 			if (upgrading) {
-				BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
-				hasCity = true;
-				hideSettlement();
-				showCity();
-				TurnState.currentPlayer.victoryPoints++;
-				upgrading = false;
+				setPlayerCity();
 			}
 		}
 	}

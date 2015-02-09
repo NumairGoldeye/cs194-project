@@ -225,7 +225,7 @@ public class Player : MonoBehaviour {
 		return roads.ToArray();
 	}
 
-	public SettlementClass[] GetSettlementss(){
+	public SettlementClass[] GetSettlements(){
 		return settlements.ToArray();
 	}
 

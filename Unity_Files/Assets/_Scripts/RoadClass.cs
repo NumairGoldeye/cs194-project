@@ -85,6 +85,8 @@ public class RoadClass : MonoBehaviour {
 		built = true;
 		SetPlayer(TurnState.currentPlayer);
 
+		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
+
 		if (TurnState.CheckSecondRoadBuilt(this)){
 			roadsObject.BroadcastMessage ("makeInvisible");
 		}

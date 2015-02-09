@@ -99,7 +99,8 @@ public class SettlementClass : MonoBehaviour {
 		Player p = TurnState.currentPlayer;
 		settlement.renderer.material.color = p.playerColor;
 		ownerId = TurnState.currentPlayer.playerId;
-		BuyManager.PurchaseForPlayer(BuyableType.settlement, p);
+		if (!TurnState.freeBuild)
+			BuyManager.PurchaseForPlayer(BuyableType.settlement, p);
 		TurnState.currentPlayer.victoryPoints++;
 		p.AddSettlement(this);
 	}
@@ -122,6 +123,8 @@ public class SettlementClass : MonoBehaviour {
 			built = true;
 			setPlayerSettlement();
 			settlements.BroadcastMessage ("hideSettlement");
+			StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
+
 		} else {
 			if (upgrading) {
 				setPlayerCity();

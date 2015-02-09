@@ -29,11 +29,11 @@ using System.Collections;
 
 public class StartGameManager {
 
-	public static Player currentPlayer;
-	public static int currentPlayerIndex = 0;
+//	public static Player currentPlayer;
+	public static int currentPlayerIndex = 0; // tracks number of players have built both a settlement and a thing
 	
 	public static GameObject settlements;
-	public static GameObject roadsObject;
+	public static GameObject roads;
 
 	public static bool secondPhase = false; // the second countdown phase
 	public static bool builtSettlement = false; // if true, then building road
@@ -51,11 +51,12 @@ public class StartGameManager {
 		UIManager.UpdateMajorUI();
 
 		settlements = GameObject.FindGameObjectWithTag("Settlement").transform.parent.gameObject;
-		roadsObject = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
+		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
 
-		currentPlayer = TurnState.players[0];
-		settlements.BroadcastMessage("showSettlements");
-		roadsObject.BroadcastMessage("makeInvisible");
+		TurnState.currentPlayer = Player.allPlayers[0];
+		settlements.BroadcastMessage("showSettlement");
+		roads.BroadcastMessage("makeInvisible");
+		TurnState.freeBuild = true;
 	}
 
 	/// <summary>
@@ -79,32 +80,61 @@ public class StartGameManager {
 	/// 
 	/// </summary>
 	public static void NextPhase(){
+//		Debug.Log ("worked");
+		if (finished) return;
+
 		if (!builtSettlement){
 			// After the current player has built a settlement
-			settlements.BroadcastMessage("hideSettlements");
-			roadsObject.BroadcastMessage("makeVisible");
+			settlements.BroadcastMessage("hideSettlement");
+			roads.BroadcastMessage("makeVisible");
 			builtSettlement = true;
 
 			// Hand out resources for that settlement
 
 		} else {
 			// After the previous player has built their road
-			settlements.BroadcastMessage("showSettlements");
-			roadsObject.BroadcastMessage("makeInvisible");
+			settlements.BroadcastMessage("showSettlement");
+			roads.BroadcastMessage("makeInvisible");
 			builtSettlement = false;
 			NextPlayer();
 		}
 	}
 
 	public static void NextPlayer(){
+		currentPlayerIndex++;
+		int numPlayers = Player.allPlayers.Count;
 
+
+
+		if (currentPlayerIndex > numPlayers * 2 - 1){
+			finished = true;
+			Finish();
+			return;
+		}
+
+		if (!secondPhase){
+			TurnState.currentPlayer = Player.allPlayers[currentPlayerIndex];
+
+		} else { 
+
+			int newIndex = numPlayers - 1 - (currentPlayerIndex % numPlayers);
+//			Debug.Log (newIndex);
+			TurnState.currentPlayer = Player.allPlayers[ newIndex];
+		}
+
+		if (currentPlayerIndex == numPlayers - 1){
+			secondPhase = true;
+		}
 	}
 
 	/// <summary>
 	///  Hides everything and finishes... hands over control to TurnState.
 	/// </summary>
 	public static void Finish(){
+		settlements.BroadcastMessage("hideSettlement");
+		roads.BroadcastMessage("makeInvisible");
 
+//		Debug.Log ("It is finished");
 	}
 
 

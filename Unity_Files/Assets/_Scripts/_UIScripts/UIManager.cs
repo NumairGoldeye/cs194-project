@@ -21,13 +21,16 @@ public class UIManager : MonoBehaviour {
 	public static MajorUIState state = MajorUIState.start;
 
 	public static Dictionary<MajorUIState, GameObject> stateUIObjectMap;
+
 	
 	// Singleton things that will be passed onto Static objects for ease of use
+
 	public static UIManager instance = null;
 	public MajorUIState instanceState = MajorUIState.start; // 
 	public GameObject CreateUIInstance; // Creating the games...
 	public GameObject StartUIInstance; // GameStart UI - first cities and roads etc.
 	public GameObject MainUIInstance; // Gameplay UI - 
+	public bool setup = false;
 
 	/// <summary>
 	/// Setups the user interface map.
@@ -90,12 +93,27 @@ public class UIManager : MonoBehaviour {
 		UIManager.DisableObjs();
 		UIManager.EnableObjs();
 		UIManager.UpdateMajorUI();
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if ( !setup ){
+			setup = true;
+			if (state == MajorUIState.start) 
+				StartGameManager.Startup();
+		}
 	}
+
+	public void SGMNextPhaseWrapper(){
+		StartGameManager.NextPhase();
+	}
+
+	public void TSMStartMainGameplay(){
+		TurnState.Startup();
+	}
+
 
 	// Roundabout much
 	public static void DisableObjs(){

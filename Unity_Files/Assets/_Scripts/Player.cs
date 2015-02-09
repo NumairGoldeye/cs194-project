@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 	public static Player tempPlayer = null;
 	// Max players = 4
 	public static int maxPlayers = 4;
-	public static Player[] allPlayers = new Player[4];
+	public static List<Player> allPlayers = new List<Player>();
 	public static Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
 	
 	public string playerName; 
@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
 
 	public static void StorePlayer(Player player){
 		// Player.playerCount++; - make sure this is called somewhere in Start()
-		allPlayers[playerCount] = player;
+		allPlayers.Add(player);
 	}
 
 	public static Player[] OtherPlayers(Player player){

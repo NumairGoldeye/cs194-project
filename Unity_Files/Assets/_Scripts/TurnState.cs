@@ -84,6 +84,13 @@ public class TurnState : MonoBehaviour {
     public Player thisCurrentPlayer; 
     public Player[] thisPlayers;
 
+	public static void Startup(){
+		UIManager.ChangeMajorUIState(MajorUIState.play);
+		UIManager.UpdateMajorUI();
+		freeBuild = false;
+	}
+
+
     public static void NextTurnState(){
         Array tsTypes  = Enum.GetValues(typeof(TurnStateType));
         int numTurnStates = tsTypes.Length;
@@ -253,6 +260,8 @@ public class TurnState : MonoBehaviour {
         for( int i = 0; i < playerObjects.Length; i ++){
             TurnState.players[i] = playerObjects[i].GetComponent<Player>();
         }
+
+//		TurnState.players = Player.allPlayers.ToArray();
 
         TurnState.currentPlayer = TurnState.players[0];
         thisCurrentPlayer = TurnState.currentPlayer;

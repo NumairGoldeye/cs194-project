@@ -87,7 +87,7 @@ public class TileClass : MonoBehaviour {
 				renderer.material.color = Color.red;
 				break;
 			case ResourceType.wood:
-				renderer.material.color = Color.black;
+				renderer.material.color = new Color(0.4f, 0.2f, 0);
 				break;
 			case ResourceType.desert:
 				renderer.material.color = Color.white;

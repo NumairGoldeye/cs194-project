@@ -94,7 +94,7 @@ public class StartGameManager {
 		if (!builtSettlement){
 			// After the current player has built a settlement
 			settlements.BroadcastMessage("hideSettlement");
-			roads.BroadcastMessage("makeVisible");
+			roads.BroadcastMessage("toggleRoad");
 			builtSettlement = true;
 
 			// Hand out resources for that settlement

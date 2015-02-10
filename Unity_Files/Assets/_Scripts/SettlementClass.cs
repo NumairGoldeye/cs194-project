@@ -13,6 +13,7 @@ public class SettlementClass : MonoBehaviour {
 	private bool hasCity;
 	public int vertexIndex;
 	private int ownerId;
+	private bool stealing;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,7 @@ public class SettlementClass : MonoBehaviour {
 		hideSettlement ();
 		hideCity ();
 		hasCity = false;
+		stealing = false;
 	}
 	
 	// Update is called once per frame
@@ -46,6 +48,14 @@ public class SettlementClass : MonoBehaviour {
 	/// </summary>
 	private void showCity() {
 		city.renderer.material.color = TurnState.currentPlayer.playerColor;
+	}
+
+	public void toggleStealing() {
+		stealing = !stealing;
+	}
+
+	public bool isStealing() {
+		return stealing;
 	}
 	
 	public bool isCity() {
@@ -124,10 +134,21 @@ public class SettlementClass : MonoBehaviour {
 			setPlayerSettlement();
 			settlements.BroadcastMessage ("hideSettlement");
 			StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
-
 		} else {
 			if (upgrading) {
 				setPlayerCity();
+			}
+			else if (stealing){
+				StandardBoardGraph graph = StandardBoardGraph.Instance;
+				List<TileClass> tiles = graph.getTilesForSettlement(this);
+				TileClass currentTile = tiles[0];
+				foreach (TileClass tile in tiles) {
+					if (tile.hasRobber) currentTile = tile;
+				}
+				currentTile.endStealing();
+				
+				Player owner = TurnState.players[ownerId];
+				TurnState.currentPlayer.AddResource((ResourceType)(owner.removeRandomResource()), 1);
 			}
 		}
 	}

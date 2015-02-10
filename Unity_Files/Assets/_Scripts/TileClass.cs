@@ -26,7 +26,35 @@ public class TileClass : MonoBehaviour {
 	}
 
 	public void stealResources() {
-		//TODO
+		StandardBoardGraph graph = StandardBoardGraph.Instance;
+		List<SettlementClass> settlements = graph.getSettlementsForTile (this);
+
+		int settlementsAvailable = 0;
+
+		foreach (SettlementClass settlement in settlements){
+			if (!settlement.isBuilt()) continue;
+			else if (settlement.getPlayer() == TurnState.currentPlayer.playerId) continue;
+
+			settlementsAvailable ++;
+			settlement.toggleStealing();
+		}
+
+		if (settlementsAvailable > 0) {
+			UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
+			stealing.text = "Click on a settlement to steal a resource from that player!";
+		}
+	}
+
+	public void endStealing() {
+		StandardBoardGraph graph = StandardBoardGraph.Instance;
+		List<SettlementClass> settlements = graph.getSettlementsForTile (this);
+
+		foreach (SettlementClass settlement in settlements) {
+			settlement.toggleStealing();
+		}
+
+		UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
+		stealing.text = "";
 	}
 
 	void OnMouseDown() {
@@ -44,7 +72,10 @@ public class TileClass : MonoBehaviour {
 		removeRobber ();
 		getRobber ();
 		removeResources ();//Each player has to remove half of their resources. For now, it will be random
-		stealResources ();//uses turnState.currentPlayer look it up though
+		stealResources ();
+		/* 
+		 * TODO: upon clicking this tile, close the dialogue box
+		 */
 	}
 
 

@@ -52,6 +52,9 @@ public class DevConfirmButton : MonoBehaviour {
 		TurnState.ResetSubStateType2();
 	}
 
+	public void clickButton() {
+		btn.SendMessage ("onClick");
+	}
 
 
 }

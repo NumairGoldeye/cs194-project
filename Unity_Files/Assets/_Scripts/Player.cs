@@ -140,19 +140,21 @@ public class Player : MonoBehaviour {
 		return totalResources;
 	}
 
-	public void removeRandomResource() {
+	public int removeRandomResource() {
 		int removeIndex = UnityEngine.Random.Range (0, totalResources);
 		int resourcesSeen = 0;
-		for (int i = 0; i < Enum.GetNames(typeof(ResourceType)).Length - 1; i++) {
+		int i = 0;
+		for (i = 0; i < Enum.GetNames(typeof(ResourceType)).Length - 1; i++) {
 			int resourceInBucket = resourceCounts[i];
 			if (resourceInBucket + resourcesSeen > removeIndex) {
 				RemoveResource((ResourceType)i, 1);
-				return;
+				return i;
 			}
 			else {
 				resourcesSeen += resourceCounts[i];
 			}
 		}
+		return i;
 	}
 
 

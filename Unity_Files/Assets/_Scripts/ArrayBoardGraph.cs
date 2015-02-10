@@ -131,7 +131,12 @@ public class ArrayBoardGraph : BoardGraph {
 		return result; 
 	}
 
-	public int longestroadfromone(RoadClass rd, List<RoadClass> roads){
+	/**
+     * Returns the total length of longest road that belongs to a list of roads if starting from one specific road  
+     * This is the recursive function used to calculate the longest road(has to contain two arguments to keep track of the invariance 
+     * in the recursive function)
+     */
+	private int longestroadfromone(RoadClass rd, List<RoadClass> roads){
 		
 				int longest = 1;
 				// This function means: having rd as road array No.1, find the longest road 

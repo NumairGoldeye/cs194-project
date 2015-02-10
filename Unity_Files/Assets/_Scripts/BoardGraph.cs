@@ -65,13 +65,6 @@ public interface BoardGraph {
      * Returns the total length of longest road that belongs to a player 
      */
 	int longestroad(Player player);
-
-	/**
-     * Returns the total length of longest road that belongs to a list of roads if starting from one specific road  
-     * This is the recursive function used to calculate the longest road(has to contain two arguments to keep track of the invariance 
-     * in the recursive function)
-     */
-	int longestroadfromone(RoadClass rd, List<RoadClass> roads); //add PlayerId);
 	
 	/**
      * Returns the positions that player can build roads   

@@ -133,39 +133,42 @@ public class ArrayBoardGraph : BoardGraph {
 
 	public int longestroadfromone(RoadClass rd, List<RoadClass> roads){
 		
-		int longest = 1;
-			// This function means: having rd as road array No.1, find the longest road 
-			//keep track of its adjacent roads and checks if any of them is in the built road array, this will be the possible next road
-		    // linking to the previous starting road 
-			List<RoadClass> adjacent = new List<RoadClass> ();
-			adjacent = getAdjacentRoads(rd);
+				int longest = 1;
+				// This function means: having rd as road array No.1, find the longest road 
+				//keep track of its adjacent roads and checks if any of them is in the built road array, this will be the possible next road
+				// linking to the previous starting road 
+				List<RoadClass> adjacent = new List<RoadClass> ();
+				adjacent = getAdjacentRoads (rd);
 
 
-			//use recursive method to iteratively check longest road 
-			foreach(RoadClass r in adjacent){
+				//use recursive method to iteratively check longest road 
+				foreach (RoadClass r in adjacent) {
 
-			//This new road list keeps track of the subgraph when 1 road is deleted from the road list   
-				List<RoadClass> leftroads = new List<RoadClass> ();
-				leftroads = roads;
+						//This new road list keeps track of the subgraph when 1 road is deleted from the road list   
+						List<RoadClass> leftroads = new List<RoadClass> ();
+						leftroads = roads;
 
-			//if one of the adjacent roads is contained in the built road array, then use this as the next road and the leftover road 
-			//array as the total sub array 
-				if(roads.Contains(r)){     
-				leftroads.Remove(rd);
+						//if one of the adjacent roads is contained in the built road array, then use this as the next road and the leftover road 
+						//array as the total sub array 
+						if (roads.Contains (r)) {     
+								leftroads.Remove (rd);
 
-				//call the recursive to see the sub graph 
-				int sublongest = longestroadfromone(r, leftroads);
-					//int partialresult = longestroad(left);
-				    if(sublongest + 1 > longest){
-						longest = sublongest + 1; 
-				    }
+								//call the recursive to see the sub graph 
+								int sublongest = longestroadfromone (r, leftroads);
+								//int partialresult = longestroad(left);
+								if (sublongest + 1 > longest) {
+										longest = sublongest + 1; 
+								}
+						}
+						// if "Contains" bool is false, then it means there is no more adjacent road available, meaning the sublongest is 0, meaning 
+						// that state will have longest as 1; so no need for "else branch".
 				}
-			// if "Contains" bool is false, then it means there is no more adjacent road available, meaning the sublongest is 0, meaning 
-			// that state will have longest as 1; so no need for "else branch".
-			}
 	
-		//This function currently cannot solve an edge case: when player builds 3 roads that are mutually adjacent to each other; in
-		// this case, it will likely be miscounted. 
+				//This function currently cannot solve an edge case: when player builds 3 roads that are mutually adjacent to each other; in
+				// this case, it will likely be miscounted. 
+
+				// One possible solution: delete the mutually adjacent 3rd edge from the leftover array before entering longestroadfromone recursive
+				//function; however that introduces another edge case which is when the longest road contains a cyclic partial continuous road 
 		return longest; 
 	}
 

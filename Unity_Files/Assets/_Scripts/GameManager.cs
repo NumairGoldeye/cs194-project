@@ -108,10 +108,10 @@ public class GameManager : MonoBehaviour {
 				foreach (SettlementClass settlement in settlements) {
 					if (settlement.isBuilt() && !settlement.isCity()) {
 						//this is assuming that the settlements and cities are storing the playerID
-						Player p = TurnState.players[settlement.getPlayer()];
+						Player p = Player.everyDarnPlayer[settlement.getPlayer()];
 						p.AddResource(tile.type, 1);
 					} else if (settlement.isBuilt() && settlement.isCity()) {
-						Player p = TurnState.players[settlement.getPlayer()];
+						Player p = Player.everyDarnPlayer[settlement.getPlayer()];
 						p.AddResource(tile.type, 2);
 					}
 				}

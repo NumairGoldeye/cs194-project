@@ -14,8 +14,9 @@ public class CreatePlayerInput : MonoBehaviour {
 	public int index;
 	public GameObject inputObj;
 	public GameObject playerColorObj;
+	public GameObject toggleObj;
 
-
+	Toggle tog;
 	Player p;
 	Text txt;
 	InputField input;
@@ -26,21 +27,37 @@ public class CreatePlayerInput : MonoBehaviour {
 		p.playerName = s;
 	}
 
+	public void ChangePlayerActiveStatus(bool b){
+		p.SetPlayerActive(b);
+	}
+
+
 	// Use this for initialization
 	void Start () {
 		input = inputObj.GetComponent<InputField>();
 		txt = inputObj.transform.GetChild(0).GetComponent<Text>();
 		colorImg = playerColorObj.GetComponent<Image>();
+		tog = toggleObj.GetComponent<Toggle>();
 
 		p = Player.allPlayers[index];
 		txt.text = "Player " + (p.playerId + 1).ToString();
-
+		input.interactable = p.playerActive;
+		tog.isOn = p.playerActive;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (p != null){
-			colorImg.color = p.playerColor;
+			Color tempColor = p.playerColor;
+			if (p.playerActive){
+				tempColor.a = 1.0f;
+			} else {
+				tempColor.a = .3f;
+			}
+
+			colorImg.color = tempColor;
+			input.interactable = p.playerActive;
+
 		}
 	}
 }

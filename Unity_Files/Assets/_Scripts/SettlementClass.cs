@@ -153,7 +153,7 @@ public class SettlementClass : MonoBehaviour {
 				}
 				currentTile.endStealing();
 				
-				Player owner = TurnState.players[ownerId];
+				Player owner = Player.allPlayers[ownerId];
 				TurnState.currentPlayer.AddResource((ResourceType)(owner.removeRandomResource()), 1);
 			}
 		}

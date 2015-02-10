@@ -27,11 +27,27 @@ public class Player : MonoBehaviour {
 	public static Player tempPlayer = null;
 	// Max players = 4
 	public static int maxPlayers = 4;
+
+	/// <summary>
+	/// All players, regardless of active/inactive status
+	/// </summary>
+	public static List<Player> everyDarnPlayer = new List<Player>();
+	/// <summary>
+	/// Only the players active in this game
+	/// </summary>
 	public static List<Player> allPlayers = new List<Player>();
-	public static List<Player> activePlayers = new List<Player>();
 	public static Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
-	
-	public string playerName; 
+
+
+	/// <summary>
+	/// Readonly to check playerActive. Modify using setPlayerActive(bool);
+	/// </summary>
+	public bool playerActive = true;
+	public string playerName;
+
+	/// <summary>
+	/// This will give the index into Player.everyDarnPlayer
+	/// </summary>
 	public int playerId = 0;
 	public Color playerColor;
 	public int victoryPoints = 0;
@@ -50,10 +66,21 @@ public class Player : MonoBehaviour {
 	private List<SettlementClass> settlements;
 	private List<RoadClass> roads;
 
+	/// <summary>
+	/// More reliable player retrieval. Returns null on failure
+	/// </summary>
+	public static Player FindByPlayerId(int id){
+		foreach(Player p in everyDarnPlayer){ 
+			if (p.playerId == id)
+				return p;
+		}
+		return null;
+	}
 
 	public static void StorePlayer(Player player){
 		// Player.playerCount++; - make sure this is called somewhere in Start()
 		allPlayers.Add(player);
+		everyDarnPlayer.Add(player);
 	}
 
 	public static Player[] OtherPlayers(Player player){
@@ -102,11 +129,11 @@ public class Player : MonoBehaviour {
 		roads = new List<RoadClass>();
 
 		// AddDevCard(DevCardType.knight);
-		 AddDevCard(DevCardType.roadBuilding);
-		 AddDevCard(DevCardType.knight);
-		 AddDevCard(DevCardType.monopoly);
-		 AddResource(ResourceType.wood, 2);
-		 AddResource(ResourceType.brick, 2);
+//		 AddDevCard(DevCardType.roadBuilding);
+//		 AddDevCard(DevCardType.knight);
+//		 AddDevCard(DevCardType.monopoly);
+//		 AddResource(ResourceType.wood, 2);
+//		 AddResource(ResourceType.brick, 2);
 		// LogResources();
 		// Debugger.Log("Charlie", "Something amazing");
 		// BuyManager.Test(this);
@@ -119,6 +146,37 @@ public class Player : MonoBehaviour {
 	
 	}
 
+
+
+	/// <summary>
+	/// Sets the player active stuatus and modifies the Player.allPlayer array accordingly
+	/// </summary>
+	public void SetPlayerActive(bool status){
+		playerActive = status;
+		if (status){
+			// if true, then add to allPlayers
+			if (Player.allPlayers.FindIndex( FindSelf) == -1){
+				Player.allPlayers.Add(this);
+				Player.playerCount--;
+			}
+		} else {
+			// if false, remove from allPlayers
+			if (Player.allPlayers.FindIndex( FindSelf) > -1){
+				Player.allPlayers.Remove(this);
+				Player.playerCount--;	
+			}
+		}
+	}
+
+//	private static void UpdateIds(){
+//	}
+
+	/// <summary>
+	/// weird c# predicate thing that helps finds the player in an array
+	/// </summary>
+	private bool FindSelf(Player p){
+		return (this == p);
+	}
 
 	// Call if you want to add a resource to a player name
 	// OPtional second parameter for multiple resources
@@ -239,6 +297,7 @@ public class Player : MonoBehaviour {
 	public SettlementClass[] GetSettlements(){
 		return settlements.ToArray();
 	}
+
 
 	// public CityClass[] GetCities(){
 	// 	return cities.ToArray();

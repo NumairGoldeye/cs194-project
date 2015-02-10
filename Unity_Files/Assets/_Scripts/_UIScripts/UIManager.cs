@@ -106,6 +106,11 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
+
+	// These wrapper functions allow buttons to call Static functions. Sigh - unity.
+	public void SGMStartupWrapper(){
+		StartGameManager.Startup();
+	}
 	public void SGMNextPhaseWrapper(){
 		StartGameManager.NextPhase();
 	}

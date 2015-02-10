@@ -88,6 +88,7 @@ public class TurnState : MonoBehaviour {
 		UIManager.ChangeMajorUIState(MajorUIState.play);
 		UIManager.UpdateMajorUI();
 		freeBuild = false;
+		TurnState.players = Player.allPlayers.ToArray();
 	}
 
 
@@ -108,7 +109,7 @@ public class TurnState : MonoBehaviour {
     public static void EndTurn(){
         numTurns++;
         // Debugger.Log("TurnState", "EndTurn");
-        int index = numTurns % Player.playerCount;
+        int index = numTurns % Player.allPlayers.Count;
         currentPlayer = players[index];
 
 		// Some simple resets

@@ -28,6 +28,7 @@ public class Player : MonoBehaviour {
 	// Max players = 4
 	public static int maxPlayers = 4;
 	public static List<Player> allPlayers = new List<Player>();
+	public static List<Player> activePlayers = new List<Player>();
 	public static Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
 	
 	public string playerName; 
@@ -72,16 +73,24 @@ public class Player : MonoBehaviour {
 	// dev cards 
 
 	// Use this for initialization
-	void Start () {
-		// Gives everyone a unique playerId
+
+	void Awake(){
 		playerId = Player.playerCount;
 		playerName = "Player " + Player.playerCount.ToString();
 		Player.playerCount++;
 		Player.StorePlayer(this);
+	}
+
+	void Start () {
+		// Gives everyone a unique playerId
+//		playerId = Player.playerCount;
+//		playerName = "Player " + Player.playerCount.ToString();
+//		Player.playerCount++;
+//		Player.StorePlayer(this);
 
 		// They will actually choose this later
 		playerColor = Player.playerColors[playerId];
-
+		gameObject.name = playerName;
 
 		// -1 for the desert
 		resourceCounts = new int[Enum.GetNames(typeof(ResourceType)).Length - 1];

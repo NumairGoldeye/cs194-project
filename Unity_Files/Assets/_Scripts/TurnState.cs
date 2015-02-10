@@ -254,14 +254,14 @@ public class TurnState : MonoBehaviour {
     	// currentPlayerIndex = ArrayUtility.IndexOf(playerOrder, PlayerEnum.P1);
 
 
-        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+//        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+//
+//        // TurnState.players = playerObjects.Select(p => p.GetComponent<Player>());
+//        for( int i = 0; i < playerObjects.Length; i ++){
+//            TurnState.players[i] = playerObjects[i].GetComponent<Player>();
+//        }
 
-        // TurnState.players = playerObjects.Select(p => p.GetComponent<Player>());
-        for( int i = 0; i < playerObjects.Length; i ++){
-            TurnState.players[i] = playerObjects[i].GetComponent<Player>();
-        }
-
-//		TurnState.players = Player.allPlayers.ToArray();
+		TurnState.players = Player.allPlayers.ToArray();
 
         TurnState.currentPlayer = TurnState.players[0];
         thisCurrentPlayer = TurnState.currentPlayer;

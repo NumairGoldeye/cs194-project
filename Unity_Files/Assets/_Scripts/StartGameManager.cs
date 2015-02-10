@@ -109,8 +109,14 @@ public class StartGameManager {
 	}
 
 	public static void NextPlayer(){
-		currentPlayerIndex++;
 		int numPlayers = Player.allPlayers.Count;
+
+
+		if (currentPlayerIndex == numPlayers - 1){
+			secondPhase = true;
+		}
+
+		currentPlayerIndex++;
 
 
 
@@ -130,9 +136,7 @@ public class StartGameManager {
 			TurnState.currentPlayer = Player.allPlayers[ newIndex];
 		}
 
-		if (currentPlayerIndex == numPlayers - 1){
-			secondPhase = true;
-		}
+
 	}
 
 	/// <summary>

@@ -150,8 +150,7 @@ public class ArrayBoardGraph : BoardGraph {
 				foreach (RoadClass r in adjacent) {
 
 						//This new road list keeps track of the subgraph when 1 road is deleted from the road list   
-						List<RoadClass> leftroads = new List<RoadClass> ();
-						leftroads = roads;
+						List<RoadClass> leftroads = new List<RoadClass> (roads);
 
 						//if one of the adjacent roads is contained in the built road array, then use this as the next road and the leftover road 
 						//array as the total sub array 

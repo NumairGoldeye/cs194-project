@@ -94,7 +94,27 @@ public class ArrayBoardGraph : BoardGraph {
 		return result; 
 	}
 
-	
+	public bool hasBuiltNeighbooringSettlement(SettlementClass settlement) {
+		List<RoadClass> connectedRoads = getConnectedRoads (settlement);
+		foreach (RoadClass road in connectedRoads) {
+			List<SettlementClass> set = getSettlementsForRoad(road);
+			foreach(SettlementClass s in set) {
+				if (s != settlement && s.isBuilt())
+					return true;
+			}
+		}
+		return false;
+	}
+
+	public bool hasConnectingRoad(Player player, SettlementClass settlement) {
+		List<RoadClass> connectedRoads = getConnectedRoads (settlement);
+		foreach(RoadClass road in connectedRoads) {
+			if (road.ownerId != player.playerId) continue;
+			return true;
+		}
+		return false;
+	}
+
 	public int longestroad (List<RoadClass> road){
 
 		return 0; 

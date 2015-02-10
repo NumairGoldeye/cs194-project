@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 	private static int numTiles = 19; //number of tiles in play
 	private static int diceRoll;
 	private static TileClass tileWithRobber;
+	private static Player playerWithLargestArmy = null;
 
 	private static int[] tileCounts = {4, 4, 3, 3, 4, 1};
 	// The dice numbers for each tyle, in order
@@ -89,6 +90,14 @@ public class GameManager : MonoBehaviour {
 			else {
 				tile.hasRobber = false;
 			}
+		}
+	}
+
+	public static void distributeResourcesForSettlement(SettlementClass settlement) {
+		List<TileClass> tilesForSettlement = StandardBoardGraph.Instance.getTilesForSettlement (settlement);
+		foreach(TileClass tile in tilesForSettlement) {
+			if (tile.type != ResourceType.desert)
+				TurnState.currentPlayer.AddResource(tile.type, 1);
 		}
 	}
 

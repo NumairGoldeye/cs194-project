@@ -139,6 +139,8 @@ public class SettlementClass : MonoBehaviour {
 			built = true;
 			setPlayerSettlement();
 			settlements.BroadcastMessage ("hideSettlement");
+			if (StartGameManager.secondPhase) 
+				GameManager.distributeResourcesForSettlement(this);
 			StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
 		} else {
 			if (upgrading) {

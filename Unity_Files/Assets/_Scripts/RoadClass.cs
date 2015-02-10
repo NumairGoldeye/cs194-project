@@ -46,6 +46,29 @@ public class RoadClass : MonoBehaviour {
 			makeInvisible();
 	}
 
+	/// <summary>
+	/// Used to check the edge case in game startup where you are supposed to place a road next to the settlement you just built
+	/// </summary>
+	private bool checkStartupCondition() {
+		if (settlement1.getPlayer() == TurnState.currentPlayer.playerId) {
+			List<RoadClass> connectedRoads1 = StandardBoardGraph.Instance.getConnectedRoads (settlement1);
+			foreach(RoadClass road in connectedRoads1)
+				if (road.isBuilt()) return false;
+			return true;
+		} else if (settlement2.getPlayer() == TurnState.currentPlayer.playerId) {
+			List<RoadClass> connectedRoads2 = StandardBoardGraph.Instance.getConnectedRoads (settlement2);
+			foreach(RoadClass road in connectedRoads2)
+				if (road.isBuilt()) return false;
+			return true;
+		}
+		return false;
+	}
+
+	public void toggleRoadStartup() {
+		if (isRoadReadyToBeShown (StandardBoardGraph.Instance.BuildableRoads (TurnState.currentPlayer)) && !built && !visible && checkStartupCondition ())
+			makeVisible ();
+	}
+
 	public void hideIfPossible(){
 		if (!built) {
 			makeInvisible();

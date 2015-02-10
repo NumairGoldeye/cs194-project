@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class ArrayBoardGraph : BoardGraph {
 
@@ -115,10 +116,59 @@ public class ArrayBoardGraph : BoardGraph {
 		return false;
 	}
 
-	public int longestroad (List<RoadClass> road){
 
-		return 0; 
+    public int longestroad(Player player){
+		int result = 0;
+		RoadClass[] playerRoads = player.GetRoads();
+		List<RoadClass> roads = playerRoads.ToList<RoadClass>();
+				///can add an "if" statement here checking if playerRoads is null meaning no road built 
+		foreach (RoadClass r in roads) {
+			int subresult = longestroadfromone(r, roads);		
+		if(subresult > result) {
+				result = subresult;
+			}
+		}
+		return result; 
 	}
+
+	public int longestroadfromone(RoadClass rd, List<RoadClass> roads){
+		
+		int longest = 1;
+			// This function means: having rd as road array No.1, find the longest road 
+			//keep track of its adjacent roads and checks if any of them is in the built road array, this will be the possible next road
+		    // linking to the previous starting road 
+			List<RoadClass> adjacent = new List<RoadClass> ();
+			adjacent = getAdjacentRoads(rd);
+
+
+			//use recursive method to iteratively check longest road 
+			foreach(RoadClass r in adjacent){
+
+			//This new road list keeps track of the subgraph when 1 road is deleted from the road list   
+				List<RoadClass> leftroads = new List<RoadClass> ();
+				leftroads = roads;
+
+			//if one of the adjacent roads is contained in the built road array, then use this as the next road and the leftover road 
+			//array as the total sub array 
+				if(roads.Contains(r)){     
+				leftroads.Remove(rd);
+
+				//call the recursive to see the sub graph 
+				int sublongest = longestroadfromone(r, leftroads);
+					//int partialresult = longestroad(left);
+				    if(sublongest + 1 > longest){
+						longest = sublongest + 1; 
+				    }
+				}
+			// if "Contains" bool is false, then it means there is no more adjacent road available, meaning the sublongest is 0, meaning 
+			// that state will have longest as 1; so no need for "else branch".
+			}
+	
+		//This function currently cannot solve an edge case: when player builds 3 roads that are mutually adjacent to each other; in
+		// this case, it will likely be miscounted. 
+		return longest; 
+	}
+
 	
 	public List<RoadClass> BuildableRoads(Player player){
 

@@ -157,7 +157,7 @@ public class Player : MonoBehaviour {
 			// if true, then add to allPlayers
 			if (Player.allPlayers.FindIndex( FindSelf) == -1){
 				Player.allPlayers.Add(this);
-				Player.playerCount--;
+				Player.playerCount++;
 			}
 		} else {
 			// if false, remove from allPlayers

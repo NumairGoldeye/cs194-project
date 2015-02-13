@@ -117,7 +117,7 @@ public class SettlementClass : MonoBehaviour {
 		ownerId = TurnState.currentPlayer.playerId;
 		if (!TurnState.freeBuild)
 			BuyManager.PurchaseForPlayer(BuyableType.settlement, p);
-		TurnState.currentPlayer.victoryPoints++;
+		TurnState.currentPlayer.AddVictoryPoint();
 		p.AddSettlement(this);
 	}
 
@@ -126,7 +126,7 @@ public class SettlementClass : MonoBehaviour {
 		hasCity = true;
 		hideSettlement();
 		showCity();
-		TurnState.currentPlayer.victoryPoints++;
+		TurnState.currentPlayer.AddVictoryPoint();
 		upgrading = false;
 	}
 

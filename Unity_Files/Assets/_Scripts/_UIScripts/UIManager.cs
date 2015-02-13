@@ -137,8 +137,6 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
-	public static void StaticReset(){
-
-	}
+	public static void StaticReset(){}
 
 }

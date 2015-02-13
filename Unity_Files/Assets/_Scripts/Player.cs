@@ -44,7 +44,10 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	public int playerId = 0;
 	public Color playerColor;
-	public int victoryPoints = 0;
+	/// <summary>
+	/// Use player.AddVictoryPoint to check for victory after adding point.
+	/// </summary>
+	public int victoryPoints;
 
 	// Each index corresponds to a the ResourceType by enum
 	// resourceCounts[0] should be the number of sheep
@@ -279,7 +282,7 @@ public class Player : MonoBehaviour {
 		devCardCounts[(int)devCard] += 1;
 		lastCardTypeDrawn = devCard;
 		if (devCard == DevCardType.victoryPoint){
-			victoryPoints++;
+			AddVictoryPoint();
 		}
 		return true;
 	}
@@ -313,6 +316,17 @@ public class Player : MonoBehaviour {
 
 	public SettlementClass[] GetSettlements(){
 		return settlements.ToArray();
+	}
+
+
+	public void AddVictoryPoint(){
+		victoryPoints++;
+		TurnState.CheckVictory();
+	}
+
+	public void RemoveVictoryPoint(){
+		victoryPoints--;
+//		TurnState.CheckVictory();
 	}
 
 

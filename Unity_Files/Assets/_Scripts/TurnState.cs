@@ -41,11 +41,7 @@ public enum TurnSubStateType {none, monopolyChoose, yearOfPlentyChoose, roadBuil
 
 public class TurnState : MonoBehaviour {
 
-    public static Player currentPlayer {
-        get; set;
-    }
-    
-    
+	public static Player currentPlayer;
     private static TurnState _instance;
     public static TurnState instance {
         get {
@@ -60,6 +56,10 @@ public class TurnState : MonoBehaviour {
 
     public static Player[] players = new Player[4];
 //    public static int numPlayers = 2;
+	public static int pointsToWin = 10;
+	public static Player winningPlayer;
+	public static bool gameOver = false;
+
     public static TurnStateType stateType = TurnStateType.roll;
 	public static TurnSubStateType subStateType = TurnSubStateType.none;
     
@@ -76,6 +76,7 @@ public class TurnState : MonoBehaviour {
 	public static bool freeBuild;
 
 	static GameObject tradeConsole;
+	static GameObject victoryPanel;
 
 
 	// ----- Instance things ----- //
@@ -83,6 +84,8 @@ public class TurnState : MonoBehaviour {
     // Just for public inspector stuff
     public Player thisCurrentPlayer; 
     public Player[] thisPlayers;
+	public int _pointsToWin = 10;
+	public GameObject _victoryPanel;
 
 	public static void Startup(){
 		UIManager.ChangeMajorUIState(MajorUIState.play);
@@ -270,6 +273,8 @@ public class TurnState : MonoBehaviour {
         thisPlayers = TurnState.players;
 		// This line is REALLY asking for trouble...is there a smarter way to do this?
 		tradeConsole = UIManager.instance.disableOnStart[8];
+		TurnState.pointsToWin = _pointsToWin;
+		TurnState.victoryPanel = _victoryPanel;
     }
 
     void Update(){
@@ -306,6 +311,68 @@ public class TurnState : MonoBehaviour {
 		tradeConsole.SetActive (true);
     }
 
+	/// <summary>
+	/// Wrapper function for stati
+	/// </summary>
+	public void CheckVictoryWrapper(){
+		TurnState.CheckVictory();
+	}
 
 
+	/// <summary>
+	/// Call this after victory points are awarded
+	/// This will update the UI
+	/// </summary>
+	public static void CheckVictory(){
+		foreach (Player p in Player.allPlayers){
+			if (p.victoryPoints >= pointsToWin){
+				// MainUI hide
+//				UIManager.MainUI.SetActive(false);
+				UIManager.DisableObjs();
+				winningPlayer = p;
+				victoryPanel.SetActive(true);
+				gameOver = true;
+			}
+		}
+	}
+
+	public void RestartEverythingWrapper(){
+		TurnState.RestartEverything();
+	}
+	/// <summary>
+	/// Restarts everthing -> puts it back on the main UI screen.
+	/// </summary>
+	public static void RestartEverything(){
+		// works because there is only one scene
+
+		//Reset all the static variables
+		StaticReset();
+		Player.StaticReset();
+		UIManager.StaticReset();
+		StartGameManager.StaticReset();
+		StandardBoardGraph.StaticReset();
+
+
+		UIManager.ChangeMajorUIState(MajorUIState.create);
+
+
+		Application.LoadLevel(0);
+	}
+
+	public static void StaticReset(){
+		gameOver = false;
+		
+		stateType = TurnStateType.roll;
+		subStateType = TurnSubStateType.none;
+		
+		numTurns = 0;
+		chosenResource = ResourceType.desert;
+		cardPlayedThisTurn = false;
+		
+		// Gosh i want to know how to compare objects to null.
+		firstRoadBuilt = false;
+		firstRoad = null;
+		secondRoadBuilt = false;
+		secondRoad = null;
+	}
 }

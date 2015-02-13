@@ -66,7 +66,9 @@ public class FirstPersonControl : MonoBehaviour {
 //     	float yRotateVal = - Input.GetAxis("RotateVertical") * yRotatePower;
 
      	// if(Camera.current != null) {
-		transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
+//		transform.Translate(new Vector3(xAxisValue, 0.0f, zAxisValue));
+		transform.position += new Vector3(xAxisValue, 0.0f, zAxisValue);
+
 		transform.Translate(Vector3.forward * Input.GetAxis("Mouse ScrollWheel"));
 
 //        	transform.Rotate(new Vector3(yRotateVal, 0.0f, 0.0f ));

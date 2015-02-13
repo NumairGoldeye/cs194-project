@@ -296,4 +296,8 @@ public class StandardBoardGraph : ArrayBoardGraph {
 		return null;
 	}
 
+	public static void StaticReset(){
+		instance = null;
+	}
+
 }

@@ -150,7 +150,16 @@ public class StartGameManager {
 	}
 
 
+	public static void StaticReset(){
+		currentPlayerIndex = 0; // tracks number of players have built both a settlement and a thing
+		
+		secondPhase = false; // the second countdown phase
+		builtSettlement = false; // if true, then building road
+		
+		finished = true;
+		startedUp = false;
 
+	}
 
 
 

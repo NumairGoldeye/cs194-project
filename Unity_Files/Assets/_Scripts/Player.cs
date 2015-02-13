@@ -20,14 +20,8 @@ Also manages some other public members
 */
 public class Player : MonoBehaviour {
 
-	public static int playerCount{
-		get; set;
-	}
-
-	public static Player tempPlayer = null;
-	// Max players = 4
-	public static int maxPlayers = 4;
-
+	// =----- Static variables -----
+	public static int playerCount;
 	/// <summary>
 	/// All players, regardless of active/inactive status
 	/// </summary>
@@ -65,6 +59,17 @@ public class Player : MonoBehaviour {
 
 	private List<SettlementClass> settlements;
 	private List<RoadClass> roads;
+
+
+	/// <summary>
+	/// Needs to reset Static variables to reload scene
+	/// </summary>
+	public static void StaticReset(){
+		playerCount = 0;
+		everyDarnPlayer = new List<Player>();
+		allPlayers = new List<Player>();
+	}
+
 
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure
@@ -132,6 +137,8 @@ public class Player : MonoBehaviour {
 //		 AddDevCard(DevCardType.roadBuilding);
 //		 AddDevCard(DevCardType.knight);
 //		 AddDevCard(DevCardType.monopoly);
+		 AddDevCard(DevCardType.victoryPoint);
+		 AddDevCard(DevCardType.victoryPoint);
 //		 AddResource(ResourceType.wood, 2);
 //		 AddResource(ResourceType.brick, 2);
 		// LogResources();
@@ -257,21 +264,31 @@ public class Player : MonoBehaviour {
 		return devCardCounts[(int) devCard] > 0;
 	}
 
-	// Adds a random type and returns it.
+	/// <summary>
+	/// Draws a random card. Should be called by UI
+	/// </summary>
+	/// <returns>The random card.</returns>
 	public DevCardType DrawRandomCard(){
 		DevCardType newCardType = DevCard.RandomCard();
 		AddDevCard(newCardType);
 		return newCardType;
 	}
 
+
 	public bool AddDevCard(DevCardType devCard){
 		devCardCounts[(int)devCard] += 1;
 		lastCardTypeDrawn = devCard;
+		if (devCard == DevCardType.victoryPoint){
+			victoryPoints++;
+		}
 		return true;
 	}
 
 	public bool RemoveDevCard(DevCardType devCard){
 		devCardCounts[(int)devCard] -= 1;
+		if (devCard == DevCardType.victoryPoint){
+			victoryPoints--;
+		}
 		return true;
 	}
 

@@ -1,0 +1,42 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+/// <summary>
+/// Victory panel
+/// </summary>
+public class VictoryPanel : MonoBehaviour {
+
+	// Set in inspector
+	public Text victoryTitleTxt;
+	public Text victoryTxt;
+
+	public bool set = false;
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (!set){
+			set = true;
+			Setup();
+		}
+	}
+
+	void Setup(){
+		victoryTitleTxt.text = TurnState.winningPlayer.playerName + " has won!";
+		
+		string otherPoints = "";
+		
+		foreach(Player p in Player.OtherPlayers(TurnState.winningPlayer)){
+			otherPoints += p.playerName + ": " + p.victoryPoints + " points \n";
+		}
+		
+		victoryTxt.text = otherPoints;
+	}
+
+
+}

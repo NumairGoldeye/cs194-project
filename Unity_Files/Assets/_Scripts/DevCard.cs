@@ -25,7 +25,7 @@ public class DevCard : MonoBehaviour {
 	static int deckMonopolyCount = 2;
 	static int deckVictoryPointCount = 5;
 
-	private static Dictionary<DevCardType, string> devCardNames = new Dictionary<DevCardType, string>();
+	private static Dictionary<DevCardType, string> devCardNames;
 	private static Dictionary<DevCardType, string> devCardDescriptions = new Dictionary<DevCardType, string>();
 	
 
@@ -128,6 +128,9 @@ public class DevCard : MonoBehaviour {
 	}
 
 	void Awake(){
+		devCardNames = new Dictionary<DevCardType, string>();;
+		devCardDescriptions = new Dictionary<DevCardType, string>();
+
 		DevCard.devCardNames.Add(knight, "Knight");
 		DevCard.devCardNames.Add(roadBuilding, "Road Building");
 		DevCard.devCardNames.Add(yearOfPlenty, "Year of Plenty");
@@ -152,4 +155,5 @@ public class DevCard : MonoBehaviour {
 	void Update () {
 	
 	}
+
 }

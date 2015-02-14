@@ -140,8 +140,8 @@ public class Player : MonoBehaviour {
 //		 AddDevCard(DevCardType.roadBuilding);
 //		 AddDevCard(DevCardType.knight);
 //		 AddDevCard(DevCardType.monopoly);
-		 AddDevCard(DevCardType.victoryPoint);
-		 AddDevCard(DevCardType.victoryPoint);
+//		 AddDevCard(DevCardType.victoryPoint);
+//		 AddDevCard(DevCardType.victoryPoint);
 //		 AddResource(ResourceType.wood, 2);
 //		 AddResource(ResourceType.brick, 2);
 		// LogResources();
@@ -319,8 +319,8 @@ public class Player : MonoBehaviour {
 	}
 
 
-	public void AddVictoryPoint(){
-		victoryPoints++;
+	public void AddVictoryPoint(int amount = 1){
+		victoryPoints +=  amount;
 		TurnState.CheckVictory();
 	}
 

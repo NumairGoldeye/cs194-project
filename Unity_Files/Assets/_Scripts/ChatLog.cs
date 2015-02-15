@@ -18,10 +18,12 @@ public class ChatLog : MonoBehaviour {
 	public GameObject chatInputObj;
 	public GameObject chatPanelObj;
 	public GameObject chatTextObj;
+	public GameObject chatScrollObj;
 	public EventSystem foo; 
 
 	private InputField chatInput;
 	private Text chatText;
+	private ScrollRect chatScroll;
 //	private LayoutElement textLayout;
 
 
@@ -57,6 +59,7 @@ public class ChatLog : MonoBehaviour {
 		messages = new List<Message>();
 		chatInput = chatInputObj.GetComponent<InputField>();
 		chatText = chatTextObj.GetComponent<Text>();
+		chatScroll = chatScrollObj.GetComponent<ScrollRect>();
 //		textLayout = chatTextObj.GetComponent<LayoutElement>();
 
 //		chatText.text += "\n\n\n";
@@ -111,7 +114,15 @@ public class ChatLog : MonoBehaviour {
 		Vector2 temp = chatText.rectTransform.anchoredPosition;
 		temp.y = chatText.rectTransform.sizeDelta.y;
 		chatText.rectTransform.anchoredPosition = temp;
+
+//		yield return null;
+
+		chatScroll.velocity=new Vector2 (0f,1000f);
 		
+	}
+
+	public void Test(){
+//		Debug.Log(chatScroll.value);
 	}
 
 

@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: db8ba08bdc8224fe5984cb0faee657ed
+guid: a15773c9fa44e43e7bdd2d79b018741b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Cards_0
-    21300002: Cards_1
-    21300004: Cards_2
-    21300006: Cards_3
+    21300000: ResourceCard_0
+    21300002: ResourceCard_1
+    21300004: ResourceCard_2
+    21300006: ResourceCard_3
+    21300008: ResourceCard_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,43 +48,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Cards_0
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 720
-        width: 172
-        height: 218
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Cards_1
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 480
-        width: 172
-        height: 218
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Cards_2
+    - name: ResourceCard_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
-        width: 182
-        height: 218
+        y: 989
+        width: 174
+        height: 219
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Cards_3
+    - name: ResourceCard_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 740
+        width: 174
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ResourceCard_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 491
+        width: 173
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ResourceCard_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 250
+        width: 174
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ResourceCard_4
       rect:
         serializedVersion: 2
         x: 2
         y: 0
-        width: 187
-        height: 218
+        width: 173
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

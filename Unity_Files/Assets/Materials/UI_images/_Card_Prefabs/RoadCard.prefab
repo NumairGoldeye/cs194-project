@@ -10,6 +10,7 @@ GameObject:
   - 224: {fileID: 22404966}
   - 222: {fileID: 22204966}
   - 114: {fileID: 11404966}
+  - 114: {fileID: 11459462}
   m_Layer: 5
   m_Name: RoadCard
   m_TagString: Untagged
@@ -38,6 +39,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11459462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98454147775194424b0a07367913a57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!222 &22204966
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -56,10 +69,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130.990189, y: -41.5}
-  m_SizeDelta: {x: 87.3267899, y: 80}
+  m_AnchorMin: {x: 0, y: .5}
+  m_AnchorMax: {x: 0, y: .5}
+  m_AnchoredPosition: {x: 73.5, y: 0}
+  m_SizeDelta: {x: 147, y: 186}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

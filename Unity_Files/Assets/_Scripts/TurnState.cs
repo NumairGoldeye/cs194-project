@@ -88,6 +88,8 @@ public class TurnState : MonoBehaviour {
 	public GameObject _victoryPanel;
 
 	public static void Startup(){
+		DevCard.SetupStatic();
+
 		UIManager.ChangeMajorUIState(MajorUIState.play);
 		UIManager.UpdateMajorUI();
 		freeBuild = false;

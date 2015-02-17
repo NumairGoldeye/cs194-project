@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 0219
+#pragma warning disable 0414
+
+using UnityEngine;
 // using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +9,11 @@ using UnityEditor;
 
 public enum DevCardType { knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint};
 
+/// <summary>
+/// Like ResourceClass, will be attached to a DevCard in the PlayerHand
+/// 
+/// The static functions execute DevCard behaviors.
+/// </summary>
 public class DevCard : MonoBehaviour {
 
 	// chance out of 100 for [knight, road, year, monopoly]
@@ -27,7 +35,15 @@ public class DevCard : MonoBehaviour {
 
 	private static Dictionary<DevCardType, string> devCardNames;
 	private static Dictionary<DevCardType, string> devCardDescriptions = new Dictionary<DevCardType, string>();
-	
+
+	private static bool setup = false;
+
+
+
+	//----- Instance things ---//
+
+	public DevCardType type; // set in inspector
+
 
 	// Todo Gives a random card
 	public static DevCardType RandomCard(){
@@ -127,10 +143,14 @@ public class DevCard : MonoBehaviour {
 		return -1;
 	}
 
-	void Awake(){
+	// Called in TurnState static
+	public static void SetupStatic(){
+		if (setup) return;
+		setup = true;
+
 		devCardNames = new Dictionary<DevCardType, string>();;
 		devCardDescriptions = new Dictionary<DevCardType, string>();
-
+		
 		DevCard.devCardNames.Add(knight, "Knight");
 		DevCard.devCardNames.Add(roadBuilding, "Road Building");
 		DevCard.devCardNames.Add(yearOfPlenty, "Year of Plenty");
@@ -142,9 +162,10 @@ public class DevCard : MonoBehaviour {
 		DevCard.devCardDescriptions.Add(yearOfPlenty, "Take two of any resource");
 		DevCard.devCardDescriptions.Add(monopoly, "Name a resource type. All players must give all resouces of that type to you");
 		DevCard.devCardDescriptions.Add(victoryPoint, "+1 Victory Point");
-
+		
 		DevCard.CreateDeck();
 	}
+
 
 	// Use this for initialization
 	void Start () {

@@ -1,68 +1,78 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &125044
+--- !u!1 &158738
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 224: {fileID: 22425044}
-  - 222: {fileID: 22225044}
-  - 114: {fileID: 11425044}
-  - 114: {fileID: 11494724}
+  - 224: {fileID: 22458738}
+  - 222: {fileID: 22258738}
+  - 114: {fileID: 11458734}
+  - 114: {fileID: 11458738}
   m_Layer: 5
-  m_Name: WheatCard
+  m_Name: PlayerHandPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11425044
+--- !u!114 &11458734
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125044}
+  m_GameObject: {fileID: 158738}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300004, guid: a15773c9fa44e43e7bdd2d79b018741b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
+  m_Color: {r: 1, g: 1, b: 1, a: .39199999}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11494724
+--- !u!114 &11458738
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125044}
+  m_GameObject: {fileID: 158738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a04efb392909473c8a6fd69d4380515, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cdf8cedd08b942939b1c04a5cd96e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 4
---- !u!222 &22225044
+  KnightCard: {fileID: 199612, guid: 7eeb6e17164f84a6fbba9c7bda364928, type: 2}
+  RoadCard: {fileID: 104966, guid: 9ea6c747b96204bd588edb9aff076c7e, type: 2}
+  MonopolyCard: {fileID: 120952, guid: 0e19d5495b4214debb392ce7a6344611, type: 2}
+  YearCard: {fileID: 139216, guid: 07ab93fd7dfb64449877bb69c1518d08, type: 2}
+  VictoryCard: {fileID: 156828, guid: 6e10ea9f134f24e5ca4d72b4481191f3, type: 2}
+  WheatCard: {fileID: 125044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
+  SheepCard: {fileID: 117502, guid: 24d96f592dfaf4ea1929fd99f6dc0cc1, type: 2}
+  OreCard: {fileID: 120190, guid: eef94470b8db7409da4b6327adc18b61, type: 2}
+  BrickCard: {fileID: 121204, guid: 790e0f61f02564f12bf495e27a896521, type: 2}
+  WoodCard: {fileID: 197424, guid: 37db327f32cb7406e87ebe05b6467ba9, type: 2}
+  cardWidth: 40
+--- !u!222 &22258738
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125044}
---- !u!224 &22425044
+  m_GameObject: {fileID: 158738}
+--- !u!224 &22458738
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125044}
+  m_GameObject: {fileID: 158738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -71,8 +81,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 0, y: .5}
-  m_AnchoredPosition: {x: 73.5, y: 0}
-  m_SizeDelta: {x: 147, y: 186}
+  m_AnchoredPosition: {x: -221, y: 0}
+  m_SizeDelta: {x: -442, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
@@ -83,6 +93,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 125044}
+  m_RootGameObject: {fileID: 158738}
   m_IsPrefabParent: 1
   m_IsExploded: 1

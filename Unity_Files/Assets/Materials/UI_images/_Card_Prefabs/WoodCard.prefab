@@ -10,6 +10,7 @@ GameObject:
   - 224: {fileID: 22497424}
   - 222: {fileID: 22297424}
   - 114: {fileID: 11497424}
+  - 114: {fileID: 11494724}
   m_Layer: 5
   m_Name: WoodCard
   m_TagString: Untagged
@@ -17,6 +18,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11494724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a04efb392909473c8a6fd69d4380515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!114 &11497424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,10 +69,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -141, y: -82}
-  m_SizeDelta: {x: 81, y: 80}
+  m_AnchorMin: {x: 0, y: .5}
+  m_AnchorMax: {x: 0, y: .5}
+  m_AnchoredPosition: {x: 73.5, y: 0}
+  m_SizeDelta: {x: 147, y: 186}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

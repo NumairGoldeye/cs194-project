@@ -49,6 +49,11 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	public int victoryPoints;
 
+	/// <summary>
+	/// The hand.
+	/// </summary>
+	public PlayerHand hand;
+
 	// Each index corresponds to a the ResourceType by enum
 	// resourceCounts[0] should be the number of sheep
 	public int[] resourceCounts;
@@ -62,6 +67,7 @@ public class Player : MonoBehaviour {
 
 	private List<SettlementClass> settlements;
 	private List<RoadClass> roads;
+
 
 
 	/// <summary>
@@ -117,12 +123,6 @@ public class Player : MonoBehaviour {
 	}
 
 	void Start () {
-		// Gives everyone a unique playerId
-//		playerId = Player.playerCount;
-//		playerName = "Player " + Player.playerCount.ToString();
-//		Player.playerCount++;
-//		Player.StorePlayer(this);
-
 		// They will actually choose this later
 		playerColor = Player.playerColors[playerId];
 		gameObject.name = playerName;
@@ -133,10 +133,8 @@ public class Player : MonoBehaviour {
 		devCardCounts = new int[Enum.GetNames(typeof(DevCardType)).Length];
 
 		settlements = new List<SettlementClass>();
-		// cities = new List<CityClass>();
 		roads = new List<RoadClass>();
 
-		// AddDevCard(DevCardType.knight);
 //		 AddDevCard(DevCardType.roadBuilding);
 //		 AddDevCard(DevCardType.knight);
 //		 AddDevCard(DevCardType.monopoly);
@@ -197,6 +195,52 @@ public class Player : MonoBehaviour {
 		totalResources += amount;
 
 		return true;
+	}
+
+	/// <summary>
+	/// Returns the resourectypes as an array
+	/// </summary>
+	/// <returns>The resource array.</returns>
+	public ResourceType[] GetResourceArray(){
+		int numResources = 0;
+		for(int i = 0; i < resourceCounts.Length; i++){
+			numResources += resourceCounts[i];
+		}
+
+		ResourceType[] result = new ResourceType[numResources];
+		int index = 0;
+
+		foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
+			if (ResourceType.desert != res){
+				for (int i = 0; i < resourceCounts[(int)res]; i++){
+					result[index] = res;
+					index++;
+				}
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
+	/// Returns the resourectypes as an array
+	/// </summary>
+	/// <returns>The resource array.</returns>
+	public DevCardType[] GetDevCardArray(){
+		int numCards = 0;
+		for(int i = 0; i < devCardCounts.Length; i++){
+			numCards += devCardCounts[i];
+		}
+		
+		DevCardType[] result = new DevCardType[numCards];
+		int index = 0;
+		
+		foreach(DevCardType d in Enum.GetValues(typeof(DevCardType))){
+			for (int i = 0; i < devCardCounts[(int) d]; i++){
+				result[index] = d;
+				index++;
+			}
+		}
+		return result;
 	}
 
 	// Call if you want to 

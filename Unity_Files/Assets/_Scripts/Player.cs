@@ -191,6 +191,11 @@ public class Player : MonoBehaviour {
 	// Returns true if it works?
 	public bool AddResource(ResourceType resource, int amount = 1){
 		// Debug.Log(resource.ToString() + amount);
+		if (amount < 0) {
+			RemoveResource(resource, -amount);
+			return true;
+		}
+
 		resourceCounts[(int)resource] += amount;
 		totalResources += amount;
 
@@ -255,6 +260,8 @@ public class Player : MonoBehaviour {
 		//TODO: check if there are enough resources to remove
 		resourceCounts[(int)resource] -= amount;
 		totalResources -= amount;
+
+		hand.RemoveResourceCard(resource, this, amount);
 		return true;
 	}
 

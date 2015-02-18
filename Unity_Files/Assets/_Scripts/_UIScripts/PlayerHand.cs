@@ -132,8 +132,27 @@ public class PlayerHand : MonoBehaviour {
 	/// <summary>
 	///  Removes the card. animates teh card
 	/// </summary>
-	public void RemoveResourceCard(ResourceType type, Player p){
-		totalCards--;
+	public void RemoveResourceCard(ResourceType type, Player p, int amount = 1){
+		SetPlayer(p);
+		List<PlayerCard> toRemove = new List<PlayerCard>(); 
+
+		int numToRemove = amount;
+		foreach(Transform child in transform){
+			if (numToRemove <= 0){
+				break;
+			}
+
+			PlayerCard card = child.gameObject.GetComponent<PlayerCard>();
+			if (!card.isDev && card.rType == type){
+				toRemove.Add(card);
+				numToRemove--;
+			}
+		}
+
+		foreach(PlayerCard c in toRemove ){
+			c.AnimOut();
+			totalCards--;
+		}
 	}
 
 	/// <summary>

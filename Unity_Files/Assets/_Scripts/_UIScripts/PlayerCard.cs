@@ -13,9 +13,9 @@ public class PlayerCard : MonoBehaviour {
 	public DevCardType dType; // set in inspector
 	public ResourceType rType;
 
+	public bool isDev; // false = resourceClass
 	protected Animator anim;
 	protected Button btn; 
-	protected bool isDev; // false = resourceClass
 	protected PlayerHand hand;// sets in hand	
 	protected int createHash;
 	protected int useHash;

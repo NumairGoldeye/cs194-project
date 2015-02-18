@@ -31,17 +31,19 @@ public enum ResourceType {sheep, wood, brick, ore, wheat, desert};
 /// <summary>
 /// ResourceClass will represent a card in the player's hand..
 /// </summary>
-public class ResourceClass : MonoBehaviour{
+public class ResourceClass : PlayerCard{
 
 	// Set in inspector
-	public ResourceType type;
 
-	void Start(){
 
+	public override void Start(){
+		base.Start();
+
+		isDev = false;
 	}
-
-	void Update(){
-
-	}
+//
+//	void Update(){
+//
+//	}
 
 }

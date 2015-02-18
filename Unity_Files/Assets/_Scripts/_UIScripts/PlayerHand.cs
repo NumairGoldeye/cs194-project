@@ -7,6 +7,21 @@ using System.Collections;
 using System.Collections.Generic;
 
 
+/*
+
+The entire should be updated on turnEnd
+
+
+Receiving resources should animate and add cards
+Spending resources shoudl animate and remove them
+
+Receiving dev card should animate and add cards
+Spending a dev card should animate and add Cards
+
+
+
+ */
+
 /// <summary>
 /// The panel that controls the player's hand...
 /// 
@@ -29,13 +44,26 @@ public class PlayerHand : MonoBehaviour {
 	public GameObject BrickCard;
 	public GameObject WoodCard;
 
-	public float cardWidth = 40f;
+//	public GameObject PopupPanel;
+//	public GameObject PlayingDevCardPanel;
 
-//	public GameObject handObj;
+	public float cardWidth = 50f;
+//	public float cardOverlap = 20f;
+	public float cardPadding = 10f;
+	public int numToOverlap = 6;
+	private int totalCards = 0;
+
+	// UI things so Devcards can access them
+	public GameObject popupPanel;
+	public GameObject resourceButtons;
+	public GameObject playingDevCardPanel;
+
+	// So i can tell which devcard to animate to death...
+	private PlayerCard selectedCard;
 
 	List<ResourceType> resources;
 	List<DevCardType> devCard;
-	
+//	RectTransform rect;
 	Player thisPlayer; 
 
 	GameObject GetDevCardPrefab(DevCardType type){
@@ -74,7 +102,7 @@ public class PlayerHand : MonoBehaviour {
 	void Start () {
 		resources = new List<ResourceType>();
 		devCard = new List<DevCardType>();
-
+//		rect = gameObject.GetComponent<RectTransform>();
 	}
 	
 	// Update is called once per frame
@@ -86,38 +114,130 @@ public class PlayerHand : MonoBehaviour {
 		thisPlayer = p;
 	}
 
+	public void SelectCard(PlayerCard card){
+		selectedCard = card;
+	}
+
 	/// <summary>
 	/// Adds the card, and animates the card
 	/// </summary>
-	public void AddResourceCard(){
-
+	public void AddResourceCard(ResourceType type, Player p, int amount = 1){
+		SetPlayer(p);
+		for(int i = 0; i < amount; i++){
+			StartCoroutine(AddCardPrefab( GetResourceCardPrefab(type), true, false));
+		}
+		StartCoroutine(_AnimateInAll());
 	}
 
 	/// <summary>
 	///  Removes the card. animates teh card
 	/// </summary>
-	public void RemoveResourceCard(){
-
+	public void RemoveResourceCard(ResourceType type, Player p){
+		totalCards--;
 	}
 
-	private void AddCardPrefab(GameObject pf){
+	/// <summary>
+	/// Adds the singular dev card. Animates as well
+	/// </summary>
+	public void AddDevCard(DevCardType type, Player p){
+		SetPlayer(p);
+		StartCoroutine(AddCardPrefab( GetDevCardPrefab(type), true, false));
+		
+		StartCoroutine(_AnimateInAll());
+	}
+
+	private IEnumerator _AnimateInAll(){
+		yield return new WaitForEndOfFrame();
+		RepositionCards();
+		AnimateInAll();
+	}
+
+	/// <summary>
+	/// Removes the dev card.
+	/// </summary>
+	public void RemoveDevCard(DevCardType type, Player p){
+		SetPlayer(p);
+		if (selectedCard){
+			selectedCard.AnimOut();
+		}
+		totalCards--;
+	}
+
+	/// <summary>
+	/// triggers the animateIn for all the cards. 
+	/// 
+	/// doesn't work on old cards...
+	/// </summary>
+	private void AnimateInAll(){
+//		RepositionCards();
+		foreach(Transform child in transform){
+//			Debug.Log(child.name);
+			child.GetComponent<PlayerCard>().AnimIn();
+		}
+	}
+
+	public void RepositionCards(){
+//		Debug.Log ("totalCards: " + totalCards);
+
+		foreach(Transform child in transform){
+//			Debug.Log(child.name);
+			PositionCard(child.gameObject);
+		}
+	}
+
+	private int IndexOfCard(GameObject card){
+		for(int i = 0; i < transform.childCount; i++){
+			if (transform.GetChild(i) == card.transform)
+				return i;
+		}
+		return -1;
+	}
+
+	private IEnumerator AddCardPrefab(GameObject pf, bool isDev = true, bool animate = false){
+
+//		Debug.Log (pf.transform.name + " added");
+
 		GameObject child = Instantiate(pf, Vector3.zero, Quaternion.identity) as GameObject;
 		child.transform.SetParent(this.transform);
+		child.GetComponent<PlayerCard>().SetHand(this);
+		totalCards++;
+//		PositionCard(child);
 
-		Image card = child.GetComponent<Image>();
+//		Debug.Log (child.transform.name + " added2");
 
-		// Set the size
-		card.rectTransform.sizeDelta = new Vector2(60, 60);
+		if (animate){
+			yield return new WaitForEndOfFrame();
+//			Debug.Log ("addcard");
+//			if (pf.animation)
+			child.GetComponent<PlayerCard>().AnimIn();
+		}
 
-		int numCards = gameObject.transform.childCount;
-		float cardWidth = card.rectTransform.sizeDelta.x;
-//		int width = 
 
-//		Debug.Log(numCards);
-
-		// Set the position
-		card.rectTransform.anchoredPosition = new Vector2(cardWidth/2 + (numCards-1) * cardWidth ,0);
+//		PositionCard(child);
 	}
+
+
+	private void PositionCard(GameObject cardObj){
+		Image card = cardObj.GetComponent<Image>();
+		// Set the size
+		card.rectTransform.sizeDelta = new Vector2(cardWidth, cardWidth);
+		int numCards = totalCards;
+		int thisIndex = IndexOfCard(cardObj);
+//		float panelWidth = rect.rect.width - cardWidth;
+		float panelWidth = 349f;
+		int numDeltas = numToOverlap;
+		if (numCards > numToOverlap){
+			numDeltas = numCards;
+		}
+		float xDelta = panelWidth/(float)numDeltas * thisIndex;
+//		Debug.Log("width: " + panelWidth);
+//		Debug.Log("numDeltas: " + numDeltas);
+//		Debug.Log("thisIndex: " + thisIndex);
+		// Set the position
+		card.rectTransform.anchoredPosition = new Vector2(cardWidth/2 + cardPadding + xDelta ,0);
+	}
+
+
 
 	/// <summary>
 	/// Updates the hand to contain all the right cards for the player
@@ -129,16 +249,28 @@ public class PlayerHand : MonoBehaviour {
 		SetPlayer(p2);
 		ClearHand();
 
-		foreach(DevCardType d in p2.GetDevCardArray()){
-			AddCardPrefab(  GetDevCardPrefab(d) );
+		DevCardType[] devCards = p2.GetDevCardArray();
+		ResourceType[] resourceCards = p2.GetResourceArray();
+
+//		Debug.Log ("totalCards: " + totalCards);
+//		totalCards += devCards.Length + resourceCards.Length;
+
+//		Debug.Log ("totalCards: " + totalCards);
+
+		foreach(DevCardType d in devCards){
+			StartCoroutine( AddCardPrefab(  GetDevCardPrefab(d), true, true ));
 		}
 
-		foreach(ResourceType r in p2.GetResourceArray() ){
-			AddCardPrefab( GetResourceCardPrefab(r));
+		foreach(ResourceType r in resourceCards ){
+			StartCoroutine( AddCardPrefab( GetResourceCardPrefab(r), false, true) );
 		}
+
+		RepositionCards();
 	}
 
 	void ClearHand(){
+		totalCards  = 0;
+
 //		Debug.Log(transform.childCount);
 		List<GameObject> children = new List<GameObject>();
 		foreach (Transform child in transform) children.Add(child.gameObject);
@@ -149,5 +281,6 @@ public class PlayerHand : MonoBehaviour {
 
 //		Debug.Log(transform.childCount);
 	}
+
 
 }

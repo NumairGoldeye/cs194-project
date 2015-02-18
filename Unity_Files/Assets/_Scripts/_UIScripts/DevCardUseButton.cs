@@ -87,10 +87,4 @@ public class DevCardUseButton : MonoBehaviour {
 
 
 	}
-
-
-	// void OnClick(){
-	// 	Debugger.Log("UI", "foo");
-	// 	Debug.Log("FPP");
-	// }
 }

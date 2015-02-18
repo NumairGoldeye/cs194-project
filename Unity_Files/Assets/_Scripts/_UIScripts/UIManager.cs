@@ -101,8 +101,14 @@ public class UIManager : MonoBehaviour {
 	void Update () {
 		if ( !setup ){
 			setup = true;
-			if (state == MajorUIState.start) 
-				StartGameManager.Startup();
+			switch (state) {
+				case MajorUIState.start:
+					StartGameManager.Startup();
+					break;
+				case MajorUIState.play:
+					TurnState.Startup();
+					break;
+			}
 		}
 	}
 

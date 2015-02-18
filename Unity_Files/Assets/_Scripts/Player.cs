@@ -140,7 +140,7 @@ public class Player : MonoBehaviour {
 //		 AddDevCard(DevCardType.monopoly);
 //		 AddDevCard(DevCardType.victoryPoint);
 //		 AddDevCard(DevCardType.victoryPoint);
-//		 AddResource(ResourceType.wood, 2);
+		 AddResource(ResourceType.wood, 2);
 //		 AddResource(ResourceType.brick, 2);
 		// LogResources();
 		// Debugger.Log("Charlie", "Something amazing");
@@ -194,6 +194,10 @@ public class Player : MonoBehaviour {
 		resourceCounts[(int)resource] += amount;
 		totalResources += amount;
 
+		if (TurnState.currentPlayer == this){
+			hand.AddResourceCard(resource, this, amount);
+		}
+
 		return true;
 	}
 
@@ -204,7 +208,8 @@ public class Player : MonoBehaviour {
 	public ResourceType[] GetResourceArray(){
 		int numResources = 0;
 		for(int i = 0; i < resourceCounts.Length; i++){
-			numResources += resourceCounts[i];
+			if (resourceCounts[i] > 0)
+				numResources += resourceCounts[i];
 		}
 
 		ResourceType[] result = new ResourceType[numResources];
@@ -228,7 +233,8 @@ public class Player : MonoBehaviour {
 	public DevCardType[] GetDevCardArray(){
 		int numCards = 0;
 		for(int i = 0; i < devCardCounts.Length; i++){
-			numCards += devCardCounts[i];
+			if (devCardCounts[i] > 0)
+				numCards += devCardCounts[i];
 		}
 		
 		DevCardType[] result = new DevCardType[numCards];
@@ -328,6 +334,14 @@ public class Player : MonoBehaviour {
 		if (devCard == DevCardType.victoryPoint){
 			AddVictoryPoint();
 		}
+
+		if (this == TurnState.currentPlayer){
+//			Debug.Log("foo");
+			hand.AddDevCard(devCard, this);
+		} else {
+//			Debug.Log ("bar");
+		}
+
 		return true;
 	}
 
@@ -335,6 +349,9 @@ public class Player : MonoBehaviour {
 		devCardCounts[(int)devCard] -= 1;
 		if (devCard == DevCardType.victoryPoint){
 			victoryPoints--;
+		}
+		if (this == TurnState.currentPlayer){
+			hand.RemoveDevCard(devCard, this);
 		}
 		return true;
 	}
@@ -373,6 +390,13 @@ public class Player : MonoBehaviour {
 //		TurnState.CheckVictory();
 	}
 
+
+	/// <summary>
+	/// Call this whenever the cards or resouces are updated
+	/// </summary>
+	public void UpdateHand(){
+		hand.UpdateHand();
+	}
 
 	// public CityClass[] GetCities(){
 	// 	return cities.ToArray();

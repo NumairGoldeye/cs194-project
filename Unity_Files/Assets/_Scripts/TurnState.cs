@@ -94,6 +94,7 @@ public class TurnState : MonoBehaviour {
 		UIManager.UpdateMajorUI();
 		freeBuild = false;
 		TurnState.players = Player.allPlayers.ToArray();
+		ResetTurn();
 	}
 
 
@@ -128,6 +129,7 @@ public class TurnState : MonoBehaviour {
 		ClearRoadBuilding();
 		ResetSubStateType2();
 		UIManager.DisableObjs();
+		currentPlayer.UpdateHand();
 	}
 
 	static void ClearRoadBuilding(){
@@ -282,8 +284,7 @@ public class TurnState : MonoBehaviour {
     void Update(){
     }
 
-    void StartTurn(){
-    }
+    
 
 
     /*

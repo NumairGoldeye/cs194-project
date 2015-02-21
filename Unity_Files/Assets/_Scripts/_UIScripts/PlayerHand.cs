@@ -57,6 +57,8 @@ public class PlayerHand : MonoBehaviour {
 	public GameObject popupPanel;
 	public GameObject resourceButtons;
 	public GameObject playingDevCardPanel;
+	public GameObject handBackgroundObj;
+	private Image handBackground;
 
 	// So i can tell which devcard to animate to death...
 	private PlayerCard selectedCard;
@@ -103,6 +105,9 @@ public class PlayerHand : MonoBehaviour {
 		resources = new List<ResourceType>();
 		devCard = new List<DevCardType>();
 //		rect = gameObject.GetComponent<RectTransform>();
+		handBackground = handBackgroundObj.GetComponent<Image>();
+
+		cardWidth = handBackground.rectTransform.rect.height ;
 	}
 	
 	// Update is called once per frame
@@ -243,7 +248,7 @@ public class PlayerHand : MonoBehaviour {
 		int numCards = totalCards;
 		int thisIndex = IndexOfCard(cardObj);
 //		float panelWidth = rect.rect.width - cardWidth;
-		float panelWidth = 349f;
+		float panelWidth = 300f;
 		int numDeltas = numToOverlap;
 		if (numCards > numToOverlap){
 			numDeltas = numCards;

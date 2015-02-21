@@ -409,6 +409,14 @@ public class Player : MonoBehaviour {
 	// 	return cities.ToArray();
 	// }
 
+	public bool hasPortFor(ResourceType resource) {
+		foreach (SettlementClass settlement in settlements) {
+			if (settlement.hasPort && resource == settlement.portResource) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 
 

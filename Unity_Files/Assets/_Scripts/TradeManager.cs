@@ -21,17 +21,32 @@ using System.Collections.Generic;
 
 
 public static class TradeManager {
-
-	private const int TRADE_COST = 4; // The amount of a resource it costs to trade for another resource.
+	// The amount of a resource it costs to trade for another resource with no ports.
+	private const int TRADE_COST = 4;
+	
+	// The amount of a resource it costs to trade for another resource with a generic port.
+	private const int TRADE_COST_WITH_GENERIC_PORT = 3;
+	
+	// The amount of a resource it costs to trade for another resource with a resource-specific port.
+	private const int TRADE_COST_WITH_SPECIFIC_PORT = 2;
 	
 	public static void TradeWithHouse(ResourceType toGet, ResourceType toGive, Player player){
-		// TODO: Check port logic
-		if (!player.HasResourceAmount(toGive, TRADE_COST)) {
+		int cost = getCostForPlayer (toGive, player);
+		if (!player.HasResourceAmount(toGive, cost)) {
 			return; // TODO: Throw exception?
 		}
-		player.RemoveResource (toGive, TRADE_COST);
+		player.RemoveResource (toGive, cost);
 		player.AddResource (toGet, 1);
 
+	}
+
+	public static int getCostForPlayer(ResourceType resource, Player player) {
+		if (player.hasPortFor(resource)) {
+			return TRADE_COST_WITH_SPECIFIC_PORT;
+		} else if (player.hasPortFor(ResourceType.none)) {
+			return TRADE_COST_WITH_GENERIC_PORT;
+		}
+		return TRADE_COST;
 	}
 
 	public static void tradeBetweenPlayers(

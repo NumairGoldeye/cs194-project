@@ -14,7 +14,9 @@ public class SettlementClass : MonoBehaviour {
 	public int vertexIndex;
 	private int ownerId;
 	private bool stealing;
-	public PortClass port;
+
+	public bool hasPort;
+	public ResourceType portResource;
 
 	// Use this for initialization
 	void Start () {

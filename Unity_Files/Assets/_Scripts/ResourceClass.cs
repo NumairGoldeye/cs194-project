@@ -23,7 +23,7 @@ using System.Collections;
 ///}
 ///--
 /// </summary>
-public enum ResourceType {sheep, wood, brick, ore, wheat, none};
+public enum ResourceType {Sheep, Wood, Brick, Ore, Wheat, None};
 
 
 

@@ -1,4 +1,4 @@
-﻿#pragma warning disable 0219
+#pragma warning disable 0219
 #pragma warning disable 0414
 
 using UnityEngine;
@@ -211,7 +211,7 @@ public class DevCard : PlayerCard {
 
 
 		TurnState.SetSubStateType(stateType);
-		TurnState.chosenResource = ResourceType.none;
+		TurnState.chosenResource = ResourceType.None;
 	}
 
 }

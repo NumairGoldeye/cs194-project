@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -66,7 +66,7 @@ public class DevCardUseButton : MonoBehaviour {
 
 		TurnState.SetSubStateType(stateType);
 
-		TurnState.chosenResource = ResourceType.none;
+		TurnState.chosenResource = ResourceType.None;
 
 //		switch (cardType){
 //		case DevCardType.knight:

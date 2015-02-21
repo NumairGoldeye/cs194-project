@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 
@@ -105,22 +105,22 @@ public class TileClass : MonoBehaviour {
 	private void getMaterial () {
 
 		switch (type) {
-			case ResourceType.sheep:
+			case ResourceType.Sheep:
 				renderer.material.color = Color.green;
 				break;
-			case ResourceType.wheat:
+			case ResourceType.Wheat:
 				renderer.material.color = Color.yellow;
 				break;
-			case ResourceType.ore:
+			case ResourceType.Ore:
 				renderer.material.color = Color.gray;
 				break;
-			case ResourceType.brick:
+			case ResourceType.Brick:
 				renderer.material.color = Color.red;
 				break;
-			case ResourceType.wood:
+			case ResourceType.Wood:
 				renderer.material.color = new Color(0.4f, 0.2f, 0);
 				break;
-			case ResourceType.none:
+			case ResourceType.None:
 				renderer.material.color = Color.white;
 				break;
 		}

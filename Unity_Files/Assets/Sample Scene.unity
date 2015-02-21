@@ -17983,7 +17983,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.20000005
-  m_Text: Sheep
+  m_Text: 1 Sheep
 --- !u!222 &641764893
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19525,19 +19525,19 @@ MonoBehaviour:
   _hideFirstItem: 0
   _selectedIndex: 0
   _items:
-  - _caption: Sheep
+  - _caption: 1 Sheep
     _image: {fileID: 21300000, guid: fae9d73b6e1ea43c0b4fdbefebe47cfa, type: 3}
     _isDisabled: 0
-  - _caption: Wheat
+  - _caption: 1 Wheat
     _image: {fileID: 21300000, guid: 1a02fc33254de42449fbd555c726104d, type: 3}
     _isDisabled: 0
-  - _caption: Brick
+  - _caption: 1 Brick
     _image: {fileID: 21300000, guid: 2da1a6668ca9341b3bc82921e3a0e3d7, type: 3}
     _isDisabled: 0
-  - _caption: Ore
+  - _caption: 1 Ore
     _image: {fileID: 21300000, guid: 5fcf83bd4a80b43058332546aac492a3, type: 3}
     _isDisabled: 0
-  - _caption: Wood
+  - _caption: 1 Wood
     _image: {fileID: 21300000, guid: 773f411d5a75e403bac2aba7ffd3e55b, type: 3}
     _isDisabled: 0
 --- !u!1001 &678681553
@@ -25465,7 +25465,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Give 4:'
+  m_Text: Give
 --- !u!222 &860637321
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -52861,7 +52861,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4:1 Trade
+  m_Text: House Trade
 --- !u!222 &1841683952
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -58280,7 +58280,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Get 1:'
+  m_Text: Get
 --- !u!222 &2033864167
 CanvasRenderer:
   m_ObjectHideFlags: 0

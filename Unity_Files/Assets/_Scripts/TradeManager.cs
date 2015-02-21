@@ -43,7 +43,7 @@ public static class TradeManager {
 	public static int getCostForPlayer(ResourceType resource, Player player) {
 		if (player.hasPortFor(resource)) {
 			return TRADE_COST_WITH_SPECIFIC_PORT;
-		} else if (player.hasPortFor(ResourceType.none)) {
+		} else if (player.hasPortFor(ResourceType.None)) {
 			return TRADE_COST_WITH_GENERIC_PORT;
 		}
 		return TRADE_COST;

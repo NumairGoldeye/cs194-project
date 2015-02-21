@@ -1,4 +1,4 @@
-﻿#pragma warning disable 0219
+#pragma warning disable 0219
 #pragma warning disable 0414
 
 using UnityEngine;
@@ -86,15 +86,15 @@ public class PlayerHand : MonoBehaviour {
 
 	GameObject GetResourceCardPrefab(ResourceType type){
 		switch (type){
-		case ResourceType.brick:
+		case ResourceType.Brick:
 			return BrickCard;
-		case ResourceType.ore:
+		case ResourceType.Ore:
 			return OreCard;
-		case ResourceType.sheep:
+		case ResourceType.Sheep:
 			return SheepCard;
-		case ResourceType.wheat: 
+		case ResourceType.Wheat: 
 			return WheatCard;
-		case ResourceType.wood: 
+		case ResourceType.Wood: 
 			return WoodCard;
 		}
 		return null;

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -9,11 +9,11 @@ public class HouseTradeButton : MonoBehaviour {
 	/// The order that resources occur in the menu.
 	/// </summary>
 	ResourceType[] menuOrder = {
-				ResourceType.sheep,
-				ResourceType.wheat,
-				ResourceType.brick,
-				ResourceType.ore,
-				ResourceType.wood
+				ResourceType.Sheep,
+				ResourceType.Wheat,
+				ResourceType.Brick,
+				ResourceType.Ore,
+				ResourceType.Wood
 		};
 
 	// Use this for initialization

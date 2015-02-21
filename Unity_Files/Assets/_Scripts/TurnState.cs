@@ -64,7 +64,7 @@ public class TurnState : MonoBehaviour {
 	public static TurnSubStateType subStateType = TurnSubStateType.none;
     
 	public static int numTurns = 0;
-	public static ResourceType chosenResource = ResourceType.none;
+	public static ResourceType chosenResource = ResourceType.None;
 	public static bool cardPlayedThisTurn = false;
 
 	// Gosh i want to know how to compare objects to null.
@@ -77,6 +77,7 @@ public class TurnState : MonoBehaviour {
 
 	static GameObject tradeConsole;
 	static GameObject victoryPanel;
+	static ComboBox toGiveBox;
 
 
 	// ----- Instance things ----- //
@@ -277,9 +278,20 @@ public class TurnState : MonoBehaviour {
         thisPlayers = TurnState.players;
 		// This line is REALLY asking for trouble...is there a smarter way to do this?
 		tradeConsole = UIManager.instance.disableOnStart[8];
+		toGiveBox = getToGiveBox ();
 		TurnState.pointsToWin = _pointsToWin;
 		TurnState.victoryPanel = _victoryPanel;
     }
+
+	ComboBox getToGiveBox() {
+		Component[] boxes = tradeConsole.GetComponentsInChildren<ComboBox> (true);
+		foreach (Component cb in boxes) {
+			if (cb.gameObject.name == "ResourceToGive") {
+				return (ComboBox) cb;
+			}
+		}
+		return null;
+	}
 
     void Update(){
     }
@@ -311,8 +323,26 @@ public class TurnState : MonoBehaviour {
 
     void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
-		tradeConsole.SetActive (true);
+		setupTradeConsole ();
     }
+
+	void setupTradeConsole() {
+		// Assumes the order: Sheep, Wheat, Brick, Ore, Wood
+		ResourceType[] resourceOrder =
+			{ResourceType.Sheep, ResourceType.Wheat, ResourceType.Brick, ResourceType.Ore, ResourceType.Wheat};
+		for (int i = 0; i < resourceOrder.Length; ++i) {
+			ComboBoxItem item = toGiveBox.Items[i];
+			ResourceType resource = resourceOrder[i];
+			int cost = TradeManager.getCostForPlayer(resource, currentPlayer);
+			item.Caption = " " + cost + " " + resource;
+			if (currentPlayer.HasResourceAmount(resource, cost)) {
+				item.IsDisabled = false;
+			} else {
+				item.IsDisabled = true;
+			}
+		}
+		tradeConsole.SetActive (true);
+	}
 
 	/// <summary>
 	/// Wrapper function for stati
@@ -369,7 +399,7 @@ public class TurnState : MonoBehaviour {
 		subStateType = TurnSubStateType.none;
 		
 		numTurns = 0;
-		chosenResource = ResourceType.none;
+		chosenResource = ResourceType.None;
 		cardPlayedThisTurn = false;
 		
 		// Gosh i want to know how to compare objects to null.

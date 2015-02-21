@@ -140,7 +140,7 @@ public class Player : MonoBehaviour {
 //		 AddDevCard(DevCardType.monopoly);
 //		 AddDevCard(DevCardType.victoryPoint);
 //		 AddDevCard(DevCardType.victoryPoint);
-		 AddResource(ResourceType.wood, 2);
+		 AddResource(ResourceType.Wood, 2);
 //		 AddResource(ResourceType.brick, 2);
 		// LogResources();
 		// Debugger.Log("Charlie", "Something amazing");
@@ -221,7 +221,7 @@ public class Player : MonoBehaviour {
 		int index = 0;
 
 		foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
-			if (ResourceType.none != res){
+			if (ResourceType.None != res){
 				for (int i = 0; i < resourceCounts[(int)res]; i++){
 					result[index] = res;
 					index++;
@@ -311,7 +311,7 @@ public class Player : MonoBehaviour {
 	// you need it to pass it the Debugger flag
 	void LogResources(string flag){
 		foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
-			if (ResourceType.none != res)
+			if (ResourceType.None != res)
 				Debugger.Log(flag, res.ToString() + GetResourceCount(res));
 		}
 	}

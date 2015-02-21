@@ -1,4 +1,4 @@
-﻿#pragma warning disable 0414 // variable assigned but not used.
+#pragma warning disable 0414 // variable assigned but not used.
 
 using UnityEngine;
 using System;
@@ -26,11 +26,11 @@ public enum BuyableType { road, settlement, city, devCard};
 public static class BuyManager {
 
 	// Just some shorthand
-	private static ResourceType wood = ResourceType.wood;
-	private static ResourceType sheep = ResourceType.sheep;
-	private static ResourceType brick = ResourceType.brick;
-	private static ResourceType ore = ResourceType.ore;
-	private static ResourceType wheat = ResourceType.wheat;
+	private static ResourceType wood = ResourceType.Wood;
+	private static ResourceType sheep = ResourceType.Sheep;
+	private static ResourceType brick = ResourceType.Brick;
+	private static ResourceType ore = ResourceType.Ore;
+	private static ResourceType wheat = ResourceType.Wheat;
 
 	private static Dictionary<BuyableType, Cost> costMap = new Dictionary<BuyableType, Cost>();
 
@@ -84,7 +84,7 @@ public static class BuyManager {
 		if (costMap.TryGetValue( buyable , out buyableCost)) {
 			// if (buyableCost.buyableType == buyable){
 			foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
-				if (ResourceType.none != res){
+				if (ResourceType.None != res){
 					if (buyableCost.ResourceCount(res) > player.GetResourceCount(res)){
 						return false;
 					}
@@ -107,7 +107,7 @@ public static class BuyManager {
 		if (costMap.TryGetValue( buyable , out buyableCost)) {
 			// if (buyableCost.buyableType == buyable){
 			foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
-				if (ResourceType.none != res){
+				if (ResourceType.None != res){
 					player.RemoveResource(res, buyableCost.ResourceCount(res));
 				}
 			}

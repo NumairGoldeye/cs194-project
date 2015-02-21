@@ -84,7 +84,7 @@ public static class BuyManager {
 		if (costMap.TryGetValue( buyable , out buyableCost)) {
 			// if (buyableCost.buyableType == buyable){
 			foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
-				if (ResourceType.desert != res){
+				if (ResourceType.none != res){
 					if (buyableCost.ResourceCount(res) > player.GetResourceCount(res)){
 						return false;
 					}
@@ -107,7 +107,7 @@ public static class BuyManager {
 		if (costMap.TryGetValue( buyable , out buyableCost)) {
 			// if (buyableCost.buyableType == buyable){
 			foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
-				if (ResourceType.desert != res){
+				if (ResourceType.none != res){
 					player.RemoveResource(res, buyableCost.ResourceCount(res));
 				}
 			}

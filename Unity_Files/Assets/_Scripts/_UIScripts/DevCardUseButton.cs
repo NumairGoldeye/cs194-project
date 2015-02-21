@@ -66,7 +66,7 @@ public class DevCardUseButton : MonoBehaviour {
 
 		TurnState.SetSubStateType(stateType);
 
-		TurnState.chosenResource = ResourceType.desert;
+		TurnState.chosenResource = ResourceType.none;
 
 //		switch (cardType){
 //		case DevCardType.knight:

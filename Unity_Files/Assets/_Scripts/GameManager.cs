@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
 		int numberIndex = 0;
 		while (resourceIndex < tileResources.Count) {
 			ResourceType type = tileResources[resourceIndex];
-			if (type == ResourceType.desert) {
+			if (type == ResourceType.none) {
 				tiles.Add(new TileInfo(type, 0));
 			} else {
 				tiles.Add(new TileInfo(type, diceNumbers[numberIndex]));
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < numTiles; i++) {
 			TileClass tile = graph.getTile (i);
 			tile.assignType(tiles[tile.tileNumber].diceNumber, tiles[tile.tileNumber].type);
-			if (tile.type == ResourceType.desert) {
+			if (tile.type == ResourceType.none) {
 				tile.getRobber();
 			}
 			else {
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour {
 	public static void distributeResourcesForSettlement(SettlementClass settlement) {
 		List<TileClass> tilesForSettlement = StandardBoardGraph.Instance.getTilesForSettlement (settlement);
 		foreach(TileClass tile in tilesForSettlement) {
-			if (tile.type != ResourceType.desert)
+			if (tile.type != ResourceType.none)
 				TurnState.currentPlayer.AddResource(tile.type, 1);
 		}
 	}

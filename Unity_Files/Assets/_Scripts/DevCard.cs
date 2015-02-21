@@ -211,7 +211,7 @@ public class DevCard : PlayerCard {
 
 
 		TurnState.SetSubStateType(stateType);
-		TurnState.chosenResource = ResourceType.desert;
+		TurnState.chosenResource = ResourceType.none;
 	}
 
 }

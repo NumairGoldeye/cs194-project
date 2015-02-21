@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
+using UnityEngine;
 
-public class PortClass {
+public class PortClass : MonoBehaviour {
 	public ResourceType type;
-	
-	public PortClass(ResourceType type) {
-		this.type = type;
-	}
 }

@@ -64,7 +64,7 @@ public class TurnState : MonoBehaviour {
 	public static TurnSubStateType subStateType = TurnSubStateType.none;
     
 	public static int numTurns = 0;
-	public static ResourceType chosenResource = ResourceType.desert;
+	public static ResourceType chosenResource = ResourceType.none;
 	public static bool cardPlayedThisTurn = false;
 
 	// Gosh i want to know how to compare objects to null.
@@ -369,7 +369,7 @@ public class TurnState : MonoBehaviour {
 		subStateType = TurnSubStateType.none;
 		
 		numTurns = 0;
-		chosenResource = ResourceType.desert;
+		chosenResource = ResourceType.none;
 		cardPlayedThisTurn = false;
 		
 		// Gosh i want to know how to compare objects to null.

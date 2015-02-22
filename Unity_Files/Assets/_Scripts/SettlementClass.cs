@@ -16,6 +16,9 @@ public class SettlementClass : MonoBehaviour {
 	private bool stealing;
 	public PortClass port;
 
+	public bool hasPort;
+	public ResourceType portResource;
+
 	// Use this for initialization
 	void Start () {
 		settlement = transform.FindChild("SettlementObject").gameObject;

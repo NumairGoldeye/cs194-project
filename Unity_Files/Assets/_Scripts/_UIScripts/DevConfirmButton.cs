@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -30,7 +30,7 @@ public class DevConfirmButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (TurnState.subStateType == TurnSubStateType.monopolyChoose || TurnState.subStateType == TurnSubStateType.yearOfPlentyChoose){
-			btn.interactable = TurnState.chosenResource != ResourceType.desert;
+			btn.interactable = TurnState.chosenResource != ResourceType.None;
 		} else if (TurnState.subStateType == TurnSubStateType.roadBuilding){
 			btn.interactable = TurnState.secondRoadBuilt;
 		}

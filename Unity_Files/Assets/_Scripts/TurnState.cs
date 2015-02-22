@@ -333,7 +333,7 @@ public class TurnState : MonoBehaviour {
 		for (int i = 0; i < resourceOrder.Length; ++i) {
 			ComboBoxItem item = toGiveBox.Items[i];
 			ResourceType resource = resourceOrder[i];
-			int cost = TradeManager.getCostForPlayer(resource, currentPlayer);
+			int cost = currentPlayer.getTradeRatioFor(resource);
 			item.Caption = " " + cost + " " + resource;
 			if (currentPlayer.HasResourceAmount(resource, cost)) {
 				item.IsDisabled = false;

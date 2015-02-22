@@ -20,6 +20,9 @@ Also manages some other public members
 */
 public class Player : MonoBehaviour {
 
+	// The amount of a resource it costs to trade for another resource with no ports.
+	private const int TRADE_COST = 4;
+
 	// =----- Static variables -----
 	public static int playerCount;
 	/// <summary>
@@ -409,13 +412,15 @@ public class Player : MonoBehaviour {
 	// 	return cities.ToArray();
 	// }
 
-	public bool hasPortFor(ResourceType resource) {
+	public int getTradeRatioFor(ResourceType resource) {
+		int result = TRADE_COST;
 		foreach (SettlementClass settlement in settlements) {
-			if (settlement.hasPort && resource == settlement.portResource) {
-				return true;
+			PortClass port = settlement.port;
+			if (port != null && port.ratio < result && (resource == port.type || ResourceType.None == port.type)) {
+				result = port.ratio;
 			}
 		}
-		return false;
+		return result;
 	}
 
 

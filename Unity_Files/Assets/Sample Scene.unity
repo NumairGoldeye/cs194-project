@@ -19560,7 +19560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactable: 1
   _itemsToDisplay: 6
-  _hideFirstItem: 0
+  _hideFirstItem: 1
   _selectedIndex: 0
   _items:
   - _caption: None
@@ -29508,7 +29508,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 992959115}
-  m_Text: 3:1
+  m_Text: 2:1
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -54687,7 +54687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactable: 1
   _itemsToDisplay: 5
-  _hideFirstItem: 0
+  _hideFirstItem: 1
   _selectedIndex: 0
   _items:
   - _caption: None

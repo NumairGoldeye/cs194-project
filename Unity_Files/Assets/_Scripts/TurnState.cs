@@ -344,6 +344,10 @@ public class TurnState : MonoBehaviour {
 		tradeConsole.SetActive (true);
 	}
 
+	public void ResetTradeConsole() {
+		setupTradeConsole ();
+	}
+
 	/// <summary>
 	/// Wrapper function for stati
 	/// </summary>

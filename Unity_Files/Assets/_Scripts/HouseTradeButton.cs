@@ -31,6 +31,7 @@ public class HouseTradeButton : MonoBehaviour {
 		ResourceType resourceToGive = menuOrder[toGiveComboBox.SelectedIndex];
 
 		TradeManager.TradeWithHouse (resourceToGet, resourceToGive, p);
+		TurnState.instance.ResetTradeConsole();
 	}
 
 }

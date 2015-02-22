@@ -1756,6 +1756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 52
+  port: {fileID: 502045165}
 --- !u!65 &59254542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4174,6 +4175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 30
+  port: {fileID: 0}
 --- !u!65 &118714384
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4365,6 +4367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 45
+  port: {fileID: 0}
 --- !u!65 &127177660
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4677,6 +4680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 10
+  port: {fileID: 0}
 --- !u!65 &133299582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5385,6 +5389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 20
+  port: {fileID: 425688561}
 --- !u!65 &159611177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6050,6 +6055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 5
+  port: {fileID: 0}
 --- !u!65 &182264928
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6844,6 +6850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 7
+  port: {fileID: 237423100}
 --- !u!65 &225808438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7258,6 +7265,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 237423099}
+  - 114: {fileID: 237423100}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -7272,14 +7280,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 237423098}
   m_LocalRotation: {x: 0, y: -.258819044, z: 0, w: .965925813}
-  m_LocalPosition: {x: -17.1030006, y: -13.7200003, z: 4.55700016}
+  m_LocalPosition: {x: -14.3001614, y: -16.3466377, z: 4.06905842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 332507504}
   - {fileID: 387690052}
   - {fileID: 992959116}
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 8
+--- !u!114 &237423100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 237423098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  ratio: 2
 --- !u!1001 &244078254
 Prefab:
   m_ObjectHideFlags: 0
@@ -7984,6 +8005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 34
+  port: {fileID: 0}
 --- !u!65 &286069751
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8350,6 +8372,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 302918078}
+  - 114: {fileID: 302918079}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -8364,14 +8387,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 302918077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.4099998, y: -13.7200003, z: 12.8260002}
+  m_LocalPosition: {x: -9.60716057, y: -16.3466377, z: 12.3380585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 784785849}
   - {fileID: 562595203}
   - {fileID: 1439403634}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 0
+--- !u!114 &302918079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 302918077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  ratio: 2
 --- !u!1001 &307545023
 Prefab:
   m_ObjectHideFlags: 0
@@ -8567,6 +8603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 47
+  port: {fileID: 0}
 --- !u!65 &310921376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8757,6 +8794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 24
+  port: {fileID: 0}
 --- !u!65 &328131612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10007,7 +10045,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 154edccfd6e523a4190352bcd88be50b, type: 2}
+  - {fileID: 2100000, guid: c5d26537fba69434d8259d7b423ce4d2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -11109,6 +11147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 41
+  port: {fileID: 0}
 --- !u!65 &419557668
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11304,6 +11343,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425688560}
+  - 114: {fileID: 425688561}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -11318,14 +11358,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 425688559}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 12.4790001, y: -13.7200003, z: 13.8879995}
+  m_LocalPosition: {x: 15.2818394, y: -16.3466377, z: 13.4000578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2069805925}
   - {fileID: 553815445}
   - {fileID: 1129328661}
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 2
+--- !u!114 &425688561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 425688559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  ratio: 2
 --- !u!1001 &427140448
 Prefab:
   m_ObjectHideFlags: 0
@@ -11781,6 +11834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 28
+  port: {fileID: 0}
 --- !u!65 &437722001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13758,6 +13812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 32
+  port: {fileID: 0}
 --- !u!65 &481603208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14366,6 +14421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 49
+  port: {fileID: 0}
 --- !u!65 &499462012
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14446,6 +14502,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 502045164}
+  - 114: {fileID: 502045165}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -14460,14 +14517,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 502045163}
   m_LocalRotation: {x: 0, y: .965925813, z: 0, w: -.258819044}
-  m_LocalPosition: {x: 5.67199993, y: -13.7200003, z: -16.4969997}
+  m_LocalPosition: {x: 8.47483921, y: -16.3466377, z: -16.9849415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1609996362}
   - {fileID: 685358163}
   - {fileID: 886433015}
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 5
+--- !u!114 &502045165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502045163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  ratio: 2
 --- !u!1 &507408772
 GameObject:
   m_ObjectHideFlags: 0
@@ -14853,6 +14923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 18
+  port: {fileID: 0}
 --- !u!65 &517252321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15950,6 +16021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 53
+  port: {fileID: 1531255409}
 --- !u!65 &554128929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16006,6 +16078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 42
+  port: {fileID: 793605986}
 --- !u!65 &560643882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16698,6 +16771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 12
+  port: {fileID: 0}
 --- !u!65 &596143349
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23694,6 +23768,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 793605985}
+  - 114: {fileID: 793605986}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -23708,14 +23783,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 793605984}
   m_LocalRotation: {x: 0, y: .866025448, z: 0, w: .49999997}
-  m_LocalPosition: {x: 17.302, y: -13.7200003, z: 5.59299994}
+  m_LocalPosition: {x: 20.1048393, y: -16.3466377, z: 5.10505819}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1791327148}
   - {fileID: 1761833058}
   - {fileID: 472414150}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 3
+--- !u!114 &793605986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793605984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  ratio: 2
 --- !u!1 &793776128
 GameObject:
   m_ObjectHideFlags: 0
@@ -23724,6 +23812,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 793776129}
+  - 114: {fileID: 793776130}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -23738,14 +23827,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 793776128}
   m_LocalRotation: {x: 0, y: .965925813, z: 0, w: -.258819044}
-  m_LocalPosition: {x: 4.546, y: -13.7200003, z: -15.8290005}
+  m_LocalPosition: {x: 7.34883928, y: -16.3466377, z: -16.3169422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1467007512}
   - {fileID: 1185593038}
   - {fileID: 476252822}
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 6
+--- !u!114 &793776130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793776128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+  ratio: 3
 --- !u!1 &794819020
 GameObject:
   m_ObjectHideFlags: 0
@@ -24142,6 +24244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 40
+  port: {fileID: 0}
 --- !u!65 &802468092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24198,6 +24301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 25
+  port: {fileID: 0}
 --- !u!65 &803469507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24968,6 +25072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 2
+  port: {fileID: 2034793232}
 --- !u!65 &847769504
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26710,6 +26815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 11
+  port: {fileID: 237423100}
 --- !u!65 &902752922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27450,6 +27556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 3
+  port: {fileID: 0}
 --- !u!65 &932412742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28390,6 +28497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 9
+  port: {fileID: 0}
 --- !u!65 &962018717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28602,6 +28710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 43
+  port: {fileID: 793776130}
 --- !u!65 &966712340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28912,6 +29021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 26
+  port: {fileID: 0}
 --- !u!65 &975942793
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31544,6 +31654,42 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1059557574}
+--- !u!1 &1061089766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1061089767}
+  m_Layer: 0
+  m_Name: Ports
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1061089767
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061089766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.80283928, y: 2.62663722, z: .487941802}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 302918078}
+  - {fileID: 2034793231}
+  - {fileID: 425688560}
+  - {fileID: 793605985}
+  - {fileID: 1531255408}
+  - {fileID: 502045164}
+  - {fileID: 793776129}
+  - {fileID: 1823452674}
+  - {fileID: 237423099}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &1064239994
 GameObject:
   m_ObjectHideFlags: 0
@@ -31943,6 +32089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 1
+  port: {fileID: 302918079}
 --- !u!65 &1080607268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32642,6 +32789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 17
+  port: {fileID: 0}
 --- !u!65 &1111867976
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32837,6 +32985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 48
+  port: {fileID: 502045165}
 --- !u!65 &1117864725
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33430,6 +33579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 15
+  port: {fileID: 425688561}
 --- !u!65 &1145262525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35826,6 +35976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 46
+  port: {fileID: 0}
 --- !u!65 &1217436036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38772,6 +38923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 33
+  port: {fileID: 0}
 --- !u!65 &1331030173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38828,6 +38980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 51
+  port: {fileID: 0}
 --- !u!65 &1334265530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40595,6 +40748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 37
+  port: {fileID: 793605986}
 --- !u!65 &1413008618
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41895,7 +42049,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1840678614}
   m_HandleRect: {fileID: 1840678613}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -42732,6 +42886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 50
+  port: {fileID: 1531255409}
 --- !u!65 &1478806611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42788,6 +42943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 23
+  port: {fileID: 0}
 --- !u!65 &1485093359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43927,6 +44083,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1531255408}
+  - 114: {fileID: 1531255409}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -43941,14 +44098,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1531255407}
   m_LocalRotation: {x: 0, y: .965925813, z: 0, w: .258819073}
-  m_LocalPosition: {x: 17.3299999, y: -13.7200003, z: -3.8900001}
+  m_LocalPosition: {x: 20.1328392, y: -16.3466377, z: -4.37794209}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 830336730}
   - {fileID: 429949695}
   - {fileID: 1859820634}
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 4
+--- !u!114 &1531255409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1531255407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+  ratio: 3
 --- !u!1001 &1531280731
 Prefab:
   m_ObjectHideFlags: 0
@@ -44197,6 +44367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 29
+  port: {fileID: 0}
 --- !u!65 &1535337610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45227,6 +45398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 0
+  port: {fileID: 0}
 --- !u!65 &1581925020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45587,6 +45759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 16
+  port: {fileID: 0}
 --- !u!65 &1592736102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47773,6 +47946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 13
+  port: {fileID: 0}
 --- !u!65 &1647711209
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48153,6 +48327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 31
+  port: {fileID: 0}
 --- !u!65 &1674807325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49163,6 +49338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 14
+  port: {fileID: 0}
 --- !u!65 &1708637424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49591,6 +49767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 4
+  port: {fileID: 302918079}
 --- !u!65 &1731445181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50238,6 +50415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 8
+  port: {fileID: 0}
 --- !u!65 &1758492571
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51990,6 +52168,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1823452674}
+  - 114: {fileID: 1823452675}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -52004,14 +52183,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1823452673}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -12.1400003, y: -13.7200003, z: -12.0200005}
+  m_LocalPosition: {x: -9.33716106, y: -16.3466377, z: -12.5079422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1310595054}
   - {fileID: 1265977231}
   - {fileID: 2132833271}
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 7
+--- !u!114 &1823452675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1823452673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+  ratio: 3
 --- !u!1 &1826983175
 GameObject:
   m_ObjectHideFlags: 0
@@ -53937,6 +54129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 19
+  port: {fileID: 0}
 --- !u!65 &1886353757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53993,6 +54186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 22
+  port: {fileID: 0}
 --- !u!65 &1887470422
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54294,6 +54488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 38
+  port: {fileID: 793776130}
 --- !u!65 &1899269312
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54925,6 +55120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 44
+  port: {fileID: 0}
 --- !u!65 &1920784035
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56501,6 +56697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 39
+  port: {fileID: 0}
 --- !u!65 &1986336317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57124,6 +57321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 21
+  port: {fileID: 1823452675}
 --- !u!65 &2002930413
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58195,6 +58393,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2034793231}
+  - 114: {fileID: 2034793232}
   m_Layer: 0
   m_Name: Trading Post
   m_TagString: Untagged
@@ -58209,14 +58408,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2034793230}
   m_LocalRotation: {x: 0, y: .258819044, z: 0, w: .965925813}
-  m_LocalPosition: {x: -4.33500004, y: -13.7200003, z: 17.6000004}
+  m_LocalPosition: {x: -1.53216076, y: -16.3466377, z: 17.1120586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 511474901}
   - {fileID: 2118889386}
   - {fileID: 826863851}
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1061089767}
+  m_RootOrder: 1
+--- !u!114 &2034793232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2034793230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0f3b0bf2bf24ede8dad49baa512d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+  ratio: 3
 --- !u!1 &2034895845
 GameObject:
   m_ObjectHideFlags: 0
@@ -58574,6 +58786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 6
+  port: {fileID: 2034793232}
 --- !u!65 &2044162259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59171,6 +59384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 35
+  port: {fileID: 0}
 --- !u!65 &2071978479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60996,6 +61210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 27
+  port: {fileID: 1823452675}
 --- !u!65 &2116386004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61286,6 +61501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settlements: {fileID: 1447773772}
   vertexIndex: 36
+  port: {fileID: 0}
 --- !u!65 &2126350963
 BoxCollider:
   m_ObjectHideFlags: 0

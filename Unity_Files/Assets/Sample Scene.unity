@@ -19559,7 +19559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
-  _itemsToDisplay: 6
+  _itemsToDisplay: 5
   _hideFirstItem: 1
   _selectedIndex: 0
   _items:

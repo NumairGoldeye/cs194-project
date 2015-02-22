@@ -329,9 +329,9 @@ public class TurnState : MonoBehaviour {
 	void setupTradeConsole() {
 		// Assumes the order: Sheep, Wheat, Brick, Ore, Wood
 		ResourceType[] resourceOrder =
-			{ResourceType.Sheep, ResourceType.Wheat, ResourceType.Brick, ResourceType.Ore, ResourceType.Wheat};
+			{ResourceType.Sheep, ResourceType.Wheat, ResourceType.Brick, ResourceType.Ore, ResourceType.Wood};
 		for (int i = 0; i < resourceOrder.Length; ++i) {
-			ComboBoxItem item = toGiveBox.Items[i];
+			ComboBoxItem item = toGiveBox.Items[i+1]; // 0th item is "None"
 			ResourceType resource = resourceOrder[i];
 			int cost = currentPlayer.getTradeRatioFor(resource);
 			item.Caption = " " + cost + " " + resource;

@@ -19,7 +19,7 @@ public class DevConfirmButton : MonoBehaviour {
 	public Text alertPanelTxt;
 
 
-	private Button btn;
+	private static Button btn;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +33,8 @@ public class DevConfirmButton : MonoBehaviour {
 			btn.interactable = TurnState.chosenResource != ResourceType.None;
 		} else if (TurnState.subStateType == TurnSubStateType.roadBuilding){
 			btn.interactable = TurnState.secondRoadBuilt;
+		} else if (TurnState.subStateType == TurnSubStateType.robbering) {
+			btn.gameObject.SetActive(false);
 		}
 	}
 
@@ -52,9 +54,8 @@ public class DevConfirmButton : MonoBehaviour {
 		TurnState.ResetSubStateType2();
 	}
 
-	public void clickButton() {
-		btn.SendMessage ("onClick");
+
+	public static void clickButton() {
+		btn.onClick.Invoke();
 	}
-
-
 }

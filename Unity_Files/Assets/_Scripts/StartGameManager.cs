@@ -160,35 +160,4 @@ public class StartGameManager {
 		startedUp = false;
 
 	}
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

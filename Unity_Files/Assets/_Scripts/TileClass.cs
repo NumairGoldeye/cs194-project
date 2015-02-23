@@ -71,14 +71,15 @@ public class TileClass : MonoBehaviour {
 	public void receiveRobber () {
 		removeRobber ();
 		getRobber ();
+		DevConfirmButton.clickButton ();
 		removeResources ();//Each player has to remove half of their resources. For now, it will be random
 		stealResources ();
 		/* 
 		 * TODO: upon clicking this tile, close the dialogue box
 		 */
+
 	}
-
-
+	
 	public void getRobber () {
 		GameObject robber = GameObject.Find ("Robber");
 		robber.transform.position = transform.position;

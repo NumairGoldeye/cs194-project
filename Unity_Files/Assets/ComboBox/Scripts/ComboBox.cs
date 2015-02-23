@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+﻿//using UnityEditor;
 using UnityEngine;
 using System;
 using System.Collections;
@@ -342,8 +342,8 @@ public class ComboBox : MonoBehaviour
 						Sprite_Background = sprite;
 						break;
 				}
-			if (Sprite_UISprite == null || Sprite_Background == null)
-				AssetDatabase.LoadAllAssetsAtPath("Resources/unity_builtin_extra");
+//			if (Sprite_UISprite == null || Sprite_Background == null)
+//				AssetDatabase.LoadAllAssetsAtPath("Resources/unity_builtin_extra");
 		}
 	}
 

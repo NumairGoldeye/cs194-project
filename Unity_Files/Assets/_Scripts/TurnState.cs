@@ -314,13 +314,8 @@ public class TurnState : MonoBehaviour {
 
     void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
-		DisplayTradeConsole ();
+		DisplayTradeOptionConsole ();
     }
-
-	public void DisplayTradeConsole() {
-//		tradeOptionConsole.SetActive (true);
-		DisplayPortTradeConsole ();
-	}
 
 	public void DisplayTradeOptionConsole() {
 		tradeConsole.SetActive (true);
@@ -355,7 +350,6 @@ public class TurnState : MonoBehaviour {
 	}
 
 	public void DisplayPlayerTradeConsole() {
-
 		tradeConsole.SetActive (true);
 		portTradeConsole.SetActive (false);
 		playerTradeConsole.SetActive (true);

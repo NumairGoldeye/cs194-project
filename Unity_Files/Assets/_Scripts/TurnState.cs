@@ -352,6 +352,7 @@ public class TurnState : MonoBehaviour {
 		UIManager.StaticReset();
 		StartGameManager.StaticReset();
 		StandardBoardGraph.StaticReset();
+		ChatLog.StaticReset();
 
 
 		UIManager.ChangeMajorUIState(MajorUIState.create);

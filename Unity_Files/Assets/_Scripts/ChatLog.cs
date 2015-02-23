@@ -136,6 +136,9 @@ public class ChatLog : MonoBehaviour {
 	}
 
 	public static bool InChat(){
+		if (UIManager.state == MajorUIState.create )
+			return false;
+
 		return Instance.chatInput.isFocused;
 	}
 

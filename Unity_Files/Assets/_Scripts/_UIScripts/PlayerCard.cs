@@ -42,6 +42,13 @@ public class PlayerCard : MonoBehaviour {
 	
 	}
 
+
+	public void AnimInBrute(){
+		Debug.Log("FOOOOO");
+		animatedIn = false;
+		AnimIn();
+	}
+
 	public void AnimIn(){
 		if (animatedIn) return;
 //		Debug.Log ("fooooo");

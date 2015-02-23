@@ -129,9 +129,11 @@ public class PlayerHand : MonoBehaviour {
 	public void AddResourceCard(ResourceType type, Player p, int amount = 1){
 		SetPlayer(p);
 		for(int i = 0; i < amount; i++){
-			StartCoroutine(AddCardPrefab( GetResourceCardPrefab(type), true, false));
+			if (gameObject.activeInHierarchy)
+				StartCoroutine(AddCardPrefab( GetResourceCardPrefab(type), true, false));
 		}
-		StartCoroutine(_AnimateInAll());
+		if (gameObject.activeInHierarchy)
+			StartCoroutine(_AnimateInAll());
 	}
 
 	/// <summary>
@@ -165,15 +167,19 @@ public class PlayerHand : MonoBehaviour {
 	/// </summary>
 	public void AddDevCard(DevCardType type, Player p){
 		SetPlayer(p);
-		StartCoroutine(AddCardPrefab( GetDevCardPrefab(type), true, false));
-		
-		StartCoroutine(_AnimateInAll());
+		if (gameObject.activeInHierarchy){
+			StartCoroutine(AddCardPrefab( GetDevCardPrefab(type), true, false));
+			StartCoroutine(_AnimateInAll());
+		}
 	}
 
 	private IEnumerator _AnimateInAll(){
-		yield return new WaitForEndOfFrame();
 		RepositionCards();
+		yield return new WaitForEndOfFrame();
+//		yield return new WaitForSeconds(2.3f);
 		AnimateInAll();
+
+		
 	}
 
 	/// <summary>
@@ -245,7 +251,10 @@ public class PlayerHand : MonoBehaviour {
 		Image card = cardObj.GetComponent<Image>();
 		// Set the size
 		card.rectTransform.sizeDelta = new Vector2(cardWidth, cardWidth);
-		int numCards = totalCards;
+//		int numCards = totalCards;
+
+		int numCards = transform.childCount;
+
 		int thisIndex = IndexOfCard(cardObj);
 //		float panelWidth = rect.rect.width - cardWidth;
 		float panelWidth = 300f;
@@ -282,11 +291,13 @@ public class PlayerHand : MonoBehaviour {
 //		Debug.Log ("totalCards: " + totalCards);
 
 		foreach(DevCardType d in devCards){
-			StartCoroutine( AddCardPrefab(  GetDevCardPrefab(d), true, true ));
+			if (gameObject.activeInHierarchy)
+				StartCoroutine( AddCardPrefab(  GetDevCardPrefab(d), true, true ));
 		}
 
 		foreach(ResourceType r in resourceCards ){
-			StartCoroutine( AddCardPrefab( GetResourceCardPrefab(r), false, true) );
+			if (gameObject.activeInHierarchy)
+				StartCoroutine( AddCardPrefab( GetResourceCardPrefab(r), false, true) );
 		}
 
 		RepositionCards();

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class HouseTradeButton : MonoBehaviour {
 
+	public TradeConsole tradeConsole;
 	Button btn;
 	/// <summary>
 	/// The order that resources occur in the menu.
@@ -31,7 +32,7 @@ public class HouseTradeButton : MonoBehaviour {
 		ResourceType resourceToGive = menuOrder[toGiveComboBox.SelectedIndex-1];
 
 		TradeManager.TradeWithHouse (resourceToGet, resourceToGive, p);
-		TurnState.instance.ResetPortTradeConsole();
+		tradeConsole.ResetPortTradeConsole();
 	}
 
 }

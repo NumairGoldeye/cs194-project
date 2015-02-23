@@ -85,12 +85,7 @@ public class TurnState : MonoBehaviour {
     public Player[] thisPlayers;
 	public int _pointsToWin = 10;
 	public GameObject _victoryPanel;
-
-	public GameObject tradeConsole;
-	public GameObject portTradeConsole;
-	public GameObject tradeOptionConsole;
-	public ComboBox portToGiveBox;
-	public GameObject playerTradeConsole;
+	public TradeConsole tradeConsole;
 
 	public static void Startup(){
 		DevCard.SetupStatic();
@@ -108,7 +103,7 @@ public class TurnState : MonoBehaviour {
         int numTurnStates = tsTypes.Length;
         stateType++;
 		if (stateType != TurnStateType.trade) {
-			_instance.tradeConsole.SetActive (false); // Should only be on during trade phase
+			instance.tradeConsole.Disable(); // Should only be on during trade phase
 		}
         if (numTurnStates == (int)stateType){
             stateType = (TurnStateType)tsTypes.GetValue(0);
@@ -308,57 +303,14 @@ public class TurnState : MonoBehaviour {
     build phase
         build, dev, end turn
 
-    
+
 
     */
 
     void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
-		DisplayTradeOptionConsole ();
+		instance.tradeConsole.DisplayTradeOptionConsole ();
     }
-
-	public void DisplayTradeOptionConsole() {
-		tradeConsole.SetActive (true);
-		portTradeConsole.SetActive (false);
-		playerTradeConsole.SetActive (false);
-		tradeOptionConsole.SetActive (true);
-	}
-
-	public void DisplayPortTradeConsole() {
-		ConfigurePortTradeConsole ();
-		tradeConsole.SetActive (true);
-		portTradeConsole.SetActive (true);
-		playerTradeConsole.SetActive (false);
-		tradeOptionConsole.SetActive (false);
-	}
-
-	private void ConfigurePortTradeConsole() {
-		// Assumes the order: Sheep, Wheat, Brick, Ore, Wood
-		ResourceType[] resourceOrder =
-		{ResourceType.Sheep, ResourceType.Wheat, ResourceType.Brick, ResourceType.Ore, ResourceType.Wood};
-		for (int i = 0; i < resourceOrder.Length; ++i) {
-			ComboBoxItem item = portToGiveBox.Items[i+1]; // 0th item is "None"
-			ResourceType resource = resourceOrder[i];
-			int cost = currentPlayer.getTradeRatioFor(resource);
-			item.Caption = "" + cost + " " + resource;
-			if (currentPlayer.HasResourceAmount(resource, cost)) {
-				item.IsDisabled = false;
-			} else {
-				item.IsDisabled = true;
-			}
-		}
-	}
-
-	public void DisplayPlayerTradeConsole() {
-		tradeConsole.SetActive (true);
-		portTradeConsole.SetActive (false);
-		playerTradeConsole.SetActive (true);
-		tradeOptionConsole.SetActive (false);
-	}
-
-	public void ResetPortTradeConsole() {
-		DisplayPortTradeConsole ();
-	}
 
 	/// <summary>
 	/// Wrapper function for stati

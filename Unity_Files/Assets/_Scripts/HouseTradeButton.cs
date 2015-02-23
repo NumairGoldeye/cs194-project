@@ -24,14 +24,14 @@ public class HouseTradeButton : MonoBehaviour {
 
 	void TradeWithHouse() {
 		Player p = TurnState.currentPlayer;
-		ComboBox toGetComboBox = GameObject.Find ("ResourceToGet").GetComponent<ComboBox>();
+		ComboBox toGetComboBox = GameObject.Find ("PortTradeConsole/ResourceToGet").GetComponent<ComboBox>();
 		ResourceType resourceToGet = menuOrder[toGetComboBox.SelectedIndex-1];
 
-		ComboBox toGiveComboBox =  GameObject.Find ("ResourceToGive").GetComponent<ComboBox>();
+		ComboBox toGiveComboBox =  GameObject.Find ("PortTradeConsole/ResourceToGive").GetComponent<ComboBox>();
 		ResourceType resourceToGive = menuOrder[toGiveComboBox.SelectedIndex-1];
 
 		TradeManager.TradeWithHouse (resourceToGet, resourceToGive, p);
-		TurnState.instance.ResetTradeConsole();
+		TurnState.instance.ResetPortTradeConsole();
 	}
 
 }

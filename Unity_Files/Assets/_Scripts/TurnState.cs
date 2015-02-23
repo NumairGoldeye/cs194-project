@@ -74,10 +74,8 @@ public class TurnState : MonoBehaviour {
 	public static RoadClass secondRoad = null;
 
 	public static bool freeBuild;
-
-	static GameObject tradeConsole;
+	
 	static GameObject victoryPanel;
-	static ComboBox toGiveBox;
 
 
 	// ----- Instance things ----- //
@@ -87,6 +85,12 @@ public class TurnState : MonoBehaviour {
     public Player[] thisPlayers;
 	public int _pointsToWin = 10;
 	public GameObject _victoryPanel;
+
+	public GameObject tradeConsole;
+	public GameObject portTradeConsole;
+	public GameObject tradeOptionConsole;
+	public ComboBox portToGiveBox;
+	public GameObject playerTradeConsole;
 
 	public static void Startup(){
 		DevCard.SetupStatic();
@@ -104,7 +108,7 @@ public class TurnState : MonoBehaviour {
         int numTurnStates = tsTypes.Length;
         stateType++;
 		if (stateType != TurnStateType.trade) {
-			tradeConsole.SetActive (false); // Should only be on during trade phase
+			_instance.tradeConsole.SetActive (false); // Should only be on during trade phase
 		}
         if (numTurnStates == (int)stateType){
             stateType = (TurnStateType)tsTypes.GetValue(0);
@@ -276,23 +280,10 @@ public class TurnState : MonoBehaviour {
         thisCurrentPlayer = TurnState.currentPlayer;
 
         thisPlayers = TurnState.players;
-		// This line is REALLY asking for trouble...is there a smarter way to do this?
-		tradeConsole = UIManager.instance.disableOnStart[8];
-		toGiveBox = getToGiveBox ();
 		TurnState.pointsToWin = _pointsToWin;
 		TurnState.victoryPanel = _victoryPanel;
     }
-
-	ComboBox getToGiveBox() {
-		Component[] boxes = tradeConsole.GetComponentsInChildren<ComboBox> (true);
-		foreach (Component cb in boxes) {
-			if (cb.gameObject.name == "ResourceToGive") {
-				return (ComboBox) cb;
-			}
-		}
-		return null;
-	}
-
+	
     void Update(){
     }
 
@@ -323,18 +314,23 @@ public class TurnState : MonoBehaviour {
 
     void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
-		setupTradeConsole ();
+		SetupPortTradeConsole ();
+//		SetupTradeConsole ();
     }
 
-	void setupTradeConsole() {
+	void SetupTradeConsole() {
+		tradeOptionConsole.SetActive (true);
+	}
+
+	void SetupPortTradeConsole() {
 		// Assumes the order: Sheep, Wheat, Brick, Ore, Wood
 		ResourceType[] resourceOrder =
 			{ResourceType.Sheep, ResourceType.Wheat, ResourceType.Brick, ResourceType.Ore, ResourceType.Wood};
 		for (int i = 0; i < resourceOrder.Length; ++i) {
-			ComboBoxItem item = toGiveBox.Items[i+1]; // 0th item is "None"
+			ComboBoxItem item = portToGiveBox.Items[i+1]; // 0th item is "None"
 			ResourceType resource = resourceOrder[i];
 			int cost = currentPlayer.getTradeRatioFor(resource);
-			item.Caption = " " + cost + " " + resource;
+			item.Caption = "" + cost + " " + resource;
 			if (currentPlayer.HasResourceAmount(resource, cost)) {
 				item.IsDisabled = false;
 			} else {
@@ -342,10 +338,13 @@ public class TurnState : MonoBehaviour {
 			}
 		}
 		tradeConsole.SetActive (true);
+		portTradeConsole.SetActive (true);
+		playerTradeConsole.SetActive (false);
+		tradeOptionConsole.SetActive (false);
 	}
 
-	public void ResetTradeConsole() {
-		setupTradeConsole ();
+	public void ResetPortTradeConsole() {
+		SetupPortTradeConsole ();
 	}
 
 	/// <summary>

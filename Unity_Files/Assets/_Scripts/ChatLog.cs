@@ -32,6 +32,7 @@ public class ChatLog : MonoBehaviour {
 	public static ChatLog Instance {
 		get {
 			if (instance == null) {
+				Debug.Log("found");
 				instance = GameObject.FindObjectOfType<ChatLog>(); //hmmmm
 			}
 			return instance;
@@ -136,8 +137,8 @@ public class ChatLog : MonoBehaviour {
 	}
 
 	public static bool InChat(){
-		if (UIManager.state == MajorUIState.create )
-			return false;
+		if ( UIManager.state == MajorUIState.play )
+			return true;
 
 		return Instance.chatInput.isFocused;
 	}

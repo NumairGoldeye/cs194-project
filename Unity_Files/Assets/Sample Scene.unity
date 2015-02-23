@@ -43199,7 +43199,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1840678613}
   m_Direction: 2
   m_Value: 1
-  m_Size: .999999523
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -48989,11 +48989,11 @@ MonoBehaviour:
   thisPlayers: []
   _pointsToWin: 4
   _victoryPanel: {fileID: 2014482850}
-  tradeConsole: {fileID: 0}
-  portTradeConsole: {fileID: 0}
-  tradeOptionConsole: {fileID: 0}
-  portToGiveBox: {fileID: 0}
-  playerTradeConsole: {fileID: 0}
+  tradeConsole: {fileID: 1559447317}
+  portTradeConsole: {fileID: 1044583680}
+  tradeOptionConsole: {fileID: 1041392388}
+  portToGiveBox: {fileID: 1912332911}
+  playerTradeConsole: {fileID: 901807112}
 --- !u!1 &1646062215
 GameObject:
   m_ObjectHideFlags: 0

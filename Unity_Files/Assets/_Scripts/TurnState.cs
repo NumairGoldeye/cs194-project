@@ -314,18 +314,33 @@ public class TurnState : MonoBehaviour {
 
     void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
-		SetupPortTradeConsole ();
-//		SetupTradeConsole ();
+		DisplayTradeConsole ();
     }
 
-	void SetupTradeConsole() {
+	public void DisplayTradeConsole() {
+//		tradeOptionConsole.SetActive (true);
+		DisplayPortTradeConsole ();
+	}
+
+	public void DisplayTradeOptionConsole() {
+		tradeConsole.SetActive (true);
+		portTradeConsole.SetActive (false);
+		playerTradeConsole.SetActive (false);
 		tradeOptionConsole.SetActive (true);
 	}
 
-	void SetupPortTradeConsole() {
+	public void DisplayPortTradeConsole() {
+		ConfigurePortTradeConsole ();
+		tradeConsole.SetActive (true);
+		portTradeConsole.SetActive (true);
+		playerTradeConsole.SetActive (false);
+		tradeOptionConsole.SetActive (false);
+	}
+
+	private void ConfigurePortTradeConsole() {
 		// Assumes the order: Sheep, Wheat, Brick, Ore, Wood
 		ResourceType[] resourceOrder =
-			{ResourceType.Sheep, ResourceType.Wheat, ResourceType.Brick, ResourceType.Ore, ResourceType.Wood};
+		{ResourceType.Sheep, ResourceType.Wheat, ResourceType.Brick, ResourceType.Ore, ResourceType.Wood};
 		for (int i = 0; i < resourceOrder.Length; ++i) {
 			ComboBoxItem item = portToGiveBox.Items[i+1]; // 0th item is "None"
 			ResourceType resource = resourceOrder[i];
@@ -337,14 +352,18 @@ public class TurnState : MonoBehaviour {
 				item.IsDisabled = true;
 			}
 		}
+	}
+
+	public void DisplayPlayerTradeConsole() {
+
 		tradeConsole.SetActive (true);
-		portTradeConsole.SetActive (true);
-		playerTradeConsole.SetActive (false);
+		portTradeConsole.SetActive (false);
+		playerTradeConsole.SetActive (true);
 		tradeOptionConsole.SetActive (false);
 	}
 
 	public void ResetPortTradeConsole() {
-		SetupPortTradeConsole ();
+		DisplayPortTradeConsole ();
 	}
 
 	/// <summary>

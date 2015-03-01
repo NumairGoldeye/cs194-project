@@ -236,7 +236,28 @@ public class ArrayBoardGraph : BoardGraph {
 	//The priority of the first two settlements, is firstly having more chances to hit the dice, secondly having enough variety of resources
 	//to build settlement and city in the future. 
 
+	public SettlementClass FirstSettlements(Player player){
+		List<SettlementClass> set = BuildableSettlements(player);
+		int sum = 0;
+		SettlementClass result = new SettlementClass();
+		foreach (SettlementClass s in set) {
+			List<TileClass> adjacent = getTilesForSettlement(s);
+			int subsum = 0; 
+			foreach(TileClass t in adjacent){
+				int frequency =  0;
+			}
+		}
+		return result;
+	}
 
+
+	//Frequecny module: 
+	public int frequency(TileClass tile){
+		int result = 0; 
+
+
+		return result;
+	}
 
 
 }

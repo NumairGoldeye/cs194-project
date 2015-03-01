@@ -229,4 +229,14 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 		return result; 
 	}
+
+	//------ AI related computer mode functions--------
+	//where to build settlements: 1. first two settlements   2. 3rd settlement and beyond 
+
+	//The priority of the first two settlements, is firstly having more chances to hit the dice, secondly having enough variety of resources
+	//to build settlement and city in the future. 
+
+
+
+
 }

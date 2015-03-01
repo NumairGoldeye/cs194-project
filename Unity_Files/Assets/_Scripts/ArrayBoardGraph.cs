@@ -251,11 +251,26 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 
 
-	//Frequecny module: 
+	//Frequecny module: return the frequecny of happening for each tile 
 	public int frequency(TileClass tile){
 		int result = 0; 
+		int dice = tile.diceValue;
+		if (dice == 6 || dice == 8) {
+						result = 5;
+				}
+		if (dice == 5 || dice == 9) {
+			result = 4;
+		}
+		if (dice == 4 || dice == 10) {
+			result = 3;
+		}
+		if (dice == 3 || dice == 11) {
+			result = 2;
+		}
 
-
+		if (dice == 2 || dice == 12) {
+			result = 1;
+		}
 		return result;
 	}
 

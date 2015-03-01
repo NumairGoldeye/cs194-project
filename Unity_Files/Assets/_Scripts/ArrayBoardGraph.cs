@@ -244,9 +244,16 @@ public class ArrayBoardGraph : BoardGraph {
 			List<TileClass> adjacent = getTilesForSettlement(s);
 			int subsum = 0; 
 			foreach(TileClass t in adjacent){
-				int frequency =  0;
+				int f =  frequency(t);
+				subsum = subsum + f;
+			}
+			if(subsum > sum){
+				sum = subsum;
+				result = s;			
 			}
 		}
+
+		//This function returns the settlement that is buildable and has the most frequency sum index 
 		return result;
 	}
 

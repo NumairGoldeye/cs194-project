@@ -276,12 +276,26 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 
 
-	//Where to build city: 
+	//Where to build city: always build city where it is most profitable 
 
 	public SettlementClass BuildCity(Player player){
 		SettlementClass[] settlements = player.GetSettlements();
 		List<SettlementClass> set = settlements.ToList<SettlementClass>();
-		return null;
+		SettlementClass result = new SettlementClass();
+		int sum = 0;
+		foreach (SettlementClass s in set) {
+			List<TileClass> adjacent = getTilesForSettlement(s);
+			int subsum = 0; 
+			foreach(TileClass t in adjacent){
+				int f =  frequency(t);
+				subsum = subsum + f;
+			}
+			if(subsum > sum){
+				sum = subsum;
+				result = s;			
+			}
+		}
+		return result;
 	}
 
 		

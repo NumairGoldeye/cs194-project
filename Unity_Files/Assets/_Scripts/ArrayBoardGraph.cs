@@ -176,6 +176,15 @@ public class ArrayBoardGraph : BoardGraph {
 		return longest; 
 	}
 
+	//buildable city: positions where settlements are there 
+	public List<SettlementClass> BuildableCity(Player player){
+		SettlementClass[] settlements = player.GetSettlements();
+		List<SettlementClass> set = settlements.ToList<SettlementClass>();
+
+		return set;
+	}
+
+	
 	
 	public List<RoadClass> BuildableRoads(Player player){
 
@@ -231,12 +240,21 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 
 	//------ AI related computer mode functions--------
+	// The AI strategy: 
+	// 1. build two settlements at where there are the most frequency 
+	// 2. Always build roads that lead to the most winnable potential settlement place 
+	// 3. Where to build city: always build hwere there is the most frequency 
+	// 4. 
+
+
+
+
 	//where to build settlements: 1. first two settlements   2. 3rd settlement and beyond 
 
 	//The priority of the first two settlements, is firstly having more chances to hit the dice, secondly having enough variety of resources
 	//to build settlement and city in the future. 
 
-	public SettlementClass FirstSettlements(Player player){
+	public SettlementClass BuildFirstSettlement(Player player){
 		List<SettlementClass> set = BuildableSettlements(player);
 		int sum = 0;
 		SettlementClass result = new SettlementClass();
@@ -258,6 +276,15 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 
 
+	//Where to build city: 
+
+	public SettlementClass BuildCity(Player player){
+		SettlementClass[] settlements = player.GetSettlements();
+		List<SettlementClass> set = settlements.ToList<SettlementClass>();
+		return null;
+	}
+
+		
 	//Frequecny module: return the frequecny of happening for each tile 
 	public int frequency(TileClass tile){
 		int result = 0; 

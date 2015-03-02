@@ -10,6 +10,10 @@ public interface BoardGraph {
 	int SettlementCount { get; }
 	int TileCount { get; }
 
+	List<SettlementClass> getSettlements();
+	List<RoadClass> getRoads();
+	List<TileClass> getTiles();
+
 	/** Returns the Settlement corresponding to the given index for that space on the board.
 	 *
 	 * The Settlements are indexed starting at 0, starting at the leftmost tile in the top

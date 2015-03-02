@@ -59,12 +59,12 @@ public class TileClass : MonoBehaviour {
 
 	void OnMouseDown() {
 		if (hasRobber) return;
-		if (GameManager.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) 
+		if (GameManager.Instance.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) 
 			receiveRobber ();
 	}
 
 	private void removeRobber() {
-		TileClass tileWithRobber = GameManager.getRobberTile ();
+		TileClass tileWithRobber = GameManager.Instance.getRobberTile ();
 		tileWithRobber.hasRobber = false;
 	}
 
@@ -84,7 +84,7 @@ public class TileClass : MonoBehaviour {
 		GameObject robber = GameObject.Find ("Robber");
 		robber.transform.position = transform.position;
 		hasRobber = true;
-		GameManager.setRobberTile (this);
+		GameManager.Instance.setRobberTile (this);
 	}
 
 	private void displayDiceNumber (){

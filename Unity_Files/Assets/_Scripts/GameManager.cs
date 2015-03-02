@@ -8,7 +8,20 @@ using System.Collections.Generic;
  * */
 public class GameManager : MonoBehaviour {
 
-	private BoardGraph graph;
+	private static BoardGraph graph;
+
+	private static GameManager instance;
+
+	public static GameManager Instance {
+		get {
+			if (instance == null) {
+				instance = new GameManager();
+				graph = StandardBoardGraph.Instance;
+			}
+			return instance;
+		}
+	}
+	
 
 	public struct TileInfo {
 		public int diceNumber;
@@ -16,38 +29,55 @@ public class GameManager : MonoBehaviour {
 
 		public TileInfo(ResourceType type, int diceNumber) {
 			this.diceNumber = diceNumber;
-			this.type = type;
+			this.type = type;	
 		}
 	}
 
-	private static int numTiles = 19; //number of tiles in play
-	private static int diceRoll;
-	private static TileClass tileWithRobber;
-	private static Player playerWithLargestArmy = null;
+	private int numTiles = 19; //number of tiles in play
+	private int diceRoll;
+	private TileClass tileWithRobber;
+	private Player playerWithLargestArmy = null;
 
-	private static int[] tileCounts = {4, 4, 3, 3, 4, 1};
+	private int[] tileCounts = {4, 4, 3, 3, 4, 1};
 	// The dice numbers for each tyle, in order
-	private static int[] diceNumbers =
+	private int[] diceNumbers =
 		{5, 2, 6, 3, 8, 10, 9, 12, 11, 4, 8, 10, 9, 4, 5, 6, 3, 11};
 
-	List<TileInfo> tiles;
+	static List<TileInfo> tiles;
 
 	public UnityEngine.UI.RawImage die1Image;
 	public UnityEngine.UI.RawImage die2Image;
+	
+	public void syncStartStateWithClients()
+	{
+		for (int index = 0; index < numTiles; index++) {
+			TileClass tile = graph.getTile(index);
+			networkView.RPC("syncTileInfo", RPCMode.Others, index, tile.diceValue, Convert.ToInt32(tile.hasRobber), (int)tile.type);
+        }
+	}
+	
+	[RPC]
+	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType)
+	{
+		//We only want to sync clients
+		if (Network.isClient) {
+			TileClass tile = graph.getTile(tileIndex);
+			tile.hasRobber = Convert.ToBoolean(hasRobber);
+			if (tile.hasRobber) tile.getRobber();
+			tile.assignType(diceValue, (ResourceType)resourceType);
+		}
+	}
 
-	public static void setRobberTile(TileClass tile) {
+	public void setRobberTile(TileClass tile) {
 		Debugger.Log ("Robber", tile.diceValue.ToString ());
 		tileWithRobber = tile;
 	}
 
-	public static TileClass getRobberTile() {
+	public TileClass getRobberTile() {
 		return tileWithRobber;
 	}
-
-	/// <summary>
-	/// Creates the tiles.
-	/// </summary>
-	private void createTiles () {
+	
+	public void createTiles () {
 		tiles = new List<TileInfo>();
 
 		List<ResourceType> tileResources = new List<ResourceType> ();
@@ -71,16 +101,10 @@ public class GameManager : MonoBehaviour {
 			}
 			resourceIndex++;
 		}
-
 		assignTileInfo ();
-
 	}
-	                          
-	/// <summary>
-	/// Assigns the tile info.
-	/// </summary>
+	                         
 	public void assignTileInfo () {
-
 		for (int i = 0; i < numTiles; i++) {
 			TileClass tile = graph.getTile (i);
 			tile.assignType(tiles[tile.tileNumber].diceNumber, tiles[tile.tileNumber].type);
@@ -93,25 +117,20 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public static void distributeResourcesForSettlement(SettlementClass settlement) {
+	public void distributeResourcesForSettlement(SettlementClass settlement) {
 		List<TileClass> tilesForSettlement = StandardBoardGraph.Instance.getTilesForSettlement (settlement);
 		foreach(TileClass tile in tilesForSettlement) {
 			if (tile.type != ResourceType.None)
 				TurnState.currentPlayer.AddResource(tile.type, 1);
 		}
 	}
-
-	/// <summary>
-	/// Distributes the resources.
-	/// </summary>
-	/// <param name="roll">Roll.</param>
+	
 	void distributeResources (int roll) {
 		BoardGraph graph = StandardBoardGraph.Instance;
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
 		for (int index = 0; index < graph.TileCount; index++) {
 			TileClass tile = graph.getTile(index);
 			if (roll == tile.diceValue && !tile.hasRobber) {
-//				Debugger.Log("Robber", tile.hasRobber.ToString());
 				//This is assuming that each tile keeps track of its vertices
 				List<SettlementClass> settlements = tile.getSettlements();
 				foreach (SettlementClass settlement in settlements) {
@@ -179,7 +198,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public static int getDiceRoll() {
+	public int getDiceRoll() {
 		return diceRoll;
 	}
 
@@ -196,22 +215,14 @@ public class GameManager : MonoBehaviour {
 		
 		distributeResources (diceRoll);
 	}
-
-	/// <summary>
-	/// Awake this instance.
-	/// </summary>
+	
 	void Awake () {
+		instance = this;
 		graph = StandardBoardGraph.Instance;
-		createTiles ();
 	}
 
-	// Use this for initialization
-	void Start () {
-	
+	public static void StaticReset(){
+		instance = null;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

@@ -26,6 +26,21 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 	}
 
+	public List<SettlementClass> getSettlements()
+	{
+		return settlements;
+	}
+
+	public List<RoadClass> getRoads()
+	{
+		return roads;
+	}
+
+	public List<TileClass> getTiles()
+	{
+		return tiles;
+	}
+
 	public SettlementClass getSettlement(int index) {
 		return settlements[index];
 	}

@@ -19,7 +19,8 @@ public class NetworkMenu : MonoBehaviour {
 
 	private void OnPlayerConnected(NetworkPlayer player) 
 	{
-		Debugger.Log ("Network", "Player Connected");		
+		Debugger.Log ("Network", "Player Connected");
+
 	}
 
 	private void OnServerInitialized (NetworkPlayer player)
@@ -74,12 +75,23 @@ public class NetworkMenu : MonoBehaviour {
 
 			if (GUILayout.Button ("Host")) {
 				//ASSUMPTION: GameName is not empty
+				if (gameName.Equals("")) return;
 				NetworkConnectionError error = Network.InitializeServer(1000, 6832 ,true);
 			}
 			if (GUILayout.Button("Connect")) {
 				MasterServer.RequestHostList(gameType);
 			}
 		} else {
+			if (Network.isServer) {
+				GUILayout.Label("Running as a server");
+				if (GUILayout.Button("Start")) {
+					GameManager.Instance.createTiles();
+					GameManager.Instance.syncStartStateWithClients();
+				}
+			}
+			else
+				if (Network.isClient)
+					GUILayout.Label("Running as a client");
 			GUILayout.Label("Connections: " + Network.connections.Length.ToString());
 		}
 	}

@@ -176,6 +176,15 @@ public class ArrayBoardGraph : BoardGraph {
 		return longest; 
 	}
 
+	//buildable city: positions where settlements are there 
+	public List<SettlementClass> BuildableCity(Player player){
+		SettlementClass[] settlements = player.GetSettlements();
+		List<SettlementClass> set = settlements.ToList<SettlementClass>();
+
+		return set;
+	}
+
+	
 	
 	public List<RoadClass> BuildableRoads(Player player){
 
@@ -229,4 +238,165 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 		return result; 
 	}
+
+	//------ AI related computer mode functions--------
+	// The AI strategy: 
+	// 1. build settlements at where there are the most frequency 
+	// 2. Always build roads that lead to the most winnable potential settlement place 
+	// 3. Where to build city: always build hwere there is the most frequency 
+	// 4. Always build when I have the set of resources for settlement, road or city 
+	// 5. When other players build long road, then AI builds largest army; vice versa 
+	// 6. Trade with players other than the top score player for win-win  
+
+
+
+	//where to build settlements: 1. first two settlements   2. 3rd settlement and beyond 
+
+	//The priority of the first two settlements and beyond, is firstly having more chances to hit the dice, secondly having enough variety of resources
+	//to build settlement and city in the future. 
+
+	//This function searches through all the buildable settlement positions and identifies the one with most frequency. 
+	public SettlementClass BuildSettlement(Player player){
+		List<SettlementClass> set = BuildableSettlements(player);
+		int sum = 0;
+		SettlementClass result = new SettlementClass();
+		foreach (SettlementClass s in set) {
+			List<TileClass> adjacent = getTilesForSettlement(s);
+			int subsum = 0; 
+			foreach(TileClass t in adjacent){
+				int f =  frequency(t);
+				subsum = subsum + f;
+			}
+			if(subsum > sum){
+				sum = subsum;
+				result = s;			
+			}
+		}
+
+		//This function returns the settlement that is buildable and has the most frequency sum index 
+		return result;
+	}
+
+
+
+
+	//Where to build city: always build city where it is most profitable 
+
+	public SettlementClass BuildCity(Player player){
+		SettlementClass[] settlements = player.GetSettlements();
+		List<SettlementClass> set = settlements.ToList<SettlementClass>();
+		SettlementClass result = new SettlementClass();
+		int sum = 0;
+		foreach (SettlementClass s in set) {
+			List<TileClass> adjacent = getTilesForSettlement(s);
+			int subsum = 0; 
+			foreach(TileClass t in adjacent){
+				int f =  frequency(t);
+				subsum = subsum + f;
+			}
+			if(subsum > sum){
+				sum = subsum;
+				result = s;			
+			}
+		}
+		return result;
+	}
+
+	//Where to build road: always build road that leads to the next possible settlement; find where to build road by doing a breadth 
+	//first search that identifies the most frequent node with distance 2 
+
+	//In player's turn, first check if it has enough resources to build settlement: if yes, call BuildRoad to see if it returns null, 
+	// if null, then buildSettlement; if not null, build a road first, and then build another settlement. 
+	public RoadClass BuildRoad(Player player){
+	    //When there is place to build settlement, and the settlement frequency is over 6, then build the settlement instead 
+		List<SettlementClass> set = BuildableSettlements(player);
+		SettlementClass s = BuildSettlement (player);
+		List<TileClass> adjacent  = getTilesForSettlement(s);
+		int sum = 0; 
+		foreach(TileClass t in adjacent){
+			int f = frequency(t);
+			sum = sum + f;
+		}
+		if (set.Count != 0 && sum > 6) {
+						return null; //do not build road, but build settlement first 		
+		} else {
+			//in this case, either there is no place to build settlement or frequency of buildable is too low
+			// we choose to build a road to extend buildable settlement for higher frequency 
+			List<RoadClass> buildable = BuildableRoads(player);
+			//the new buildable frequency is updated by the new settlement position the new road connects to 
+			RoadClass roadbuild = new RoadClass();
+			int freqtarget = 6;
+			//examine each possible buildable road
+			foreach(RoadClass r in buildable){
+				List<SettlementClass> adj = getSettlementsForRoad(r);
+				//see the two adjacent settlement positions 
+				foreach(SettlementClass settlement in adj){
+					if(!settlement.isBuilt()){
+						List<SettlementClass> adjset = getSettlementsForSettlement(settlement);
+						bool judge = true; 
+
+						foreach(SettlementClass settlement2 in adjset){
+							if(settlement2.isBuilt()){
+								judge = false; 
+							}
+						}
+
+					//in this case, the settlement "settlement" is buildable 
+						if(judge){
+							int freq = SettlementFrequency(settlement); //This is the frequency index that we want
+						    if(freq > freqtarget){
+							//If it is expanding into a good potential settlement position, then keep track 
+								freqtarget = freq;
+								roadbuild = r;
+							}
+						}
+
+					}
+				}
+			}
+			//now this is looping over all the possible roads and returning the one that gives us the best potential road 
+			if(!roadbuild){
+				return roadbuild;
+			}
+		}
+		
+		return null; 
+	}
+
+	//Frequency of a settlement
+
+	public int SettlementFrequency(SettlementClass s){
+		List<TileClass> adjacent  = getTilesForSettlement(s);
+		int sum = 0; 
+		foreach(TileClass t in adjacent){
+			int f = frequency(t);
+			sum = sum + f;
+		}
+		return sum;
+	}
+		
+	//Frequecny module: return the frequecny of happening for each tile 
+	public int frequency(TileClass tile){
+		int result = 0; 
+		int dice = tile.diceValue;
+		if (dice == 6 || dice == 8) {
+						result = 5;
+				}
+		if (dice == 5 || dice == 9) {
+			result = 4;
+		}
+		if (dice == 4 || dice == 10) {
+			result = 3;
+		}
+		if (dice == 3 || dice == 11) {
+			result = 2;
+		}
+
+		if (dice == 2 || dice == 12) {
+			result = 1;
+		}
+		return result;
+	}
+
+
 }

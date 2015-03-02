@@ -67,6 +67,10 @@ public interface BoardGraph {
 	int longestroad(Player player);
 
 	/**
+     * Returns the positions that player can build city   
+     */
+	List<SettlementClass> BuildableCity(Player player);
+	/**
      * Returns the positions that player can build roads   
      */
 	List<RoadClass> BuildableRoads(Player player);
@@ -76,4 +80,7 @@ public interface BoardGraph {
      * Returns the positions that player can build settlement  
      */
 	List<SettlementClass> BuildableSettlements(Player player);
+
+
+
 }

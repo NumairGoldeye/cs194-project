@@ -42,10 +42,15 @@ public class TradeConsole : MonoBehaviour {
 	}
 	
 	public void DisplayPlayerTradeConsole() {
+		ConfigurePlayerTradeConsole();
 		gameObject.SetActive (true);
 		portTradeConsole.SetActive (false);
 		playerTradeConsole.SetActive (true);
 		tradeOptionConsole.SetActive (false);
+	}
+
+	public void ConfigurePlayerTradeConsole() {
+
 	}
 	
 	public void ResetPortTradeConsole() {

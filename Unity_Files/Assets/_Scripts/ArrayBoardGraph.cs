@@ -251,10 +251,11 @@ public class ArrayBoardGraph : BoardGraph {
 
 	//where to build settlements: 1. first two settlements   2. 3rd settlement and beyond 
 
-	//The priority of the first two settlements, is firstly having more chances to hit the dice, secondly having enough variety of resources
+	//The priority of the first two settlements and beyond, is firstly having more chances to hit the dice, secondly having enough variety of resources
 	//to build settlement and city in the future. 
 
-	public SettlementClass BuildFirstSettlement(Player player){
+	//This function searches through all the buildable settlement positions and identifies the one with most frequency. 
+	public SettlementClass BuildSettlement(Player player){
 		List<SettlementClass> set = BuildableSettlements(player);
 		int sum = 0;
 		SettlementClass result = new SettlementClass();
@@ -274,6 +275,8 @@ public class ArrayBoardGraph : BoardGraph {
 		//This function returns the settlement that is buildable and has the most frequency sum index 
 		return result;
 	}
+
+
 
 
 	//Where to build city: always build city where it is most profitable 
@@ -298,6 +301,29 @@ public class ArrayBoardGraph : BoardGraph {
 		return result;
 	}
 
+	//Where to build road: always build road that leads to the next possible settlement; find where to build road by doing a breadth 
+	//first search that identifies the most frequent node with distance 2 
+
+	//In player's turn, first check if it has enough resources to build settlement: if yes, call BuildRoad to see if it returns null, 
+	// if null, then buildSettlement; if not null, build a road first, and then build another settlement. 
+	public RoadClass BuildRoad(Player player){
+	    //When there is place to build settlement, and the settlement frequency is over 6, then build the settlement instead 
+		List<SettlementClass> set = BuildableSettlements(player);
+		SettlementClass s = BuildSettlement (player);
+		List<TileClass> adjacent  = getTilesForSettlement(s);
+		int sum = 0; 
+		foreach(TileClass t in adjacent){
+			int f = frequency(t);
+			sum = sum + f;
+		}
+		if (set.Count != 0 && sum > 6) {
+						return null; //do not build road, but build settlement first 		
+		} else {
+
+		}
+		
+		return null; 
+	}
 		
 	//Frequecny module: return the frequecny of happening for each tile 
 	public int frequency(TileClass tile){

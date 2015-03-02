@@ -241,11 +241,12 @@ public class ArrayBoardGraph : BoardGraph {
 
 	//------ AI related computer mode functions--------
 	// The AI strategy: 
-	// 1. build two settlements at where there are the most frequency 
+	// 1. build settlements at where there are the most frequency 
 	// 2. Always build roads that lead to the most winnable potential settlement place 
 	// 3. Where to build city: always build hwere there is the most frequency 
-	// 4. 
-
+	// 4. Always build when I have the set of resources for settlement, road or city 
+	// 5. When other players build long road, then AI builds largest army; vice versa 
+	// 6. Trade with players other than the top score player for win-win  
 
 
 

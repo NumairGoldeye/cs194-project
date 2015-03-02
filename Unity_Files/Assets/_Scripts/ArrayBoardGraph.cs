@@ -319,8 +319,44 @@ public class ArrayBoardGraph : BoardGraph {
 		if (set.Count != 0 && sum > 6) {
 						return null; //do not build road, but build settlement first 		
 		} else {
-			//in this case, either there is no place to build settlement or frequency is too low
+			//in this case, either there is no place to build settlement or frequency of buildable is too low
+			// we choose to build a road to extend buildable settlement for higher frequency 
+			List<RoadClass> buildable = BuildableRoads(player);
+			//the new buildable frequency is updated by the new settlement position the new road connects to 
+			RoadClass roadbuild = new RoadClass();
+			int freqtarget = 6;
+			//examine each possible buildable road
+			foreach(RoadClass r in buildable){
+				List<SettlementClass> adj = getSettlementsForRoad(r);
+				//see the two adjacent settlement positions 
+				foreach(SettlementClass settlement in adj){
+					if(!settlement.isBuilt()){
+						List<SettlementClass> adjset = getSettlementsForSettlement(settlement);
+						bool judge = true; 
 
+						foreach(SettlementClass settlement2 in adjset){
+							if(settlement2.isBuilt()){
+								judge = false; 
+							}
+						}
+
+					//in this case, the settlement "settlement" is buildable 
+						if(judge){
+							int freq = SettlementFrequency(settlement); //This is the frequency index that we want
+						    if(freq > freqtarget){
+							//If it is expanding into a good potential settlement position, then keep track 
+								freqtarget = freq;
+								roadbuild = r;
+							}
+						}
+
+					}
+				}
+			}
+			//now this is looping over all the possible roads and returning the one that gives us the best potential road 
+			if(!roadbuild){
+				return roadbuild;
+			}
 		}
 		
 		return null; 

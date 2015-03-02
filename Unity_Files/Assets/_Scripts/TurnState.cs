@@ -53,9 +53,7 @@ public class TurnState : MonoBehaviour {
         }
     }
 
-
-    public static Player[] players = new Player[4];
-//    public static int numPlayers = 2;
+	
 	public static int pointsToWin = 10;
 	public static Player winningPlayer;
 	public static bool gameOver = false;
@@ -93,8 +91,14 @@ public class TurnState : MonoBehaviour {
 		UIManager.ChangeMajorUIState(MajorUIState.play);
 		UIManager.UpdateMajorUI();
 		freeBuild = false;
-		TurnState.players = Player.allPlayers.ToArray();
+//		TurnState.players = Player.allPlayers.ToArray();
 		ResetTurn();
+	}
+
+	public Player createPlayer(NetworkPlayer p)
+	{
+		Player player = new Player(Players.players.Count, Players.playerColors[Players.players.Count], p);
+		Players.players.Add (player);
 	}
 
 
@@ -116,7 +120,7 @@ public class TurnState : MonoBehaviour {
         numTurns++;
         // Debugger.Log("TurnState", "EndTurn");
         int index = numTurns % Player.allPlayers.Count;
-        currentPlayer = players[index];
+        currentPlayer = Players.players[index];
 
 		// Some simple resets
 		ResetTurn();
@@ -269,20 +273,15 @@ public class TurnState : MonoBehaviour {
 //            TurnState.players[i] = playerObjects[i].GetComponent<Player>();
 //        }
 
-		TurnState.players = Player.allPlayers.ToArray();
+//		Players.players = Player.allPlayers.ToArray();
 
-        TurnState.currentPlayer = TurnState.players[0];
-        thisCurrentPlayer = TurnState.currentPlayer;
+        TurnState.currentPlayer = Players.players[0];
+//        thisCurrentPlayer = TurnState.currentPlayer;
 
-        thisPlayers = TurnState.players;
-		TurnState.pointsToWin = _pointsToWin;
-		TurnState.victoryPanel = _victoryPanel;
-    }
-	
-    void Update(){
-    }
-
-    
+//        thisPlayers = Players.players;
+//		TurnState.pointsToWin = _pointsToWin;
+//		TurnState.victoryPanel = _victoryPanel;
+	}
 
 
     /*

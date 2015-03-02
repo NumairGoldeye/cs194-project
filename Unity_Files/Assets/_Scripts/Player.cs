@@ -33,7 +33,6 @@ public class Player : MonoBehaviour {
 	/// Only the players active in this game
 	/// </summary>
 	public static List<Player> allPlayers = new List<Player>();
-	public static Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
 
 
 	/// <summary>
@@ -41,6 +40,8 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	public bool playerActive = true;
 	public string playerName;
+
+	public NetworkPlayer networkPlayer;
 
 	/// <summary>
 	/// This will give the index into Player.everyDarnPlayer
@@ -72,6 +73,12 @@ public class Player : MonoBehaviour {
 	private List<RoadClass> roads;
 
 
+	public Player(int id, Color color, NetworkPlayer p)
+	{
+		playerId = id;
+		playerColor = color;
+		networkPlayer = p;
+	}
 
 	/// <summary>
 	/// Needs to reset Static variables to reload scene
@@ -119,15 +126,15 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 
 	void Awake(){
-		playerId = Player.playerCount;
-		playerName = "Player " + Player.playerCount.ToString();
-		Player.playerCount++;
-		Player.StorePlayer(this);
+//		playerId = Player.playerCount;
+//		playerName = "Player " + Player.playerCount.ToString();
+//		Player.playerCount++;
+//		Player.StorePlayer(this);
 	}
 
 	void Start () {
 		// They will actually choose this later
-		playerColor = Player.playerColors[playerId];
+		playerColor = Players.playerColors[playerId];
 		gameObject.name = playerName;
 
 		// -1 for the desert
@@ -150,11 +157,6 @@ public class Player : MonoBehaviour {
 		// BuyManager.Test(this);
 		// BuyManager.PurchaseForPlayer(BuyableType.city, this);
 		// BuyManager.Test(this);	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 

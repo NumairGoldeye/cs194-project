@@ -47,26 +47,28 @@ public class GameManager : MonoBehaviour {
 
 	public UnityEngine.UI.RawImage die1Image;
 	public UnityEngine.UI.RawImage die2Image;
-	
+
+	public void respondToPlayerJoin(Player p, NetworkPlayer player)
+	{
+		networkView.RPC ("associateWithPlayer", player, p.playerId); 
+	}
+
+
 	public void syncStartStateWithClients()
 	{
+		//Sync the tiles
 		for (int index = 0; index < numTiles; index++) {
 			TileClass tile = graph.getTile(index);
 			networkView.RPC("syncTileInfo", RPCMode.Others, index, tile.diceValue, Convert.ToInt32(tile.hasRobber), (int)tile.type);
         }
-	}
-	
-	[RPC]
-	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType)
-	{
-		//We only want to sync clients
-		if (Network.isClient) {
-			TileClass tile = graph.getTile(tileIndex);
-			tile.hasRobber = Convert.ToBoolean(hasRobber);
-			if (tile.hasRobber) tile.getRobber();
-			tile.assignType(diceValue, (ResourceType)resourceType);
+		//Sync the players
+		for (int index = 0; index < Players.players.Count; index++) {
+			Player p = Players.players[index];
+			networkView.RPC("syncPlayerInfo", RPCMode.Others, p.networkPlayer, p.playerColor, p.playerId, p.playerName);
 		}
 	}
+	
+
 
 	public void setRobberTile(TileClass tile) {
 		Debugger.Log ("Robber", tile.diceValue.ToString ());
@@ -225,4 +227,26 @@ public class GameManager : MonoBehaviour {
 		instance = null;
 	}
 
+
+	/* ---------------------------------------------------------
+	 * RPC Calls
+	 * ---------------------------------------------------------*/
+
+	[RPC]
+	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType)
+	{
+		//We only want to sync clients
+		if (Network.isClient) {
+			TileClass tile = graph.getTile(tileIndex);
+			tile.hasRobber = Convert.ToBoolean(hasRobber);
+			if (tile.hasRobber) tile.getRobber();
+			tile.assignType(diceValue, (ResourceType)resourceType);
+		}
+	}
+
+	[RPC]
+	void associateWithPlayer(int playerID)
+	{
+		
+	}
 }

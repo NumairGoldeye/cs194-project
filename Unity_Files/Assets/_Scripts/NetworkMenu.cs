@@ -20,13 +20,18 @@ public class NetworkMenu : MonoBehaviour {
 	private void OnPlayerConnected(NetworkPlayer player) 
 	{
 		Debugger.Log ("Network", "Player Connected");
-
+		Player p = TurnState.instance.createPlayer (player);
+		//Respond to player with it's information
+		GameManager.Instance.respondToPlayerJoin (p, player);
 	}
 
-	private void OnServerInitialized (NetworkPlayer player)
+	private void OnServerInitialized ()
 	{
 		connected = true;
 		MasterServer.RegisterHost(gameType, gameName);
+		//Create Player 1
+		Player p = TurnState.instance.createPlayer (Network.player);
+
 	}
 
 	private void OnDisconnectedFromServer()
@@ -43,10 +48,10 @@ public class NetworkMenu : MonoBehaviour {
 	{
 		if (message == MasterServerEvent.HostListReceived)
 			processHostList();
-//		else
-//			//handle other cases if neccessary
+
 	}
 
+	//TODO: Make a display of all of the available games
 	private void processHostList()
 	{
 		HostData[] hostData = MasterServer.PollHostList ();

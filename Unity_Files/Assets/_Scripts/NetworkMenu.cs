@@ -11,8 +11,10 @@ public class NetworkMenu : MonoBehaviour {
 
 	private bool connected = false;
 
+	//Client Initializes their GameManager
 	private void OnConnectedToServer()
 	{
+
 		Debugger.Log ("Network", "Connected To Server");
 		connected = true;
 	}
@@ -20,7 +22,8 @@ public class NetworkMenu : MonoBehaviour {
 	private void OnPlayerConnected(NetworkPlayer player) 
 	{
 		Debugger.Log ("Network", "Player Connected");
-		Player p = TurnState.instance.createPlayer (player);
+		Player p = GameManager.Instance.createPlayer (player);
+//		Debugger.Log ("Network", p.playerId.ToString ());
 		//Respond to player with it's information
 		GameManager.Instance.respondToPlayerJoin (p, player);
 	}
@@ -29,9 +32,7 @@ public class NetworkMenu : MonoBehaviour {
 	{
 		connected = true;
 		MasterServer.RegisterHost(gameType, gameName);
-		//Create Player 1
-		Player p = TurnState.instance.createPlayer (Network.player);
-
+		Player p = GameManager.Instance.createPlayer (Network.player);
 	}
 
 	private void OnDisconnectedFromServer()
@@ -49,6 +50,11 @@ public class NetworkMenu : MonoBehaviour {
 		if (message == MasterServerEvent.HostListReceived)
 			processHostList();
 
+	}
+
+	private void OnPlayerDisconnected(NetworkPlayer player)
+	{
+		GameManager.Instance.removePlayer (player);
 	}
 
 	//TODO: Make a display of all of the available games
@@ -95,8 +101,9 @@ public class NetworkMenu : MonoBehaviour {
 				}
 			}
 			else
-				if (Network.isClient)
+				if (Network.isClient) 
 					GUILayout.Label("Running as a client");
+			GUILayout.Label("Name: " + GameManager.Instance.players[GameManager.Instance.myPlayer].playerName);
 			GUILayout.Label("Connections: " + Network.connections.Length.ToString());
 		}
 	}

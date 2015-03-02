@@ -95,13 +95,6 @@ public class TurnState : MonoBehaviour {
 		ResetTurn();
 	}
 
-	public Player createPlayer(NetworkPlayer p)
-	{
-		Player player = new Player(Players.players.Count, Players.playerColors[Players.players.Count], p);
-		Players.players.Add (player);
-	}
-
-
     public static void NextTurnState(){
         Array tsTypes  = Enum.GetValues(typeof(TurnStateType));
         int numTurnStates = tsTypes.Length;
@@ -120,7 +113,7 @@ public class TurnState : MonoBehaviour {
         numTurns++;
         // Debugger.Log("TurnState", "EndTurn");
         int index = numTurns % Player.allPlayers.Count;
-        currentPlayer = Players.players[index];
+        currentPlayer = GameManager.Instance.players[index];
 
 		// Some simple resets
 		ResetTurn();
@@ -275,7 +268,7 @@ public class TurnState : MonoBehaviour {
 
 //		Players.players = Player.allPlayers.ToArray();
 
-        TurnState.currentPlayer = Players.players[0];
+//        TurnState.currentPlayer = GameManager.Instance.players[0];
 //        thisCurrentPlayer = TurnState.currentPlayer;
 
 //        thisPlayers = Players.players;

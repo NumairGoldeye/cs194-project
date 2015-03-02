@@ -16,6 +16,6 @@ public class CurrentPlayerColor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		img.color = TurnState.currentPlayer.playerColor;
+//		img.color = TurnState.currentPlayer.playerColor;
 	}
 }

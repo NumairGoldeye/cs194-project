@@ -23,10 +23,10 @@ public class DevCardTextCount : MonoBehaviour {
 	void Update () {
 		// if (cardType){
 		// check current player
-		player = TurnState.currentPlayer;
-
-
-		txt.text = player.DevCardCount(cardType).ToString();
+//		player = TurnState.currentPlayer;
+//
+//
+//		txt.text = player.DevCardCount(cardType).ToString();
 		// }
 	}
 }

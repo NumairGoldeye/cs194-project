@@ -17,8 +17,8 @@ public class ResourceTextCount : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		player = TurnState.currentPlayer;
-
-		txt.text = player.GetResourceCount(type).ToString();
+//		player = TurnState.currentPlayer;
+//
+//		txt.text = player.GetResourceCount(type).ToString();
 	}
 }

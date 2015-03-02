@@ -16,9 +16,7 @@ public class TileClass : MonoBehaviour {
 	public int tileIndex;
 
 	public void removeResources() {
-		Player[] players = (Player[])(GameObject.FindObjectsOfType (typeof(Player))); 
-//		Player[] players = Player.allPlayers;
-		foreach (Player player in players) {
+		foreach (Player player in GameManager.Instance.players) {
 			if (player.getTotalResources() > 7){ //TODO: make 7 into a constant in a reasonable place
 				player.removeHalfResources();
 			}
@@ -37,6 +35,7 @@ public class TileClass : MonoBehaviour {
 
 			settlementsAvailable ++;
 			settlement.toggleStealing();
+			//TODO Sync Settlement State & Display Text
 		}
 
 		if (settlementsAvailable > 0) {
@@ -59,8 +58,13 @@ public class TileClass : MonoBehaviour {
 
 	void OnMouseDown() {
 		if (hasRobber) return;
-		if (GameManager.Instance.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) 
-			receiveRobber ();
+		if (GameManager.Instance.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) {
+			if (Network.isClient)
+				GameManager.Instance.requestRobberMove(this);
+			else 
+				receiveRobber ();
+			//TODO sync robber with clients
+		}
 	}
 
 	private void removeRobber() {
@@ -125,16 +129,6 @@ public class TileClass : MonoBehaviour {
 				renderer.material.color = Color.white;
 				break;
 		}
-	}
-
-
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	public void addSettlement(SettlementClass settlement) {

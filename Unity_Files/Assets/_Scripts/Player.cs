@@ -73,11 +73,18 @@ public class Player : MonoBehaviour {
 	private List<RoadClass> roads;
 
 
-	public Player(int id, Color color, NetworkPlayer p)
+	public Player(int id, Color color, NetworkPlayer p, string name)
 	{
 		playerId = id;
 		playerColor = color;
 		networkPlayer = p;
+		playerName = name;
+		resourceCounts = new int[Enum.GetNames(typeof(ResourceType)).Length - 1];
+		
+		devCardCounts = new int[Enum.GetNames(typeof(DevCardType)).Length];
+		
+		settlements = new List<SettlementClass>();
+		roads = new List<RoadClass>();
 	}
 
 	/// <summary>
@@ -119,47 +126,6 @@ public class Player : MonoBehaviour {
 		}
 		return otherPlayers;
 	}
-
-	// resources
-	// dev cards 
-
-	// Use this for initialization
-
-	void Awake(){
-//		playerId = Player.playerCount;
-//		playerName = "Player " + Player.playerCount.ToString();
-//		Player.playerCount++;
-//		Player.StorePlayer(this);
-	}
-
-	void Start () {
-		// They will actually choose this later
-		playerColor = Players.playerColors[playerId];
-		gameObject.name = playerName;
-
-		// -1 for the desert
-		resourceCounts = new int[Enum.GetNames(typeof(ResourceType)).Length - 1];
-
-		devCardCounts = new int[Enum.GetNames(typeof(DevCardType)).Length];
-
-		settlements = new List<SettlementClass>();
-		roads = new List<RoadClass>();
-
-//		 AddDevCard(DevCardType.roadBuilding);
-//		 AddDevCard(DevCardType.knight);
-//		 AddDevCard(DevCardType.monopoly);
-//		 AddDevCard(DevCardType.victoryPoint);
-//		 AddDevCard(DevCardType.victoryPoint);
-		 AddResource(ResourceType.Wood, 2);
-//		 AddResource(ResourceType.brick, 2);
-		// LogResources();
-		// Debugger.Log("Charlie", "Something amazing");
-		// BuyManager.Test(this);
-		// BuyManager.PurchaseForPlayer(BuyableType.city, this);
-		// BuyManager.Test(this);	
-	}
-
-
 
 	/// <summary>
 	/// Sets the player active stuatus and modifies the Player.allPlayer array accordingly

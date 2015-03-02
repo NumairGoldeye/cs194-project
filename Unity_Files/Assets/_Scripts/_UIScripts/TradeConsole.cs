@@ -8,6 +8,7 @@ public class TradeConsole : MonoBehaviour {
 	public GameObject tradeOptionConsole;
 
 	public ComboBox portToGiveBox;
+	public ComboBox playerToTradeBox;
 
 	public void DisplayTradeOptionConsole() {
 		gameObject.SetActive (true);
@@ -50,7 +51,13 @@ public class TradeConsole : MonoBehaviour {
 	}
 
 	public void ConfigurePlayerTradeConsole() {
-
+		string[] playerNames = new string[Player.allPlayers.Count];
+		for (int i = 0; i < Player.allPlayers.Count; ++i) {
+			playerNames[i] = Player.allPlayers[i].playerName;
+		}
+		playerToTradeBox.ItemsToDisplay = Player.allPlayers.Count;
+		playerToTradeBox.AddItems(playerNames);
+		playerToTradeBox.Refresh ();
 	}
 	
 	public void ResetPortTradeConsole() {

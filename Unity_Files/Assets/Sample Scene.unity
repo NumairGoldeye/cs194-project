@@ -50537,6 +50537,7 @@ MonoBehaviour:
   playerTradeConsole: {fileID: 901807112}
   tradeOptionConsole: {fileID: 1041392388}
   portToGiveBox: {fileID: 1912332911}
+  playerToTradeBox: {fileID: 2025805031}
 --- !u!1 &1562044469
 GameObject:
   m_ObjectHideFlags: 0
@@ -64712,25 +64713,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
-  _itemsToDisplay: 4
+  _itemsToDisplay: 1
   _hideFirstItem: 1
   _selectedIndex: 0
   _items:
   - _caption: None
     _image: {fileID: 0}
-    _isDisabled: 0
-  - _caption: Player 1
-    _image: {fileID: 0}
-    _isDisabled: 0
-  - _caption: Player 2
-    _image: {fileID: 0}
-    _isDisabled: 0
-  - _caption: Player 3
-    _image: {fileID: 0}
-    _isDisabled: 0
-  - _caption: Player 4
-    _image: {fileID: 0}
-    _isDisabled: 0
+    _isDisabled: 1
 --- !u!1001 &2026877586
 Prefab:
   m_ObjectHideFlags: 0

@@ -25,15 +25,6 @@ public class Player : MonoBehaviour {
 
 	// =----- Static variables -----
 	public static int playerCount;
-	/// <summary>
-	/// All players, regardless of active/inactive status
-	/// </summary>
-	public static List<Player> everyDarnPlayer = new List<Player>();
-	/// <summary>
-	/// Only the players active in this game
-	/// </summary>
-	public static List<Player> allPlayers = new List<Player>();
-
 
 	/// <summary>
 	/// Readonly to check playerActive. Modify using setPlayerActive(bool);
@@ -87,37 +78,22 @@ public class Player : MonoBehaviour {
 		roads = new List<RoadClass>();
 	}
 
-	/// <summary>
-	/// Needs to reset Static variables to reload scene
-	/// </summary>
-	public static void StaticReset(){
-		playerCount = 0;
-		everyDarnPlayer = new List<Player>();
-		allPlayers = new List<Player>();
-	}
-
 
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure
 	/// </summary>
 	public static Player FindByPlayerId(int id){
-		foreach(Player p in everyDarnPlayer){ 
+		foreach(Player p in GameManager.Instance.players){ 
 			if (p.playerId == id)
 				return p;
 		}
 		return null;
 	}
 
-	public static void StorePlayer(Player player){
-		// Player.playerCount++; - make sure this is called somewhere in Start()
-		allPlayers.Add(player);
-		everyDarnPlayer.Add(player);
-	}
-
 	public static Player[] OtherPlayers(Player player){
 		Player[] otherPlayers = new Player[ playerCount - 1 ];
 		int index = 0;
-		foreach(Player p in allPlayers){
+		foreach(Player p in GameManager.Instance.players){
 			if (p != player && p != null){
 				Debugger.Log("Player", p.playerName);
 				otherPlayers[index] = p;
@@ -125,26 +101,6 @@ public class Player : MonoBehaviour {
 			}
 		}
 		return otherPlayers;
-	}
-
-	/// <summary>
-	/// Sets the player active stuatus and modifies the Player.allPlayer array accordingly
-	/// </summary>
-	public void SetPlayerActive(bool status){
-		playerActive = status;
-		if (status){
-			// if true, then add to allPlayers
-			if (Player.allPlayers.FindIndex( FindSelf) == -1){
-				Player.allPlayers.Add(this);
-				Player.playerCount++;
-			}
-		} else {
-			// if false, remove from allPlayers
-			if (Player.allPlayers.FindIndex( FindSelf) > -1){
-				Player.allPlayers.Remove(this);
-				Player.playerCount--;	
-			}
-		}
 	}
 
 //	private static void UpdateIds(){

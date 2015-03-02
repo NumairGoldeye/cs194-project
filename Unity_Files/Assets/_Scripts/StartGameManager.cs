@@ -58,7 +58,7 @@ public class StartGameManager {
 		settlements = GameObject.FindGameObjectWithTag("Settlement").transform.parent.gameObject;
 		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
 
-		TurnState.currentPlayer = Player.allPlayers[0];
+		TurnState.currentPlayer = GameManager.Instance.players[0];
 		settlements.BroadcastMessage("showSettlementStartup");
 		roads.BroadcastMessage("makeInvisible");
 		TurnState.freeBuild = true;
@@ -109,7 +109,7 @@ public class StartGameManager {
 	}
 
 	public static void NextPlayer(){
-		int numPlayers = Player.allPlayers.Count;
+		int numPlayers = GameManager.Instance.players.Count;
 
 
 		if (currentPlayerIndex == numPlayers - 1){
@@ -127,13 +127,13 @@ public class StartGameManager {
 		}
 
 		if (!secondPhase){
-			TurnState.currentPlayer = Player.allPlayers[currentPlayerIndex];
+			TurnState.currentPlayer = GameManager.Instance.players[currentPlayerIndex];
 
 		} else { 
 
 			int newIndex = numPlayers - 1 - (currentPlayerIndex % numPlayers);
 //			Debug.Log (newIndex);
-			TurnState.currentPlayer = Player.allPlayers[ newIndex];
+			TurnState.currentPlayer = GameManager.Instance.players[ newIndex];
 		}
 
 

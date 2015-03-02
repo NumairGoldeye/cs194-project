@@ -32,7 +32,7 @@ public class NetworkMenu : MonoBehaviour {
 	{
 		connected = true;
 		MasterServer.RegisterHost(gameType, gameName);
-		Player p = GameManager.Instance.createPlayer (Network.player);
+		GameManager.Instance.createPlayer (Network.player);
 	}
 
 	private void OnDisconnectedFromServer()

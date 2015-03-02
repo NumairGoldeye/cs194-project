@@ -27,11 +27,6 @@ public class CreatePlayerInput : MonoBehaviour {
 		p.playerName = s;
 	}
 
-	public void ChangePlayerActiveStatus(bool b){
-		p.SetPlayerActive(b);
-	}
-
-
 	// Use this for initialization
 	void Start () {
 		input = inputObj.GetComponent<InputField>();
@@ -39,7 +34,7 @@ public class CreatePlayerInput : MonoBehaviour {
 		colorImg = playerColorObj.GetComponent<Image>();
 		tog = toggleObj.GetComponent<Toggle>();
 
-		p = Player.allPlayers[index];
+		p = GameManager.Instance.players[index];
 		txt.text = "Player " + (p.playerId + 1).ToString();
 		input.interactable = p.playerActive;
 		tog.isOn = p.playerActive;

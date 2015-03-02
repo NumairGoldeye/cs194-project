@@ -108,11 +108,11 @@ public class TurnState : MonoBehaviour {
         }
     }
 
-    // Chantes the current Player...
+    // Changes the current Player...
     public static void EndTurn(){
         numTurns++;
         // Debugger.Log("TurnState", "EndTurn");
-        int index = numTurns % Player.allPlayers.Count;
+		int index = numTurns % GameManager.Instance.players.Count;
         currentPlayer = GameManager.Instance.players[index];
 
 		// Some simple resets
@@ -317,7 +317,7 @@ public class TurnState : MonoBehaviour {
 	/// This will update the UI
 	/// </summary>
 	public static void CheckVictory(){
-		foreach (Player p in Player.allPlayers){
+		foreach (Player p in GameManager.Instance.players){
 			if (p.victoryPoints >= pointsToWin){
 				// MainUI hide
 //				UIManager.MainUI.SetActive(false);
@@ -340,7 +340,6 @@ public class TurnState : MonoBehaviour {
 
 		//Reset all the static variables
 		StaticReset();
-		Player.StaticReset();
 		UIManager.StaticReset();
 		StartGameManager.StaticReset();
 		StandardBoardGraph.StaticReset();

@@ -76,13 +76,6 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void syncTurnStateWithClients()
-	{
-		networkView.RPC ("syncTurnStateInfo", RPCMode.Others, TurnState.currentPlayer.playerId, TurnState.winningPlayer.playerId, (int)TurnState.stateType, 
-		                 (int)TurnState.subStateType, Convert.ToInt32(TurnState.gameOver), TurnState.numTurns, (int)TurnState.chosenResource, 
-		                 Convert.ToInt32(TurnState.cardPlayedThisTurn), Convert.ToInt32(TurnState.freeBuild));
-	}
-
 	public void syncStartStateWithClients()
 	{
 		//Sync the tiles
@@ -142,6 +135,31 @@ public class GameManager : MonoBehaviour {
 		networkView.RPC ("handleRobberMove", RPCMode.Server, tile.tileIndex);
 	}
 
+	void distributeResources (int roll) {
+		if (Network.isClient) return;
+		BoardGraph graph = StandardBoardGraph.Instance;
+		//Loop through the tiles and give out resources for ones with the corresponding die roll.
+		for (int index = 0; index < graph.TileCount; index++) {
+			TileClass tile = graph.getTile(index);
+			if (roll == tile.diceValue && !tile.hasRobber) {
+				//This is assuming that each tile keeps track of its vertices
+				List<SettlementClass> settlements = tile.getSettlements();
+				foreach (SettlementClass settlement in settlements) {
+					if (settlement.isBuilt() && !settlement.isCity()) {
+						//this is assuming that the settlements and cities are storing the playerID
+						Player p = GameManager.Instance.players[settlement.getPlayer()];
+						p.AddResource(tile.type, 1);
+						networkView.RPC("syncResources", RPCMode.Others, p.playerId, (int)tile.type, 1);
+					} else if (settlement.isBuilt() && settlement.isCity()) {
+						Player p = GameManager.Instance.players[settlement.getPlayer()];
+						p.AddResource(tile.type, 2);
+						networkView.RPC("syncResources", RPCMode.Others, p.playerId, (int)tile.type, 2);
+					}
+				}
+			}
+		}
+	}
+
 	/* ---------------------------------------------------------------------*/
 
 
@@ -155,6 +173,7 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public void createTiles () {
+		if (Network.isClient) return;
 		tiles = new List<TileInfo>();
 
 		List<ResourceType> tileResources = new List<ResourceType> ();
@@ -200,29 +219,6 @@ public class GameManager : MonoBehaviour {
 			if (tile.type != ResourceType.None)
 				TurnState.currentPlayer.AddResource(tile.type, 1);
 		}
-	}
-	
-	void distributeResources (int roll) {
-		BoardGraph graph = StandardBoardGraph.Instance;
-		//Loop through the tiles and give out resources for ones with the corresponding die roll.
-		for (int index = 0; index < graph.TileCount; index++) {
-			TileClass tile = graph.getTile(index);
-			if (roll == tile.diceValue && !tile.hasRobber) {
-				//This is assuming that each tile keeps track of its vertices
-				List<SettlementClass> settlements = tile.getSettlements();
-				foreach (SettlementClass settlement in settlements) {
-					if (settlement.isBuilt() && !settlement.isCity()) {
-						//this is assuming that the settlements and cities are storing the playerID
-						Player p = GameManager.Instance.players[settlement.getPlayer()];
-						p.AddResource(tile.type, 1);
-					} else if (settlement.isBuilt() && settlement.isCity()) {
-						Player p = GameManager.Instance.players[settlement.getPlayer()];
-						p.AddResource(tile.type, 2);
-					}
-				}
-			}
-		}
-		//TODO sync player resources
 	}
 
 	/// <summary>
@@ -335,9 +331,9 @@ public class GameManager : MonoBehaviour {
 		players.Add (p);
 	}
 	[RPC]
-	void syncTurnStateInfo(/*TODO fill in arguments*/)
+	void syncTurnStateType(int state)
 	{
-		//TODO assign EVERYTHING
+		TurnState.stateType = (TurnStateType)state;
 	}
 	[RPC]
 	void syncDiceRoll(int die1, int die2)
@@ -354,4 +350,11 @@ public class GameManager : MonoBehaviour {
 		robber.transform.position = position;
 
 	}
+	[RPC]
+	void syncResources(int playerID, int resourceType, int count)
+	{
+		GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
+	}
+
+	/* --------------------------------------------------------------------------------*/
 }

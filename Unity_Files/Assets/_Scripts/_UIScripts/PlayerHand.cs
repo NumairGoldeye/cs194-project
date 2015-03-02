@@ -48,6 +48,7 @@ public class PlayerHand : MonoBehaviour {
 //	public GameObject PlayingDevCardPanel;
 
 	public float cardWidth = 50f;
+	public float handWidth = 250;
 //	public float cardOverlap = 20f;
 	public float cardPadding = 10f;
 	public int numToOverlap = 6;
@@ -257,7 +258,7 @@ public class PlayerHand : MonoBehaviour {
 
 		int thisIndex = IndexOfCard(cardObj);
 //		float panelWidth = rect.rect.width - cardWidth;
-		float panelWidth = 300f;
+		float panelWidth = handWidth;
 		int numDeltas = numToOverlap;
 		if (numCards > numToOverlap){
 			numDeltas = numCards;

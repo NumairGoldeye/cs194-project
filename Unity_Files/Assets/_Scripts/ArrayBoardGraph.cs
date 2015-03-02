@@ -319,10 +319,23 @@ public class ArrayBoardGraph : BoardGraph {
 		if (set.Count != 0 && sum > 6) {
 						return null; //do not build road, but build settlement first 		
 		} else {
+			//in this case, either there is no place to build settlement or frequency is too low
 
 		}
 		
 		return null; 
+	}
+
+	//Frequency of a settlement
+
+	public int SettlementFrequency(SettlementClass s){
+		List<TileClass> adjacent  = getTilesForSettlement(s);
+		int sum = 0; 
+		foreach(TileClass t in adjacent){
+			int f = frequency(t);
+			sum = sum + f;
+		}
+		return sum;
 	}
 		
 	//Frequecny module: return the frequecny of happening for each tile 

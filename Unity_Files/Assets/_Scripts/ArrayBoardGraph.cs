@@ -244,11 +244,20 @@ public class ArrayBoardGraph : BoardGraph {
 	// 1. build settlements at where there are the most frequency 
 	// 2. Always build roads that lead to the most winnable potential settlement place 
 	// 3. Where to build city: always build hwere there is the most frequency 
-	// 4. Always build when I have the set of resources for settlement, road or city 
+	// 4. Always build when AI have the set of resources for settlement, road or city 
 	// 5. When other players build long road, then AI builds largest army; vice versa 
 	// 6. Trade with players other than the top score player for win-win  
 
 
+
+	// In the beginnning, the AI calls "BuildSettlement" to set 2 settlements of highest frequencies, and build 2 roads randomly
+	//At each turn, the AI calls: 
+	// 1. Check resource cards that he has, get a list of them; 
+	// 2.if they contain "wood, brick" then call "BuildRoad"
+	//								if return null(1. has place to build good set 2. no good road), then do not build road 
+	// 										if contain "wood, brick, sheep, wheat", BuildSettlement (if null, build random road) 
+	//										if not contain, call BuildSettlement to see if null-> build Random Road 
+	//3. If contain " 2 wheat 3 ore", build city  
 
 	//where to build settlements: 1. first two settlements   2. 3rd settlement and beyond 
 
@@ -274,6 +283,7 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 
 		//This function returns the settlement that is buildable and has the most frequency sum index 
+		//If there is no buildable settlement, then build road 
 		return result;
 	}
 
@@ -317,7 +327,7 @@ public class ArrayBoardGraph : BoardGraph {
 			int f = frequency(t);
 			sum = sum + f;
 		}
-		if (set.Count != 0 && sum > 6) {
+		if (set.Count != 0 && sum > 5) {
 						return null; //do not build road, but build settlement first 		
 		} else {
 			//in this case, either there is no place to build settlement or frequency of buildable is too low
@@ -325,7 +335,7 @@ public class ArrayBoardGraph : BoardGraph {
 			List<RoadClass> buildable = BuildableRoads(player);
 			//the new buildable frequency is updated by the new settlement position the new road connects to 
 			RoadClass roadbuild = new RoadClass();
-			int freqtarget = 6;
+			int freqtarget = 5;
 			//examine each possible buildable road
 			foreach(RoadClass r in buildable){
 				List<SettlementClass> adj = getSettlementsForRoad(r);

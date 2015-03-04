@@ -15,8 +15,7 @@ public class SettlementClass : MonoBehaviour {
 	private int ownerId;
 	private bool stealing;
 	public PortClass port;
-
-	// Use this for initialization
+	
 	void Start () {
 		settlement = transform.FindChild("SettlementObject").gameObject;
 		city = transform.FindChild("CityObject").gameObject;
@@ -30,23 +29,12 @@ public class SettlementClass : MonoBehaviour {
 		stealing = false;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
-	/// <summary>
-	/// Hides the city.
-	/// </summary>
 	private void hideCity() {
 		Color temp = city.renderer.material.color;
 		temp.a = 0;
 		city.renderer.material.color = temp;
 	}
-
-	/// <summary>
-	/// Shows the city.
-	/// </summary>
+	
 	private void showCity() {
 		city.renderer.material.color = TurnState.currentPlayer.playerColor;
 	}
@@ -85,7 +73,6 @@ public class SettlementClass : MonoBehaviour {
 	}
 
 	public void toggleSettlements() {
-//		if (isSettlementReadyToBeShown(StandardBoardGraph.Instance.BuildableSettlements(TurnState.currentPlayer)) && !built)
 		if (!visible && !built && !StandardBoardGraph.Instance.hasBuiltNeighbooringSettlement(this) && StandardBoardGraph.Instance.hasConnectingRoad(TurnState.currentPlayer, this))
 		    showSettlement();
 		else if (visible && !built)
@@ -129,35 +116,58 @@ public class SettlementClass : MonoBehaviour {
 		showCity();
 		TurnState.currentPlayer.AddVictoryPoint();
 		upgrading = false;
+		//TODO: send update to clients with the upgraded city info
 	}
 
-	/// <summary>
-	/// Raises the mouse down event.
-	/// </summary>
+	private void executeStealing() {
+		StandardBoardGraph graph = StandardBoardGraph.Instance;
+		List<TileClass> tiles = graph.getTilesForSettlement(this);
+		TileClass currentTile = tiles[0];
+		foreach (TileClass tile in tiles) {
+			if (tile.hasRobber) currentTile = tile;
+		}
+		currentTile.endStealing();
+		
+		Player owner = GameManager.Instance.players[ownerId];
+		TurnState.currentPlayer.AddResource((ResourceType)(owner.removeRandomResource()), 1);
+		//TODO: send update to clients with stealing info
+	}
+
+	private void buildSettlement() {
+		built = true;
+		setPlayerSettlement();
+		if (Network.isServer)
+			settlements.BroadcastMessage ("hideSettlement");
+		else 
+			//TODO: send message to client who is building to hide settlements
+		if (StartGameManager.secondPhase) 
+			GameManager.Instance.distributeResourcesForSettlement(this);
+		StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
+		//TODO: send update to clients with settlement building info
+	}
+	
 	void OnMouseDown() {
 		if (!built) {
 			if (!visible) return;
-			built = true;
-			setPlayerSettlement();
-			settlements.BroadcastMessage ("hideSettlement");
-			if (StartGameManager.secondPhase) 
-				GameManager.Instance.distributeResourcesForSettlement(this);
-			StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
+			if (Network.isClient) {
+				//TODO: send request to server for building settlement
+			} else {
+				buildSettlement();
+			}
 		} else {
 			if (upgrading) {
-				setPlayerCity();
+				if (Network.isClient) {
+					//TODO: send request to server for upgrading to city
+				} else {
+					setPlayerCity();
+				}
 			}
 			else if (stealing){
-				StandardBoardGraph graph = StandardBoardGraph.Instance;
-				List<TileClass> tiles = graph.getTilesForSettlement(this);
-				TileClass currentTile = tiles[0];
-				foreach (TileClass tile in tiles) {
-					if (tile.hasRobber) currentTile = tile;
+				if (Network.isClient) {
+					//TODO: send request to server for stealing
+				} else {
+					executeStealing();
 				}
-				currentTile.endStealing();
-				
-				Player owner = GameManager.Instance.players[ownerId];
-				TurnState.currentPlayer.AddResource((ResourceType)(owner.removeRandomResource()), 1);
 			}
 		}
 	}

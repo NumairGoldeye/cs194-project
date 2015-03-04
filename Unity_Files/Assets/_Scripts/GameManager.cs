@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour {
 			return instance;
 		}
 	}
-	
 
 	public struct TileInfo {
 		public int diceNumber;
@@ -328,7 +327,8 @@ public class GameManager : MonoBehaviour {
 	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName)
 	{
 		Player p = new Player (playerID, playerColors[playerID], player, playerName);
-		players.Add (p);
+		if (!players.Contains(p))
+			players.Add (p);
 	}
 	[RPC]
 	void syncTurnStateType(int state)

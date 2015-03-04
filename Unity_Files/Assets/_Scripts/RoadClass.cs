@@ -16,16 +16,12 @@ public class RoadClass : MonoBehaviour {
 
 	public int ownerId;
 
-	// Use this for initialization
 	void Start () {
 		built = false;
 		makeInvisible();
 		ownerId = -1;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
+
 
 	public bool isBuilt() {
 		return built;
@@ -104,20 +100,32 @@ public class RoadClass : MonoBehaviour {
 		built = false;
 	}
 
-
-	void OnMouseDown() {
-		if (!visible || built) return;
+	private void buildRoad() {
 		built = true;
 		SetPlayer(TurnState.currentPlayer);
 
 		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 
 		if (TurnState.CheckSecondRoadBuilt(this)){
-			roadsObject.BroadcastMessage ("makeInvisible");
+			if (Network.isServer)
+				roadsObject.BroadcastMessage ("makeInvisible");
+			else 
+				//TODO: send message to client who is building the road to make his roads invisible
 		}
 		
 		if (!TurnState.freeBuild){
 			BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 		}
+		//TODO: send update to clients about road being build
+	}
+
+	void OnMouseDown() {
+		if (!visible || built) return;
+		if (Network.isClient) {
+			//TODO: send request to server to build this road
+		} else {
+			buildRoad();
+		}
+
 	}
 }

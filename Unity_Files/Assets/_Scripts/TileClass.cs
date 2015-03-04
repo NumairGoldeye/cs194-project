@@ -62,8 +62,7 @@ public class TileClass : MonoBehaviour {
 			if (Network.isClient)
 				GameManager.Instance.requestRobberMove(this);
 			else 
-				receiveRobber ();
-			//TODO sync robber with clients
+				GameManager.Instance.handleRobberMove(tileIndex);
 		}
 	}
 

@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 	private static int numTiles = 19; //number of tiles in play
 	private static int diceRoll;
 	private static TileClass tileWithRobber;
-	private static Player playerWithLargestArmy = null;
+	public static Player playerWithLargestArmy = null;
 
 	private static int[] tileCounts = {4, 4, 3, 3, 4, 1};
 	// The dice numbers for each tyle, in order

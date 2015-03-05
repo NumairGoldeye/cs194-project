@@ -65,7 +65,6 @@ public class Player : MonoBehaviour {
 
 	public DevCardType lastCardTypeDrawn;
 	public int numUsedKnights = 0;
-	public bool hasLargestArmy = false;
 	public bool hasLongestRoad = false;
 
 	private List<SettlementClass> settlements;

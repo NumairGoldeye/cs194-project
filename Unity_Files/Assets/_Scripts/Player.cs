@@ -273,6 +273,15 @@ public class Player : MonoBehaviour {
 		return GetResourceCount(resource) >= amount;
 	}
 
+	public bool HasResources(TradeCounter counter) {
+		foreach (KeyValuePair<ResourceType, int> pair in counter) {
+			if (!HasResourceAmount(pair.Key, pair.Value)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public int getTotalResources() {
 		return totalResources;
 	}

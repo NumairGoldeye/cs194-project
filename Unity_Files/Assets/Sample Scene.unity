@@ -9768,6 +9768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tradeConsole: {fileID: 1559447321}
   tradeResponse: {fileID: 1854306662}
+  tradePlayerBox: {fileID: 2025805031}
 --- !u!1 &302918077
 GameObject:
   m_ObjectHideFlags: 0
@@ -29549,6 +29550,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tradeConsole: {fileID: 1559447321}
   tradeConfirm: {fileID: 1854306662}
+  tradePlayerBox: {fileID: 2025805031}
+  acceptButton: {fileID: 1194576897}
   turnPlayerToGiveCounter: {fileID: 1428602051}
   turnPlayerToGetCounter: {fileID: 1016358958}
 --- !u!114 &919050338
@@ -39152,6 +39155,7 @@ MonoBehaviour:
   tradeConfirm: {fileID: 1854306662}
   turnPlayerToGiveCounter: {fileID: 1428602051}
   turnPlayerToGetCounter: {fileID: 1016358958}
+  tradePlayerBox: {fileID: 2025805031}
 --- !u!1 &1195740283
 GameObject:
   m_ObjectHideFlags: 0
@@ -49535,8 +49539,11 @@ MonoBehaviour:
   portTradeConsole: {fileID: 1044583680}
   playerTradeConsole: {fileID: 901807112}
   tradeOptionConsole: {fileID: 1041392388}
+  tradeButton: {fileID: 919050338}
+  playerToTrade: {fileID: 2025805031}
   portToGiveBox: {fileID: 1912332911}
   playerToTradeBox: {fileID: 2025805031}
+  toGive: {fileID: 1428602051}
 --- !u!1 &1562044469
 GameObject:
   m_ObjectHideFlags: 0

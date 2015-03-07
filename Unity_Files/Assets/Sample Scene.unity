@@ -9661,6 +9661,7 @@ GameObject:
   - 222: {fileID: 301899522}
   - 114: {fileID: 301899521}
   - 114: {fileID: 301899520}
+  - 114: {fileID: 301899523}
   m_Layer: 5
   m_Name: Reject
   m_TagString: Untagged
@@ -9754,6 +9755,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 301899518}
+--- !u!114 &301899523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301899518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f717b6b42d99a4a9492eb1ed82f83226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tradeConsole: {fileID: 1559447321}
+  tradeResponse: {fileID: 1854306662}
 --- !u!1 &302918077
 GameObject:
   m_ObjectHideFlags: 0
@@ -16528,38 +16542,6 @@ Transform:
   - {fileID: 1922457073}
   m_Father: {fileID: 2034793231}
   m_RootOrder: 0
---- !u!1 &511561335
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 511561336}
-  m_Layer: 5
-  m_Name: TradeConfirm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &511561336
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 511561335}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1559447318}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 300, y: 0}
-  m_SizeDelta: {x: 100, y: 130}
-  m_Pivot: {x: .5, y: .5}
 --- !u!1001 &513232476
 Prefab:
   m_ObjectHideFlags: 0
@@ -26615,7 +26597,6 @@ MonoBehaviour:
   totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
-  hasLargestArmy: 0
   hasLongestRoad: 0
 --- !u!1 &811844315
 GameObject:
@@ -29563,10 +29544,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 919050335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737ab53e9085d424d90ad37db0346ca0, type: 3}
+  m_Script: {fileID: 11500000, guid: aad1dc343248043be978e775502a353e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tradeConsole: {fileID: 1559447321}
+  tradeConfirm: {fileID: 1854306662}
+  turnPlayerToGiveCounter: {fileID: 1428602051}
+  turnPlayerToGetCounter: {fileID: 1016358958}
 --- !u!114 &919050338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39059,6 +39043,7 @@ GameObject:
   - 222: {fileID: 1194576899}
   - 114: {fileID: 1194576898}
   - 114: {fileID: 1194576897}
+  - 114: {fileID: 1194576900}
   m_Layer: 5
   m_Name: Confirm
   m_TagString: Untagged
@@ -39152,6 +39137,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194576895}
+--- !u!114 &1194576900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1194576895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a451d35c3dbe454b9bac75ca6769b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tradeConsole: {fileID: 1559447321}
+  tradeConfirm: {fileID: 1854306662}
+  turnPlayerToGiveCounter: {fileID: 1428602051}
+  turnPlayerToGetCounter: {fileID: 1016358958}
 --- !u!1 &1195740283
 GameObject:
   m_ObjectHideFlags: 0
@@ -43051,7 +43051,6 @@ MonoBehaviour:
   totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
-  hasLargestArmy: 0
   hasLongestRoad: 0
 --- !u!4 &1349390630
 Transform:
@@ -46885,7 +46884,6 @@ MonoBehaviour:
   totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
-  hasLargestArmy: 0
   hasLongestRoad: 0
 --- !u!4 &1462816487
 Transform:
@@ -49489,7 +49487,6 @@ RectTransform:
   - {fileID: 1041392389}
   - {fileID: 1044583681}
   - {fileID: 901807113}
-  - {fileID: 511561336}
   m_Father: {fileID: 1641503398}
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
@@ -67627,7 +67624,6 @@ MonoBehaviour:
   totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
-  hasLargestArmy: 0
   hasLongestRoad: 0
 --- !u!1 &2138561227
 GameObject:

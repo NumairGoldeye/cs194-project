@@ -9,7 +9,7 @@ public class TradeConsole : MonoBehaviour {
 
 	public ComboBox portToGiveBox;
 	public ComboBox playerToTradeBox;
-
+	
 	public void DisplayTradeOptionConsole() {
 		gameObject.SetActive (true);
 		portTradeConsole.SetActive (false);

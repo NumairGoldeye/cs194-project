@@ -13,17 +13,7 @@ public class PlayerTradeButton : MonoBehaviour {
 	public TradeCounter turnPlayerToGetCounter;
 
 	Button btn;
-	/// <summary>
-	/// The order that resources occur in the menu.
-	/// </summary>
-	ResourceType[] menuOrder = {
-		ResourceType.Sheep,
-		ResourceType.Wheat,
-		ResourceType.Brick,
-		ResourceType.Ore,
-		ResourceType.Wood
-	};
-	
+
 	// Use this for initialization
 	void Start () {
 		btn = gameObject.GetComponent<Button>();

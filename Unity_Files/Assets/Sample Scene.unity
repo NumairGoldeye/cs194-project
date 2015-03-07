@@ -29550,6 +29550,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tradeConsole: {fileID: 1559447321}
   tradeConfirm: {fileID: 1854306662}
+  tradeGiveText: {fileID: 369353304}
+  tradeGetText: {fileID: 2006317542}
   tradePlayerBox: {fileID: 2025805031}
   acceptButton: {fileID: 1194576897}
   turnPlayerToGiveCounter: {fileID: 1428602051}

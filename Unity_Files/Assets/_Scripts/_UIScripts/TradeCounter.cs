@@ -2,13 +2,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class TradeCounter : MonoBehaviour {
+public class TradeCounter : MonoBehaviour, IEnumerable {
 
 	Dictionary<ResourceType, int> counts;
 
 	void Start () {
 		counts = new Dictionary<ResourceType, int>();
 		foreach (ResourceType r in System.Enum.GetValues(typeof(ResourceType))) {
+			if (r == ResourceType.None) continue; // Shouldn't have a count for None.
 			counts[r] = 0;
 		}
 	}
@@ -29,4 +30,9 @@ public class TradeCounter : MonoBehaviour {
 	public int GetResourceAmount(ResourceType r) {
 		return counts[r];
 	}
+
+	IEnumerator IEnumerable.GetEnumerator() {
+		return (IEnumerator) counts.GetEnumerator();
+	}
+
 }

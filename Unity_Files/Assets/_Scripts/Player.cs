@@ -260,6 +260,7 @@ public class Player : MonoBehaviour {
 	// Don't know why i want it to return anything. sigh
 	public bool RemoveResource(ResourceType resource, int amount = 1){
 		//TODO: check if there are enough resources to remove
+		Debug.Log ((int)resource);
 		resourceCounts[(int)resource] -= amount;
 		totalResources -= amount;
 

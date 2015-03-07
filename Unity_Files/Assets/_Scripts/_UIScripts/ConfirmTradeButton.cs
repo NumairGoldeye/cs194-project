@@ -10,6 +10,7 @@ public class ConfirmTradeButton : MonoBehaviour {
 	public TradeCounter turnPlayerToGiveCounter;
 	public TradeCounter turnPlayerToGetCounter;
 
+	public ComboBox tradePlayerBox;
 	Button btn;
 	
 	void Start () {
@@ -18,7 +19,10 @@ public class ConfirmTradeButton : MonoBehaviour {
 	}
 
 	private void ConfirmTrade() {
-		// TODO Add actual trade.
+		// First element in ComboBox is "None", so need to add 1.
+		Player target = Player.allPlayers [tradePlayerBox.SelectedIndex - 1];
+		TradeManager.tradeBetweenPlayers(
+			TurnState.currentPlayer, turnPlayerToGiveCounter, target, turnPlayerToGetCounter);
 		ChatLog.Instance.AddChatEvent("Player TODO traded with TODO!");
 		tradeConfirm.SetActive (false);
 		tradeConsole.DisplayTradeOptionConsole ();

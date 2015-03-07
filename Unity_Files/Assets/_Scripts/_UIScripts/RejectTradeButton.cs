@@ -6,6 +6,7 @@ public class RejectTradeButton : MonoBehaviour {
 
 	public TradeConsole tradeConsole;
 	public GameObject tradeResponse;
+	public ComboBox tradePlayerBox;
 
 	Button btn;
 	
@@ -15,7 +16,10 @@ public class RejectTradeButton : MonoBehaviour {
 	}
 
 	private void RejectTrade() {
-		ChatLog.Instance.AddChatEvent("Player TODO rejected trade offer from TODO!");
+		Player current = TurnState.currentPlayer;
+		Player target = Player.allPlayers [tradePlayerBox.SelectedIndex - 1];
+		ChatLog.Instance.AddChatEvent(
+			"Player " + current.playerName + " " + "rejected trade from " + target.playerName + "!");
 		tradeResponse.SetActive (false);
 		tradeConsole.DisplayTradeOptionConsole ();
 	}

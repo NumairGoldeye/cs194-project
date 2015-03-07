@@ -20,10 +20,12 @@ public class ConfirmTradeButton : MonoBehaviour {
 
 	private void ConfirmTrade() {
 		// First element in ComboBox is "None", so need to add 1.
+		Player current = TurnState.currentPlayer;
 		Player target = Player.allPlayers [tradePlayerBox.SelectedIndex - 1];
 		TradeManager.tradeBetweenPlayers(
-			TurnState.currentPlayer, turnPlayerToGiveCounter, target, turnPlayerToGetCounter);
-		ChatLog.Instance.AddChatEvent("Player TODO traded with TODO!");
+			current, turnPlayerToGiveCounter, target, turnPlayerToGetCounter);
+		ChatLog.Instance.AddChatEvent(
+			"Player " + current.playerName + " " + "traded with " + target.playerName + "!");
 		tradeConfirm.SetActive (false);
 		tradeConsole.DisplayTradeOptionConsole ();
 	}

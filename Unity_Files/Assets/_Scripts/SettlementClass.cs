@@ -15,6 +15,8 @@ public class SettlementClass : MonoBehaviour {
 	private int ownerId;
 	private bool stealing;
 	public PortClass port;
+	public AudioSource settlementSound;
+	public AudioSource citySound;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +30,9 @@ public class SettlementClass : MonoBehaviour {
 		hideCity ();
 		hasCity = false;
 		stealing = false;
+
+		settlementSound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [2]);
+		citySound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [3]);
 	}
 	
 	// Update is called once per frame
@@ -138,6 +143,7 @@ public class SettlementClass : MonoBehaviour {
 		if (!built) {
 			if (!visible) return;
 			built = true;
+			settlementSound.Play ();
 			setPlayerSettlement();
 			settlements.BroadcastMessage ("hideSettlement");
 			if (StartGameManager.secondPhase) 
@@ -146,6 +152,7 @@ public class SettlementClass : MonoBehaviour {
 		} else {
 			if (upgrading) {
 				setPlayerCity();
+				citySound.Play();
 			}
 			else if (stealing){
 				StandardBoardGraph graph = StandardBoardGraph.Instance;

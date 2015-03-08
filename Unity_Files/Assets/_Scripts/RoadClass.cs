@@ -9,6 +9,7 @@ public class RoadClass : MonoBehaviour {
 
 	public SettlementClass settlement1;
 	public SettlementClass settlement2;
+	public AudioSource roadSound;
 
 	public GameObject roadsObject;
 
@@ -21,6 +22,8 @@ public class RoadClass : MonoBehaviour {
 		built = false;
 		makeInvisible();
 		ownerId = -1;
+
+		roadSound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [1]);
 	}
 	
 	// Update is called once per frame
@@ -109,6 +112,8 @@ public class RoadClass : MonoBehaviour {
 		if (!visible || built) return;
 		built = true;
 		SetPlayer(TurnState.currentPlayer);
+
+		roadSound.Play ();
 
 		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 

@@ -65,6 +65,10 @@ public class TradeConsole : MonoBehaviour {
 	}
 
 	public void ConfigurePlayerTradeConsole() {
+		playerToTradeBox.SelectedIndex = 0;
+		// Currently, the configuration is the same for every player, so
+		// this is a sort of lazy-shortcut to make this only done once.
+		if (playerToTradeBox.Items.Length > 1) return;
 		string[] playerNames = new string[Player.allPlayers.Count];
 		for (int i = 0; i < Player.allPlayers.Count; ++i) {
 			playerNames[i] = Player.allPlayers[i].playerName;

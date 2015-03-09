@@ -9,6 +9,7 @@ public class NetworkMenu : MonoBehaviour {
 	private int masterServerPortNumber = 23466;
 	private int facilitatorPortNumber = 50005;
 
+	private bool gameStarted = false;
 	private bool connected = false;
 
 	//Client Initializes their GameManager
@@ -92,12 +93,13 @@ public class NetworkMenu : MonoBehaviour {
 			if (GUILayout.Button("Connect")) {
 				MasterServer.RequestHostList(gameType);
 			}
-		} else {
+		} else if (!gameStarted) { 
 			if (Network.isServer) {
 				GUILayout.Label("Running as a server");
 				if (GUILayout.Button("Start")) {
 					GameManager.Instance.createTiles();
 					GameManager.Instance.syncStartStateWithClients();
+					gameStarted = true;
 				}
 			}
 			else

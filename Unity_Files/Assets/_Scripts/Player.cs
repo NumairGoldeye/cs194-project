@@ -76,6 +76,7 @@ public class Player : MonoBehaviour {
 		
 		settlements = new List<SettlementClass>();
 		roads = new List<RoadClass>();
+		hand = new PlayerHand ();
 	}
 
 

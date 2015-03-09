@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &360010
 GameObject:
@@ -452,8 +453,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -25083,58 +25084,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .100000001, y: .075000003, z: .100000001}
   m_Center: {x: 0, y: -.075000003, z: 0}
---- !u!1 &811067444
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 811067445}
-  - 114: {fileID: 811067446}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &811067445
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 811067444}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -196.59317, y: -130.651855, z: -61.6900024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1816199611}
-  m_RootOrder: 2
---- !u!114 &811067446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 811067444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eff2d79fcad814c9ba2067c373ffaeaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerActive: 1
-  playerName: Player C
-  playerId: 0
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
-  victoryPoints: 0
-  hand: {fileID: 2078680714}
-  resourceCounts: 
-  devCardCounts: 
-  totalResources: 0
-  lastCardTypeDrawn: 0
-  numUsedKnights: 0
-  hasLargestArmy: 0
-  hasLongestRoad: 0
 --- !u!1 &811844315
 GameObject:
   m_ObjectHideFlags: 0
@@ -25752,7 +25701,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &841338051
 GameObject:
   m_ObjectHideFlags: 0
@@ -33127,7 +33076,7 @@ Transform:
   - {fileID: 1823452674}
   - {fileID: 237423099}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &1064239994
 GameObject:
   m_ObjectHideFlags: 0
@@ -37031,7 +36980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1001 &1192460031
 Prefab:
   m_ObjectHideFlags: 0
@@ -41059,58 +41008,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1346912064}
---- !u!1 &1349390628
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1349390630}
-  - 114: {fileID: 1349390629}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1349390629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1349390628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eff2d79fcad814c9ba2067c373ffaeaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerActive: 1
-  playerName: Player B
-  playerId: 0
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
-  victoryPoints: 0
-  hand: {fileID: 2078680714}
-  resourceCounts: 
-  devCardCounts: 
-  totalResources: 0
-  lastCardTypeDrawn: 0
-  numUsedKnights: 0
-  hasLargestArmy: 0
-  hasLongestRoad: 0
---- !u!4 &1349390630
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1349390628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -196.59317, y: -130.651855, z: -61.6900024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1816199611}
-  m_RootOrder: 1
 --- !u!1 &1352069455
 GameObject:
   m_ObjectHideFlags: 0
@@ -44072,58 +43969,6 @@ MonoBehaviour:
   tileNumber: 12
   hasRobber: 0
   tileIndex: 5
---- !u!1 &1462816485
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1462816487}
-  - 114: {fileID: 1462816486}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1462816486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1462816485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eff2d79fcad814c9ba2067c373ffaeaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerActive: 1
-  playerName: Player D
-  playerId: 0
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
-  victoryPoints: 0
-  hand: {fileID: 2078680714}
-  resourceCounts: 
-  devCardCounts: 
-  totalResources: 0
-  lastCardTypeDrawn: 0
-  numUsedKnights: 0
-  hasLargestArmy: 0
-  hasLongestRoad: 0
---- !u!4 &1462816487
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1462816485}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -196.59317, y: -130.651855, z: -61.6900024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1816199611}
-  m_RootOrder: 3
 --- !u!1 &1463723635
 GameObject:
   m_ObjectHideFlags: 0
@@ -46574,7 +46419,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: upgradeAbility
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1549337485
@@ -53717,37 +53562,6 @@ Transform:
   - {fileID: 1615553006}
   m_Father: {fileID: 1570466999}
   m_RootOrder: 0
---- !u!1 &1816199610
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1816199611}
-  m_Layer: 0
-  m_Name: Players
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1816199611
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1816199610}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285.820312, y: 267.322266, z: 35.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2136236179}
-  - {fileID: 1349390630}
-  - {fileID: 811067445}
-  - {fileID: 1462816487}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
 --- !u!1 &1817330279
 GameObject:
   m_ObjectHideFlags: 0
@@ -55852,6 +55666,7 @@ GameObject:
   - 4: {fileID: 1878846658}
   - 114: {fileID: 1878846659}
   - 114: {fileID: 1878846660}
+  - 148: {fileID: 1878846661}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -55882,6 +55697,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ec106183a81344a9120f21a1413030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myPlayer: 0
+  playerColors:
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 1, g: .921568632, b: .0156862754, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
+  players: []
   die1Image: {fileID: 123016531}
   die2Image: {fileID: 499780813}
 --- !u!114 &1878846660
@@ -55901,6 +55725,18 @@ MonoBehaviour:
   dice4: {fileID: 2800000, guid: 699bc187c3c7bea438ba92f1701fe360, type: 3}
   dice5: {fileID: 2800000, guid: eb48321e6aad8ce40a1b286f379e5804, type: 3}
   dice6: {fileID: 2800000, guid: f6eab4729d60aeb4a851eda41af736cd, type: 3}
+--- !u!148 &1878846661
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878846657}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 1878846658}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
 --- !u!1001 &1883224127
 Prefab:
   m_ObjectHideFlags: 0
@@ -61162,7 +60998,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1 &2061449122
 GameObject:
   m_ObjectHideFlags: 0
@@ -63716,58 +63552,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &2136236178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2136236179}
-  - 114: {fileID: 2136236180}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2136236179
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2136236178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -196.59317, y: -130.651855, z: -61.6900024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1816199611}
-  m_RootOrder: 0
---- !u!114 &2136236180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2136236178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eff2d79fcad814c9ba2067c373ffaeaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerActive: 1
-  playerName: Player 1
-  playerId: 0
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
-  victoryPoints: 0
-  hand: {fileID: 2078680714}
-  resourceCounts: 
-  devCardCounts: 
-  totalResources: 0
-  lastCardTypeDrawn: 0
-  numUsedKnights: 0
-  hasLargestArmy: 0
-  hasLongestRoad: 0
 --- !u!1 &2138561227
 GameObject:
   m_ObjectHideFlags: 0

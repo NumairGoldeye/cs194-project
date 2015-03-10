@@ -80,9 +80,9 @@ public class GameManager : MonoBehaviour {
 	/// Assigns the tile info.
 	/// </summary>
 	public void assignTileInfo () {
-
 		for (int i = 0; i < numTiles; i++) {
 			TileClass tile = graph.getTile (i);
+			int resource = (int)(tiles[tile.tileNumber].type);
 			tile.assignType(tiles[tile.tileNumber].diceNumber, tiles[tile.tileNumber].type);
 			if (tile.type == ResourceType.None) {
 				tile.getRobber();
@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour {
 				tile.hasRobber = false;
 			}
 		}
+		GameObject.Find("Forests").transform.position = new Vector3(.8f, 0.0f, .8f);
 	}
 
 	public static void distributeResourcesForSettlement(SettlementClass settlement) {

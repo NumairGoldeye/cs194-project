@@ -10,6 +10,8 @@ TagManager:
   - Debugger
   - City
   - Settlements
+  - Forest
+  - AssignedForest
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

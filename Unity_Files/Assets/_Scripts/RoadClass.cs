@@ -107,7 +107,6 @@ public class RoadClass : MonoBehaviour {
 			BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 		}
 		GameManager.Instance.networkView.RPC("syncRoadBuild", RPCMode.Others, this.edgeIndex);
-
 	}
 
 	void OnMouseDown() {

@@ -15,14 +15,6 @@ public class TileClass : MonoBehaviour {
 	// The index of the POSITION of this tile on the board. Tiles are indexed in row-major order.
 	public int tileIndex;
 
-	public void removeResources() {
-		foreach (Player player in GameManager.Instance.players) {
-			if (player.getTotalResources() > 7){ //TODO: make 7 into a constant in a reasonable place
-				player.removeHalfResources();
-			}
-		}
-	}
-
 	public void stealResources() {
 		StandardBoardGraph graph = StandardBoardGraph.Instance;
 		List<SettlementClass> settlements = graph.getSettlementsForTile (this);
@@ -76,8 +68,6 @@ public class TileClass : MonoBehaviour {
 		removeRobber ();
 		getRobber ();
 		DevConfirmButton.clickButton ();
-		// IS THIS ALWAYS TRUE??
-		removeResources ();//Each player has to remove half of their resources. For now, it will be random
 		stealResources ();
 		/* 
 		 * TODO: upon clicking this tile, close the dialogue box

@@ -108,6 +108,14 @@ public class GameManager : MonoBehaviour {
 		Debugger.Log ("Network", "Count: " + players.Count.ToString ());
 	}
 
+	public void removeResources() {
+		foreach (Player player in GameManager.Instance.players) {
+			if (player.getTotalResources() > 7){ //TODO: make 7 into a constant in a reasonable place
+				player.removeHalfResources();
+			}
+		}
+	}
+
 	void distributeResources (int roll) {
 		BoardGraph graph = StandardBoardGraph.Instance;
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
@@ -130,9 +138,11 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 		}
+
+		if (roll == 7) {
+			removeResources();
+		}
 	}
-
-
 
 
 	/* --------------------------------------------------------------------*/

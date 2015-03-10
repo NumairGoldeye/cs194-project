@@ -16,6 +16,7 @@ public class TileClass : MonoBehaviour {
 	public int tileIndex;
 
 	public void stealResources() {
+		Debugger.Log ("PlayerHand", TurnState.currentPlayer.playerName + " is stealing...");
 		StandardBoardGraph graph = StandardBoardGraph.Instance;
 		List<SettlementClass> settlements = graph.getSettlementsForTile (this);
 
@@ -27,12 +28,11 @@ public class TileClass : MonoBehaviour {
 
 			settlementsAvailable ++;
 			settlement.toggleStealing();
-			//TODO Sync Settlement State & Display Text
 		}
 
 		if (settlementsAvailable > 0) {
-			UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
-			stealing.text = "Click on a settlement to steal a resource from that player!";
+//			UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
+//			stealing.text = "Click on a settlement to steal a resource from that player!";
 		}
 	}
 
@@ -44,8 +44,8 @@ public class TileClass : MonoBehaviour {
 			settlement.toggleStealing();
 		}
 
-		UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
-		stealing.text = "";
+//		UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
+//		stealing.text = "";
 	}
 
 	void OnMouseDown() {
@@ -58,14 +58,11 @@ public class TileClass : MonoBehaviour {
 		}
 	}
 
-	public void removeRobber() {
-		TileClass tileWithRobber = GameManager.Instance.getRobberTile ();
-		tileWithRobber.hasRobber = false;
-	}
+
 
 	public void receiveRobber () {
 		//TODO Network this function
-		removeRobber ();
+		GameManager.Instance.removeRobber ();
 		getRobber ();
 		DevConfirmButton.clickButton ();
 		stealResources ();
@@ -78,7 +75,6 @@ public class TileClass : MonoBehaviour {
 	public void getRobber () {
 		GameObject robber = GameObject.Find ("Robber");
 		robber.transform.position = transform.position;
-		hasRobber = true;
 		GameManager.Instance.setRobberTile (this);
 	}
 

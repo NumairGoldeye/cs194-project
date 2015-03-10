@@ -40,7 +40,6 @@ public class EndPhaseButton : MonoBehaviour {
 			case (TurnStateType.trade) :
 				rollButton.gameObject.SetActive(false);	
 				tradeButton.gameObject.SetActive(true);
-				// Debugger.Log("TurnState", "FOOOOO");
 				break;
 			case (TurnStateType.build) : 
 				tradeButton.gameObject.SetActive(false);
@@ -48,6 +47,4 @@ public class EndPhaseButton : MonoBehaviour {
 				break;
 		}
 	}
-
-	
 }

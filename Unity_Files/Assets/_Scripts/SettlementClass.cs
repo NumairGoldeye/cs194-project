@@ -133,7 +133,7 @@ public class SettlementClass : MonoBehaviour {
 		Player owner = GameManager.Instance.players[ownerId];
 		ResourceType resource = (ResourceType)(owner.removeRandomResource());
 		TurnState.currentPlayer.AddResource(resource, 1);
-		GameManager.Instance.networkView.RPC ("syncSteal", RPCMode.Others, owner.playerId, resource); 
+		GameManager.Instance.networkView.RPC ("syncSteal", RPCMode.Others, owner.playerId, (int)resource); 
 	}
 
 	public void buildSettlement() {

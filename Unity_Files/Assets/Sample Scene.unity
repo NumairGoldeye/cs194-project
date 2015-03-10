@@ -1630,6 +1630,7 @@ GameObject:
   - 224: {fileID: 50603741}
   - 222: {fileID: 50603743}
   - 114: {fileID: 50603742}
+  - 114: {fileID: 50603744}
   m_Layer: 5
   m_Name: TurnButtons
   m_TagString: Untagged
@@ -1686,6 +1687,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 50603740}
+--- !u!114 &50603744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 50603740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8d6931efdad40f5adfe6b97b917a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RollDice: {fileID: 399267909}
+  TradeButton: {fileID: 406142413}
+  BuildButton: {fileID: 1646062217}
+  EndPhaseButton: {fileID: 1002046774}
+  DevelopmentCardButton: {fileID: 563895145}
 --- !u!1 &52180052
 GameObject:
   m_ObjectHideFlags: 0
@@ -43681,7 +43698,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1840678613}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: .999999762
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -55564,6 +55581,7 @@ MonoBehaviour:
   settlements: {fileID: 1447773772}
   myPlayer: {fileID: 0}
   myPlayerName: 
+  RollButton: {fileID: 0}
   playerColors:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}

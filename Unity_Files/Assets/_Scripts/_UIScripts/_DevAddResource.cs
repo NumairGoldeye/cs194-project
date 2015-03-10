@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 
 /*
@@ -40,7 +41,9 @@ public class _DevAddResource : MonoBehaviour {
 			}
 		} else {
 			// if resourceType
-			GameManager.Instance.networkView.RPC ("syncResources", RPCMode.All, player.playerId, (int)resType, 1);
+			player.AddResource(resType, 1);
+			Debugger.Log ("PlayerHand", "Player: " + player.playerId.ToString() + " has: " + 
+			              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[player.playerId].resourceCounts, Convert.ToString)));
 		}
 	}
 

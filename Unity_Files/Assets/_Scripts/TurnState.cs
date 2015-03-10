@@ -113,7 +113,7 @@ public class TurnState : MonoBehaviour {
         numTurns++;
         // Debugger.Log("TurnState", "EndTurn");
 		int index = numTurns % GameManager.Instance.players.Count;
-        currentPlayer = GameManager.Instance.players[index];
+        TurnState.currentPlayer = GameManager.Instance.players[index];
 
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 		GameManager.Instance.networkView.RPC ("syncCurrentPlayer", RPCMode.Others, TurnState.currentPlayer.playerId);

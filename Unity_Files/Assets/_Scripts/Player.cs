@@ -120,7 +120,7 @@ public class Player : MonoBehaviour {
 	// OPtional second parameter for multiple resources
 	// Returns true if it works?
 	public bool AddResource(ResourceType resource, int amount = 1){
-		// Debug.Log(resource.ToString() + amount);
+//		Debugger.Log ("PlayerHand", "Resource Stolen..." + resource.ToString ());
 		if (amount < 0) {
 			RemoveResource(resource, -amount);
 			return true;
@@ -213,7 +213,6 @@ public class Player : MonoBehaviour {
 			if (resourceInBucket + resourcesSeen > removeIndex) {
 
 				RemoveResource((ResourceType)i, 1);
-				GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, playerId, i, 1);
 				return i;
 			}
 			else {

@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 /*
  * Currently this class is only used to set up the board.
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour {
 	//Keep track of my player ID
 	public Player myPlayer;
 	public string myPlayerName = "";
+
+	public Button RollButton ;
 
 
 	public Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
@@ -68,9 +71,10 @@ public class GameManager : MonoBehaviour {
 
 	public void respondToPlayerJoin(NetworkPlayer player, int playerID)
 	{
-		for (int i = 0; i < players.Count; i++) {
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
 			Debugger.Log ("PlayerHand", "Syncing Player... " + players[i].playerId.ToString());
-			networkView.RPC("syncPlayerInfo", RPCMode.Others, players[i].networkPlayer, players[i].playerId, players[i].playerName);
+			Player p = GameManager.Instance.players[i];
+			networkView.RPC("syncPlayerInfo", RPCMode.Others, p.networkPlayer, p.playerId, p.playerName);
 		}
 		networkView.RPC ("associateWithPlayer", player, playerID); 
 	}
@@ -78,7 +82,7 @@ public class GameManager : MonoBehaviour {
 	public void syncStartStateWithClients()
 	{
 		for (int index = 0; index < numTiles; index++) {
-			TileClass tile = graph.getTile(index);
+			TileClass tile = GameManager.Instance.graph.getTile(index);
 			networkView.RPC("syncTileInfo", RPCMode.Others, index, tile.diceValue, Convert.ToInt32(tile.hasRobber), (int)tile.type);
         }
 	}
@@ -86,7 +90,7 @@ public class GameManager : MonoBehaviour {
 	public Player createPlayer(NetworkPlayer p, string playerName)
 	{
 		Player player = new Player(players.Count, playerColors[players.Count], p, playerName);
-		players.Add (player);
+		GameManager.Instance.players.Add (player);
 		if (p == Network.player) {
 			myPlayer = player;
 		}
@@ -102,10 +106,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void distributeResources (int roll) {
-		BoardGraph graph = StandardBoardGraph.Instance;
+		BoardGraph g = GameManager.Instance.graph;
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
-		for (int index = 0; index < graph.TileCount; index++) {
-			TileClass tile = graph.getTile(index);
+		for (int index = 0; index < g.TileCount; index++) {
+			TileClass tile = g.getTile(index);
 			if (roll == tile.diceValue && !tile.hasRobber) {
 				//This is assuming that each tile keeps track of its vertices
 				List<SettlementClass> settlements = tile.getSettlements();
@@ -123,8 +127,6 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 		}
-
-
 	}
 
 
@@ -138,6 +140,10 @@ public class GameManager : MonoBehaviour {
 	[RPC]
 	 void syncCurrentPlayer(int playerID) {
 		TurnState.currentPlayer = GameManager.Instance.players[playerID];
+		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
+		if (GameManager.Instance.myTurn()) {
+			RollButton.interactable = true;
+		}
 //		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 	}
 
@@ -168,7 +174,7 @@ public class GameManager : MonoBehaviour {
 
 	[RPC]
 	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType) {
-		gameStarted = true;
+		GameManager.Instance.gameStarted = true;
 		TileClass tile = graph.getTile(tileIndex);
 		tile.hasRobber = Convert.ToBoolean(hasRobber);
 		if (tile.hasRobber) tile.getRobber();
@@ -177,11 +183,11 @@ public class GameManager : MonoBehaviour {
 
 	[RPC]
 	void removePlayer(NetworkPlayer player) {
-		for (int i = 0; i < players.Count; i++) {
-			if (players[i].networkPlayer == player) {
-				players.RemoveAt(i);
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
+			if (GameManager.Instance.players[i].networkPlayer == player) {
+				GameManager.Instance.players.RemoveAt(i);
 				for (int j = i+1; j < players.Count; j++) {
-					players[i].playerId--;
+					GameManager.Instance.players[i].playerId--;
 				}
 			}
 		}
@@ -190,17 +196,17 @@ public class GameManager : MonoBehaviour {
 
 	[RPC]
 	void updatePlayerName(string playerName, int playerID) {
-		for (int i = 0; i < players.Count; i++) {
-			if (players[i].playerId == playerID) 
-				players[i].playerName = playerName;
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
+			if (GameManager.Instance.players[i].playerId == playerID) 
+				GameManager.Instance.players[i].playerName = playerName;
 		}
 	}
 
 	[RPC]
 	void associateWithPlayer(int playerID) {
 //		Debugger.Log ("Network", playerID.ToString ());
-		for (int i = 0; i < players.Count; i++) {
-			if (players[i].playerId == playerID)
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
+			if (GameManager.Instance.players[i].playerId == playerID)
 				myPlayer = GameManager.Instance.players[i];
 		}
 		networkView.RPC ("updatePlayerName", RPCMode.All, myPlayerName, playerID);
@@ -211,7 +217,7 @@ public class GameManager : MonoBehaviour {
 	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName) {
 //		Debugger.Log ("PlayerHand", "Syncing Player..." + playerID.ToString());
 		Player p = new Player (playerID, playerColors[playerID], player, playerName);
-		if (!players.Exists(x => x.playerId == p.playerId)) {
+		if (!GameManager.Instance.players.Exists(x => x.playerId == p.playerId)) {
 		 	GameManager.Instance.players.Add (p);
 		}
 //		Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
@@ -233,25 +239,20 @@ public class GameManager : MonoBehaviour {
 	[RPC]
 	void syncRobberMove(int index) {
 		TileClass tile = graph.getTile (index);
-		tile.removeRobber ();
+		GameManager.Instance.removeRobber ();
 		tile.getRobber ();
 	}
 
 	[RPC]
 	void syncResources(int playerID, int resourceType, int count) {
-		if (count > 0) {
-			Debugger.Log("PlayerHand", "Adding...");
-			GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
-		} else {
-			Debugger.Log("PlayerHand", "Removing...");
-			GameManager.Instance.players [playerID].RemoveResource ((ResourceType)resourceType, count);
-		}
+		GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
+		Debugger.Log ("PlayerHand", "Resource Stolen: " + resourceType.ToString ());
 		Debugger.Log ("PlayerHand", "Player: " + playerID.ToString() + " has: " + 
 		              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[playerID].resourceCounts, Convert.ToString)));
 	}
 
 	[RPC]
-	private void makeDiceRoll() {
+	void makeDiceRoll() {
 		die1 = UnityEngine.Random.Range (1, 7);
 		die2 = UnityEngine.Random.Range (1, 7);
 		diceRoll = die1 + die2;
@@ -263,7 +264,6 @@ public class GameManager : MonoBehaviour {
 			distributeResources (diceRoll);
 		}
 		networkView.RPC ("syncDiceRoll", RPCMode.Others, die1, die2);
-		TurnState.instance.EnterTradePhase ();
 	}
 
 	/* --------------------------------------------------------------------------------*/
@@ -272,13 +272,18 @@ public class GameManager : MonoBehaviour {
 		return (TurnState.currentPlayer.playerId == myPlayer.playerId);
 	}
 
+	public void removeRobber() {
+		getRobberTile().hasRobber = false;
+	}
+
 	public void setRobberTile(TileClass tile) {
 		Debugger.Log ("Robber", tile.diceValue.ToString ());
-		tileWithRobber = tile;
+		GameManager.Instance.tileWithRobber = tile;
+		GameManager.Instance.tileWithRobber.hasRobber = true;
 	}
 
 	public TileClass getRobberTile() {
-		return tileWithRobber;
+		return GameManager.Instance.tileWithRobber;
 	}
 	
 	public void createTiles () {
@@ -395,6 +400,7 @@ public class GameManager : MonoBehaviour {
 		else {
 			makeDiceRoll();
 		}
+		TurnState.instance.EnterTradePhase ();
 	}
 	
 	void Awake () {

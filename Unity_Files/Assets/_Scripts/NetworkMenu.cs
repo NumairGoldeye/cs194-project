@@ -107,6 +107,11 @@ public class NetworkMenu : MonoBehaviour {
 					GameManager.Instance.gameStarted = true;
 
 					GameManager.Instance.graph.getSettlement(4).buildSettlement();
+					GameManager.Instance.myPlayer.AddResource(ResourceType.Brick, 1);
+					GameManager.Instance.myPlayer.AddResource(ResourceType.Sheep, 1);
+					GameManager.Instance.myPlayer.AddResource(ResourceType.Wheat, 1);
+					GameManager.Instance.myPlayer.AddResource(ResourceType.Wood, 1);
+					Debugger.Log("PlayerHand", "Player has: " + GameManager.Instance.myPlayer.totalResources.ToString() + " resources");
 //					Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
 				}
 			}

@@ -8,8 +8,7 @@ public class NetworkMenu : MonoBehaviour {
 	private string gameType = "Settlers of Catan";
 	private int masterServerPortNumber = 23466;
 	private int facilitatorPortNumber = 50005;
-
-	private bool gameStarted = false;
+	
 	private bool connected = false;
 
 	//Client Initializes their GameManager
@@ -23,17 +22,17 @@ public class NetworkMenu : MonoBehaviour {
 	private void OnPlayerConnected(NetworkPlayer player) 
 	{
 		Debugger.Log ("Network", "Player Connected");
-		Player p = GameManager.Instance.createPlayer (player);
+		Player p = GameManager.Instance.createPlayer (player, "");
 //		Debugger.Log ("Network", p.playerId.ToString ());
 		//Respond to player with it's information
-		GameManager.Instance.respondToPlayerJoin (p, player);
+		GameManager.Instance.respondToPlayerJoin (player, p.playerId);
 	}
 
 	private void OnServerInitialized ()
 	{
 		connected = true;
 		MasterServer.RegisterHost(gameType, gameName);
-		GameManager.Instance.createPlayer (Network.player);
+		GameManager.Instance.createPlayer (Network.player, GameManager.Instance.myPlayerName);
 	}
 
 	private void OnDisconnectedFromServer()
@@ -55,7 +54,7 @@ public class NetworkMenu : MonoBehaviour {
 
 	private void OnPlayerDisconnected(NetworkPlayer player)
 	{
-		GameManager.Instance.removePlayer (player);
+		GameManager.Instance.networkView.RPC ("removePlayer", RPCMode.All, player);
 	}
 
 	//TODO: Make a display of all of the available games
@@ -84,15 +83,20 @@ public class NetworkMenu : MonoBehaviour {
 			// Clicking host will prompt a host name, and connect will display a list of hosted games
 			GUILayout.Label("Game Name");
 			gameName = GUILayout.TextField(gameName);
+			GUILayout.Label("Player Name");
+			GameManager.Instance.myPlayerName = GUILayout.TextField(GameManager.Instance.myPlayerName);
 
 			if (GUILayout.Button ("Host")) {
-				if (gameName.Equals("")) return;
+				//TODO Notify user of error
+				if (gameName.Equals("") || GameManager.Instance.myPlayerName.Equals("")) return;
 				NetworkConnectionError error = Network.InitializeServer(1000, 6832 ,true);
 			}
 			if (GUILayout.Button("Connect")) {
+				//TODO Notify user of error
+				if (GameManager.Instance.myPlayerName.Equals("")) return;
 				MasterServer.RequestHostList(gameType);
 			}
-		} else if (!gameStarted) { 
+		} else if (!GameManager.Instance.gameStarted) { 
 			if (Network.isServer) {
 				GUILayout.Label("Running as a server");
 				if (GUILayout.Button("Start")) {
@@ -100,13 +104,14 @@ public class NetworkMenu : MonoBehaviour {
 					GameManager.Instance.networkView.RPC("syncCurrentPlayer", RPCMode.All, startingPlayerID);
 					GameManager.Instance.createTiles();
 					GameManager.Instance.syncStartStateWithClients();
-					gameStarted = true;
+					GameManager.Instance.gameStarted = true;
+					Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
 				}
 			}
 			else
 				if (Network.isClient) 
 					GUILayout.Label("Running as a client");
-			GUILayout.Label("Name: " + GameManager.Instance.players[GameManager.Instance.myPlayer].playerName);
+			GUILayout.Label("Name: " + GameManager.Instance.players.Find(x => x.playerId == GameManager.Instance.myPlayer.playerId).playerName);
 			GUILayout.Label("Connections: " + Network.connections.Length.ToString());
 		}
 	}

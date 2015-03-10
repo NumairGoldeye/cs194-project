@@ -16,10 +16,14 @@ public class GameManager : MonoBehaviour {
 	public GameObject roads;
 
 	//Keep track of my player ID
-	public int myPlayer;
+	public Player myPlayer;
+	public string myPlayerName = "";
+
 
 	public Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
 	public List<Player> players = new List<Player>();
+
+	public bool gameStarted = false;
 
 	public static GameManager Instance {
 		get {
@@ -63,19 +67,13 @@ public class GameManager : MonoBehaviour {
 	 * Server Functions
 	 * --------------------------------------------------------------------*/
 
-	public void respondToPlayerJoin(Player p, NetworkPlayer player)
+	public void respondToPlayerJoin(NetworkPlayer player, int playerID)
 	{
-		networkView.RPC ("associateWithPlayer", player, p.playerId); 
-		syncPlayersWithClients ();
-	}
-
-
-	public void syncPlayersWithClients()
-	{
-		for (int index = 0; index < GameManager.Instance.players.Count; index++) {
-			Player p = GameManager.Instance.players[index];
-			networkView.RPC("syncPlayerInfo", RPCMode.Others, p.networkPlayer, p.playerId, p.playerName);
+		for (int i = 0; i < players.Count; i++) {
+			Debugger.Log ("PlayerHand", "Syncing Player... " + players[i].playerId.ToString());
+			networkView.RPC("syncPlayerInfo", RPCMode.Others, players[i].networkPlayer, players[i].playerId, players[i].playerName);
 		}
+		networkView.RPC ("associateWithPlayer", player, playerID); 
 	}
 
 	public void syncStartStateWithClients()
@@ -86,26 +84,14 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
-	public Player createPlayer(NetworkPlayer p)
+	public Player createPlayer(NetworkPlayer p, string playerName)
 	{
-		string name = "Player " + GameManager.Instance.players.Count.ToString ();
-		Player player = new Player(GameManager.Instance.players.Count, GameManager.Instance.playerColors[GameManager.Instance.players.Count], p, name);
-		GameManager.Instance.players.Add (player);
+		Player player = new Player(players.Count, playerColors[players.Count], p, playerName);
+		players.Add (player);
 		if (p == Network.player) {
-			GameManager.Instance.myPlayer = player.playerId;
-			TurnState.currentPlayer = GameManager.Instance.players[GameManager.Instance.myPlayer];
-		} else 
-			GameManager.Instance.respondToPlayerJoin (player, p);
-		return player;
-	}
-
-	public void removePlayer(NetworkPlayer player)
-	{
-		for (int i = 0; i < players.Count; i++) {
-			if (players[i].networkPlayer == player)
-				players.RemoveAt(i);
+			myPlayer = player;
 		}
-		Debugger.Log ("Network", "Count: " + players.Count.ToString ());
+		return player;
 	}
 
 	public void removeResources() {
@@ -139,9 +125,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 
-		if (roll == 7) {
-			removeResources();
-		}
+
 	}
 
 
@@ -154,7 +138,7 @@ public class GameManager : MonoBehaviour {
 
 	[RPC]
 	 void syncCurrentPlayer(int playerID) {
-		TurnState.currentPlayer = GameManager.Instance.players [playerID];
+		TurnState.currentPlayer = GameManager.Instance.players.Find(x => x.playerId == playerID);
 	}
 
 	[RPC]
@@ -183,55 +167,85 @@ public class GameManager : MonoBehaviour {
 	}
 
 	[RPC]
-	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType)
-	{
+	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType) {
+		gameStarted = true;
 		TileClass tile = graph.getTile(tileIndex);
 		tile.hasRobber = Convert.ToBoolean(hasRobber);
 		if (tile.hasRobber) tile.getRobber();
 		tile.assignType(diceValue, (ResourceType)resourceType);
 	}
-	
+
 	[RPC]
-	void associateWithPlayer(int playerID)
-	{
-		Debugger.Log ("Network", playerID.ToString ());
-		GameManager.Instance.myPlayer = playerID;
+	void removePlayer(NetworkPlayer player) {
+		for (int i = 0; i < players.Count; i++) {
+			if (players[i].networkPlayer == player) {
+				players.RemoveAt(i);
+				for (int j = i+1; j < players.Count; j++) {
+					players[i].playerId--;
+				}
+			}
+		}
+		//		Debugger.Log ("Network", "Count: " + players.Count.ToString ());
+	}
+
+	[RPC]
+	void updatePlayerName(string playerName, int playerID) {
+		for (int i = 0; i < players.Count; i++) {
+			if (players[i].playerId == playerID) 
+				players[i].playerName = playerName;
+		}
+	}
+
+	[RPC]
+	void associateWithPlayer(int playerID) {
+//		Debugger.Log ("Network", playerID.ToString ());
+		for (int i = 0; i < players.Count; i++) {
+			if (players[i].playerId == playerID)
+				myPlayer = GameManager.Instance.players[i];
+		}
+		networkView.RPC ("updatePlayerName", RPCMode.All, myPlayerName, playerID);
+//		Debugger.Log ("PlayerHand", "Associating player..." + myPlayer.playerId.ToString());
 	}
 	
 	[RPC]
-	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName)
-	{
+	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName) {
+//		Debugger.Log ("PlayerHand", "Syncing Player..." + playerID.ToString());
 		Player p = new Player (playerID, playerColors[playerID], player, playerName);
-		if (!players.Contains(p))
-			players.Add (p);
+		if (!players.Exists(x => x.playerId == p.playerId)) {
+		 	GameManager.Instance.players.Add (p);
+		}
+//		Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
 	}
 	
 	[RPC]
-	void syncDiceRoll(int die1, int die2)
-	{
+	void syncDiceRoll(int die1, int die2) {
 		GameManager.Instance.die1 = die1;
 		GameManager.Instance.die2 = die2;
-		Debugger.Log ("Network", "Dice Roll: " + (die1 + die2).ToString ());
+//		Debugger.Log ("Network", "Dice Roll: " + (die1 + die2).ToString ());
 		displayDice (die1, die2);
 	}
 	[RPC]
-	void syncRobberMove(int index)
-	{
+	void syncRobberMove(int index) {
 		TileClass tile = graph.getTile (index);
 		tile.removeRobber ();
 		tile.getRobber ();
 	}
 
 	[RPC]
-	void syncResources(int playerID, int resourceType, int count)
-	{
-		GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
+	void syncResources(int playerID, int resourceType, int count) {
+		if (count > 0) {
+			GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
+		} else {
+			GameManager.Instance.players [playerID].RemoveResource ((ResourceType)resourceType, count);
+		}
+//		Debugger.Log ("PlayerHand", "Player: " + playerID.ToString() + " has: " + 
+//		              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[playerID].resourceCounts, Convert.ToString)));
 	}
 	
 	/* --------------------------------------------------------------------------------*/
 
 	public bool myTurn() {
-		return TurnState.currentPlayer.playerId == GameManager.Instance.myPlayer;
+		return (TurnState.currentPlayer.playerId == myPlayer.playerId);
 	}
 
 	public void setRobberTile(TileClass tile) {
@@ -359,8 +373,11 @@ public class GameManager : MonoBehaviour {
 			diceRoll = die1 + die2;
 
 			displayDice (die1, die2);
-		
-			distributeResources (diceRoll);
+			if (diceRoll == 7) {
+				removeResources();
+			} else {
+				distributeResources (diceRoll);
+			}
 			networkView.RPC ("syncDiceRoll", RPCMode.Others, die1, die2);
 		}
 	}

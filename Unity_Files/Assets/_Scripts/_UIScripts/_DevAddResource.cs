@@ -31,7 +31,7 @@ public class _DevAddResource : MonoBehaviour {
 	}
 
 	void ChangeResource(){
-		player = TurnState.currentPlayer;
+		player = GameManager.Instance.myPlayer;
 		if (useDev){
 			if (val > 0) {
 				player.AddDevCard(cardType);
@@ -40,7 +40,8 @@ public class _DevAddResource : MonoBehaviour {
 			}
 		} else {
 			// if resourceType
-			player.AddResource(resType, val);
+//			player.AddResource(resType, val);
+			GameManager.Instance.networkView.RPC ("syncResources", RPCMode.All, player.playerId, (int)resType, 1);
 		}
 	}
 

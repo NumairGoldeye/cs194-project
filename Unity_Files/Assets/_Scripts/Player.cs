@@ -127,9 +127,9 @@ public class Player : MonoBehaviour {
 		resourceCounts[(int)resource] += amount;
 		totalResources += amount;
 
-		if (TurnState.currentPlayer == this){
-			hand.AddResourceCard(resource, this, amount);
-		}
+//		if (TurnState.currentPlayer == this){
+//			hand.AddResourceCard(resource, this, amount);
+//		}
 
 		return true;
 	}
@@ -209,7 +209,9 @@ public class Player : MonoBehaviour {
 		for (i = 0; i < Enum.GetNames(typeof(ResourceType)).Length - 1; i++) {
 			int resourceInBucket = resourceCounts[i];
 			if (resourceInBucket + resourcesSeen > removeIndex) {
+
 				RemoveResource((ResourceType)i, 1);
+				GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, playerId, i, 1);
 				return i;
 			}
 			else {

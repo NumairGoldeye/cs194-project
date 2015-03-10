@@ -66,7 +66,17 @@ public class PlayerHand : MonoBehaviour {
 	List<ResourceType> resources;
 	List<DevCardType> devCard;
 //	RectTransform rect;
-	Player thisPlayer; 
+
+	private static PlayerHand instance;
+
+	public static PlayerHand Instance {
+		get {
+//			if (instance == null) {
+//				instance = new PlayerHand();
+//			}
+			return instance;
+		}
+	}
 
 	GameObject GetDevCardPrefab(DevCardType type){
 		switch (type){
@@ -99,24 +109,20 @@ public class PlayerHand : MonoBehaviour {
 		}
 		return null;
 	}
-	
+
 	// Use this for initialization
 	void Start () {
 		resources = new List<ResourceType>();
 		devCard = new List<DevCardType>();
-//		rect = gameObject.GetComponent<RectTransform>();
 		handBackground = handBackgroundObj.GetComponent<Image>();
-
+		
 		cardWidth = handBackground.rectTransform.rect.height ;
+		instance = this;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 //		Debug.Log(thisPlayer.playerName);
-	}
-
-	public void SetPlayer(Player p){
-		thisPlayer = p;
 	}
 
 	public void SelectCard(PlayerCard card){
@@ -127,7 +133,7 @@ public class PlayerHand : MonoBehaviour {
 	/// Adds the card, and animates the card
 	/// </summary>
 	public void AddResourceCard(ResourceType type, Player p, int amount = 1){
-		SetPlayer(p);
+		Debugger.Log ("PlayerHand", gameObject.name);
 		for(int i = 0; i < amount; i++){
 			if (gameObject.activeInHierarchy)
 				StartCoroutine(AddCardPrefab( GetResourceCardPrefab(type), true, false));
@@ -140,7 +146,6 @@ public class PlayerHand : MonoBehaviour {
 	///  Removes the card. animates teh card
 	/// </summary>
 	public void RemoveResourceCard(ResourceType type, Player p, int amount = 1){
-		SetPlayer(p);
 		List<PlayerCard> toRemove = new List<PlayerCard>(); 
 
 		int numToRemove = amount;
@@ -166,7 +171,7 @@ public class PlayerHand : MonoBehaviour {
 	/// Adds the singular dev card. Animates as well
 	/// </summary>
 	public void AddDevCard(DevCardType type, Player p){
-		SetPlayer(p);
+
 		if (gameObject.activeInHierarchy){
 			StartCoroutine(AddCardPrefab( GetDevCardPrefab(type), true, false));
 			StartCoroutine(_AnimateInAll());
@@ -186,7 +191,7 @@ public class PlayerHand : MonoBehaviour {
 	/// Removes the dev card.
 	/// </summary>
 	public void RemoveDevCard(DevCardType type, Player p){
-		SetPlayer(p);
+
 		if (selectedCard){
 			selectedCard.AnimOut();
 		}
@@ -277,9 +282,8 @@ public class PlayerHand : MonoBehaviour {
 	/// 
 	/// </summary>
 	public void UpdateHand(){
-		Player p2 = TurnState.currentPlayer;
+		Player p2 = GameManager.Instance.myPlayer;
 
-		SetPlayer(p2);
 		ClearHand();
 
 		DevCardType[] devCards = p2.GetDevCardArray();

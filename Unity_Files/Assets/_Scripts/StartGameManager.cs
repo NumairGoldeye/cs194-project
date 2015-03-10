@@ -87,6 +87,7 @@ public class StartGameManager {
 	/// </summary>
 	public static void NextPhase(){
 //		Debug.Log ("worked");
+//		Debugger.Log ("PlayerHand", finished.ToString ());
 		if (finished) return;
 		Startup();
 

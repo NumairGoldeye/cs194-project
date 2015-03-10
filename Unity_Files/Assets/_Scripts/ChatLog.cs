@@ -72,17 +72,22 @@ public class ChatLog : MonoBehaviour {
 	
 	}
 
+	public void addMessage(string playerName, string message) {
+		messages.Add( new Message(message, MessageType.playerChat));
+		
+		//TODO assign the owner of this game to the chat, not the player
+		chatText.text += "\n" + playerName + ": " + message;
+		chatInput.text = "";
+		
+		FocusChatBox();
+		
+		RealignChatBox();
+	}
+
 	public void AddChatMessage(string s){
 		if (s.Length > 0  && Input.GetKey(KeyCode.Return)){
-			messages.Add( new Message(s, MessageType.playerChat));
-
-			//TODO assign the owner of this game to the chat, not the player
-			chatText.text += "\n" + TurnState.currentPlayer.playerName + ": " + s;
-			chatInput.text = "";
-
-			FocusChatBox();
-
-			RealignChatBox();
+			addMessage(TurnState.currentPlayer.playerName, s);
+			GameManager.Instance.networkView.RPC ("syncChatMessage", RPCMode.Others, TurnState.currentPlayer.playerName, s);
 		}
 
 	}

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SettlementClass : MonoBehaviour {
 
-	private bool built;
+	public bool built;
 	private bool visible;
 	private bool upgrading;
 	public GameObject settlements;
@@ -12,7 +12,7 @@ public class SettlementClass : MonoBehaviour {
 	private GameObject city;
 	private bool hasCity;
 	public int vertexIndex;
-	private int ownerId;
+	public int ownerId;
 	private bool stealing;
 	public PortClass port;
 	
@@ -73,7 +73,7 @@ public class SettlementClass : MonoBehaviour {
 	}
 
 	public void toggleSettlements() {
-		if (!visible && !built && !StandardBoardGraph.Instance.hasBuiltNeighbooringSettlement(this) && StandardBoardGraph.Instance.hasConnectingRoad(TurnState.currentPlayer, this))
+		if (!visible && !built && !StandardBoardGraph.Instance.hasBuiltNeighbooringSettlement(this) && StandardBoardGraph.Instance.hasConnectingRoad(GameManager.Instance.myPlayer, this))
 		    showSettlement();
 		else if (visible && !built)
 			hideSettlement();
@@ -99,26 +99,28 @@ public class SettlementClass : MonoBehaviour {
 		settlement.renderer.material.color = temp;
 	}
 
-	private void setPlayerSettlement() {
-		Player p = TurnState.currentPlayer;
-		settlement.renderer.material.color = p.playerColor;
+	public void setPlayerSettlement() {
 		ownerId = TurnState.currentPlayer.playerId;
-		if (!TurnState.freeBuild)
-			BuyManager.PurchaseForPlayer(BuyableType.settlement, p);
+		built = true;
+		settlement.renderer.material.color = TurnState.currentPlayer.playerColor;
 		TurnState.currentPlayer.AddVictoryPoint();
-		p.AddSettlement(this);
+		TurnState.currentPlayer.AddSettlement(this);
 	}
 
 	public void setPlayerCity() {
-		BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
 		hasCity = true;
 		hideSettlement();
 		showCity();
 		TurnState.currentPlayer.AddVictoryPoint();
 		upgrading = false;
-		GameManager.Instance.networkView.RPC ("syncCityUpgrade", RPCMode.Others, this.vertexIndex);
 	}
 
+	public void upgradeToCity() {
+		setPlayerCity ();
+		BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
+		GameManager.Instance.networkView.RPC ("syncCityUpgrade", RPCMode.Others, this.vertexIndex);
+	}
+	
 	public void executeStealing() {
 		StandardBoardGraph graph = StandardBoardGraph.Instance;
 		List<TileClass> tiles = graph.getTilesForSettlement(this);
@@ -135,15 +137,16 @@ public class SettlementClass : MonoBehaviour {
 	}
 
 	public void buildSettlement() {
-		built = true;
+		if (!GameManager.Instance.myTurn()) return;
 		setPlayerSettlement();
 
+		if (!TurnState.freeBuild)
+			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);
 		settlements.BroadcastMessage ("hideSettlement");
 		if (StartGameManager.secondPhase) 
 			GameManager.Instance.distributeResourcesForSettlement(this);
 		StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
 
-		//TODO Sync with everyone else
 		GameManager.Instance.networkView.RPC ("syncSettlementBuild", RPCMode.Others, this.vertexIndex);
 	}
 	
@@ -154,7 +157,7 @@ public class SettlementClass : MonoBehaviour {
 			buildSettlement();
 		} else {
 			if (upgrading) {
-				setPlayerCity();
+				upgradeToCity();
 			}
 			else if (stealing){
 				executeStealing();

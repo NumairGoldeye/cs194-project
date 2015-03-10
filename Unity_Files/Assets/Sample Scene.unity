@@ -1972,8 +1972,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 52
+  ownerId: 0
   port: {fileID: 502045165}
 --- !u!65 &59254542
 BoxCollider:
@@ -4391,8 +4393,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 30
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &118714384
 BoxCollider:
@@ -4583,8 +4587,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 45
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &127177660
 BoxCollider:
@@ -4896,8 +4902,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 10
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &133299582
 BoxCollider:
@@ -5091,90 +5099,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1433581693}
   m_GameObject: {fileID: 134730398}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &137811342
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2078680710}
-    m_Modifications:
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 50.7999992
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -3.79999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_Pivot.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-      propertyPath: m_Pivot.y
-      value: .5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-  m_RootGameObject: {fileID: 1756535601}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &140418004
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,8 +5529,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 20
+  ownerId: 0
   port: {fileID: 425688561}
 --- !u!65 &159611177
 BoxCollider:
@@ -5916,7 +5842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2a54edd6af14089a55f02f07529e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugFlag: Network
+  debugFlag: PlayerHand
 --- !u!4 &169659237
 Transform:
   m_ObjectHideFlags: 0
@@ -6271,8 +6197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 5
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &182264928
 BoxCollider:
@@ -7066,8 +6994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 7
+  ownerId: 0
   port: {fileID: 237423100}
 --- !u!65 &225808438
 BoxCollider:
@@ -8338,8 +8268,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 34
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &286069751
 BoxCollider:
@@ -8936,8 +8868,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 47
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &310921376
 BoxCollider:
@@ -9127,8 +9061,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 24
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &328131612
 BoxCollider:
@@ -11546,8 +11482,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 41
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &419557668
 BoxCollider:
@@ -12233,8 +12171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 28
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &437722001
 BoxCollider:
@@ -14211,8 +14151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 32
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &481603208
 BoxCollider:
@@ -14881,8 +14823,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 49
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &499462012
 BoxCollider:
@@ -15383,8 +15327,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 18
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &517252321
 BoxCollider:
@@ -16481,8 +16427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 53
+  ownerId: 0
   port: {fileID: 1531255409}
 --- !u!65 &554128929
 BoxCollider:
@@ -16538,8 +16486,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 42
+  ownerId: 0
   port: {fileID: 793605986}
 --- !u!65 &560643882
 BoxCollider:
@@ -17402,8 +17352,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 12
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &596143349
 BoxCollider:
@@ -25012,8 +24964,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 40
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &802468092
 BoxCollider:
@@ -25069,8 +25023,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 25
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &803469507
 BoxCollider:
@@ -25828,8 +25784,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 2
+  ownerId: 0
   port: {fileID: 2034793232}
 --- !u!65 &847769504
 BoxCollider:
@@ -27754,8 +27712,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 11
+  ownerId: 0
   port: {fileID: 237423100}
 --- !u!65 &902752922
 BoxCollider:
@@ -28740,8 +28700,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 3
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &932412742
 BoxCollider:
@@ -29681,8 +29643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 9
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &962018717
 BoxCollider:
@@ -29894,8 +29858,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 43
+  ownerId: 0
   port: {fileID: 793776130}
 --- !u!65 &966712340
 BoxCollider:
@@ -30205,8 +30171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 26
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &975942793
 BoxCollider:
@@ -33474,8 +33442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 1
+  ownerId: 0
   port: {fileID: 302918079}
 --- !u!65 &1080607268
 BoxCollider:
@@ -34174,8 +34144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 17
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1111867976
 BoxCollider:
@@ -34370,8 +34342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 48
+  ownerId: 0
   port: {fileID: 502045165}
 --- !u!65 &1117864725
 BoxCollider:
@@ -35174,8 +35148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 15
+  ownerId: 0
   port: {fileID: 425688561}
 --- !u!65 &1145262525
 BoxCollider:
@@ -37639,8 +37615,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 46
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1217436036
 BoxCollider:
@@ -40620,8 +40598,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 33
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1331030173
 BoxCollider:
@@ -40677,8 +40657,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 51
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1334265530
 BoxCollider:
@@ -42393,8 +42375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 37
+  ownerId: 0
   port: {fileID: 793605986}
 --- !u!65 &1413008618
 BoxCollider:
@@ -44585,8 +44569,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 50
+  ownerId: 0
   port: {fileID: 1531255409}
 --- !u!65 &1478806611
 BoxCollider:
@@ -44642,8 +44628,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 23
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1485093359
 BoxCollider:
@@ -46066,8 +46054,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 29
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1535337610
 BoxCollider:
@@ -47110,8 +47100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 0
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1581925020
 BoxCollider:
@@ -47471,8 +47463,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 16
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1592736102
 BoxCollider:
@@ -49659,8 +49653,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 13
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1647711209
 BoxCollider:
@@ -50040,8 +50036,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 31
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1674807325
 BoxCollider:
@@ -51051,8 +51049,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 14
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1708637424
 BoxCollider:
@@ -51480,8 +51480,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 4
+  ownerId: 0
   port: {fileID: 302918079}
 --- !u!65 &1731445181
 BoxCollider:
@@ -51946,146 +51948,6 @@ Prefab:
   m_RootGameObject: {fileID: 732337815}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &1756535601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 125044, guid: c8abfc8eed1274513972736d36c727d7, type: 2}
-  m_PrefabInternal: {fileID: 137811342}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 1756535602}
-  - 222: {fileID: 1756535607}
-  - 114: {fileID: 1756535606}
-  - 114: {fileID: 1756535605}
-  - 114: {fileID: 1756535604}
-  - 95: {fileID: 1756535603}
-  m_Layer: 5
-  m_Name: WheatCard
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1756535602
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22425044, guid: c8abfc8eed1274513972736d36c727d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 137811342}
-  m_GameObject: {fileID: 1756535601}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2078680710}
-  m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: .5}
-  m_AnchorMax: {x: 0, y: .5}
-  m_AnchoredPosition: {x: 50.7999992, y: -3.79999995}
-  m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: .5, y: .5}
---- !u!95 &1756535603
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9551410, guid: c8abfc8eed1274513972736d36c727d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 137811342}
-  m_GameObject: {fileID: 1756535601}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0ddc6f8ea465c4131a9c44035f2d9a53, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1756535604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11492934, guid: c8abfc8eed1274513972736d36c727d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 137811342}
-  m_GameObject: {fileID: 1756535601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
-    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
-    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
-    m_ColorMultiplier: 1
-    m_FadeDuration: .100000001
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1756535606}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1756535605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11494724, guid: c8abfc8eed1274513972736d36c727d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 137811342}
-  m_GameObject: {fileID: 1756535601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a04efb392909473c8a6fd69d4380515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dType: 0
-  rType: 4
-  isDev: 0
---- !u!114 &1756535606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11425044, guid: c8abfc8eed1274513972736d36c727d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 137811342}
-  m_GameObject: {fileID: 1756535601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300004, guid: a15773c9fa44e43e7bdd2d79b018741b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1756535607
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22225044, guid: c8abfc8eed1274513972736d36c727d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 137811342}
-  m_GameObject: {fileID: 1756535601}
 --- !u!1 &1758492568
 GameObject:
   m_ObjectHideFlags: 0
@@ -52128,8 +51990,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 8
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1758492571
 BoxCollider:
@@ -55697,7 +55561,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ec106183a81344a9120f21a1413030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPlayer: 0
+  settlements: {fileID: 1447773772}
+  myPlayer: {fileID: 0}
+  myPlayerName: 
   playerColors:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
@@ -55706,6 +55572,7 @@ MonoBehaviour:
   - {r: 1, g: .921568632, b: .0156862754, a: 1}
   - {r: 1, g: 0, b: 1, a: 1}
   players: []
+  gameStarted: 0
   die1Image: {fileID: 123016531}
   die2Image: {fileID: 499780813}
 --- !u!114 &1878846660
@@ -55894,8 +55761,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 19
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1886353757
 BoxCollider:
@@ -55951,8 +55820,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 22
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1887470422
 BoxCollider:
@@ -56253,8 +56124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 38
+  ownerId: 0
   port: {fileID: 793776130}
 --- !u!65 &1899269312
 BoxCollider:
@@ -56954,8 +56827,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 44
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1920784035
 BoxCollider:
@@ -58531,8 +58406,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 39
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &1986336317
 BoxCollider:
@@ -59221,8 +59098,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 21
+  ownerId: 0
   port: {fileID: 1823452675}
 --- !u!65 &2002930413
 BoxCollider:
@@ -60752,8 +60631,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 6
+  ownerId: 0
   port: {fileID: 2034793232}
 --- !u!65 &2044162259
 BoxCollider:
@@ -61350,8 +61231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 35
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &2071978479
 BoxCollider:
@@ -61573,8 +61456,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -251, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1756535602}
+  m_Children: []
   m_Father: {fileID: 363316718}
   m_RootOrder: 4
 --- !u!114 &2078680711
@@ -63176,8 +63058,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 27
+  ownerId: 0
   port: {fileID: 1823452675}
 --- !u!65 &2116386004
 BoxCollider:
@@ -63467,8 +63351,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3f86d21cc904645ba94e2eb2072eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  built: 0
   settlements: {fileID: 1447773772}
   vertexIndex: 36
+  ownerId: 0
   port: {fileID: 0}
 --- !u!65 &2126350963
 BoxCollider:

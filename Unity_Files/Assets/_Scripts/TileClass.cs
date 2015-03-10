@@ -54,7 +54,7 @@ public class TileClass : MonoBehaviour {
 		if (GameManager.Instance.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) {
 			receiveRobber ();
 
-			GameManager.Instance.networkView.RPC ("syncRobber", RPCMode.Others, this.tileIndex);
+			GameManager.Instance.networkView.RPC ("syncRobberMove", RPCMode.Others, this.tileIndex);
 		}
 	}
 

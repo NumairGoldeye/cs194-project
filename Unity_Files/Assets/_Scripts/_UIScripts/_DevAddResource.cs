@@ -40,7 +40,6 @@ public class _DevAddResource : MonoBehaviour {
 			}
 		} else {
 			// if resourceType
-//			player.AddResource(resType, val);
 			GameManager.Instance.networkView.RPC ("syncResources", RPCMode.All, player.playerId, (int)resType, 1);
 		}
 	}

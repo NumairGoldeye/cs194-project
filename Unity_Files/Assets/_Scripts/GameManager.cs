@@ -8,12 +8,11 @@ using System.Collections.Generic;
  * */
 public class GameManager : MonoBehaviour {
 
-	private static BoardGraph graph;
+	public BoardGraph graph;
 
 	private static GameManager instance;
 
 	public GameObject settlements;
-	public GameObject roads;
 
 	//Keep track of my player ID
 	public Player myPlayer;
@@ -27,10 +26,10 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance {
 		get {
-			if (instance == null) {
-				instance = new GameManager();
-				graph = StandardBoardGraph.Instance;
-			}
+//			if (instance == null) {
+//				instance = new GameManager();
+//				graph = StandardBoardGraph.Instance;
+//			}
 			return instance;
 		}
 	}
@@ -138,7 +137,8 @@ public class GameManager : MonoBehaviour {
 
 	[RPC]
 	 void syncCurrentPlayer(int playerID) {
-		TurnState.currentPlayer = GameManager.Instance.players.Find(x => x.playerId == playerID);
+		TurnState.currentPlayer = GameManager.Instance.players[playerID];
+//		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 	}
 
 	[RPC]
@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour {
 	[RPC]
 	void syncSettlementBuild(int index) {
 		SettlementClass settlement = graph.getSettlement (index);
-		settlement.buildSettlement ();
+		settlement.setPlayerSettlement ();
 	}
 	
 	[RPC]
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour {
 	[RPC]
 	void syncRoadBuild(int index) {
 		RoadClass road = graph.getRoad (index);
-		road.buildRoad ();
+		road.SetPlayer ();
 	}
 
 	[RPC]
@@ -224,6 +224,12 @@ public class GameManager : MonoBehaviour {
 //		Debugger.Log ("Network", "Dice Roll: " + (die1 + die2).ToString ());
 		displayDice (die1, die2);
 	}
+
+	[RPC]
+	void syncChatMessage(string playerName, string message) {
+		ChatLog.Instance.addMessage (playerName, message);
+	}
+
 	[RPC]
 	void syncRobberMove(int index) {
 		TileClass tile = graph.getTile (index);
@@ -234,14 +240,32 @@ public class GameManager : MonoBehaviour {
 	[RPC]
 	void syncResources(int playerID, int resourceType, int count) {
 		if (count > 0) {
+			Debugger.Log("PlayerHand", "Adding...");
 			GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
 		} else {
+			Debugger.Log("PlayerHand", "Removing...");
 			GameManager.Instance.players [playerID].RemoveResource ((ResourceType)resourceType, count);
 		}
-//		Debugger.Log ("PlayerHand", "Player: " + playerID.ToString() + " has: " + 
-//		              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[playerID].resourceCounts, Convert.ToString)));
+		Debugger.Log ("PlayerHand", "Player: " + playerID.ToString() + " has: " + 
+		              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[playerID].resourceCounts, Convert.ToString)));
 	}
-	
+
+	[RPC]
+	private void makeDiceRoll() {
+		die1 = UnityEngine.Random.Range (1, 7);
+		die2 = UnityEngine.Random.Range (1, 7);
+		diceRoll = die1 + die2;
+		
+		displayDice (die1, die2);
+		if (diceRoll == 7) {
+			removeResources();
+		} else {
+			distributeResources (diceRoll);
+		}
+		networkView.RPC ("syncDiceRoll", RPCMode.Others, die1, die2);
+		TurnState.instance.EnterTradePhase ();
+	}
+
 	/* --------------------------------------------------------------------------------*/
 
 	public bool myTurn() {
@@ -365,20 +389,11 @@ public class GameManager : MonoBehaviour {
 	/// Rolls the dice.
 	/// </summary>
 	public void rollDice (){
+		if (!myTurn()) return;
 		if (Network.isClient) 
-			networkView.RPC ("rollDice", RPCMode.Server);
+			networkView.RPC ("makeDiceRoll", RPCMode.Server);
 		else {
-			die1 = UnityEngine.Random.Range (1, 7);
-			die2 = UnityEngine.Random.Range (1, 7);
-			diceRoll = die1 + die2;
-
-			displayDice (die1, die2);
-			if (diceRoll == 7) {
-				removeResources();
-			} else {
-				distributeResources (diceRoll);
-			}
-			networkView.RPC ("syncDiceRoll", RPCMode.Others, die1, die2);
+			makeDiceRoll();
 		}
 	}
 	

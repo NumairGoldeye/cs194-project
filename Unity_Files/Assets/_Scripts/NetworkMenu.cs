@@ -14,7 +14,6 @@ public class NetworkMenu : MonoBehaviour {
 	//Client Initializes their GameManager
 	private void OnConnectedToServer()
 	{
-
 		Debugger.Log ("Network", "Connected To Server");
 		connected = true;
 	}
@@ -100,19 +99,22 @@ public class NetworkMenu : MonoBehaviour {
 			if (Network.isServer) {
 				GUILayout.Label("Running as a server");
 				if (GUILayout.Button("Start")) {
-					int startingPlayerID = Random.Range(0, GameManager.Instance.players.Count);
+//					int startingPlayerID = Random.Range(0, GameManager.Instance.players.Count);
+					int startingPlayerID = 0;
 					GameManager.Instance.networkView.RPC("syncCurrentPlayer", RPCMode.All, startingPlayerID);
 					GameManager.Instance.createTiles();
 					GameManager.Instance.syncStartStateWithClients();
 					GameManager.Instance.gameStarted = true;
-					Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
+
+					GameManager.Instance.graph.getSettlement(4).buildSettlement();
+//					Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
 				}
 			}
-			else
-				if (Network.isClient) 
-					GUILayout.Label("Running as a client");
 			GUILayout.Label("Name: " + GameManager.Instance.players.Find(x => x.playerId == GameManager.Instance.myPlayer.playerId).playerName);
 			GUILayout.Label("Connections: " + Network.connections.Length.ToString());
+		} else if (GameManager.Instance.gameStarted) {
+			Player player = GameManager.Instance.players.Find(x => x.playerId == GameManager.Instance.myPlayer.playerId);
+			GUILayout.Label("Name: " + player.playerName + ", ID: " + player.playerId);
 		}
 	}
 }

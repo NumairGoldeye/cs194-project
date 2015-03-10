@@ -115,6 +115,8 @@ public class TurnState : MonoBehaviour {
 		int index = numTurns % GameManager.Instance.players.Count;
         currentPlayer = GameManager.Instance.players[index];
 
+		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
+		GameManager.Instance.networkView.RPC ("syncCurrentPlayer", RPCMode.Others, TurnState.currentPlayer.playerId);
 		// Some simple resets
 		ResetTurn();
     }
@@ -299,7 +301,7 @@ public class TurnState : MonoBehaviour {
 
     */
 
-    void EnterTradePhase(){
+    public void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
 		instance.tradeConsole.DisplayTradeOptionConsole ();
     }
@@ -318,12 +320,13 @@ public class TurnState : MonoBehaviour {
 	/// </summary>
 	public static void CheckVictory(){
 		foreach (Player p in GameManager.Instance.players){
+			Debugger.Log("PlayerHand", "Player: " + p.playerId.ToString() + ", Points: " + p.victoryPoints.ToString());
 			if (p.victoryPoints >= pointsToWin){
 				// MainUI hide
 //				UIManager.MainUI.SetActive(false);
 				UIManager.DisableObjs();
 				winningPlayer = p;
-				victoryPanel.SetActive(true);
+//				victoryPanel.SetActive(true);
 				gameOver = true;
 			}
 		}

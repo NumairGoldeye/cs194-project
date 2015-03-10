@@ -100,11 +100,7 @@ public class RoadClass : MonoBehaviour {
 		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 
 		if (TurnState.CheckSecondRoadBuilt(this)) {
-			if (Network.isServer) {
-				roadsObject.BroadcastMessage ("makeInvisible");
-			} else {
-				GameManager.Instance.
-			}
+			roadsObject.BroadcastMessage ("makeInvisible");
 		}
 		
 		if (!TurnState.freeBuild){

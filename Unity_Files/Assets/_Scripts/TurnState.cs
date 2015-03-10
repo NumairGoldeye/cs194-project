@@ -223,13 +223,13 @@ public class TurnState : MonoBehaviour {
 	static void ResetRoadBuilding(){
 		if (firstRoadBuilt){
 			firstRoad.ClearPlayer();
-			firstRoad.hideIfPossible();
+			firstRoad.makeInvisible();
 			firstRoadBuilt = false;
 			firstRoad = null;
 		}
 		if (secondRoadBuilt){
 			secondRoad.ClearPlayer();
-			secondRoad.hideIfPossible();
+			secondRoad.makeInvisible();
 			secondRoad = null;
 			secondRoadBuilt = false;
 		}

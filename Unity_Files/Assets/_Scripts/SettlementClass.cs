@@ -109,17 +109,17 @@ public class SettlementClass : MonoBehaviour {
 		p.AddSettlement(this);
 	}
 
-	private void setPlayerCity() {
+	public void setPlayerCity() {
 		BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
 		hasCity = true;
 		hideSettlement();
 		showCity();
 		TurnState.currentPlayer.AddVictoryPoint();
 		upgrading = false;
-		//TODO: send update to clients with the upgraded city info
+		GameManager.Instance.networkView.RPC ("syncCityUpgrade", RPCMode.Others, this.vertexIndex);
 	}
 
-	private void executeStealing() {
+	public void executeStealing() {
 		StandardBoardGraph graph = StandardBoardGraph.Instance;
 		List<TileClass> tiles = graph.getTilesForSettlement(this);
 		TileClass currentTile = tiles[0];
@@ -129,45 +129,35 @@ public class SettlementClass : MonoBehaviour {
 		currentTile.endStealing();
 		
 		Player owner = GameManager.Instance.players[ownerId];
-		TurnState.currentPlayer.AddResource((ResourceType)(owner.removeRandomResource()), 1);
-		//TODO: send update to clients with stealing info
+		ResourceType resource = (ResourceType)(owner.removeRandomResource());
+		TurnState.currentPlayer.AddResource(resource, 1);
+		GameManager.Instance.networkView.RPC ("syncSteal", RPCMode.Others, owner.playerId, resource); 
 	}
 
-	private void buildSettlement() {
+	public void buildSettlement() {
 		built = true;
 		setPlayerSettlement();
-		if (Network.isServer)
-			settlements.BroadcastMessage ("hideSettlement");
-		else 
-			//TODO: send message to client who is building to hide settlements
+
+		settlements.BroadcastMessage ("hideSettlement");
 		if (StartGameManager.secondPhase) 
 			GameManager.Instance.distributeResourcesForSettlement(this);
 		StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
-		//TODO: send update to clients with settlement building info
+
+		//TODO Sync with everyone else
+		GameManager.Instance.networkView.RPC ("syncSettlementBuild", RPCMode.Others, this.vertexIndex);
 	}
 	
 	void OnMouseDown() {
+		if (!GameManager.Instance.myTurn()) return;
 		if (!built) {
 			if (!visible) return;
-			if (Network.isClient) {
-				//TODO: send request to server for building settlement
-			} else {
-				buildSettlement();
-			}
+			buildSettlement();
 		} else {
 			if (upgrading) {
-				if (Network.isClient) {
-					//TODO: send request to server for upgrading to city
-				} else {
-					setPlayerCity();
-				}
+				setPlayerCity();
 			}
 			else if (stealing){
-				if (Network.isClient) {
-					//TODO: send request to server for stealing
-				} else {
-					executeStealing();
-				}
+				executeStealing();
 			}
 		}
 	}

@@ -86,7 +86,6 @@ public class NetworkMenu : MonoBehaviour {
 			gameName = GUILayout.TextField(gameName);
 
 			if (GUILayout.Button ("Host")) {
-				//ASSUMPTION: GameName is not empty
 				if (gameName.Equals("")) return;
 				NetworkConnectionError error = Network.InitializeServer(1000, 6832 ,true);
 			}
@@ -97,6 +96,8 @@ public class NetworkMenu : MonoBehaviour {
 			if (Network.isServer) {
 				GUILayout.Label("Running as a server");
 				if (GUILayout.Button("Start")) {
+					int startingPlayerID = Random.Range(0, GameManager.Instance.players.Count);
+					GameManager.Instance.networkView.RPC("syncCurrentPlayer", RPCMode.All, startingPlayerID);
 					GameManager.Instance.createTiles();
 					GameManager.Instance.syncStartStateWithClients();
 					gameStarted = true;

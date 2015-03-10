@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
 
 	private static GameManager instance;
 
+	public GameObject settlements;
+	public GameObject roads;
+
 	//Keep track of my player ID
 	public int myPlayer;
 
@@ -77,7 +80,6 @@ public class GameManager : MonoBehaviour {
 
 	public void syncStartStateWithClients()
 	{
-		//Sync the tiles
 		for (int index = 0; index < numTiles; index++) {
 			TileClass tile = graph.getTile(index);
 			networkView.RPC("syncTileInfo", RPCMode.Others, index, tile.diceValue, Convert.ToInt32(tile.hasRobber), (int)tile.type);
@@ -106,36 +108,7 @@ public class GameManager : MonoBehaviour {
 		Debugger.Log ("Network", "Count: " + players.Count.ToString ());
 	}
 
-	public void syncResourcesWithClients()
-	{
-//		for (int index = 0; index < players.Count; index++) {
-//			networkView.RPC ("syncResources", RPCMode.Others, );
-//		}
-
-	}
-
-	public void handleRobberMove(int tileIndex)
-	{
-		TileClass tile = graph.getTiles()[tileIndex];
-		tile.receiveRobber ();
-		GameObject robber = GameObject.Find ("Robber");
-		networkView.RPC ("syncRobber", RPCMode.Others, robber.transform.position); 
-
-	}
-
-	/* --------------------------------------------------------------------*/
-
-	/* ---------------------------------------------------------------------
-	 * Client Requests
-	 * ---------------------------------------------------------------------*/
-
-	public void requestRobberMove(TileClass tile)
-	{
-		networkView.RPC ("handleRobberMove", RPCMode.Server, tile.tileIndex);
-	}
-
 	void distributeResources (int roll) {
-		if (Network.isClient) return;
 		BoardGraph graph = StandardBoardGraph.Instance;
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
 		for (int index = 0; index < graph.TileCount; index++) {
@@ -159,8 +132,97 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	/* ---------------------------------------------------------------------*/
 
+
+
+	/* --------------------------------------------------------------------*/
+
+
+	/* ---------------------------------------------------------
+	 * RPC Calls
+	 * ---------------------------------------------------------*/
+
+	[RPC]
+	 void syncCurrentPlayer(int playerID) {
+		TurnState.currentPlayer = GameManager.Instance.players [playerID];
+	}
+
+	[RPC]
+	void syncSteal(int ownerID, int resource) {
+		ResourceType type = (ResourceType)resource;
+		GameManager.Instance.players [ownerID].RemoveResource (type, 1);
+		TurnState.currentPlayer.AddResource (type, 1);
+	}
+
+	[RPC]
+	void syncSettlementBuild(int index) {
+		SettlementClass settlement = graph.getSettlement (index);
+		settlement.buildSettlement ();
+	}
+	
+	[RPC]
+	void syncCityUpgrade(int index) {
+		SettlementClass settlement = graph.getSettlement (index);
+		settlement.setPlayerCity ();
+	}
+
+	[RPC]
+	void syncRoadBuild(int index) {
+		RoadClass road = graph.getRoad (index);
+		road.buildRoad ();
+	}
+
+	[RPC]
+	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType)
+	{
+		TileClass tile = graph.getTile(tileIndex);
+		tile.hasRobber = Convert.ToBoolean(hasRobber);
+		if (tile.hasRobber) tile.getRobber();
+		tile.assignType(diceValue, (ResourceType)resourceType);
+	}
+	
+	[RPC]
+	void associateWithPlayer(int playerID)
+	{
+		Debugger.Log ("Network", playerID.ToString ());
+		GameManager.Instance.myPlayer = playerID;
+	}
+	
+	[RPC]
+	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName)
+	{
+		Player p = new Player (playerID, playerColors[playerID], player, playerName);
+		if (!players.Contains(p))
+			players.Add (p);
+	}
+	
+	[RPC]
+	void syncDiceRoll(int die1, int die2)
+	{
+		GameManager.Instance.die1 = die1;
+		GameManager.Instance.die2 = die2;
+		Debugger.Log ("Network", "Dice Roll: " + (die1 + die2).ToString ());
+		displayDice (die1, die2);
+	}
+	[RPC]
+	void syncRobberMove(int index)
+	{
+		TileClass tile = graph.getTile (index);
+		tile.removeRobber ();
+		tile.getRobber ();
+	}
+
+	[RPC]
+	void syncResources(int playerID, int resourceType, int count)
+	{
+		GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
+	}
+	
+	/* --------------------------------------------------------------------------------*/
+
+	public bool myTurn() {
+		return TurnState.currentPlayer.playerId == GameManager.Instance.myPlayer;
+	}
 
 	public void setRobberTile(TileClass tile) {
 		Debugger.Log ("Robber", tile.diceValue.ToString ());
@@ -301,60 +363,4 @@ public class GameManager : MonoBehaviour {
 	public static void StaticReset(){
 		instance = null;
 	}
-
-
-	/* ---------------------------------------------------------
-	 * RPC Calls
-	 * ---------------------------------------------------------*/
-
-	[RPC]
-	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType)
-	{
-		TileClass tile = graph.getTile(tileIndex);
-		tile.hasRobber = Convert.ToBoolean(hasRobber);
-		if (tile.hasRobber) tile.getRobber();
-		tile.assignType(diceValue, (ResourceType)resourceType);
-	}
-
-	[RPC]
-	void associateWithPlayer(int playerID)
-	{
-		Debugger.Log ("Network", playerID.ToString ());
-		GameManager.Instance.myPlayer = playerID;
-	}
-
-	[RPC]
-	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName)
-	{
-		Player p = new Player (playerID, playerColors[playerID], player, playerName);
-		if (!players.Contains(p))
-			players.Add (p);
-	}
-	[RPC]
-	void syncTurnStateType(int state)
-	{
-		TurnState.stateType = (TurnStateType)state;
-	}
-	[RPC]
-	void syncDiceRoll(int die1, int die2)
-	{
-		GameManager.Instance.die1 = die1;
-		GameManager.Instance.die2 = die2;
-		Debugger.Log ("Network", "Dice Roll: " + (die1 + die2).ToString ());
-		displayDice (die1, die2);
-	}
-	[RPC]
-	void syncRobberMove(Vector3 position)
-	{
-		GameObject robber = GameObject.Find ("Robber");
-		robber.transform.position = position;
-
-	}
-	[RPC]
-	void syncResources(int playerID, int resourceType, int count)
-	{
-		GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
-	}
-
-	/* --------------------------------------------------------------------------------*/
 }

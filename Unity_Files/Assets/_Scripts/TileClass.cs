@@ -57,24 +57,26 @@ public class TileClass : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
+		if (!GameManager.Instance.myTurn()) return;
 		if (hasRobber) return;
 		if (GameManager.Instance.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) {
-			if (Network.isClient)
-				GameManager.Instance.requestRobberMove(this);
-			else 
-				GameManager.Instance.handleRobberMove(tileIndex);
+			receiveRobber ();
+
+			GameManager.Instance.networkView.RPC ("syncRobber", RPCMode.Others, this.tileIndex);
 		}
 	}
 
-	private void removeRobber() {
+	public void removeRobber() {
 		TileClass tileWithRobber = GameManager.Instance.getRobberTile ();
 		tileWithRobber.hasRobber = false;
 	}
 
 	public void receiveRobber () {
+		//TODO Network this function
 		removeRobber ();
 		getRobber ();
 		DevConfirmButton.clickButton ();
+		// IS THIS ALWAYS TRUE??
 		removeResources ();//Each player has to remove half of their resources. For now, it will be random
 		stealResources ();
 		/* 

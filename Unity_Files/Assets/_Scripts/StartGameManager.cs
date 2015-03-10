@@ -121,7 +121,6 @@ public class StartGameManager {
 
 
 		if (currentPlayerIndex > numPlayers * 2 - 1){
-			finished = true;
 			Finish();
 			return;
 		}
@@ -143,6 +142,7 @@ public class StartGameManager {
 	///  Hides everything and finishes... hands over control to TurnState.
 	/// </summary>
 	public static void Finish(){
+		finished = true;
 		settlements.BroadcastMessage("hideSettlement");
 		roads.BroadcastMessage("makeInvisible");
 

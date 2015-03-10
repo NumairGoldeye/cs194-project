@@ -65,13 +65,6 @@ public class RoadClass : MonoBehaviour {
 			makeVisible ();
 	}
 
-	public void hideIfPossible(){
-		if (!built) {
-			makeInvisible();
-		}
-	}
-
-
 	public void makeInvisible() {
 		if (built) return;
 		visible = false;
@@ -100,31 +93,30 @@ public class RoadClass : MonoBehaviour {
 		built = false;
 	}
 
-	private void buildRoad() {
+	public void buildRoad() {
+		if (!GameManager.Instance.myTurn()) return;
 		built = true;
 		SetPlayer(TurnState.currentPlayer);
-
 		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 
 		if (TurnState.CheckSecondRoadBuilt(this)) {
 			if (Network.isServer) {
 				roadsObject.BroadcastMessage ("makeInvisible");
 			} else {
-				//TODO: send message to client who is building the road to make his roads invisible
+				GameManager.Instance.
 			}
 		}
 		
 		if (!TurnState.freeBuild){
 			BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 		}
-		//TODO: send update to clients about road being build
+		GameManager.Instance.networkView.RPC("syncRoadBuild", RPCMode.Others, this.edgeIndex);
+
 	}
 
 	void OnMouseDown() {
 		if (!visible || built) return;
-		if (Network.isClient) {
-			//TODO: send request to server to build this road
-		} else {
+		if (GameManager.Instance.myTurn()) {
 			buildRoad();
 		}
 

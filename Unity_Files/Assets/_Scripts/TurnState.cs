@@ -80,7 +80,6 @@ public class TurnState : MonoBehaviour {
 
     // Just for public inspector stuff
     public Player thisCurrentPlayer; 
-    public Player[] thisPlayers;
 	public int _pointsToWin = 10;
 	public GameObject _victoryPanel;
 	public TradeConsole tradeConsole;
@@ -110,10 +109,13 @@ public class TurnState : MonoBehaviour {
 
     // Changes the current Player...
     public static void EndTurn(){
-        numTurns++;
+		GameManager.Instance.networkView.RPC ("syncNextTurn", RPCMode.All, numTurns + 1);
         // Debugger.Log("TurnState", "EndTurn");
+		Debugger.Log ("PlayerHand", TurnState.currentPlayer.playerId.ToString ());
 		int index = numTurns % GameManager.Instance.players.Count;
         TurnState.currentPlayer = GameManager.Instance.players[index];
+		Debugger.Log ("PlayerHand", index.ToString());
+		Debugger.Log ("PlayerHand", numTurns.ToString());
 
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 		GameManager.Instance.networkView.RPC ("syncCurrentPlayer", RPCMode.Others, TurnState.currentPlayer.playerId);

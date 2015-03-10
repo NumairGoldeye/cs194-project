@@ -125,7 +125,7 @@ public class Player : MonoBehaviour {
 			RemoveResource(resource, -amount);
 			return true;
 		}
-
+		Debugger.Log ("PlayerHand", resource.ToString ());
 		resourceCounts[(int)resource] += amount;
 		totalResources += amount;
 
@@ -227,7 +227,8 @@ public class Player : MonoBehaviour {
 		//TODO let the players choose
 		int resourcesToRemove = totalResources / 2;
 		for (int i = 0; i < resourcesToRemove; i++) {
-			removeRandomResource();
+			int resourceIndex = removeRandomResource();
+			GameManager.Instance.networkView.RPC("syncResources", RPCMode.Others, playerId, resourceIndex, -1);
 		}
 	}
 

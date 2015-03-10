@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 	public Player myPlayer;
 	public string myPlayerName = "";
 
-	public Button RollButton ;
+	public Button RollButton;
 
 
 	public Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
@@ -138,6 +138,11 @@ public class GameManager : MonoBehaviour {
 	 * ---------------------------------------------------------*/
 
 	[RPC]
+	void syncNextTurn(int turnCount) {
+		TurnState.numTurns = turnCount;
+	}
+
+	[RPC]
 	 void syncCurrentPlayer(int playerID) {
 		TurnState.currentPlayer = GameManager.Instance.players[playerID];
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
@@ -227,7 +232,10 @@ public class GameManager : MonoBehaviour {
 	void syncDiceRoll(int die1, int die2) {
 		GameManager.Instance.die1 = die1;
 		GameManager.Instance.die2 = die2;
-//		Debugger.Log ("Network", "Dice Roll: " + (die1 + die2).ToString ());
+		diceRoll = die1 + die2;
+		if (diceRoll == 7 && myTurn()) {
+			TurnState.SetSubStateType(TurnSubStateType.robbering);
+		}
 		displayDice (die1, die2);
 	}
 

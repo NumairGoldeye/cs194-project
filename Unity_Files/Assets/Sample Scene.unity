@@ -43698,7 +43698,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1840678613}
   m_Direction: 2
   m_Value: 0
-  m_Size: .999999762
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -49460,7 +49460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisCurrentPlayer: {fileID: 0}
-  thisPlayers: []
   _pointsToWin: 4
   _victoryPanel: {fileID: 2014482850}
   tradeConsole: {fileID: 1559447321}
@@ -55581,7 +55580,7 @@ MonoBehaviour:
   settlements: {fileID: 1447773772}
   myPlayer: {fileID: 0}
   myPlayerName: 
-  RollButton: {fileID: 0}
+  RollButton: {fileID: 399267909}
   playerColors:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}

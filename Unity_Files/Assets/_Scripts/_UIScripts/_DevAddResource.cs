@@ -41,7 +41,8 @@ public class _DevAddResource : MonoBehaviour {
 			}
 		} else {
 			// if resourceType
-			player.AddResource(resType, 1);
+			player.AddResource(resType, val);
+			GameManager.Instance.networkView.RPC("syncResources", RPCMode.Others, player.playerId, (int)resType, val);
 			Debugger.Log ("PlayerHand", "Player: " + player.playerId.ToString() + " has: " + 
 			              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[player.playerId].resourceCounts, Convert.ToString)));
 		}

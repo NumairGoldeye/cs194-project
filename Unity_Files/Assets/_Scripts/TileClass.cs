@@ -16,7 +16,7 @@ public class TileClass : MonoBehaviour {
 	public int tileIndex;
 
 	public void stealResources() {
-		Debugger.Log ("PlayerHand", TurnState.currentPlayer.playerName + " is stealing...");
+//		Debugger.Log ("PlayerHand", TurnState.currentPlayer.playerName + " is stealing...");
 		StandardBoardGraph graph = StandardBoardGraph.Instance;
 		List<SettlementClass> settlements = graph.getSettlementsForTile (this);
 
@@ -43,7 +43,6 @@ public class TileClass : MonoBehaviour {
 		foreach (SettlementClass settlement in settlements) {
 			settlement.toggleStealing();
 		}
-
 //		UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
 //		stealing.text = "";
 	}

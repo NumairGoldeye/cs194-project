@@ -72,6 +72,11 @@ public class NetworkMenu : MonoBehaviour {
 		}
 	}
 
+	public HostData[] getHostData(){
+		HostData[] hostData = MasterServer.PollHostList ();
+		return hostData;
+	}
+
 	private void OnGUI()
 	{
 		Network.natFacilitatorIP = connectionIP;
@@ -107,4 +112,6 @@ public class NetworkMenu : MonoBehaviour {
 			GUILayout.Label("Connections: " + Network.connections.Length.ToString());
 		}
 	}
+
+
 }

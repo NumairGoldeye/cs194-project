@@ -111,6 +111,7 @@ public class RoadClass : MonoBehaviour {
 				roadsObject.BroadcastMessage ("makeInvisible");
 			else 
 				//TODO: send message to client who is building the road to make his roads invisible
+				Debugger.Log ("foo", "bar"); 
 		}
 		
 		if (!TurnState.freeBuild){

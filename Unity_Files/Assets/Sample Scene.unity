@@ -10262,7 +10262,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  instanceState: 2
+  instanceState: 0
   CreateUIInstance: {fileID: 817087588}
   StartUIInstance: {fileID: 111320558}
   MainUIInstance: {fileID: 1641503397}
@@ -23110,8 +23110,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1886220429}
-        m_MethodName: SetActive
-        m_Mode: 6
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,

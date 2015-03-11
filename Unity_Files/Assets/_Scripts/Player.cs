@@ -76,7 +76,6 @@ public class Player : MonoBehaviour {
 		
 		settlements = new List<SettlementClass>();
 		roads = new List<RoadClass>();
-		hand = PlayerHand.Instance;
 		victoryPoints = 0;
 		Debugger.Log ("PlayerHand", "Player hand initially: " + string.Join(",", Array.ConvertAll<int, string>(resourceCounts, Convert.ToString)));
 	}
@@ -129,7 +128,7 @@ public class Player : MonoBehaviour {
 		resourceCounts[(int)resource] += amount;
 		totalResources += amount;
 
-		if (playerId == GameManager.Instance.myPlayer.playerId){
+		if (playerId == GameManager.Instance.myPlayer.playerId && StartGameManager.finished){
 			hand.AddResourceCard(resource, this, amount);
 		}
 

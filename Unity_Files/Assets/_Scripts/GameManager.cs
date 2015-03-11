@@ -274,6 +274,10 @@ public class GameManager : MonoBehaviour {
 		networkView.RPC ("syncDiceRoll", RPCMode.Others, die1, die2);
 	}
 
+	[RPC]
+	void startupGame() {
+		StartGameManager.Startup();
+	}
 	/* --------------------------------------------------------------------------------*/
 
 	public bool myTurn() {

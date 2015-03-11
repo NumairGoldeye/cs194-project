@@ -63,7 +63,7 @@ public class NetworkMenu : MonoBehaviour {
 		for (int i = 0; i < hostData.Length; i++) {
 			//Display all of the names and make them clickable
 			//For now, we will simply connect to the game whose name is "test"
-
+				
 			if (hostData[i].gameName.Equals("test")) {
 				Debugger.Log ("Network", "Connecting to 'test' game");
 				Network.Connect(hostData[i]);
@@ -99,19 +99,23 @@ public class NetworkMenu : MonoBehaviour {
 			if (Network.isServer) {
 				GUILayout.Label("Running as a server");
 				if (GUILayout.Button("Start")) {
+
+					//KEEP These Actions Need to happen when the host starts the game
+
 //					int startingPlayerID = Random.Range(0, GameManager.Instance.players.Count);
 					int startingPlayerID = 0;
 					GameManager.Instance.networkView.RPC("syncCurrentPlayer", RPCMode.All, startingPlayerID);
 					GameManager.Instance.createTiles();
 					GameManager.Instance.syncStartStateWithClients();
 					GameManager.Instance.gameStarted = true;
-
-					GameManager.Instance.graph.getSettlement(4).buildSettlement();
-					GameManager.Instance.myPlayer.AddResource(ResourceType.Brick, 1);
-					GameManager.Instance.myPlayer.AddResource(ResourceType.Sheep, 1);
-					GameManager.Instance.myPlayer.AddResource(ResourceType.Wheat, 1);
-					GameManager.Instance.myPlayer.AddResource(ResourceType.Wood, 1);
+					GameManager.Instance.networkView.RPC("startupGame", RPCMode.All);
+//					GameManager.Instance.graph.getSettlement(4).buildSettlement();
+//					GameManager.Instance.myPlayer.AddResource(ResourceType.Brick, 1);
+//					GameManager.Instance.myPlayer.AddResource(ResourceType.Sheep, 1);
+//					GameManager.Instance.myPlayer.AddResource(ResourceType.Wheat, 1);
+//					GameManager.Instance.myPlayer.AddResource(ResourceType.Wood, 1);
 					Debugger.Log("PlayerHand", "Player has: " + GameManager.Instance.myPlayer.totalResources.ToString() + " resources");
+
 //					Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
 				}
 			}

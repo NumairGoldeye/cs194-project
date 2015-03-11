@@ -91,6 +91,7 @@ public class TurnState : MonoBehaviour {
 		UIManager.UpdateMajorUI();
 		freeBuild = false;
 //		TurnState.players = Player.allPlayers.ToArray();
+		GameManager.Instance.myPlayer.hand = PlayerHand.Instance;
 		ResetTurn();
 	}
 

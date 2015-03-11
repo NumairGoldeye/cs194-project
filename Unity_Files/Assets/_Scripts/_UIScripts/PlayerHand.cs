@@ -71,9 +71,6 @@ public class PlayerHand : MonoBehaviour {
 
 	public static PlayerHand Instance {
 		get {
-//			if (instance == null) {
-//				instance = new PlayerHand();
-//			}
 			return instance;
 		}
 	}
@@ -117,6 +114,9 @@ public class PlayerHand : MonoBehaviour {
 		handBackground = handBackgroundObj.GetComponent<Image>();
 		
 		cardWidth = handBackground.rectTransform.rect.height ;
+	}
+
+	void Awake() {
 		instance = this;
 	}
 	
@@ -133,7 +133,6 @@ public class PlayerHand : MonoBehaviour {
 	/// Adds the card, and animates the card
 	/// </summary>
 	public void AddResourceCard(ResourceType type, Player p, int amount = 1){
-		Debugger.Log ("PlayerHand", gameObject.name);
 		for(int i = 0; i < amount; i++){
 			if (gameObject.activeInHierarchy)
 				StartCoroutine(AddCardPrefab( GetResourceCardPrefab(type), true, false));

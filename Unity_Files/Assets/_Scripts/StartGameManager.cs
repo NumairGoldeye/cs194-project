@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using System;
+using System.Linq;
 
 /// <summary>
 /// 
@@ -30,7 +33,7 @@ using System.Collections;
 public class StartGameManager {
 
 //	public static Player currentPlayer;
-	public static int currentPlayerIndex = 0; // tracks number of players have built both a settlement and a thing
+	public static List<int> playerTurnCounts;
 	
 	public static GameObject settlements;
 	public static GameObject roads;
@@ -42,9 +45,18 @@ public class StartGameManager {
 	public static bool startedUp = false;
 
 
+	private static void initializePlayerTurnCountList() {
+		playerTurnCounts = new List<int> ();
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
+			playerTurnCounts.Add(0);
+		}
+	}
+
 	// Called in UI manager startup....
 	public static void Startup(){
 		if (startedUp) return;
+		initializePlayerTurnCountList ();
+		
 
 		finished = false;
 
@@ -57,9 +69,10 @@ public class StartGameManager {
 
 		settlements = GameObject.FindGameObjectWithTag("Settlement").transform.parent.gameObject;
 		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
-
-		settlements.BroadcastMessage("showSettlementStartup");
-		roads.BroadcastMessage("makeInvisible");
+		if (GameManager.Instance.myTurn()) {
+			settlements.BroadcastMessage("showSettlementStartup");
+			roads.BroadcastMessage("makeInvisible");
+		}
 		TurnState.freeBuild = true;
 
 		startedUp = true;
@@ -101,40 +114,36 @@ public class StartGameManager {
 
 		} else {
 			// After the previous player has built their road
-			settlements.BroadcastMessage("showSettlementStartup");
 			roads.BroadcastMessage("makeInvisible");
-			builtSettlement = false;
+			GameManager.Instance.networkView.RPC("syncTurnCounter", RPCMode.All, TurnState.currentPlayer.playerId);
 			NextPlayer();
 		}
 	}
 
 	public static void NextPlayer(){
-		int numPlayers = GameManager.Instance.players.Count;
+		int sum = playerTurnCounts.Sum (x => x);
 
 
-		if (currentPlayerIndex == numPlayers - 1){
-			secondPhase = true;
-		}
-
-		currentPlayerIndex++;
-
-
-
-		if (currentPlayerIndex > numPlayers * 2 - 1){
-			Finish();
+		if (sum == playerTurnCounts.Count){
+			GameManager.Instance.networkView.RPC("syncSetupPhase", RPCMode.All, Convert.ToInt32(true), Convert.ToInt32(false));
+		} else if (sum == playerTurnCounts.Count * 2){
+			GameManager.Instance.networkView.RPC("syncSetupPhase", RPCMode.All, Convert.ToInt32(true), Convert.ToInt32(true));
 			return;
+		} else {
+			if (!secondPhase){
+				int nextPlayerIndex = 0;
+				if (TurnState.currentPlayer.playerId < playerTurnCounts.Count - 1)
+					nextPlayerIndex = TurnState.currentPlayer.playerId + 1;
+				TurnState.currentPlayer = GameManager.Instance.players[nextPlayerIndex];
+			} else { 
+				int nextPlayerIndex = playerTurnCounts.Count - 1;
+				if (TurnState.currentPlayer.playerId > 0)
+					nextPlayerIndex = TurnState.currentPlayer.playerId - 1;
+				TurnState.currentPlayer = GameManager.Instance.players[nextPlayerIndex];
+			}
+			GameManager.Instance.networkView.RPC ("syncCurrentPlayer", RPCMode.Others, TurnState.currentPlayer.playerId);
 		}
-
-		if (!secondPhase){
-			TurnState.currentPlayer = GameManager.Instance.players[currentPlayerIndex];
-		} else { 
-
-			int newIndex = numPlayers - 1 - (currentPlayerIndex % numPlayers);
-//			Debug.Log (newIndex);
-			TurnState.currentPlayer = GameManager.Instance.players[newIndex];
-		}
-
-
+		GameManager.Instance.networkView.RPC ("nextPhaseStartup", RPCMode.All);
 	}
 
 	/// <summary>
@@ -150,7 +159,7 @@ public class StartGameManager {
 
 
 	public static void StaticReset(){
-		currentPlayerIndex = 0; // tracks number of players have built both a settlement and a thing
+		initializePlayerTurnCountList (); // tracks number of players have built both a settlement and a thing
 		
 		secondPhase = false; // the second countdown phase
 		builtSettlement = false; // if true, then building road

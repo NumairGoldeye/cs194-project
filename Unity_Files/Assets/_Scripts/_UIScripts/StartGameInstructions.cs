@@ -25,10 +25,7 @@ public class StartGameInstructions : MonoBehaviour {
 		string result = "";
 
 		if (StartGameManager.finished){
-			txt.text = "Setup finished";
-			startGameButton.SetActive(true);
-			playerNameText.SetActive(false);
-			return;
+			TurnState.Startup();
 		}
 
 

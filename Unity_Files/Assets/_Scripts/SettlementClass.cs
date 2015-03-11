@@ -93,6 +93,7 @@ public class SettlementClass : MonoBehaviour {
 	}
 
 	public void showSettlement() {
+		if (built) return;
 		visible = true;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0.8f;

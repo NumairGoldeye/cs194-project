@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+
 /*
  * Currently this class is only used to set up the board.
  * */
@@ -136,11 +137,6 @@ public class GameManager : MonoBehaviour {
 	/* ---------------------------------------------------------
 	 * RPC Calls
 	 * ---------------------------------------------------------*/
-
-	[RPC]
-	void syncNextTurn(int turnCount) {
-		TurnState.numTurns = turnCount;
-	}
 
 	[RPC]
 	 void syncCurrentPlayer(int playerID) {
@@ -278,6 +274,33 @@ public class GameManager : MonoBehaviour {
 	void startupGame() {
 		StartGameManager.Startup();
 	}
+
+	[RPC]
+	void nextPhaseStartup() {
+		if (myTurn()) {
+			StartGameManager.settlements.BroadcastMessage("showSettlementStartup");
+			StartGameManager.roads.BroadcastMessage("makeInvisible");
+			StartGameManager.builtSettlement = false;
+		}
+	}
+
+	[RPC]
+	void syncSetupPhase(int secondPhase, int finished) {
+		StartGameManager.secondPhase = Convert.ToBoolean (secondPhase);
+		if (Convert.ToBoolean(finished) == true)
+			StartGameManager.Finish();
+	}
+
+	[RPC]
+	void syncTurnCounter(int playerID) {
+		StartGameManager.playerTurnCounts[playerID] += 1;
+	}
+
+	[RPC]
+	void syncNextTurn(int turnCount) {
+		TurnState.numTurns = turnCount;
+	}
+
 	/* --------------------------------------------------------------------------------*/
 
 	public bool myTurn() {

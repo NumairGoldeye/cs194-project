@@ -85,13 +85,13 @@ public class TurnState : MonoBehaviour {
 	public TradeConsole tradeConsole;
 
 	public static void Startup(){
+		GameManager.Instance.myPlayer.hand = PlayerHand.Instance;
 		DevCard.SetupStatic();
 
 		UIManager.ChangeMajorUIState(MajorUIState.play);
 		UIManager.UpdateMajorUI();
 		freeBuild = false;
-//		TurnState.players = Player.allPlayers.ToArray();
-		GameManager.Instance.myPlayer.hand = PlayerHand.Instance;
+
 		ResetTurn();
 	}
 

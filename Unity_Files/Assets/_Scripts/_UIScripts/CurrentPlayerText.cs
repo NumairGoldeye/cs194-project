@@ -10,6 +10,7 @@ public class CurrentPlayerText : MonoBehaviour {
 	// public DevCardType cardType;
 	// public Player player;
 	Text txt;
+	Color color;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,7 @@ public class CurrentPlayerText : MonoBehaviour {
 
 		if (GameManager.Instance.gameStarted) {
 			txt.text = TurnState.currentPlayer.playerName + "'s Turn";
+			color = TurnState.currentPlayer.playerColor;
 		}
 	}
 

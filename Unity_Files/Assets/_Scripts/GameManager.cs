@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviour {
 	public UnityEngine.UI.RawImage die2Image;
 
 
+//	void Update() {
+//		Debugger.Log ("PlayerHand", "Current Player ID: " + TurnState.currentPlayer.playerId.ToString () + ", Name: " + 
+//		              TurnState.currentPlayer.playerName + ", Color: " + TurnState.currentPlayer.playerColor.ToString ());
+//	}
+
 	/* --------------------------------------------------------------------
 	 * Server Functions
 	 * --------------------------------------------------------------------*/
@@ -90,7 +95,7 @@ public class GameManager : MonoBehaviour {
 
 	public Player createPlayer(NetworkPlayer p, string playerName)
 	{
-		Player player = new Player(players.Count, playerColors[players.Count], p, playerName);
+		Player player = new Player(players.Count, p, playerName);
 		GameManager.Instance.players.Add (player);
 		if (p == Network.player) {
 			myPlayer = player;
@@ -217,7 +222,7 @@ public class GameManager : MonoBehaviour {
 	[RPC]
 	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName) {
 //		Debugger.Log ("PlayerHand", "Syncing Player..." + playerID.ToString());
-		Player p = new Player (playerID, playerColors[playerID], player, playerName);
+		Player p = new Player (playerID, player, playerName);
 		if (!GameManager.Instance.players.Exists(x => x.playerId == p.playerId)) {
 		 	GameManager.Instance.players.Add (p);
 		}

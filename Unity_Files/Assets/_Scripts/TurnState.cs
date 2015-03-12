@@ -112,7 +112,7 @@ public class TurnState : MonoBehaviour {
     public static void EndTurn(){
 		GameManager.Instance.networkView.RPC ("syncNextTurn", RPCMode.All, numTurns + 1);
         // Debugger.Log("TurnState", "EndTurn");
-		Debugger.Log ("PlayerHand", TurnState.currentPlayer.playerId.ToString ());
+//		Debugger.Log ("PlayerHand", TurnState.currentPlayer.playerId.ToString ());
 		int index = numTurns % GameManager.Instance.players.Count;
         TurnState.currentPlayer = GameManager.Instance.players[index];
 		Debugger.Log ("PlayerHand", index.ToString());
@@ -131,7 +131,7 @@ public class TurnState : MonoBehaviour {
 		ClearRoadBuilding();
 		ResetSubStateType2();
 		UIManager.DisableObjs();
-		currentPlayer.UpdateHand();
+		GameManager.Instance.myPlayer.UpdateHand();
 	}
 
 	static void ClearRoadBuilding(){

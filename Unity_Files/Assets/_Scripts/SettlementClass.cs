@@ -147,9 +147,8 @@ public class SettlementClass : MonoBehaviour {
 		settlements.BroadcastMessage ("hideSettlement");
 		if (StartGameManager.secondPhase) 
 			GameManager.Instance.distributeResourcesForSettlement(this);
-		StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
-
 		GameManager.Instance.networkView.RPC ("syncSettlementBuild", RPCMode.Others, this.vertexIndex);
+		StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
 	}
 	
 	void OnMouseDown() {

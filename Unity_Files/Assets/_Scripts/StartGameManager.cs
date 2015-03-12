@@ -43,7 +43,7 @@ public class StartGameManager {
 
 	public static bool finished = true;
 	public static bool startedUp = false;
-
+	
 
 	private static void initializePlayerTurnCountList() {
 		playerTurnCounts = new List<int> ();

@@ -64,10 +64,10 @@ public class Player : MonoBehaviour {
 	private List<RoadClass> roads;
 
 
-	public Player(int id, Color color, NetworkPlayer p, string name)
+	public Player(int id, NetworkPlayer p, string name)
 	{
 		playerId = id;
-		playerColor = color;
+		playerColor = GameManager.Instance.playerColors[id];
 		networkPlayer = p;
 		playerName = name;
 		resourceCounts = new int[Enum.GetNames(typeof(ResourceType)).Length - 1];

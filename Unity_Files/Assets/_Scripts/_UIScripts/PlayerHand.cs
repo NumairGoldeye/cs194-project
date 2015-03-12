@@ -107,16 +107,12 @@ public class PlayerHand : MonoBehaviour {
 		return null;
 	}
 
-	// Use this for initialization
-	void Start () {
+	void Awake() {
 		resources = new List<ResourceType>();
 		devCard = new List<DevCardType>();
 		handBackground = handBackgroundObj.GetComponent<Image>();
 		
 		cardWidth = handBackground.rectTransform.rect.height ;
-	}
-
-	void Awake() {
 		instance = this;
 	}
 	

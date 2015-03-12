@@ -16,6 +16,7 @@ public class CurrentPlayerColor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		img.color = TurnState.currentPlayer.playerColor;
+		if (GameManager.Instance.gameStarted)
+			img.color = TurnState.currentPlayer.playerColor;
 	}
 }

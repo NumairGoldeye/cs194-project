@@ -103,7 +103,6 @@ public class RoadClass : MonoBehaviour {
 		if (!GameManager.Instance.myTurn()) return;
 
 		SetPlayer();
-		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 
 		if (TurnState.CheckSecondRoadBuilt(this)) {
 			roadsObject.BroadcastMessage ("makeInvisible");
@@ -112,7 +111,9 @@ public class RoadClass : MonoBehaviour {
 		if (!TurnState.freeBuild){
 			BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 		}
+		Debugger.Log ("PlayerHand", "Road owner: " + ownerId.ToString ());
 		GameManager.Instance.networkView.RPC("syncRoadBuild", RPCMode.Others, this.edgeIndex);
+		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 	}
 
 	void OnMouseDown() {

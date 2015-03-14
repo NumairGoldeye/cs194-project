@@ -252,6 +252,7 @@ public class ArrayBoardGraph : BoardGraph {
 
 	// In the beginnning, the AI calls "BuildSettlement" to set 2 settlements of highest frequencies, and build 2 roads randomly
 	//At each turn, the AI calls: 
+	// 0. Update strategy with strateyUpdate 
 	// 1. Check resource cards that he has, get a list of them; 
 	// 2.if they contain "wood, brick" then call "BuildRoad"
 	//								if return null(1. has place to build good set 2. no good road), then do not build road 
@@ -412,8 +413,15 @@ public class ArrayBoardGraph : BoardGraph {
 	public int strategyUpdate(Player player){
 		//If the current AI's longestroad is no shorter than the best longestroad - 2, then go for the longest road
 	 if (longestroad (player) >= longestroad (player)) {
-				
-		
+				// set the strategy index to 1, return 
+			return 1;
+		}
+		//check the largestarmy difference, if larger than 1, give up largest army
+		else if(true){
+		//set the strategy index to 2, return 
+			return 2;
+		}else{
+			return 3;
 		}
 
 		return 0;

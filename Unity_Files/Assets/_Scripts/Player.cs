@@ -101,6 +101,12 @@ public class Player : MonoBehaviour {
 		return resourceCounts[1];
 	}
 
+	
+	public int brickcount(Player player){
+		return resourceCounts[2];
+	}
+
+
 
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure

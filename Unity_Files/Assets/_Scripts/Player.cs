@@ -111,6 +111,10 @@ public class Player : MonoBehaviour {
 		return resourceCounts[3];
 	}
 
+	
+	public int wheatcount(Player player){
+		return resourceCounts[4];
+	}
 
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure

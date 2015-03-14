@@ -140,12 +140,10 @@ public class NetworkMenu : MonoBehaviour {
 			GameManager.Instance.myPlayerName = GUILayout.TextField(GameManager.Instance.myPlayerName);
 
 			if (GUILayout.Button ("Host")) {
-				//TODO Notify user of error
 				if (gameName.Equals("") || GameManager.Instance.myPlayerName.Equals("")) return;
 				NetworkConnectionError error = Network.InitializeServer(1000, 6832 ,true);
 			}
 			if (GUILayout.Button("Connect")) {
-				//TODO Notify user of error
 				if (GameManager.Instance.myPlayerName.Equals("")) return;
 				MasterServer.RequestHostList(gameType);
 			}

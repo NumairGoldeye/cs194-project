@@ -309,7 +309,7 @@ public class GameManager : MonoBehaviour {
 	/* --------------------------------------------------------------------------------*/
 
 	public bool myTurn() {
-		return (TurnState.currentPlayer.playerId == myPlayer.playerId);
+		return (GameManager.Instance.gameStarted && TurnState.currentPlayer.playerId == myPlayer.playerId);
 	}
 
 	public void removeRobber() {

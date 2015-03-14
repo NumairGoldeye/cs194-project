@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1001 &1597951
 Prefab:
@@ -503,8 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -10374,6 +10375,7 @@ MonoBehaviour:
   networkObj: {fileID: 841112061}
   gameListNamePrefab: {fileID: 173450, guid: f0bf88fc1cc30421e835d2b7d240c9c0, type: 2}
   listPanel: {fileID: 1137732555}
+  nameField: {fileID: 793604214}
   joinGameButton: {fileID: 1569595078}
 --- !u!1 &387690051
 GameObject:
@@ -17704,8 +17706,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 190, y: -53.4199982}
-  m_SizeDelta: {x: 320, y: 20}
+  m_AnchoredPosition: {x: 189.75, y: -53.4199982}
+  m_SizeDelta: {x: 319.5, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &612500989
 MonoBehaviour:
@@ -34751,8 +34753,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6, y: -24}
-  m_SizeDelta: {x: -433, y: -258}
+  m_AnchoredPosition: {x: -6.25, y: 20.3999996}
+  m_SizeDelta: {x: -433.5, y: -346.700012}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1137732557
 MonoBehaviour:
@@ -62278,8 +62280,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 190, y: -19}
-  m_SizeDelta: {x: 320, y: 20}
+  m_AnchoredPosition: {x: 189.75, y: -19}
+  m_SizeDelta: {x: 319.5, y: 20}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2107134220
 MonoBehaviour:

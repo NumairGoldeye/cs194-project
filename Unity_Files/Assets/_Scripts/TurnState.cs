@@ -80,18 +80,18 @@ public class TurnState : MonoBehaviour {
 
     // Just for public inspector stuff
     public Player thisCurrentPlayer; 
-    public Player[] thisPlayers;
 	public int _pointsToWin = 10;
 	public GameObject _victoryPanel;
 	public TradeConsole tradeConsole;
 
 	public static void Startup(){
+		GameManager.Instance.myPlayer.hand = PlayerHand.Instance;
 		DevCard.SetupStatic();
 
 		UIManager.ChangeMajorUIState(MajorUIState.play);
 		UIManager.UpdateMajorUI();
 		freeBuild = false;
-//		TurnState.players = Player.allPlayers.ToArray();
+
 		ResetTurn();
 	}
 
@@ -110,11 +110,16 @@ public class TurnState : MonoBehaviour {
 
     // Changes the current Player...
     public static void EndTurn(){
-        numTurns++;
+		GameManager.Instance.networkView.RPC ("syncNextTurn", RPCMode.All, numTurns + 1);
         // Debugger.Log("TurnState", "EndTurn");
+//		Debugger.Log ("PlayerHand", TurnState.currentPlayer.playerId.ToString ());
 		int index = numTurns % GameManager.Instance.players.Count;
-        currentPlayer = GameManager.Instance.players[index];
+        TurnState.currentPlayer = GameManager.Instance.players[index];
+		Debugger.Log ("PlayerHand", index.ToString());
+		Debugger.Log ("PlayerHand", numTurns.ToString());
 
+		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
+		GameManager.Instance.networkView.RPC ("syncCurrentPlayer", RPCMode.Others, TurnState.currentPlayer.playerId);
 		// Some simple resets
 		ResetTurn();
     }
@@ -126,7 +131,7 @@ public class TurnState : MonoBehaviour {
 		ClearRoadBuilding();
 		ResetSubStateType2();
 		UIManager.DisableObjs();
-		currentPlayer.UpdateHand();
+		GameManager.Instance.myPlayer.UpdateHand();
 	}
 
 	static void ClearRoadBuilding(){
@@ -223,13 +228,13 @@ public class TurnState : MonoBehaviour {
 	static void ResetRoadBuilding(){
 		if (firstRoadBuilt){
 			firstRoad.ClearPlayer();
-			firstRoad.hideIfPossible();
+			firstRoad.makeInvisible();
 			firstRoadBuilt = false;
 			firstRoad = null;
 		}
 		if (secondRoadBuilt){
 			secondRoad.ClearPlayer();
-			secondRoad.hideIfPossible();
+			secondRoad.makeInvisible();
 			secondRoad = null;
 			secondRoadBuilt = false;
 		}
@@ -299,7 +304,7 @@ public class TurnState : MonoBehaviour {
 
     */
 
-    void EnterTradePhase(){
+    public void EnterTradePhase(){
         TurnState.stateType = TurnStateType.trade;
 		instance.tradeConsole.DisplayTradeOptionConsole ();
     }
@@ -318,12 +323,13 @@ public class TurnState : MonoBehaviour {
 	/// </summary>
 	public static void CheckVictory(){
 		foreach (Player p in GameManager.Instance.players){
+			Debugger.Log("PlayerHand", "Player: " + p.playerId.ToString() + ", Points: " + p.victoryPoints.ToString());
 			if (p.victoryPoints >= pointsToWin){
 				// MainUI hide
 //				UIManager.MainUI.SetActive(false);
 				UIManager.DisableObjs();
 				winningPlayer = p;
-				victoryPanel.SetActive(true);
+//				victoryPanel.SetActive(true);
 				gameOver = true;
 			}
 		}

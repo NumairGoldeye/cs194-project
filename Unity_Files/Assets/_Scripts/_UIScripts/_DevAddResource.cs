@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 
 /*
@@ -31,7 +32,7 @@ public class _DevAddResource : MonoBehaviour {
 	}
 
 	void ChangeResource(){
-		player = TurnState.currentPlayer;
+		player = GameManager.Instance.myPlayer;
 		if (useDev){
 			if (val > 0) {
 				player.AddDevCard(cardType);
@@ -41,6 +42,9 @@ public class _DevAddResource : MonoBehaviour {
 		} else {
 			// if resourceType
 			player.AddResource(resType, val);
+			GameManager.Instance.networkView.RPC("syncResources", RPCMode.Others, player.playerId, (int)resType, val);
+			Debugger.Log ("PlayerHand", "Player: " + player.playerId.ToString() + " has: " + 
+			              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[player.playerId].resourceCounts, Convert.ToString)));
 		}
 	}
 

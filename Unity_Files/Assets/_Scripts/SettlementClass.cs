@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SettlementClass : MonoBehaviour {
 
-	private bool built;
+	public bool built;
 	private bool visible;
 	private bool upgrading;
 	public GameObject settlements;
@@ -12,7 +12,7 @@ public class SettlementClass : MonoBehaviour {
 	private GameObject city;
 	private bool hasCity;
 	public int vertexIndex;
-	private int ownerId;
+	public int ownerId;
 	private bool stealing;
 	public PortClass port;
 	
@@ -73,7 +73,7 @@ public class SettlementClass : MonoBehaviour {
 	}
 
 	public void toggleSettlements() {
-		if (!visible && !built && !StandardBoardGraph.Instance.hasBuiltNeighbooringSettlement(this) && StandardBoardGraph.Instance.hasConnectingRoad(TurnState.currentPlayer, this))
+		if (!visible && !built && !StandardBoardGraph.Instance.hasBuiltNeighbooringSettlement(this) && StandardBoardGraph.Instance.hasConnectingRoad(GameManager.Instance.myPlayer, this))
 		    showSettlement();
 		else if (visible && !built)
 			hideSettlement();
@@ -93,33 +93,36 @@ public class SettlementClass : MonoBehaviour {
 	}
 
 	public void showSettlement() {
+		if (built) return;
 		visible = true;
 		Color temp = settlement.renderer.material.color;
 		temp.a = 0.8f;
 		settlement.renderer.material.color = temp;
 	}
 
-	private void setPlayerSettlement() {
-		Player p = TurnState.currentPlayer;
-		settlement.renderer.material.color = p.playerColor;
+	public void setPlayerSettlement() {
 		ownerId = TurnState.currentPlayer.playerId;
-		if (!TurnState.freeBuild)
-			BuyManager.PurchaseForPlayer(BuyableType.settlement, p);
+		built = true;
+		settlement.renderer.material.color = TurnState.currentPlayer.playerColor;
 		TurnState.currentPlayer.AddVictoryPoint();
-		p.AddSettlement(this);
+		TurnState.currentPlayer.AddSettlement(this);
 	}
 
-	private void setPlayerCity() {
-		BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
+	public void setPlayerCity() {
 		hasCity = true;
 		hideSettlement();
 		showCity();
 		TurnState.currentPlayer.AddVictoryPoint();
 		upgrading = false;
-		//TODO: send update to clients with the upgraded city info
 	}
 
-	private void executeStealing() {
+	public void upgradeToCity() {
+		setPlayerCity ();
+		BuyManager.PurchaseForPlayer(BuyableType.city, TurnState.currentPlayer);
+		GameManager.Instance.networkView.RPC ("syncCityUpgrade", RPCMode.Others, this.vertexIndex);
+	}
+	
+	public void executeStealing() {
 		StandardBoardGraph graph = StandardBoardGraph.Instance;
 		List<TileClass> tiles = graph.getTilesForSettlement(this);
 		TileClass currentTile = tiles[0];
@@ -129,45 +132,36 @@ public class SettlementClass : MonoBehaviour {
 		currentTile.endStealing();
 		
 		Player owner = GameManager.Instance.players[ownerId];
-		TurnState.currentPlayer.AddResource((ResourceType)(owner.removeRandomResource()), 1);
-		//TODO: send update to clients with stealing info
+		ResourceType resource = (ResourceType)(owner.removeRandomResource());
+		TurnState.currentPlayer.AddResource(resource, 1);
+		GameManager.Instance.networkView.RPC ("syncSteal", RPCMode.Others, owner.playerId, (int)resource); 
+		TurnState.SetSubStateType (TurnSubStateType.none);
 	}
 
-	private void buildSettlement() {
-		built = true;
+	public void buildSettlement() {
+		if (!GameManager.Instance.myTurn()) return;
 		setPlayerSettlement();
-		if (Network.isServer)
-			settlements.BroadcastMessage ("hideSettlement");
-		else 
-			//TODO: send message to client who is building to hide settlements
+
+		if (!TurnState.freeBuild)
+			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);
+		settlements.BroadcastMessage ("hideSettlement");
 		if (StartGameManager.secondPhase) 
 			GameManager.Instance.distributeResourcesForSettlement(this);
+		GameManager.Instance.networkView.RPC ("syncSettlementBuild", RPCMode.Others, this.vertexIndex);
 		StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
-		//TODO: send update to clients with settlement building info
 	}
 	
 	void OnMouseDown() {
+		if (!GameManager.Instance.myTurn()) return;
 		if (!built) {
 			if (!visible) return;
-			if (Network.isClient) {
-				//TODO: send request to server for building settlement
-			} else {
-				buildSettlement();
-			}
+			buildSettlement();
 		} else {
 			if (upgrading) {
-				if (Network.isClient) {
-					//TODO: send request to server for upgrading to city
-				} else {
-					setPlayerCity();
-				}
+				upgradeToCity();
 			}
 			else if (stealing){
-				if (Network.isClient) {
-					//TODO: send request to server for stealing
-				} else {
-					executeStealing();
-				}
+				executeStealing();
 			}
 		}
 	}

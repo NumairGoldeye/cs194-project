@@ -12,15 +12,4 @@ public class DiceImages : MonoBehaviour {
 	public Texture2D dice4;
 	public Texture2D dice5;
 	public Texture2D dice6;
-	/*
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	*/
 }

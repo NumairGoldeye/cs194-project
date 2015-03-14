@@ -64,10 +64,10 @@ public class Player : MonoBehaviour {
 	private List<RoadClass> roads;
 
 
-	public Player(int id, Color color, NetworkPlayer p, string name)
+	public Player(int id, NetworkPlayer p, string name)
 	{
 		playerId = id;
-		playerColor = color;
+		playerColor = GameManager.Instance.playerColors[id];
 		networkPlayer = p;
 		playerName = name;
 		resourceCounts = new int[Enum.GetNames(typeof(ResourceType)).Length - 1];
@@ -76,6 +76,8 @@ public class Player : MonoBehaviour {
 		
 		settlements = new List<SettlementClass>();
 		roads = new List<RoadClass>();
+		victoryPoints = 0;
+		Debugger.Log ("PlayerHand", "Player hand initially: " + string.Join(",", Array.ConvertAll<int, string>(resourceCounts, Convert.ToString)));
 	}
 
 
@@ -117,16 +119,16 @@ public class Player : MonoBehaviour {
 	// OPtional second parameter for multiple resources
 	// Returns true if it works?
 	public bool AddResource(ResourceType resource, int amount = 1){
-		// Debug.Log(resource.ToString() + amount);
+//		Debugger.Log ("PlayerHand", "Resource Stolen..." + resource.ToString ());
 		if (amount < 0) {
 			RemoveResource(resource, -amount);
 			return true;
 		}
-
+		Debugger.Log ("PlayerHand", resource.ToString ());
 		resourceCounts[(int)resource] += amount;
 		totalResources += amount;
 
-		if (TurnState.currentPlayer == this){
+		if (playerId == GameManager.Instance.myPlayer.playerId && StartGameManager.finished){
 			hand.AddResourceCard(resource, this, amount);
 		}
 
@@ -187,8 +189,8 @@ public class Player : MonoBehaviour {
 		//TODO: check if there are enough resources to remove
 		resourceCounts[(int)resource] -= amount;
 		totalResources -= amount;
-
-		hand.RemoveResourceCard(resource, this, amount);
+		if (playerId == GameManager.Instance.myPlayer.playerId)
+			hand.RemoveResourceCard(resource, this, amount);
 		return true;
 	}
 
@@ -208,6 +210,7 @@ public class Player : MonoBehaviour {
 		for (i = 0; i < Enum.GetNames(typeof(ResourceType)).Length - 1; i++) {
 			int resourceInBucket = resourceCounts[i];
 			if (resourceInBucket + resourcesSeen > removeIndex) {
+
 				RemoveResource((ResourceType)i, 1);
 				return i;
 			}
@@ -223,7 +226,8 @@ public class Player : MonoBehaviour {
 		//TODO let the players choose
 		int resourcesToRemove = totalResources / 2;
 		for (int i = 0; i < resourcesToRemove; i++) {
-			removeRandomResource();
+			int resourceIndex = removeRandomResource();
+			GameManager.Instance.networkView.RPC("syncResources", RPCMode.Others, playerId, resourceIndex, -1);
 		}
 	}
 
@@ -269,7 +273,7 @@ public class Player : MonoBehaviour {
 			AddVictoryPoint();
 		}
 
-		if (this == TurnState.currentPlayer){
+		if (playerId == GameManager.Instance.myPlayer.playerId){
 //			Debug.Log("foo");
 			hand.AddDevCard(devCard, this);
 		} else {
@@ -284,7 +288,7 @@ public class Player : MonoBehaviour {
 		if (devCard == DevCardType.victoryPoint){
 			victoryPoints--;
 		}
-		if (this == TurnState.currentPlayer){
+		if (playerId == GameManager.Instance.myPlayer.playerId){
 			hand.RemoveDevCard(devCard, this);
 		}
 		return true;

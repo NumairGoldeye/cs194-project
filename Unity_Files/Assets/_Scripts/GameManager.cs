@@ -2,28 +2,38 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 /*
  * Currently this class is only used to set up the board.
  * */
 public class GameManager : MonoBehaviour {
 
-	private static BoardGraph graph;
+	public BoardGraph graph;
 
 	private static GameManager instance;
 
+	public GameObject settlements;
+
 	//Keep track of my player ID
-	public int myPlayer;
+	public Player myPlayer;
+	public string myPlayerName = "";
+
+	public Button RollButton;
+
 
 	public Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
 	public List<Player> players = new List<Player>();
 
+	public bool gameStarted = false;
+
 	public static GameManager Instance {
 		get {
-			if (instance == null) {
-				instance = new GameManager();
-				graph = StandardBoardGraph.Instance;
-			}
+//			if (instance == null) {
+//				instance = new GameManager();
+//				graph = StandardBoardGraph.Instance;
+//			}
 			return instance;
 		}
 	}
@@ -56,90 +66,56 @@ public class GameManager : MonoBehaviour {
 	public UnityEngine.UI.RawImage die2Image;
 
 
+//	void Update() {
+//		Debugger.Log ("PlayerHand", "Current Player ID: " + TurnState.currentPlayer.playerId.ToString () + ", Name: " + 
+//		              TurnState.currentPlayer.playerName + ", Color: " + TurnState.currentPlayer.playerColor.ToString ());
+//	}
+
 	/* --------------------------------------------------------------------
 	 * Server Functions
 	 * --------------------------------------------------------------------*/
 
-	public void respondToPlayerJoin(Player p, NetworkPlayer player)
+	public void respondToPlayerJoin(NetworkPlayer player, int playerID)
 	{
-		networkView.RPC ("associateWithPlayer", player, p.playerId); 
-		syncPlayersWithClients ();
-	}
-
-
-	public void syncPlayersWithClients()
-	{
-		for (int index = 0; index < GameManager.Instance.players.Count; index++) {
-			Player p = GameManager.Instance.players[index];
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
+			Debugger.Log ("PlayerHand", "Syncing Player... " + players[i].playerId.ToString());
+			Player p = GameManager.Instance.players[i];
 			networkView.RPC("syncPlayerInfo", RPCMode.Others, p.networkPlayer, p.playerId, p.playerName);
 		}
+		networkView.RPC ("associateWithPlayer", player, playerID); 
 	}
 
 	public void syncStartStateWithClients()
 	{
-		//Sync the tiles
 		for (int index = 0; index < numTiles; index++) {
-			TileClass tile = graph.getTile(index);
+			TileClass tile = GameManager.Instance.graph.getTile(index);
 			networkView.RPC("syncTileInfo", RPCMode.Others, index, tile.diceValue, Convert.ToInt32(tile.hasRobber), (int)tile.type);
         }
 	}
 
-	public Player createPlayer(NetworkPlayer p)
+	public Player createPlayer(NetworkPlayer p, string playerName)
 	{
-		string name = "Player " + GameManager.Instance.players.Count.ToString ();
-		Player player = new Player(GameManager.Instance.players.Count, GameManager.Instance.playerColors[GameManager.Instance.players.Count], p, name);
+		Player player = new Player(players.Count, p, playerName);
 		GameManager.Instance.players.Add (player);
 		if (p == Network.player) {
-			GameManager.Instance.myPlayer = player.playerId;
-			TurnState.currentPlayer = GameManager.Instance.players[GameManager.Instance.myPlayer];
-		} else 
-			GameManager.Instance.respondToPlayerJoin (player, p);
+			myPlayer = player;
+		}
 		return player;
 	}
 
-	public void removePlayer(NetworkPlayer player)
-	{
-		for (int i = 0; i < players.Count; i++) {
-			if (players[i].networkPlayer == player)
-				players.RemoveAt(i);
+	public void removeResources() {
+		foreach (Player player in GameManager.Instance.players) {
+			if (player.getTotalResources() > 7){ //TODO: make 7 into a constant in a reasonable place
+				player.removeHalfResources();
+			}
 		}
-		Debugger.Log ("Network", "Count: " + players.Count.ToString ());
-	}
-
-	public void syncResourcesWithClients()
-	{
-//		for (int index = 0; index < players.Count; index++) {
-//			networkView.RPC ("syncResources", RPCMode.Others, );
-//		}
-
-	}
-
-	public void handleRobberMove(int tileIndex)
-	{
-		TileClass tile = graph.getTiles()[tileIndex];
-		tile.receiveRobber ();
-		GameObject robber = GameObject.Find ("Robber");
-		networkView.RPC ("syncRobber", RPCMode.Others, robber.transform.position); 
-
-	}
-
-	/* --------------------------------------------------------------------*/
-
-	/* ---------------------------------------------------------------------
-	 * Client Requests
-	 * ---------------------------------------------------------------------*/
-
-	public void requestRobberMove(TileClass tile)
-	{
-		networkView.RPC ("handleRobberMove", RPCMode.Server, tile.tileIndex);
 	}
 
 	void distributeResources (int roll) {
-		if (Network.isClient) return;
-		BoardGraph graph = StandardBoardGraph.Instance;
+		BoardGraph g = GameManager.Instance.graph;
 		//Loop through the tiles and give out resources for ones with the corresponding die roll.
-		for (int index = 0; index < graph.TileCount; index++) {
-			TileClass tile = graph.getTile(index);
+		for (int index = 0; index < g.TileCount; index++) {
+			TileClass tile = g.getTile(index);
 			if (roll == tile.diceValue && !tile.hasRobber) {
 				//This is assuming that each tile keeps track of its vertices
 				List<SettlementClass> settlements = tile.getSettlements();
@@ -159,16 +135,195 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	/* ---------------------------------------------------------------------*/
 
+	/* --------------------------------------------------------------------*/
+
+
+	/* ---------------------------------------------------------
+	 * RPC Calls
+	 * ---------------------------------------------------------*/
+
+	[RPC]
+	 void syncCurrentPlayer(int playerID) {
+		TurnState.currentPlayer = GameManager.Instance.players[playerID];
+		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
+		if (GameManager.Instance.myTurn()) {
+			RollButton.interactable = true;
+		}
+//		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
+	}
+
+	[RPC]
+	void syncSteal(int ownerID, int resource) {
+		ResourceType type = (ResourceType)resource;
+		GameManager.Instance.players [ownerID].RemoveResource (type, 1);
+		TurnState.currentPlayer.AddResource (type, 1);
+	}
+
+	[RPC]
+	void syncSettlementBuild(int index) {
+		SettlementClass settlement = graph.getSettlement (index);
+		settlement.setPlayerSettlement ();
+	}
+	
+	[RPC]
+	void syncCityUpgrade(int index) {
+		SettlementClass settlement = graph.getSettlement (index);
+		settlement.setPlayerCity ();
+	}
+
+	[RPC]
+	void syncRoadBuild(int index) {
+		RoadClass road = graph.getRoad (index);
+		road.SetPlayer ();
+	}
+
+	[RPC]
+	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType) {
+		GameManager.Instance.gameStarted = true;
+		TileClass tile = graph.getTile(tileIndex);
+		tile.hasRobber = Convert.ToBoolean(hasRobber);
+		if (tile.hasRobber) tile.getRobber();
+		tile.assignType(diceValue, (ResourceType)resourceType);
+	}
+
+	[RPC]
+	void removePlayer(NetworkPlayer player) {
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
+			if (GameManager.Instance.players[i].networkPlayer == player) {
+				GameManager.Instance.players.RemoveAt(i);
+				for (int j = i+1; j < players.Count; j++) {
+					GameManager.Instance.players[i].playerId--;
+				}
+			}
+		}
+		//		Debugger.Log ("Network", "Count: " + players.Count.ToString ());
+	}
+
+	[RPC]
+	void updatePlayerName(string playerName, int playerID) {
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
+			if (GameManager.Instance.players[i].playerId == playerID) 
+				GameManager.Instance.players[i].playerName = playerName;
+		}
+	}
+
+	[RPC]
+	void associateWithPlayer(int playerID) {
+//		Debugger.Log ("Network", playerID.ToString ());
+		for (int i = 0; i < GameManager.Instance.players.Count; i++) {
+			if (GameManager.Instance.players[i].playerId == playerID)
+				myPlayer = GameManager.Instance.players[i];
+		}
+		networkView.RPC ("updatePlayerName", RPCMode.All, myPlayerName, playerID);
+//		Debugger.Log ("PlayerHand", "Associating player..." + myPlayer.playerId.ToString());
+	}
+	
+	[RPC]
+	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName) {
+//		Debugger.Log ("PlayerHand", "Syncing Player..." + playerID.ToString());
+		Player p = new Player (playerID, player, playerName);
+		if (!GameManager.Instance.players.Exists(x => x.playerId == p.playerId)) {
+		 	GameManager.Instance.players.Add (p);
+		}
+//		Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
+	}
+	
+	[RPC]
+	void syncDiceRoll(int die1, int die2) {
+		GameManager.Instance.die1 = die1;
+		GameManager.Instance.die2 = die2;
+		diceRoll = die1 + die2;
+		if (diceRoll == 7 && myTurn()) {
+			TurnState.SetSubStateType(TurnSubStateType.robbering);
+		}
+		displayDice (die1, die2);
+	}
+
+	[RPC]
+	void syncChatMessage(string playerName, string message) {
+		ChatLog.Instance.addMessage (playerName, message);
+	}
+
+	[RPC]
+	void syncRobberMove(int index) {
+		TileClass tile = graph.getTile (index);
+		GameManager.Instance.removeRobber ();
+		tile.getRobber ();
+	}
+
+	[RPC]
+	void syncResources(int playerID, int resourceType, int count) {
+		GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
+		Debugger.Log ("PlayerHand", "Resource Stolen: " + resourceType.ToString ());
+		Debugger.Log ("PlayerHand", "Player: " + playerID.ToString() + " has: " + 
+		              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[playerID].resourceCounts, Convert.ToString)));
+	}
+
+	[RPC]
+	void makeDiceRoll() {
+		die1 = UnityEngine.Random.Range (1, 7);
+		die2 = UnityEngine.Random.Range (1, 7);
+		diceRoll = die1 + die2;
+		
+		displayDice (die1, die2);
+		if (diceRoll == 7) {
+			removeResources();
+		} else {
+			distributeResources (diceRoll);
+		}
+		networkView.RPC ("syncDiceRoll", RPCMode.Others, die1, die2);
+	}
+
+	[RPC]
+	void startupGame() {
+		StartGameManager.Startup();
+	}
+
+	[RPC]
+	void nextPhaseStartup() {
+		if (myTurn()) {
+			StartGameManager.settlements.BroadcastMessage("showSettlementStartup");
+			StartGameManager.roads.BroadcastMessage("makeInvisible");
+			StartGameManager.builtSettlement = false;
+		}
+	}
+
+	[RPC]
+	void syncSetupPhase(int secondPhase, int finished) {
+		StartGameManager.secondPhase = Convert.ToBoolean (secondPhase);
+		if (Convert.ToBoolean(finished) == true)
+			StartGameManager.Finish();
+	}
+
+	[RPC]
+	void syncTurnCounter(int playerID) {
+		StartGameManager.playerTurnCounts[playerID] += 1;
+	}
+
+	[RPC]
+	void syncNextTurn(int turnCount) {
+		TurnState.numTurns = turnCount;
+	}
+
+	/* --------------------------------------------------------------------------------*/
+
+	public bool myTurn() {
+		return (TurnState.currentPlayer.playerId == myPlayer.playerId);
+	}
+
+	public void removeRobber() {
+		getRobberTile().hasRobber = false;
+	}
 
 	public void setRobberTile(TileClass tile) {
 		Debugger.Log ("Robber", tile.diceValue.ToString ());
-		tileWithRobber = tile;
+		GameManager.Instance.tileWithRobber = tile;
+		GameManager.Instance.tileWithRobber.hasRobber = true;
 	}
 
 	public TileClass getRobberTile() {
-		return tileWithRobber;
+		return GameManager.Instance.tileWithRobber;
 	}
 	
 	public void createTiles () {
@@ -279,18 +434,13 @@ public class GameManager : MonoBehaviour {
 	/// Rolls the dice.
 	/// </summary>
 	public void rollDice (){
+		if (!myTurn()) return;
 		if (Network.isClient) 
-			networkView.RPC ("rollDice", RPCMode.Server);
+			networkView.RPC ("makeDiceRoll", RPCMode.Server);
 		else {
-			die1 = UnityEngine.Random.Range (1, 7);
-			die2 = UnityEngine.Random.Range (1, 7);
-			diceRoll = die1 + die2;
-
-			displayDice (die1, die2);
-		
-			distributeResources (diceRoll);
-			networkView.RPC ("syncDiceRoll", RPCMode.Others, die1, die2);
+			makeDiceRoll();
 		}
+		TurnState.instance.EnterTradePhase ();
 	}
 	
 	void Awake () {
@@ -301,60 +451,4 @@ public class GameManager : MonoBehaviour {
 	public static void StaticReset(){
 		instance = null;
 	}
-
-
-	/* ---------------------------------------------------------
-	 * RPC Calls
-	 * ---------------------------------------------------------*/
-
-	[RPC]
-	void syncTileInfo(int tileIndex, int diceValue, int hasRobber, int resourceType)
-	{
-		TileClass tile = graph.getTile(tileIndex);
-		tile.hasRobber = Convert.ToBoolean(hasRobber);
-		if (tile.hasRobber) tile.getRobber();
-		tile.assignType(diceValue, (ResourceType)resourceType);
-	}
-
-	[RPC]
-	void associateWithPlayer(int playerID)
-	{
-		Debugger.Log ("Network", playerID.ToString ());
-		GameManager.Instance.myPlayer = playerID;
-	}
-
-	[RPC]
-	void syncPlayerInfo(NetworkPlayer player, int playerID, string playerName)
-	{
-		Player p = new Player (playerID, playerColors[playerID], player, playerName);
-		if (!players.Contains(p))
-			players.Add (p);
-	}
-	[RPC]
-	void syncTurnStateType(int state)
-	{
-		TurnState.stateType = (TurnStateType)state;
-	}
-	[RPC]
-	void syncDiceRoll(int die1, int die2)
-	{
-		GameManager.Instance.die1 = die1;
-		GameManager.Instance.die2 = die2;
-		Debugger.Log ("Network", "Dice Roll: " + (die1 + die2).ToString ());
-		displayDice (die1, die2);
-	}
-	[RPC]
-	void syncRobberMove(Vector3 position)
-	{
-		GameObject robber = GameObject.Find ("Robber");
-		robber.transform.position = position;
-
-	}
-	[RPC]
-	void syncResources(int playerID, int resourceType, int count)
-	{
-		GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
-	}
-
-	/* --------------------------------------------------------------------------------*/
 }

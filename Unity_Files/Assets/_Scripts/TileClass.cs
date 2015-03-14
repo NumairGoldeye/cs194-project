@@ -15,15 +15,8 @@ public class TileClass : MonoBehaviour {
 	// The index of the POSITION of this tile on the board. Tiles are indexed in row-major order.
 	public int tileIndex;
 
-	public void removeResources() {
-		foreach (Player player in GameManager.Instance.players) {
-			if (player.getTotalResources() > 7){ //TODO: make 7 into a constant in a reasonable place
-				player.removeHalfResources();
-			}
-		}
-	}
-
 	public void stealResources() {
+//		Debugger.Log ("PlayerHand", TurnState.currentPlayer.playerName + " is stealing...");
 		StandardBoardGraph graph = StandardBoardGraph.Instance;
 		List<SettlementClass> settlements = graph.getSettlementsForTile (this);
 
@@ -35,12 +28,15 @@ public class TileClass : MonoBehaviour {
 
 			settlementsAvailable ++;
 			settlement.toggleStealing();
-			//TODO Sync Settlement State & Display Text
 		}
 
 		if (settlementsAvailable > 0) {
-			UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
-			stealing.text = "Click on a settlement to steal a resource from that player!";
+			// TODO: fix this
+//			UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
+//			stealing.text = "Click on a settlement to steal a resource from that player!";
+		} else {
+			// If there is no one to steal from, we exit the robber state.
+			TurnState.SetSubStateType(TurnSubStateType.none);
 		}
 	}
 
@@ -51,31 +47,27 @@ public class TileClass : MonoBehaviour {
 		foreach (SettlementClass settlement in settlements) {
 			settlement.toggleStealing();
 		}
-
-		UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
-		stealing.text = "";
+//		UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
+//		stealing.text = "";
 	}
 
 	void OnMouseDown() {
+		if (!GameManager.Instance.myTurn()) return;
 		if (hasRobber) return;
 		if (GameManager.Instance.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) {
-			if (Network.isClient)
-				GameManager.Instance.requestRobberMove(this);
-			else 
-				GameManager.Instance.handleRobberMove(tileIndex);
+			receiveRobber ();
+
+			GameManager.Instance.networkView.RPC ("syncRobberMove", RPCMode.Others, this.tileIndex);
 		}
 	}
 
-	private void removeRobber() {
-		TileClass tileWithRobber = GameManager.Instance.getRobberTile ();
-		tileWithRobber.hasRobber = false;
-	}
+
 
 	public void receiveRobber () {
-		removeRobber ();
+		//TODO Network this function
+		GameManager.Instance.removeRobber ();
 		getRobber ();
 		DevConfirmButton.clickButton ();
-		removeResources ();//Each player has to remove half of their resources. For now, it will be random
 		stealResources ();
 		/* 
 		 * TODO: upon clicking this tile, close the dialogue box
@@ -86,7 +78,6 @@ public class TileClass : MonoBehaviour {
 	public void getRobber () {
 		GameObject robber = GameObject.Find ("Robber");
 		robber.transform.position = transform.position;
-		hasRobber = true;
 		GameManager.Instance.setRobberTile (this);
 	}
 

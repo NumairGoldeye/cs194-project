@@ -35,8 +35,13 @@ public class RoadClass : MonoBehaviour {
 		return false;
 	}
 
+	public void hideIfPossible() {
+		if (!built)
+			makeInvisible();
+	}
+
 	public void toggleRoad() {
-		if (isRoadReadyToBeShown(StandardBoardGraph.Instance.BuildableRoads(TurnState.currentPlayer)) && !built && !visible)
+		if (isRoadReadyToBeShown(StandardBoardGraph.Instance.BuildableRoads(GameManager.Instance.myPlayer)) && !built && !visible)
 			makeVisible ();
 		else if (visible && !built)
 			makeInvisible();
@@ -61,16 +66,9 @@ public class RoadClass : MonoBehaviour {
 	}
 
 	public void toggleRoadStartup() {
-		if (isRoadReadyToBeShown (StandardBoardGraph.Instance.BuildableRoads (TurnState.currentPlayer)) && !built && !visible && checkStartupCondition ())
+		if (isRoadReadyToBeShown (StandardBoardGraph.Instance.BuildableRoads (GameManager.Instance.myPlayer)) && !built && !visible && checkStartupCondition ())
 			makeVisible ();
 	}
-
-	public void hideIfPossible(){
-		if (!built) {
-			makeInvisible();
-		}
-	}
-
 
 	public void makeInvisible() {
 		if (built) return;
@@ -87,10 +85,11 @@ public class RoadClass : MonoBehaviour {
 		renderer.material.color = temp;
 	}
 
-	void SetPlayer(Player p){
-		p.AddRoad (this);
-		renderer.material.color = p.playerColor;
-		ownerId = p.playerId;
+	public void SetPlayer(){
+		built = true;
+		TurnState.currentPlayer.AddRoad (this);
+		renderer.material.color = TurnState.currentPlayer.playerColor;
+		ownerId = TurnState.currentPlayer.playerId;
 	}
 
 	// To be used if somebody changes their mind about a roadbuilding dev card
@@ -100,11 +99,10 @@ public class RoadClass : MonoBehaviour {
 		built = false;
 	}
 
-	private void buildRoad() {
-		built = true;
-		SetPlayer(TurnState.currentPlayer);
+	public void buildRoad() {
+		if (!GameManager.Instance.myTurn()) return;
 
-		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
+		SetPlayer();
 
 		if (TurnState.CheckSecondRoadBuilt(this)){
 			if (Network.isServer)
@@ -112,19 +110,20 @@ public class RoadClass : MonoBehaviour {
 			else 
 				//TODO: send message to client who is building the road to make his roads invisible
 				Debugger.Log ("foo", "bar"); 
+
 		}
 		
 		if (!TurnState.freeBuild){
 			BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 		}
-		//TODO: send update to clients about road being build
+		Debugger.Log ("PlayerHand", "Road owner: " + ownerId.ToString ());
+		GameManager.Instance.networkView.RPC("syncRoadBuild", RPCMode.Others, this.edgeIndex);
+		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 	}
 
 	void OnMouseDown() {
 		if (!visible || built) return;
-		if (Network.isClient) {
-			//TODO: send request to server to build this road
-		} else {
+		if (GameManager.Instance.myTurn()) {
 			buildRoad();
 		}
 

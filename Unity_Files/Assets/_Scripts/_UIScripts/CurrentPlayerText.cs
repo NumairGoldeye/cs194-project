@@ -10,6 +10,7 @@ public class CurrentPlayerText : MonoBehaviour {
 	// public DevCardType cardType;
 	// public Player player;
 	Text txt;
+	Color color;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,11 @@ public class CurrentPlayerText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// player = TurnState.currentPlayer;
-//		txt.text = TurnState.currentPlayer.playerName + "'s Turn";
+
+		if (GameManager.Instance.gameStarted) {
+			txt.text = TurnState.currentPlayer.playerName + "'s Turn";
+			color = TurnState.currentPlayer.playerColor;
+		}
 	}
 
 }

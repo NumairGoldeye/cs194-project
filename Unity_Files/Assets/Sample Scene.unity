@@ -10628,7 +10628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb0fed5e0a344372aa7c2047293bdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkObj: {fileID: 841112061}
+  network: {fileID: 841112062}
+  gameLobby: {fileID: 385792055}
   gameListNamePrefab: {fileID: 173450, guid: f0bf88fc1cc30421e835d2b7d240c9c0, type: 2}
   listPanel: {fileID: 1137732555}
   nameField: {fileID: 793604214}
@@ -45094,6 +45095,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11416554, guid: a7623298ca582499392baddaad2472a2, type: 2}
+      propertyPath: gameLobby
+      value: 
+      objectReference: {fileID: 385792055}
+    - target: {fileID: 11416554, guid: a7623298ca582499392baddaad2472a2, type: 2}
+      propertyPath: network
+      value: 
+      objectReference: {fileID: 841112062}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7623298ca582499392baddaad2472a2, type: 2}
   m_RootGameObject: {fileID: 653292828}

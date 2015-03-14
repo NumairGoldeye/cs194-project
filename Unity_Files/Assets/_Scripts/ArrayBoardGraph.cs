@@ -419,20 +419,28 @@ public class ArrayBoardGraph : BoardGraph {
 
 	//Player AI strategy updater: determine and adjust in real time what strategy to adopt 
 	public int strategyUpdate(Player player){
+		//initialize strategy as 1, longest road strategy 
+		int strategy = 1; 
+		
+		List <Player> currentplayers = Player.allPlayers; 
 		//If the current AI's longestroad is no shorter than the best longestroad - 2, then go for the longest road
-	 if (longestroad (player) >= longestroad (player)) {
-				// set the strategy index to 1, return 
-			return 1;
+		foreach (Player x in currentplayers) {
+			if (longestroad (player) < longestroad (x) - 2) {
+				strategy = 2;
+				break; 
+			}
 		}
+		
 		//check the largestarmy difference, if larger than 1, give up largest army
-		else if(true){
-		//set the strategy index to 2, return 
-			return 2;
-		}else{
-			return 3;
+		foreach (Player y in currentplayers) {
+			if(y.largestarmyForAI() > player.largestarmyForAI() + 1){
+				strategy  =3 ;
+				break ;
+			}
 		}
-
-		return 0;
+		
+		
+		return strategy;
 	}
 
 }

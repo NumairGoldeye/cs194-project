@@ -116,6 +116,15 @@ public class Player : MonoBehaviour {
 		return resourceCounts[4];
 	}
 
+	//total amount of dev cards equal to largest army potential in AI's eyes 
+	public int largestarmyForAI(){
+		int count = 0;
+
+		foreach(int dev in devCardCounts){
+			count =  count + dev; 
+		}
+		return count;
+	}
 
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure

@@ -418,6 +418,7 @@ public class ArrayBoardGraph : BoardGraph {
 	}
 
 	//Player AI strategy updater: determine and adjust in real time what strategy to adopt 
+	// 1 indicates longest road strategy; 2 means largest army; 3 means just keeping on building city and settlement 
 	public int strategyUpdate(Player player){
 		//initialize strategy as 1, longest road strategy 
 		int strategy = 1; 

@@ -29,7 +29,7 @@ public class GameLobby : MonoBehaviour {
 		Debugger.Log("GameLobby", "start");
 		network.gameLobby = this;
 
-
+		hostGameBtn.onClick.AddListener(HostGame);
 	}
 	
 	// Update is called once per frame
@@ -48,7 +48,7 @@ public class GameLobby : MonoBehaviour {
 
 
 
-		Debugger.Log ("GameLobby", "hosted");
+
 	}
 
 

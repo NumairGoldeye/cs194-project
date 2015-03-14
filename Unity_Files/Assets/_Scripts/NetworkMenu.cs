@@ -39,6 +39,8 @@ public class NetworkMenu : MonoBehaviour {
 
 	private void OnServerInitialized ()
 	{
+
+		Debugger.Log("GameLobby", "onserverInit");
 		connected = true;
 		MasterServer.RegisterHost(gameType, gameName);
 		GameManager.Instance.createPlayer (Network.player, GameManager.Instance.myPlayerName);
@@ -112,14 +114,19 @@ public class NetworkMenu : MonoBehaviour {
 		return hostData;
 	}
 
-	public void InitializeGame(string gameName, string playerName){
+	public void InitializeGame(string gName, string playerName){
 
 
-		if (gameName.Equals("") || playerName.Equals("")) return;
+		if (gName.Equals("") || playerName.Equals("")) return;
 
+		Debugger.Log("GameLobby", "initgame, playername: " + playerName + " , gamename: " + gName );
+
+		gameName = gName;
 		GameManager.Instance.myPlayerName = playerName;
 		NetworkConnectionError error = Network.InitializeServer(1000, 6832 ,true);
 	}
+
+
 
 
 	private void OnGUI()

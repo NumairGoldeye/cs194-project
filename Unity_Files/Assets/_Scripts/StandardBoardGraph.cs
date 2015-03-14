@@ -5,6 +5,11 @@ using System.Collections.Generic;
 // The graph used for a standard game of Catan.
 // It is a Singleton, in order to get the instance, use
 // <code>BoardGraph graph = StandardBoardGraph.Instance;</code>
+//
+// The numbers used to link the edges, verticies, and tiles
+// are based on the standard Settlers of Catan board.  Each tile,
+// settlement, and road is assigned a number in the scene, this
+// instance links them properly.
 using System.Collections;
 
 

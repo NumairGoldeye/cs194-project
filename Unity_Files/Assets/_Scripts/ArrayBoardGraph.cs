@@ -252,19 +252,28 @@ public class ArrayBoardGraph : BoardGraph {
 
 	// In the beginnning, the AI calls "BuildSettlement" to set 2 settlements of highest frequencies, and build 2 roads randomly
 	//At each turn, the AI calls: 
+	// 0. Update strategy with strateyUpdate, decide 1-3
 	// 1. Check resource cards that he has, get a list of them; 
 	// 2.if they contain "wood, brick" then call "BuildRoad"
 	//								if return null(1. has place to build good set 2. no good road), then do not build road 
 	// 										if contain "wood, brick, sheep, wheat", BuildSettlement (if null, build random road) 
 	//										if not contain, call BuildSettlement to see if null-> build Random Road 
-	//3. If contain " 2 wheat 3 ore", build city  
+	//								if return yes, then check strategy, if strategy is not 1 and longestroad is bigger or equal to 4
+	// 										then build road; else do not build, save for future settlement 
+	//3. If contain " 2 wheat 3 ore", build city at all times
+	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
+	//City always trumphs  
+	//full strategy 
 
 	//where to build settlements: 1. first two settlements   2. 3rd settlement and beyond 
 
 	//The priority of the first two settlements and beyond, is firstly having more chances to hit the dice, secondly having enough variety of resources
 	//to build settlement and city in the future. 
 
-	//This function searches through all the buildable settlement positions and identifies the one with most frequency. 
+	//This function searches through all the buildable settlement positions and identifies the one with most frequency. \
+
+
+
 	public SettlementClass BuildSettlement(Player player){
 		List<SettlementClass> set = BuildableSettlements(player);
 		int sum = 0;
@@ -387,7 +396,7 @@ public class ArrayBoardGraph : BoardGraph {
 		
 	//Frequecny module: return the frequecny of happening for each tile 
 	public int frequency(TileClass tile){
-		int result = 0; 
+		int result = 0;
 		int dice = tile.diceValue;
 		if (dice == 6 || dice == 8) {
 						result = 5;
@@ -408,5 +417,22 @@ public class ArrayBoardGraph : BoardGraph {
 		return result;
 	}
 
+	//Player AI strategy updater: determine and adjust in real time what strategy to adopt 
+	public int strategyUpdate(Player player){
+		//If the current AI's longestroad is no shorter than the best longestroad - 2, then go for the longest road
+	 if (longestroad (player) >= longestroad (player)) {
+				// set the strategy index to 1, return 
+			return 1;
+		}
+		//check the largestarmy difference, if larger than 1, give up largest army
+		else if(true){
+		//set the strategy index to 2, return 
+			return 2;
+		}else{
+			return 3;
+		}
+
+		return 0;
+	}
 
 }

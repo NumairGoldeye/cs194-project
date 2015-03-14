@@ -29,6 +29,7 @@ public static class TradeManager {
 		}
 		player.RemoveResource (toGive, cost);
 		player.AddResource (toGet, 1);
+		// Chris do networking
 
 	}
 
@@ -44,6 +45,7 @@ public static class TradeManager {
 		foreach (KeyValuePair<ResourceType, int> pair in counter) {
 			giver.RemoveResource (pair.Key, pair.Value);
 			receiver.AddResource (pair.Key, pair.Value);
+			// Chris do networking
 		}
 	}
 		              

@@ -106,6 +106,10 @@ public class Player : MonoBehaviour {
 		return resourceCounts[2];
 	}
 
+	
+	public int orecount(Player player){
+		return resourceCounts[3];
+	}
 
 
 	/// <summary>

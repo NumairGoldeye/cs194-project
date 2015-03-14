@@ -1880,11 +1880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8d6931efdad40f5adfe6b97b917a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RollDice: {fileID: 399267909}
-  TradeButton: {fileID: 406142413}
-  BuildButton: {fileID: 1646062217}
-  EndPhaseButton: {fileID: 1002046774}
-  DevelopmentCardButton: {fileID: 563895145}
 --- !u!1 &52180052
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,6 +3374,14 @@ Prefab:
       propertyPath: networkObj
       value: 
       objectReference: {fileID: 841112061}
+    - target: {fileID: 22430152, guid: a7623298ca582499392baddaad2472a2, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 22430152, guid: a7623298ca582499392baddaad2472a2, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -258
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7623298ca582499392baddaad2472a2, type: 2}
   m_RootGameObject: {fileID: 653292828}
@@ -34714,8 +34717,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6, y: -8}
-  m_SizeDelta: {x: -433, y: -226}
+  m_AnchoredPosition: {x: -6, y: -24}
+  m_SizeDelta: {x: -433, y: -258}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1137732557
 MonoBehaviour:
@@ -54302,7 +54305,7 @@ RectTransform:
   m_Father: {fileID: 2025256563}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: .600000024, y: 0}
   m_SizeDelta: {x: 9.80000019, y: 20}
   m_Pivot: {x: .5, y: .5}

@@ -44,3 +44,8 @@ Trading:
     
 Chat:
 - ChatLog.cs: Handles everything related to the Chat Box.
+
+ComboBox:
+- There is a folder called "ComboBox".  None of this code was written by us (besides a few
+    tweaks), credit goes to Kender on the unity developers forum.  Retrieved from:
+    http://forum.unity3d.com/threads/a-working-stylable-combo-box-drop-down-list.264167/#post-1913899

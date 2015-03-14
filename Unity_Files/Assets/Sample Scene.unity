@@ -571,7 +571,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400278, guid: 99186d3c1e3c6442289e09706aae15b7, type: 2}
   m_PrefabInternal: {fileID: 2073070043}
   m_GameObject: {fileID: 7111331}
-  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: -.707107008}
+  m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
   m_LocalPosition: {x: 0, y: -.125, z: 0}
   m_LocalScale: {x: .075000003, y: .075000003, z: .075000003}
   m_Children: []
@@ -16837,7 +16837,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467351421}
-  m_LocalRotation: {x: .451656282, y: 0, z: 0, w: .892192006}
+  m_LocalRotation: {x: .451656312, y: 0, z: 0, w: .892192066}
   m_LocalPosition: {x: -.0930000022, y: 3.12199998, z: -2.83899999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -29589,6 +29589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2d79fcad814c9ba2067c373ffaeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStrategy: 0
   playerActive: 1
   playerName: Player C
   playerId: 0
@@ -29600,6 +29601,7 @@ MonoBehaviour:
   totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
+  hasLargestArmy: 0
   hasLongestRoad: 0
 --- !u!1 &811844315
 GameObject:
@@ -40766,7 +40768,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400278, guid: 99186d3c1e3c6442289e09706aae15b7, type: 2}
   m_PrefabInternal: {fileID: 2077158952}
   m_GameObject: {fileID: 1130329172}
-  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: -.707107008}
+  m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
   m_LocalPosition: {x: -.0949999988, y: -.125, z: .174999997}
   m_LocalScale: {x: .075000003, y: .075000003, z: .075000003}
   m_Children: []
@@ -48004,6 +48006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2d79fcad814c9ba2067c373ffaeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStrategy: 0
   playerActive: 1
   playerName: Player B
   playerId: 0
@@ -48015,6 +48018,7 @@ MonoBehaviour:
   totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
+  hasLargestArmy: 0
   hasLongestRoad: 0
 --- !u!4 &1349390630
 Transform:
@@ -52080,6 +52084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2d79fcad814c9ba2067c373ffaeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStrategy: 0
   playerActive: 1
   playerName: Player D
   playerId: 0
@@ -52091,6 +52096,7 @@ MonoBehaviour:
   totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
+  hasLargestArmy: 0
   hasLongestRoad: 0
 --- !u!4 &1462816487
 Transform:
@@ -55121,11 +55127,11 @@ MonoBehaviour:
   portTradeConsole: {fileID: 1044583680}
   playerTradeConsole: {fileID: 901807112}
   tradeOptionConsole: {fileID: 1041392388}
-  tradeButton: {fileID: 919050338}
-  playerToTrade: {fileID: 2025805031}
+  tradeButton: {fileID: 0}
+  playerToTrade: {fileID: 0}
   portToGiveBox: {fileID: 1912332911}
   playerToTradeBox: {fileID: 2025805031}
-  toGive: {fileID: 1428602051}
+  toGive: {fileID: 0}
 --- !u!1 &1562044469
 GameObject:
   m_ObjectHideFlags: 0
@@ -75118,6 +75124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2d79fcad814c9ba2067c373ffaeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStrategy: 0
   playerActive: 1
   playerName: Player 1
   playerId: 0
@@ -75129,6 +75136,7 @@ MonoBehaviour:
   totalResources: 0
   lastCardTypeDrawn: 0
   numUsedKnights: 0
+  hasLargestArmy: 0
   hasLongestRoad: 0
 --- !u!1 &2138561227
 GameObject:

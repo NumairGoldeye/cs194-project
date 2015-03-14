@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
 
 	//AI parameter: playerStrategy indicates what strategy AI uses, depending on what the current situation
 	//of other players and the current board scenario 
-	public int playerStrategy = 0; 
+	public int playerStrategy; 
 	// 1 indicates the longestroad strategy 
 	// 2 indicates largest army 
 	// 3 indicates just building settlement and city 
@@ -116,6 +116,7 @@ public class Player : MonoBehaviour {
 		return resourceCounts[4];
 	}
 
+
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure
 	/// </summary>
@@ -126,6 +127,8 @@ public class Player : MonoBehaviour {
 		}
 		return null;
 	}
+
+
 
 	public static void StorePlayer(Player player){
 		// Player.playerCount++; - make sure this is called somewhere in Start()
@@ -188,6 +191,11 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	//set the initial strategy 
+	void Strategyset(){
+		playerStrategy = 0;
 	}
 
 

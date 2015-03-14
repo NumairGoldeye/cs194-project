@@ -387,7 +387,7 @@ public class ArrayBoardGraph : BoardGraph {
 		
 	//Frequecny module: return the frequecny of happening for each tile 
 	public int frequency(TileClass tile){
-		int result = 0; 
+		int result = 0;
 		int dice = tile.diceValue;
 		if (dice == 6 || dice == 8) {
 						result = 5;
@@ -408,5 +408,15 @@ public class ArrayBoardGraph : BoardGraph {
 		return result;
 	}
 
+	//Player AI strategy updater: determine and adjust in real time what straegy to adopt 
+	public int strategyUpdate(Player player){
+		//If the current AI's longestroad is no shorter than the best longestroad - 2, then go for the longest road
+	 if (longestroad (player) >= longestroad (player)) {
+				
+		
+		}
+
+		return 0;
+	}
 
 }

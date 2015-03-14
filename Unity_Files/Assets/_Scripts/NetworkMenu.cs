@@ -31,6 +31,7 @@ public class NetworkMenu : MonoBehaviour {
 	private void OnPlayerConnected(NetworkPlayer player) 
 	{
 		Debugger.Log ("Network", "Player Connected");
+		Debugger.Log ("GameLobby", "Player Connected");
 		Player p = GameManager.Instance.createPlayer (player, "");
 //		Debugger.Log ("Network", p.playerId.ToString ());
 		//Respond to player with it's information

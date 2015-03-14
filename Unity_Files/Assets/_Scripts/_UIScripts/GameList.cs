@@ -9,8 +9,8 @@ using System.Collections.Generic;
 public class GameList : MonoBehaviour {
 
 
-	private NetworkMenu network; // set in inspector from NetworkMenu gameobject
-	public GameObject networkObj;
+	public NetworkMenu network; // set in inspector from NetworkMenu gameobject
+	public GameObject gameLobby; //also inspector
 
 	// The little text tag for the name of a game
 	public GameObject gameListNamePrefab; // Set in inspector
@@ -26,10 +26,7 @@ public class GameList : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		network = networkObj.GetComponent<NetworkMenu>();
 		network.gameList = this;
-
 		joinGameButton.onClick.AddListener(JoinGameListener);
 	}
 	
@@ -101,6 +98,8 @@ public class GameList : MonoBehaviour {
 		if (chosenGame != null && !nameField.text.Equals("")) {
 			GameManager.Instance.myPlayerName = nameField.text;
 			network.Connect(chosenGame);
+			SwitchToLobbyView();
+
 		}
 	}
 
@@ -109,4 +108,8 @@ public class GameList : MonoBehaviour {
 		JoinGame();
 	}
 
+	void SwitchToLobbyView(){
+		gameObject.SetActive(false);
+		gameLobby.SetActive(true);
+	}
 }

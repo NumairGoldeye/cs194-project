@@ -17,11 +17,7 @@ using System.Collections.Generic;
 public class GameLobby : MonoBehaviour {
 
 	// Set in inspector
-	public NetworkMenu network; 
-	public InputField gameNameInput;
-	public InputField hostNameInput;
-	public Button hostGameBtn; 
-
+	public NetworkMenu networkMenu;
 
 	public GameObject playerListPanel;
 	public GameObject playerNameTextPrefab;
@@ -33,33 +29,20 @@ public class GameLobby : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Debugger.Log("GameLobby", "start");
-		network.gameLobby = this;
 
-		hostGameBtn.onClick.AddListener(HostGame);
 		startGameBtn.onClick.AddListener(StartGame);
-
+		networkMenu.gameLobby = this;
 
 		ClearPlayerList();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		string gameName = gameNameInput.text;
-		string hostName = hostNameInput.text;
-
-		hostGameBtn.interactable = !(gameName.Equals("") || hostName.Equals(""));
 		startGameBtn.interactable = !GameManager.Instance.gameStarted && Network.isServer;
 	}
 
-	public void HostGame(){
-		string gameName = gameNameInput.text;
-		string hostName = hostNameInput.text;
-
-		network.InitializeGame(gameName, hostName);
-	}
-
 	public void StartGame(){
-		network.GameStart();
+		networkMenu.GameStart();
 	}
 	
 	public void UpdatePlayerList(){
@@ -70,6 +53,8 @@ public class GameLobby : MonoBehaviour {
 	}
 
 	void PopulatePlayerList(){
+		AddPlayerListName("Host: " + GameManager.Instance.myPlayerName);
+
 		foreach(Player p in GameManager.Instance.players){
 			Debug.Log(p.playerName);
 			AddPlayerListName(p.playerName);

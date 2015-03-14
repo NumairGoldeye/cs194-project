@@ -433,6 +433,15 @@ public class Player : MonoBehaviour {
 //		TurnState.CheckVictory();
 	}
 
+	public bool HasResources(TradeCounter counter) {
+		foreach (KeyValuePair<ResourceType, int> pair in counter) {
+			if (!HasResourceAmount(pair.Key, pair.Value)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 
 	/// <summary>
 	/// Call this whenever the cards or resouces are updated

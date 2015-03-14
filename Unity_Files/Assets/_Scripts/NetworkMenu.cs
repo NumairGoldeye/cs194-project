@@ -35,6 +35,10 @@ public class NetworkMenu : MonoBehaviour {
 //		Debugger.Log ("Network", p.playerId.ToString ());
 		//Respond to player with it's information
 		GameManager.Instance.respondToPlayerJoin (player, p.playerId);
+
+		if (gameLobby != null){
+			gameLobby.UpdatePlayerList();
+		}
 	}
 
 	private void OnServerInitialized ()
@@ -73,6 +77,10 @@ public class NetworkMenu : MonoBehaviour {
 	{
 		if (!GameManager.Instance.gameStarted)
 			GameManager.Instance.networkView.RPC ("removePlayer", RPCMode.All, player);
+
+		if (gameLobby != null){
+			gameLobby.UpdatePlayerList();
+		}
 	}
 	
 
@@ -116,19 +124,34 @@ public class NetworkMenu : MonoBehaviour {
 
 	public void InitializeGame(string gName, string playerName){
 
-
 		if (gName.Equals("") || playerName.Equals("")) return;
-
 		Debugger.Log("GameLobby", "initgame, playername: " + playerName + " , gamename: " + gName );
-
 		gameName = gName;
 		GameManager.Instance.myPlayerName = playerName;
 		NetworkConnectionError error = Network.InitializeServer(1000, 6832 ,true);
 	}
 
-
-
-
+	//KEEP These Actions Need to happen when the host starts the game
+	public void GameStart(){
+		
+		//					int startingPlayerID = Random.Range(0, GameManager.Instance.players.Count);
+		int startingPlayerID = 0;
+		GameManager.Instance.networkView.RPC("syncCurrentPlayer", RPCMode.All, startingPlayerID);
+		GameManager.Instance.createTiles();
+		GameManager.Instance.syncStartStateWithClients();
+		GameManager.Instance.gameStarted = true;
+		GameManager.Instance.networkView.RPC("startupGame", RPCMode.All);
+		//					GameManager.Instance.graph.getSettlement(4).buildSettlement();
+		//					GameManager.Instance.myPlayer.AddResource(ResourceType.Brick, 1);
+		//					GameManager.Instance.myPlayer.AddResource(ResourceType.Sheep, 1);
+		//					GameManager.Instance.myPlayer.AddResource(ResourceType.Wheat, 1);
+		//					GameManager.Instance.myPlayer.AddResource(ResourceType.Wood, 1);
+		Debugger.Log("PlayerHand", "Player has: " + GameManager.Instance.myPlayer.totalResources.ToString() + " resources");
+		
+		//					Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
+	}
+	
+	
 	private void OnGUI()
 	{
 		if (!connected) {

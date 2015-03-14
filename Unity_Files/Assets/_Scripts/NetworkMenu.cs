@@ -13,6 +13,7 @@ public class NetworkMenu : MonoBehaviour {
 	public bool hostListAvailable = false;
 
 	public GameList gameList;
+	public GameLobby gameLobby;
 
 	void Start(){
 		SetupConnection();
@@ -111,14 +112,18 @@ public class NetworkMenu : MonoBehaviour {
 		return hostData;
 	}
 
+	public void InitializeGame(string gameName, string playerName){
+
+
+		if (gameName.Equals("") || playerName.Equals("")) return;
+
+		GameManager.Instance.myPlayerName = playerName;
+		NetworkConnectionError error = Network.InitializeServer(1000, 6832 ,true);
+	}
 
 
 	private void OnGUI()
 	{
-		Network.natFacilitatorIP = connectionIP;
-		Network.natFacilitatorPort = facilitatorPortNumber;
-		MasterServer.ipAddress = connectionIP;
-		MasterServer.port = masterServerPortNumber;
 		if (!connected) {
 			//We should rework this GUI so that there are two buttons: Host & Connect
 			// Clicking host will prompt a host name, and connect will display a list of hosted games

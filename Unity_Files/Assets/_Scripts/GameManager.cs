@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour {
 				tile.hasRobber = false;
 			}
 		}
-		GameObject.Find("Forests").transform.position = new Vector3(.8f, 0.0f, .8f);
+		GameObject.Find("Forests").transform.position = new Vector3(.3f, 0.0f, .25f);
 	}
 
 	public static void distributeResourcesForSettlement(SettlementClass settlement) {

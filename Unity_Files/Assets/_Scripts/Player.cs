@@ -35,6 +35,14 @@ public class Player : MonoBehaviour {
 	public static List<Player> allPlayers = new List<Player>();
 	public static Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
 
+	//AI parameter: playerStrategy indicates what strategy AI uses, depending on what the current situation
+	//of other players and the current board scenario 
+	public int playerStrategy = 0; 
+	// 1 indicates the longestroad strategy 
+	// 2 indicates largest army 
+	// 3 indicates just building settlement and city 
+
+
 
 	/// <summary>
 	/// Readonly to check playerActive. Modify using setPlayerActive(bool);
@@ -65,6 +73,7 @@ public class Player : MonoBehaviour {
 
 	public DevCardType lastCardTypeDrawn;
 	public int numUsedKnights = 0;
+	public bool hasLargestArmy = false;
 	public bool hasLongestRoad = false;
 
 	private List<SettlementClass> settlements;
@@ -260,7 +269,6 @@ public class Player : MonoBehaviour {
 	// Don't know why i want it to return anything. sigh
 	public bool RemoveResource(ResourceType resource, int amount = 1){
 		//TODO: check if there are enough resources to remove
-		Debug.Log ((int)resource);
 		resourceCounts[(int)resource] -= amount;
 		totalResources -= amount;
 
@@ -271,15 +279,6 @@ public class Player : MonoBehaviour {
 	// CHecks if a player at least has some number of resources
 	public bool HasResourceAmount(ResourceType resource, int amount){
 		return GetResourceCount(resource) >= amount;
-	}
-
-	public bool HasResources(TradeCounter counter) {
-		foreach (KeyValuePair<ResourceType, int> pair in counter) {
-			if (!HasResourceAmount(pair.Key, pair.Value)) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 	public int getTotalResources() {

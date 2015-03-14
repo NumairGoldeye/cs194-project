@@ -36,6 +36,7 @@ public class PlayerTradeButton : MonoBehaviour {
 		}
 		tradeGiveText.text = "Give: " + PlayerTradeButton.GetCounterText(turnPlayerToGetCounter);
 		tradeGetText.text = "Get: " + PlayerTradeButton.GetCounterText(turnPlayerToGiveCounter);
+		// Chris do networking
 		tradeConfirm.SetActive (true);
 	}
 

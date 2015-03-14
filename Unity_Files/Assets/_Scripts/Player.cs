@@ -90,6 +90,11 @@ public class Player : MonoBehaviour {
 		allPlayers = new List<Player>();
 	}
 
+	//resource getter for AI to understand what strategy to use for AI itself 
+
+	public int sheetcount(Player player){
+		return resourceCounts[0];
+	}
 
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure

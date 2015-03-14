@@ -263,6 +263,7 @@ public class ArrayBoardGraph : BoardGraph {
 	//3. If contain " 2 wheat 3 ore", build city at all times
 	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
 	//City always trumphs  
+	//full strategy 
 
 	//where to build settlements: 1. first two settlements   2. 3rd settlement and beyond 
 

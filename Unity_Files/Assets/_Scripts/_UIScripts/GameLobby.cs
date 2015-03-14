@@ -21,6 +21,8 @@ public class GameLobby : MonoBehaviour {
 	public InputField gameNameInput;
 	public InputField hostNameInput;
 	public Button hostGameBtn; 
+
+
 	public GameObject playerListPanel;
 	public GameObject playerNameTextPrefab;
 	public Button startGameBtn; 

@@ -10,12 +10,21 @@ public class NetworkMenu : MonoBehaviour {
 	private int facilitatorPortNumber = 50005;
 
 	private bool connected = false;
+	public bool hostListAvailable = false;
+
+	public GameList gameList;
+
+	void Start(){
+		SetupConnection();
+	}
+
 
 	//Client Initializes their GameManager
 	private void OnConnectedToServer()
 	{
 
 		Debugger.Log ("Network", "Connected To Server");
+		Debugger.Log ("GameList", "Connected To Server");
 		connected = true;
 	}
 
@@ -47,15 +56,22 @@ public class NetworkMenu : MonoBehaviour {
 
 	private void OnMasterServerEvent(MasterServerEvent message)
 	{
-		if (message == MasterServerEvent.HostListReceived)
-			processHostList();
+		if (message == MasterServerEvent.HostListReceived){
+			hostListAvailable = true;
+			if (gameList != null){
+				gameList.RefreshList();
+			}
 
+			processHostList();
+			
+		}
 	}
 
 	private void OnPlayerDisconnected(NetworkPlayer player)
 	{
 		GameManager.Instance.removePlayer (player);
 	}
+	
 
 	//TODO: Make a display of all of the available games
 	private void processHostList()
@@ -70,12 +86,32 @@ public class NetworkMenu : MonoBehaviour {
 				Network.Connect(hostData[i]);
 			}
 		}
+
 	}
 
+	public void Connect(HostData data){
+		Network.Connect(data);
+	}
+
+
+	void SetupConnection(){
+		Network.natFacilitatorIP = connectionIP;
+		Network.natFacilitatorPort = facilitatorPortNumber;
+		MasterServer.ipAddress = connectionIP;
+		MasterServer.port = masterServerPortNumber;
+	}
+
+
 	public HostData[] getHostData(){
+		if (!hostListAvailable){
+			MasterServer.RequestHostList(gameType);
+			Debugger.Log("GameList", "requesting");
+		}
 		HostData[] hostData = MasterServer.PollHostList ();
 		return hostData;
 	}
+
+
 
 	private void OnGUI()
 	{

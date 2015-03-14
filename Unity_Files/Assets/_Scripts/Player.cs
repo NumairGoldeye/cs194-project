@@ -96,6 +96,12 @@ public class Player : MonoBehaviour {
 		return resourceCounts[0];
 	}
 
+	
+	public int woodcount(Player player){
+		return resourceCounts[1];
+	}
+
+
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure
 	/// </summary>

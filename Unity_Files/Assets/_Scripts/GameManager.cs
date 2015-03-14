@@ -30,10 +30,6 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance {
 		get {
-//			if (instance == null) {
-//				instance = new GameManager();
-//				graph = StandardBoardGraph.Instance;
-//			}
 			return instance;
 		}
 	}

@@ -114,10 +114,12 @@ public class PlayerHand : MonoBehaviour {
 		
 		cardWidth = handBackground.rectTransform.rect.height ;
 		instance = this;
+//		Debugger.Log ("PlayerHand", "Player Hand created");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+//		Debugger.Log ("PlayerHand", name);
 //		Debug.Log(thisPlayer.playerName);
 	}
 

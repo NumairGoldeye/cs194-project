@@ -85,11 +85,11 @@ public class TurnState : MonoBehaviour {
 	public TradeConsole tradeConsole;
 
 	public static void Startup(){
+		UIManager.ChangeMajorUIState(MajorUIState.play);
+		UIManager.UpdateMajorUI();
 		GameManager.Instance.myPlayer.hand = PlayerHand.Instance;
 		DevCard.SetupStatic();
 
-		UIManager.ChangeMajorUIState(MajorUIState.play);
-		UIManager.UpdateMajorUI();
 		freeBuild = false;
 
 		ResetTurn();
@@ -329,7 +329,7 @@ public class TurnState : MonoBehaviour {
 //				UIManager.MainUI.SetActive(false);
 				UIManager.DisableObjs();
 				winningPlayer = p;
-//				victoryPanel.SetActive(true);
+				victoryPanel.SetActive(true);
 				gameOver = true;
 			}
 		}

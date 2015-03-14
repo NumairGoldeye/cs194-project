@@ -53,7 +53,8 @@ public class NetworkMenu : MonoBehaviour {
 
 	private void OnPlayerDisconnected(NetworkPlayer player)
 	{
-		GameManager.Instance.networkView.RPC ("removePlayer", RPCMode.All, player);
+		if (!GameManager.Instance.gameStarted)
+			GameManager.Instance.networkView.RPC ("removePlayer", RPCMode.All, player);
 	}
 
 	//TODO: Make a display of all of the available games

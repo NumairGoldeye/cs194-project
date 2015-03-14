@@ -444,4 +444,9 @@ public class ArrayBoardGraph : BoardGraph {
 		return strategy;
 	}
 
+	//Final Integrating function that serves as the AI brain, taking into account turn by turn real time scenario of all other 
+	//players to decide AI's strategy at the turn, and move accordingly to build settlement, road, city or get dev card.
+
+
+
 }

@@ -1,12 +1,17 @@
-# cs194-project
+This project was created in Unity, which handled much of the graphics creation.
 
-some notes from Chase:
+Rundown of the files:
 
-On Unity:
-	Hopefully you have Unity installed and are starting to get comfortable with its UI.
-	In order to open the project, simply click on the scene file in Unity_Files\Assets currently titled Sample Scene (real Creative, I know)
+SampleScene.unity: Contains all of the information for the graphics.  A large portion of
+  our work was done in the Unity scene editor -- that work in unity is reflected here. 
+  Not meant to be read by humans, but generated and used by Unity.	
 
-On Models:
-	I'm currently making (really simple) models in 3ds max. These should hopefully serve as placeholders until we have more complex models
-
-	Because the hex tiles are imported from 3ds max, I'm having some difficulty preserving the scale and size. Until I figure out how to get the scaling right in Unity, determining the location of the hex tiles has been guess and check. If anyone can figure out the maths so that it is easy to transform the tiles, that would be great.
+Board Representation Files:
+- BoardGraph.cs: The interface that contains the methods used for manipulating the graph
+- ArrayBoardGraph.cs: An implementation of BoardGraph that represents the board as a list
+    of Settlement locations, Road locations, and Tiles.
+- StandardBoardGraph.cs: A singleton subclass of ArrayBoardGraph that represents our graph;
+    it properly links the proper edges, verticies and tiles to each other.
+- RoadClass.cs / SettlementClass.cs / PortClass.cs / TileClass.cs: Each of these represent 
+    the information needed for their respective game element, and contain functions to
+    perform their necessary tasks.

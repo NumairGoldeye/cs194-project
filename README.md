@@ -41,3 +41,6 @@ Trading:
 - ConfirmTradeButton.cs, RejectTradeButton.cs, EnterPlayerTrade.cs, EnterPortTrade.cs,
     PlayerTradeButton.cs, TradeRemoveResource.cs, TradeAddResource.cs: Each of these
     contains the logic for its corresponding button in the trade console.
+    
+Chat:
+- ChatLog.cs: Handles everything related to the Chat Box.

@@ -115,6 +115,9 @@ public class TileClass : MonoBehaviour {
 				break;
 			case ResourceType.Ore:
 				renderer.material.color = Color.gray;
+				GameObject Mountain = GameObject.FindGameObjectsWithTag ("Mountain")[0];
+				Mountain.transform.position = transform.position;
+				Mountain.tag = "AssignedMountain";
 				break;
 			case ResourceType.Brick:
 				renderer.material.color = Color.red;

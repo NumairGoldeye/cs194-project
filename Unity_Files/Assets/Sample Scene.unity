@@ -10629,7 +10629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   network: {fileID: 841112062}
-  gameLobby: {fileID: 385792055}
+  gameLobby: {fileID: 642994997}
   gameListNamePrefab: {fileID: 173450, guid: f0bf88fc1cc30421e835d2b7d240c9c0, type: 2}
   listPanel: {fileID: 1137732555}
   nameField: {fileID: 793604214}
@@ -45098,7 +45098,7 @@ Prefab:
     - target: {fileID: 11416554, guid: a7623298ca582499392baddaad2472a2, type: 2}
       propertyPath: gameLobby
       value: 
-      objectReference: {fileID: 385792055}
+      objectReference: {fileID: 642994997}
     - target: {fileID: 11416554, guid: a7623298ca582499392baddaad2472a2, type: 2}
       propertyPath: network
       value: 

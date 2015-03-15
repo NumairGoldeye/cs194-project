@@ -574,6 +574,35 @@ public class ArrayBoardGraph : BoardGraph {
 			}
 		}
 
+		//priority 5: trade to get sheep for settlement 
+		if (player.woodcount (player) >= 1 && player.wheatcount (player) >=1 && player.brickcount (player) >= 1 && player.sheepcount (player) == 0) {
+			if(player.wheatcount(player)>=5){
+				player.resourceCounts[4] -- ; 
+				player.resourceCounts[4] -- ; 
+				player.resourceCounts[4] -- ; 
+				player.resourceCounts[4] -- ; 
+				player.resourceCounts[0] ++ ; 
+			}else if(player.brickcount(player)>=5){
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[0] ++ ; 
+			}else if(player.woodcount(player)>=5){
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[0] ++ ; 
+			}else if(player.orecount(player)>=4){
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[0] ++ ; 
+			}
+		}
+
 		//-----------------------------------------------------------------------------------------------------------------------------------
 
 		//The first part, build city 

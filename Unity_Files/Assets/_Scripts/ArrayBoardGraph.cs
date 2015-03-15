@@ -480,7 +480,13 @@ public class ArrayBoardGraph : BoardGraph {
 					}
 		    	}
 
+		//The second part, build city 
+		 if (player.wheatcount (player) >= 2 && player.orecount (player) >= 3) {
+			SettlementClass nextcity = BuildCity(player);
+			//Build city pointed to by the nextcity 
+		}
 
+		//
 
 
 	}

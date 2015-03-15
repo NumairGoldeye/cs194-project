@@ -737,6 +737,12 @@ public class ArrayBoardGraph : BoardGraph {
 				//So the only scenario we want to prevent is when there is already enough to build city but we trade the city materials 
 				//for the road, meh....
 
+				//So if there are already resources to build city, we only trade the other resources(brick, wood, sheep) for road building 
+				// if there are not enough resources, it is possible that we have one of the wheat and ore tradable to build a road 
+				if(player.orecount(player)>=3 && player.wheatcount(player)>=2){
+				
+				
+				}
 
 			}
 			//Now AI is fully traded and optimized for different scenarios 

@@ -13,7 +13,6 @@ Game Setup Files
 - GameManager.cs: Sets up the board tiles and ports.  TODO: Maybe change the name of this file, since it
     only sets up the board.
 
-
 Board Representation Files: The following section contains the files that
     represent the state of the game board.
 - BoardGraph.cs: The interface that contains the methods used for manipulating the graph
@@ -41,3 +40,14 @@ Trading:
 - ConfirmTradeButton.cs, RejectTradeButton.cs, EnterPlayerTrade.cs, EnterPortTrade.cs,
     PlayerTradeButton.cs, TradeRemoveResource.cs, TradeAddResource.cs: Each of these
     contains the logic for its corresponding button in the trade console.
+
+Buying:
+-BuyManager.cs: Manages buying one of the various buyable things in Catan.
+
+Chat:
+- ChatLog.cs: Handles everything related to the Chat Box.
+
+ComboBox:
+- There is a folder called "ComboBox".  None of this code was written by us (besides a few
+    tweaks), credit goes to Kender on the unity developers forum.  Retrieved from:
+    http://forum.unity3d.com/threads/a-working-stylable-combo-box-drop-down-list.264167/#post-1913899

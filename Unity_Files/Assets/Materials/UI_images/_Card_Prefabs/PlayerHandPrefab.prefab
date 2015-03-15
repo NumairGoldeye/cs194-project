@@ -83,7 +83,6 @@ MonoBehaviour:
   popupPanel: {fileID: 0}
   resourceButtons: {fileID: 0}
   playingDevCardPanel: {fileID: 0}
-  handBackgroundObj: {fileID: 0}
 --- !u!114 &11492934
 MonoBehaviour:
   m_ObjectHideFlags: 1

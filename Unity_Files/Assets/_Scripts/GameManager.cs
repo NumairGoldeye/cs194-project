@@ -43,14 +43,13 @@ public class GameManager : MonoBehaviour {
 			this.type = type;	
 		}
 	}
-	
+
 	private int numTiles = 19; //number of tiles in play
 	private int diceRoll;
 	private int die1;
 	private int die2;
 	private TileClass tileWithRobber;
 	private Player playerWithLargestArmy = null;
-
 
 	private int[] tileCounts = {4, 4, 3, 3, 4, 1};
 	// The dice numbers for each tyle, in order
@@ -354,7 +353,6 @@ public class GameManager : MonoBehaviour {
 	public void assignTileInfo () {
 		for (int i = 0; i < numTiles; i++) {
 			TileClass tile = graph.getTile (i);
-			int resource = (int)(tiles[tile.tileNumber].type);
 			tile.assignType(tiles[tile.tileNumber].diceNumber, tiles[tile.tileNumber].type);
 			if (tile.type == ResourceType.None) {
 				tile.getRobber();
@@ -363,8 +361,6 @@ public class GameManager : MonoBehaviour {
 				tile.hasRobber = false;
 			}
 		}
-		GameObject.Find("Forests").transform.position = new Vector3(.3f, 0.0f, .25f);
-		GameObject.Find("Mountains").transform.position = new Vector3(.24f, -0.08f, .24f);
 	}
 
 	public void distributeResourcesForSettlement(SettlementClass settlement) {

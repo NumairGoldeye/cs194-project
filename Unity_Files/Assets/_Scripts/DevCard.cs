@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // using System;
 using System.Collections;
 using System.Collections.Generic;
-
+//using UnityEditor;
 
 public enum DevCardType { knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint};
 
@@ -16,10 +16,7 @@ public enum DevCardType { knight, roadBuilding, yearOfPlenty, monopoly, victoryP
 /// The static functions execute DevCard behaviors.
 /// </summary>
 public class DevCard : PlayerCard {
-	
-	public const int LARGEST_ARMY_MIN = 3;
-	public const int LARGEST_ARMY_VICTORY_POINTS = 2;
-	
+
 	// chance out of 100 for [knight, road, year, monopoly]
 	static int[] cardChances;
 	static DevCardType knight = DevCardType.knight;
@@ -27,7 +24,7 @@ public class DevCard : PlayerCard {
 	static DevCardType yearOfPlenty = DevCardType.yearOfPlenty;
 	static DevCardType monopoly = DevCardType.monopoly;
 	static DevCardType victoryPoint = DevCardType.victoryPoint;
-	
+
 	// variables for creating the deck
 	static DevCardType[] devCardsByChance = new DevCardType[] { knight, roadBuilding, yearOfPlenty, monopoly, victoryPoint };
 	static int deckIndex = 0;
@@ -36,29 +33,29 @@ public class DevCard : PlayerCard {
 	static int deckYearCount = 2;
 	static int deckMonopolyCount = 2;
 	static int deckVictoryPointCount = 5;
-	
+
 	private static Dictionary<DevCardType, string> devCardNames;
 	private static Dictionary<DevCardType, string> devCardDescriptions = new Dictionary<DevCardType, string>();
-	
+
 	private static bool setup = false;
-	
+
 	//----- Instance things ---//
-	
+
 	public TurnSubStateType stateType;
 	
 	// Todo Gives a random card
 	public static DevCardType RandomCard(){
 		return devCardsByChance[ Random.Range(0, devCardsByChance.Length)];
 	}
-	
-	
-	
+
+
+
 	// Creates the deck to draw from
 	public static void CreateDeck(){
 		int totalCards = deckKnightCount + deckRoadBuildingCount + deckYearCount + deckMonopolyCount + deckVictoryPointCount;
 	}
-	
-	
+
+
 	public static string NameForCardType(DevCardType type){
 		string name = null;
 		if (devCardNames.TryGetValue(type, out name)){
@@ -67,7 +64,7 @@ public class DevCard : PlayerCard {
 			return "No name for that type";
 		}
 	}
-	
+
 	public static string DescForCardType(DevCardType type){
 		string desc = null;
 		if (devCardDescriptions.TryGetValue(type, out desc)){
@@ -76,7 +73,7 @@ public class DevCard : PlayerCard {
 			return "No desc for that type";
 		}
 	}
-	
+
 	public static string ExecutedCardDesc(DevCardType type, int info){
 		switch (type){
 		case DevCardType.knight:
@@ -89,21 +86,21 @@ public class DevCard : PlayerCard {
 			return " Buhhh";
 		case DevCardType.yearOfPlenty:
 			return "You have gained " + info.ToString() + " " + TurnState.chosenResource.ToString();
-			
+				
 		}
-		
+
 		return "you've messed up - executedCardDesc in DevCard.cs";
 	}
-	
+
 	// Carries out the effects of the monopoly on the players...
 	// returns number of resources gained
 	// 
 	public static int EnactMonopoly(Player mainPlayer, ResourceType resource){
 		Player[] otherPlayers = Player.OtherPlayers(mainPlayer);
-		
+
 		int totalResourceCount = 0;
 		int thisCount = 0;
-		
+
 		foreach(Player p in otherPlayers){
 			thisCount = p.GetResourceCount(resource);
 			p.RemoveResource(resource, thisCount);
@@ -114,12 +111,12 @@ public class DevCard : PlayerCard {
 		mainPlayer.AddResource(resource, totalResourceCount);
 		return totalResourceCount;
 	}
-	
+
 	public static int EnactYearOfPlenty(Player mainPlayer, ResourceType resource){
 		mainPlayer.AddResource(resource, 2);
 		return 2;
 	}
-	
+
 	// To be called by a UI element
 	// Doesn't remove the card - the UI element does that.
 	public static int ExecuteCard(DevCardType cardType){
@@ -132,29 +129,19 @@ public class DevCard : PlayerCard {
 		case DevCardType.yearOfPlenty:
 			return EnactYearOfPlenty(p, r);
 		case DevCardType.knight:
-			UpdateLargestArmy(p);
+			p.numUsedKnights++;
+			//TODO check if player has largest army
 			return 1;
 			
 		}
 		return -1;
 	}
-	
-	private static void UpdateLargestArmy(Player p) {
-		p.numUsedKnights++;
-		if (p.numUsedKnights >= LARGEST_ARMY_MIN) {
-			Player playerWithLargestArmy = GameManager.playerWithLargestArmy;
-			if (playerWithLargestArmy == null || p.numUsedKnights > playerWithLargestArmy.numUsedKnights) {
-				GameManager.playerWithLargestArmy = p;
-				p.AddVictoryPoint(LARGEST_ARMY_VICTORY_POINTS);
-			}
-		}
-	}
-	
+
 	// Called in TurnState static
 	public static void SetupStatic(){
 		if (setup) return;
 		setup = true;
-		
+
 		devCardNames = new Dictionary<DevCardType, string>();;
 		devCardDescriptions = new Dictionary<DevCardType, string>();
 		
@@ -172,42 +159,42 @@ public class DevCard : PlayerCard {
 		
 		CreateDeck();
 	}
-	
-	
-	
+
+
+
 	// Use this for initialization
 	public override void Start () {
 		base.Start();
 		isDev = true;
-		
+
 		DevCard.SetupStatic();
-		
-		
+
+
 		btn.onClick.AddListener(UseCard);
 		
-		
-		//		Debug.Log ("Card start");
+
+//		Debug.Log ("Card start");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//		btn.interactable = TurnState.currentPlayer.HasCard(type) && !TurnState.cardPlayedThisTurn;		
+//		btn.interactable = TurnState.currentPlayer.HasCard(type) && !TurnState.cardPlayedThisTurn;		
 		btn.interactable =  !TurnState.cardPlayedThisTurn;		
 	}
-	
-	
+
+
 	
 	void UseCard(){
-		
-		
+	
+
 		// This is volatile...
 		hand.SelectCard(this);
 		hand.popupPanel.SetActive(true);
 		hand.playingDevCardPanel.SetActive(true);
-		
+
 		switch (dType){
 		case DevCardType.knight:
-			//			Debug.Log()"Knights not implemented. Hah!");
+//			Debug.Log()"Knights not implemented. Hah!");
 			break;
 		case DevCardType.monopoly:
 			hand.resourceButtons.SetActive(true);
@@ -219,12 +206,12 @@ public class DevCard : PlayerCard {
 		case DevCardType.yearOfPlenty:
 			hand.resourceButtons.SetActive(true);
 			break;
-			
+				
 		}
-		
-		
+
+
 		TurnState.SetSubStateType(stateType);
 		TurnState.chosenResource = ResourceType.None;
 	}
-	
+
 }

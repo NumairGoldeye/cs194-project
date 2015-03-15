@@ -15,7 +15,7 @@ public class SettlementClass : MonoBehaviour {
 	public int ownerId;
 	private bool stealing;
 	public PortClass port;
-
+	
 	void Start () {
 		settlement = transform.FindChild("SettlementObject").gameObject;
 		city = transform.FindChild("CityObject").gameObject;
@@ -27,9 +27,6 @@ public class SettlementClass : MonoBehaviour {
 		hideCity ();
 		hasCity = false;
 		stealing = false;
-
-		settlementSound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [2]);
-		citySound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [3]);
 	}
 	
 	private void hideCity() {

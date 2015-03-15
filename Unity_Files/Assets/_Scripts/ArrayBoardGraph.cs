@@ -241,6 +241,8 @@ public class ArrayBoardGraph : BoardGraph {
 
 	//-----------------------------------------------------------------------------------------------------------------------------------
 	//memo: 1. action functions for building city, road, settlement 2. Use dev card functions 3. fix longestroad bug 
+	//   4. AI initializer: AI's name is computer, text recognition to get into the AI   5. work with Chris to call the final AI brain 
+	//  function at the right place/turn 
 
 	//------ AI related computer mode functions--------
 	// The AI strategy: 

@@ -450,6 +450,7 @@ public class ArrayBoardGraph : BoardGraph {
 	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
 	//City always trumphs  
 	//full strategy 
+
 	void AIBrain(Player player){
 				//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
@@ -476,14 +477,16 @@ public class ArrayBoardGraph : BoardGraph {
 
 						}
 					}else{
-				     if(strategy == 2 ){
-						//build a road pointed to by "nextroad"
-						}else{
+				     if(strategy == 1 ){
+					//build a road pointed to by "nextroad"
+				    	}else{
 						  if(longestroad (player)<=4){
 					      //although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
 						// position 
 
 						//build a road pointed to by "nextroad"
+
+						//else then no need to build road, save for future settlement
 					      }
 						}
 					}
@@ -491,7 +494,12 @@ public class ArrayBoardGraph : BoardGraph {
 
 
 		//The 3rd part 
+		if (player.wheatcount (player) >= 1 && player.sheepcount (player) >= 1 && player.orecount (player) >= 1 && strategy= 2) {
+		// Get a dev card 		
+	    // Use the dev card right away 
+		}
 
+		//The 4th part where AI does not use longest road or largest army strategy, just go buid settlement and city 
 
 	}
 

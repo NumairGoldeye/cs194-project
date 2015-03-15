@@ -429,7 +429,7 @@ public class ArrayBoardGraph : BoardGraph {
 		return strategy;
 	}
 
-	//Final Integrating function that serves as the AI brain, taking into account turn by turn real time scenario of all other 
+	//Final Integration function that serves as the AI brain, taking into account turn by turn real time scenario of all other 
 	//players to decide AI's strategy at the turn, and move accordingly to build settlement, road, city or get dev card.
 	//This function should be called in AI's turn  
 
@@ -437,7 +437,7 @@ public class ArrayBoardGraph : BoardGraph {
 	
 	// In the beginnning, the AI calls "BuildSettlement" to set 2 settlements of highest frequencies, and build 2 roads randomly
 	//At each turn, the AI calls: 
-	// 0. Update strategy with strateyUpdate, decide 1-3
+	// 0. Update strategy with strateyUpdate, decide 1-3; trade console with the house 
 	// 1. Check resource cards that he has, get a list of them; 
 	//2. If contain " 2 wheat 3 ore", build city at all times
 
@@ -455,7 +455,20 @@ public class ArrayBoardGraph : BoardGraph {
 				//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 
-		
+		//part 0: trade with the house
+
+		//trade to get ore for city 
+		if (player.orecount (player) == 2 && player.wheatcount (player) >= 3) {
+				if(player.sheepcount(player)>=4){
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[3] ++ ; 
+			}
+		}
+
+
 		
 		//The first part, build city 
 		if (player.wheatcount (player) >= 2 && player.orecount (player) >= 3) {
@@ -516,6 +529,10 @@ public class ArrayBoardGraph : BoardGraph {
 				//build a settlement at position nextleftset
 			}
 		}
+
+
+
+
 
 	}
 

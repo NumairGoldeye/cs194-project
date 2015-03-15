@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using System.Text;
 
 public class TradeCounter : MonoBehaviour, IEnumerable {
 
@@ -33,6 +34,20 @@ public class TradeCounter : MonoBehaviour, IEnumerable {
 
 	IEnumerator IEnumerable.GetEnumerator() {
 		return (IEnumerator) counts.GetEnumerator();
+	}
+
+	public string GetText() {
+		StringBuilder builder = new StringBuilder ();
+		bool isFirst = true;
+		foreach (KeyValuePair<ResourceType, int> pair in this) {
+			if (isFirst) {
+				isFirst = false;
+			} else {
+				builder.Append(", ");
+			}
+			builder.Append("" + pair.Value + " " + pair.Key.ToString() + " "); 
+		}
+		return builder.ToString();
 	}
 
 }

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
 	public string myPlayerName = "";
 
 	public Button RollButton;
+	public TradeConfirm tradeConfirm;
 
 
 	public Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
@@ -139,6 +140,21 @@ public class GameManager : MonoBehaviour {
 	/* ---------------------------------------------------------
 	 * RPC Calls
 	 * ---------------------------------------------------------*/
+
+	[RPC]
+	void requestTrade(string receiveText, string giveText) {
+		tradeConfirm.Display (receiveText, giveText);
+	}
+
+	[RPC]
+	void executeTrade() {
+		tradeConfirm.executeTrade ();
+	}
+
+	[RPC]
+	void abortTrade() {
+		tradeConfirm.rejectTrade ();
+	}
 
 	[RPC]
 	 void syncCurrentPlayer(int playerID) {

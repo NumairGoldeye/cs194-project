@@ -439,13 +439,14 @@ public class ArrayBoardGraph : BoardGraph {
 	//At each turn, the AI calls: 
 	// 0. Update strategy with strateyUpdate, decide 1-3
 	// 1. Check resource cards that he has, get a list of them; 
-	// 2.if they contain "wood, brick" then call "BuildRoad"
+	//2. If contain " 2 wheat 3 ore", build city at all times
+
+	// 3.if they contain "wood, brick" then call "BuildRoad"
 	//								if return null(1. has place to build good set 2. no good road), then do not build road 
 	// 										if contain "wood, brick, sheep, wheat", BuildSettlement (if null, build random road) 
 	//										if not contain, call BuildSettlement to see if null-> build Random Road 
 	//								if return yes, then check strategy, if strategy is 1 and longestroad is not bigger or equal to 4
 	// 										then build road; else do not build, save for future settlement 
-	//3. If contain " 2 wheat 3 ore", build city at all times
 	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
 	//City always trumphs  
 	//full strategy 
@@ -453,7 +454,15 @@ public class ArrayBoardGraph : BoardGraph {
 				//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 
-		//The first big block deals with the tradeoff between building a road now or saving the resource to build a settlement later
+		
+		
+		//The first part, build city 
+		if (player.wheatcount (player) >= 2 && player.orecount (player) >= 3) {
+			SettlementClass nextcity = BuildCity(player);
+			//Build city pointed to by the nextcity 
+		}
+
+		//The second big block deals with the tradeoff between building a road now or saving the resource to build a settlement later
 				if (player.woodcount(player) >= 1 && player.brickcount(player) >= 1) {
 					RoadClass nextroad = BuildRoad(player);
 			        if(nextroad==null){
@@ -480,13 +489,8 @@ public class ArrayBoardGraph : BoardGraph {
 					}
 		    	}
 
-		//The second part, build city 
-		 if (player.wheatcount (player) >= 2 && player.orecount (player) >= 3) {
-			SettlementClass nextcity = BuildCity(player);
-			//Build city pointed to by the nextcity 
-		}
 
-		//
+		//The 3rd part 
 
 
 	}

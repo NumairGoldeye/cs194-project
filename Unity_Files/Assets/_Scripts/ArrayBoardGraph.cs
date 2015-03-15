@@ -516,7 +516,34 @@ public class ArrayBoardGraph : BoardGraph {
 				player.resourceCounts[4] ++ ; 
 			}
 		}
-		//
+		//priority 3: trade to get wood for settlement 
+		if (player.woodcount (player) >= 0 && player.wheatcount (player) >= 1 && player.brickcount (player) >= 1 && player.sheepcount (player) >= 1) {
+			if(player.sheepcount(player)>=5){
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[1] ++ ; 
+			}else if(player.brickcount(player)>=5){
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[1] ++ ; 
+			}else if(player.wheatcount(player)>=5){
+				player.resourceCounts[4] --;
+				player.resourceCounts[4] --;
+				player.resourceCounts[4] --;
+				player.resourceCounts[4] --;
+				player.resourceCounts[1] ++ ; 
+			}else if(player.orecount(player)>=4){
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[1] ++ ; 
+			}
+		}
 
 		//-----------------------------------------------------------------------------------------------------------------------------------
 

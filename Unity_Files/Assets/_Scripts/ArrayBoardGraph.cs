@@ -839,7 +839,9 @@ public class ArrayBoardGraph : BoardGraph {
 				}
 
 			}
-			//Now AI is fully traded and optimized for different scenarios 
+			//Now AI is fully traded and optimized for different scenarios: 
+			// city first always, settlement always second then 
+			// based on strategy:  1 for trading for road, 2 for trading for dev card 
 
 
 		}

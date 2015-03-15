@@ -169,10 +169,11 @@ public class ArrayBoardGraph : BoardGraph {
 
 						//This new road list keeps track of the subgraph when 1 road is deleted from the road list   
 						List<RoadClass> leftroads = new List<RoadClass> (roads);
-
+			// This keeps track of the intersect between the previous road array and the new one adding to list 
+			            SettlementClass intersect = intersectofroads(r, rd);
 						//if one of the adjacent roads is contained in the built road array, then use this as the next road and the leftover road 
 						//array as the total sub array 
-						if (roads.Contains (r)) {     
+						if (roads.Contains (r) && !intersection.Contains(intersect)) {     
 								leftroads.Remove (rd);
 
 								//call the recursive to see the sub graph 
@@ -182,6 +183,8 @@ public class ArrayBoardGraph : BoardGraph {
 										longest = sublongest + 1; 
 					//In this case, when it is updating the longest, this means that "r" (in adjacent) is the next road that leads to longest road 
 					//We keep track of its connecting node, represented as SettlementClass in the intersection list to check further if it is legitimate 
+					//Add the intersect to the connecting node array list to fix the bug 
+									intersection.Add(intersect);              
 
 								}
 						}

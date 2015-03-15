@@ -457,13 +457,31 @@ public class ArrayBoardGraph : BoardGraph {
 
 		//part 0: trade with the house
 
-		//trade to get ore for city 
-		if (player.orecount (player) == 2 && player.wheatcount (player) >= 3) {
+		//priority 1: trade to get ore for city 
+		if (player.orecount (player) == 2 && player.wheatcount (player) >= 2) {
 				if(player.sheepcount(player)>=4){
 				player.resourceCounts[0] -- ; 
 				player.resourceCounts[0] -- ; 
 				player.resourceCounts[0] -- ; 
 				player.resourceCounts[0] -- ; 
+				player.resourceCounts[3] ++ ; 
+			}else if(player.woodcount(player) >=4){
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[3] ++ ; 
+			}else if(player.brickcount(player)>=4){
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[3] ++ ; 
+			}else if(player.wheatcount(player)>=6){
+				player.resourceCounts[4] --;
+				player.resourceCounts[4] --;
+				player.resourceCounts[4] --;
+				player.resourceCounts[4] --;
 				player.resourceCounts[3] ++ ; 
 			}
 		}

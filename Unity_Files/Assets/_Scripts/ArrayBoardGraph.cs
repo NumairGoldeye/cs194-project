@@ -667,6 +667,38 @@ public class ArrayBoardGraph : BoardGraph {
 			}
 
 
+			// trade to get ore for dev card 
+			
+			if ( player.wheatcount (player) >=1 && player.orecount (player) == 0 && player.sheepcount (player) >= 1) {
+				if(player.wheatcount(player)>=5){
+					player.resourceCounts[4] -- ; 
+					player.resourceCounts[4] -- ; 
+					player.resourceCounts[4] -- ; 
+					player.resourceCounts[4] -- ; 
+					player.resourceCounts[3] ++ ; 
+				}else if(player.brickcount(player)>=4){
+					player.resourceCounts[2] --;
+					player.resourceCounts[2] --;
+					player.resourceCounts[2] --;
+					player.resourceCounts[2] --;
+					player.resourceCounts[3] ++ ; 
+				}else if(player.woodcount(player)>=4){
+					player.resourceCounts[1] --;
+					player.resourceCounts[1] --;
+					player.resourceCounts[1] --;
+					player.resourceCounts[1] --;
+					player.resourceCounts[3] ++ ; 
+				}else if(player.sheepcount(player)>=5){
+					player.resourceCounts[0] --;
+					player.resourceCounts[0] --;
+					player.resourceCounts[0] --;
+					player.resourceCounts[0] --;
+					player.resourceCounts[3] ++ ; 
+				}
+			}
+
+
+
 		}
 
 		//-----------------------------------------------------------------------------------------------------------------------------------

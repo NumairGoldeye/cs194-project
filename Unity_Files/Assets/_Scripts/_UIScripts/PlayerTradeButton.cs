@@ -13,6 +13,6 @@ public class PlayerTradeButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		btn = gameObject.GetComponent<Button>();
-		btn.onClick.AddListener(tradeConfirm.Display);
+		btn.onClick.AddListener(tradeConfirm.requestTrade);
 	}
 }

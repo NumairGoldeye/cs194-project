@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 // TradeManager does all the logic for trading
 
@@ -29,8 +30,8 @@ public static class TradeManager {
 		}
 		player.RemoveResource (toGive, cost);
 		player.AddResource (toGet, 1);
-		// Chris do networking
-
+		GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, player.playerId, (int)toGive, cost);
+		GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, player.playerId, (int)toGet, 1);
 	}
 
 	public static void tradeBetweenPlayers(
@@ -45,7 +46,8 @@ public static class TradeManager {
 		foreach (KeyValuePair<ResourceType, int> pair in counter) {
 			giver.RemoveResource (pair.Key, pair.Value);
 			receiver.AddResource (pair.Key, pair.Value);
-			// Chris do networking
+			GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, giver.playerId, (int)pair.Key, -pair.Value);
+			GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, receiver.playerId, (int)pair.Key, pair.Value);
 		}
 	}
 		              

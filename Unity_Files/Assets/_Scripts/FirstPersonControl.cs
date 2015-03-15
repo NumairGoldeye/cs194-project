@@ -57,7 +57,7 @@ public class FirstPersonControl : MonoBehaviour {
 
 
 		if (Input.GetKeyDown("space")){
-			allowCamera = !allowCamera;
+//			allowCamera = !allowCamera;
 		}
 
 		if (!allowCamera) return;

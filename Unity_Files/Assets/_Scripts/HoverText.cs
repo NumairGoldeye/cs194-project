@@ -31,55 +31,55 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
 	// Use this for initialization
 	void Start () {
-		prefab =  Resources.LoadAssetAtPath<GameObject>("Assets/Materials/UI_images/HoverText.prefab");
-
-		hoverTextObj = Instantiate(prefab) as GameObject;
-		hoverTextObj.transform.SetParent(transform, false);
-
-		hoverRectT = hoverTextObj.GetComponent<RectTransform>();
-
-		// There should only be one child for the prefab
-		text = hoverTextObj.transform.GetChild(0).GetComponent<Text>();
-
-
-		if (displayText != ""){
-			text.text = displayText;
-		} else {
-			text.text = defaultDisplayText;
-		}
-
-		HideHover();
+//		prefab =  Resources.LoadAssetAtPath<GameObject>("Assets/Materials/UI_images/HoverText.prefab");
+//
+//		hoverTextObj = Instantiate(prefab) as GameObject;
+//		hoverTextObj.transform.SetParent(transform, false);
+//
+//		hoverRectT = hoverTextObj.GetComponent<RectTransform>();
+//
+//		// There should only be one child for the prefab
+//		text = hoverTextObj.transform.GetChild(0).GetComponent<Text>();
+//
+//
+//		if (displayText != ""){
+//			text.text = displayText;
+//		} else {
+//			text.text = defaultDisplayText;
+//		}
+//
+//		HideHover();
 	}
 
 
 
 	// Update is called once per frame
 	void Update () {
-		TrySetupLayout();
-
-
-
-		if (pointerInside && (Time.time - timeEntered) > hoverRevealTime){
-			ShowHover();
-		} else {
-			HideHover();
-		}
+//		TrySetupLayout();
+//
+//
+//
+//		if (pointerInside && (Time.time - timeEntered) > hoverRevealTime){
+//			ShowHover();
+//		} else {
+//			HideHover();
+//		}
 	}
 
 
 	void TrySetupLayout(){
-		if (!setup){
-			if (text.rectTransform.rect.height != 0){
-				setup = true;
-			} else {
-				LayoutRebuilder.MarkLayoutForRebuild (hoverTextObj.transform as RectTransform);
-			}
-		}
-		
-		if (!positioned && setup){
-			hoverRectT.anchoredPosition = new Vector2(0, hoverRectT.rect.height + 20.0f );
-			positioned = true;
-		}
+//		if (!setup){
+//			if (text.rectTransform.rect.height != 0){
+//				setup = true;
+//			} else {
+//				LayoutRebuilder.MarkLayoutForRebuild (hoverTextObj.transform as RectTransform);
+//			}
+//		}
+//		
+//		if (!positioned && setup){
+//			hoverRectT.anchoredPosition = new Vector2(0, hoverRectT.rect.height + 20.0f );
+//			positioned = true;
+//		}
 	}
 
 

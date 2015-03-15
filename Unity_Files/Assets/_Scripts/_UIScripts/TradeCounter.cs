@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Text;
 
-public class TradeCounter : MonoBehaviour, IEnumerable {
+	public class TradeCounter : MonoBehaviour, IEnumerable {
 
 	Dictionary<ResourceType, int> counts;
 
@@ -45,9 +45,9 @@ public class TradeCounter : MonoBehaviour, IEnumerable {
 			} else {
 				builder.Append(", ");
 			}
-			builder.Append("" + pair.Value + " " + pair.Key.ToString() + " "); 
+			builder.Append("" + pair.Value + " " + pair.Key.ToString() + ""); 
 		}
 		return builder.ToString();
 	}
-
+	
 }

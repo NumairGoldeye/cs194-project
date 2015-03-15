@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 
 /*
@@ -126,6 +127,15 @@ public class Player : MonoBehaviour {
 		}
 		return null;
 	}
+
+	public static Player FindByPlayerName(string name) {
+		foreach(Player p in GameManager.Instance.players) {
+			if (p.playerName.Equals(name))
+				return p;
+		}
+		return null;
+	}
+
 	public static Player[] OtherPlayers(Player player){
 		Player[] otherPlayers = new Player[ playerCount - 1 ];
 		int index = 0;
@@ -370,6 +380,16 @@ public class Player : MonoBehaviour {
 		return true;
 	}
 
+	// used for networking since TradeCounters cannot be sent over the network
+	public bool HasResourcesString(string message) {
+		string[] numbers = Regex.Split(message, @"\D+");
+		Debugger.Log ("Trade", numbers [0] + " " + numbers [1] + " " + numbers [2] + " " + numbers[3] + " " + numbers[4]);
+		for (int i = 0; i < 5; i ++) {
+			if (!HasResourceAmount((ResourceType)i, Convert.ToInt32(numbers[i]))) 
+				return false;
+		}
+		return true;
+	}
 
 	/// <summary>
 	/// Call this whenever the cards or resouces are updated

@@ -109,17 +109,17 @@ public class TileClass : MonoBehaviour {
 				renderer.material.color = Color.yellow;
 				break;
 			case ResourceType.Ore:
-//				renderer.material.color = Color.gray;
-//				GameObject Mountain = GameObject.FindGameObjectsWithTag ("Mountain")[0];
-//				Mountain.transform.position = transform.position;
-//				Mountain.tag = "AssignedMountain";
+				renderer.material.color = Color.gray;
+				GameObject Mountain = GameObject.FindGameObjectsWithTag ("Mountain")[0];
+				Mountain.transform.position = transform.position;
+				Mountain.tag = "AssignedMountain";
 				break;
 			case ResourceType.Brick:
 				renderer.material.color = Color.red;
 				break;
 			case ResourceType.Wood:
 				renderer.material.color = new Color(0.4f, 0.2f, 0);
-				GameObject forest = GameObject.FindGameObjectsWithTag ("Forest")[0];
+				GameObject forest = GameObject.FindGameObjectsWithTag ("Forest")[0];					
 				forest.transform.position = transform.position;
 				forest.tag = "AssignedForest";
 				break;

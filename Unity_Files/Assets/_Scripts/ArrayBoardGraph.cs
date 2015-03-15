@@ -277,7 +277,7 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 
 		//This function returns the settlement that is buildable and has the most frequency sum index 
-		//If there is no buildable settlement, then build road 
+		//If there is no buildable settlement, then this returns null which means we should build road 
 		return result;
 	}
 
@@ -443,14 +443,27 @@ public class ArrayBoardGraph : BoardGraph {
 	//								if return null(1. has place to build good set 2. no good road), then do not build road 
 	// 										if contain "wood, brick, sheep, wheat", BuildSettlement (if null, build random road) 
 	//										if not contain, call BuildSettlement to see if null-> build Random Road 
-	//								if return yes, then check strategy, if strategy is not 1 and longestroad is bigger or equal to 4
+	//								if return yes, then check strategy, if strategy is 1 and longestroad is not bigger or equal to 4
 	// 										then build road; else do not build, save for future settlement 
 	//3. If contain " 2 wheat 3 ore", build city at all times
 	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
 	//City always trumphs  
 	//full strategy 
 	void AIBrain(Player player){
-	
+				//This gives the current optimal strategy for the AI player 
+				int strategy = strategyUpdate (player);
+
+		//The first big block deals with the tradeoff between building a road now or saving the resource to build a settlement later
+				if (player.woodcount(player) >= 1 && player.brickcount(player) >= 1) {
+					RoadClass nextroad = BuildRoad(player);
+			        if(nextroad==null){
+			          
+					}
+		    	}
+
+
+
+
 	}
 
 }

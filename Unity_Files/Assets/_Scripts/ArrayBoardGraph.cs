@@ -494,12 +494,28 @@ public class ArrayBoardGraph : BoardGraph {
 
 
 		//The 3rd part 
-		if (player.wheatcount (player) >= 1 && player.sheepcount (player) >= 1 && player.orecount (player) >= 1 && strategy= 2) {
+		if (player.wheatcount (player) >= 1 && player.sheepcount (player) >= 1 && player.orecount (player) >= 1 && strategy == 2) {
 		// Get a dev card 		
 	    // Use the dev card right away 
 		}
 
-		//The 4th part where AI does not use longest road or largest army strategy, just go buid settlement and city 
+		//The 4th part where AI does not use longest road or largest army strategy, just go buid settlement and city; note that buildcity 
+		//function is always called in the beginning so we only worry about building settlements; in this case since we already discard the
+		//other two strategies, we assume that there is not much value in building road, but instead we only build settelments as long as 
+		//there is still buildablesettlement positions left
+		if (strategy == 3) {
+			SettlementClass nextleftset = BuildSettlement(player);
+			if (nextleftset ==  null){
+				RoadClass nextleftroad = BuildRoad(player);
+
+				if(nextleftroad){
+				//build a road pointed to by nextleftroad, else leave it there 
+				}
+
+				}else{
+				//build a settlement at position nextleftset
+			}
+		}
 
 	}
 

@@ -93,6 +93,7 @@ public class RoadClass : MonoBehaviour {
 		TurnState.currentPlayer.AddRoad (this);
 		renderer.material.color = TurnState.currentPlayer.playerColor;
 		ownerId = TurnState.currentPlayer.playerId;
+		roadSound.Play ();
 	}
 
 	// To be used if somebody changes their mind about a roadbuilding dev card

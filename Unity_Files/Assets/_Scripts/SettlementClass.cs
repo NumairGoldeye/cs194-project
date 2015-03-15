@@ -111,6 +111,7 @@ public class SettlementClass : MonoBehaviour {
 		settlement.renderer.material.color = TurnState.currentPlayer.playerColor;
 		TurnState.currentPlayer.AddVictoryPoint();
 		TurnState.currentPlayer.AddSettlement(this);
+		settlementSound.Play ();
 	}
 
 	public void setPlayerCity() {
@@ -119,6 +120,7 @@ public class SettlementClass : MonoBehaviour {
 		showCity();
 		TurnState.currentPlayer.AddVictoryPoint();
 		upgrading = false;
+		citySound.Play ();
 	}
 
 	public void upgradeToCity() {

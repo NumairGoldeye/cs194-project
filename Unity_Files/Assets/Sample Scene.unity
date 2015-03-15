@@ -64516,7 +64516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad1dc343248043be978e775502a353e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tradeConfirm: {fileID: 0}
+  tradeConfirm: {fileID: 1756637075}
 --- !u!114 &1855615480
 MonoBehaviour:
   m_ObjectHideFlags: 0

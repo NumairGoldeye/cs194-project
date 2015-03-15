@@ -365,6 +365,7 @@ public class GameManager : MonoBehaviour {
 		}
 		GameObject.Find("Forests").transform.position = new Vector3(.3f, 0.0f, .25f);
 		GameObject.Find("Mountains").transform.position = new Vector3(.25f, -0.15f, .31f);
+		GameObject.Find("Sheeps").transform.position = new Vector3(-.475f, .66f, -.74f);
 	}
 
 	public void distributeResourcesForSettlement(SettlementClass settlement) {

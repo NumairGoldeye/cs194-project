@@ -104,6 +104,9 @@ public class TileClass : MonoBehaviour {
 		switch (type) {
 			case ResourceType.Sheep:
 				renderer.material.color = Color.green;
+				GameObject sheep = GameObject.FindGameObjectsWithTag ("Sheep")[0];					
+				sheep.transform.position = transform.position;
+				sheep.tag = "Assigned";
 				break;
 			case ResourceType.Wheat:
 				renderer.material.color = Color.yellow;
@@ -112,7 +115,7 @@ public class TileClass : MonoBehaviour {
 				renderer.material.color = Color.gray;
 				GameObject Mountain = GameObject.FindGameObjectsWithTag ("Mountain")[0];
 				Mountain.transform.position = transform.position;
-				Mountain.tag = "AssignedMountain";
+				Mountain.tag = "Assigned";
 				break;
 			case ResourceType.Brick:
 				renderer.material.color = Color.red;
@@ -121,7 +124,7 @@ public class TileClass : MonoBehaviour {
 				renderer.material.color = new Color(0.4f, 0.2f, 0);
 				GameObject forest = GameObject.FindGameObjectsWithTag ("Forest")[0];					
 				forest.transform.position = transform.position;
-				forest.tag = "AssignedForest";
+				forest.tag = "Assigned";
 				break;
 			case ResourceType.None:
 				renderer.material.color = Color.white;

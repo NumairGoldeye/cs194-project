@@ -239,6 +239,9 @@ public class ArrayBoardGraph : BoardGraph {
 		return result; 
 	}
 
+	//-----------------------------------------------------------------------------------------------------------------------------------
+	//memo: 1. action functions for building city, road, settlement 2. Use dev card functions 3. fix longestroad bug 
+
 	//------ AI related computer mode functions--------
 	// The AI strategy: 
 	// 1. build settlements at where there are the most frequency 
@@ -428,6 +431,8 @@ public class ArrayBoardGraph : BoardGraph {
 		
 		return strategy;
 	}
+
+	//-----------------------------------------------------------------------------------------------------------------------------------
 
 	//Final Integration function that serves as the AI brain, taking into account turn by turn real time scenario of all other 
 	//players to decide AI's strategy at the turn, and move accordingly to build settlement, road, city or get dev card.

@@ -632,7 +632,6 @@ public class ArrayBoardGraph : BoardGraph {
 			}
 		}
 
-		//no more trade for wood or brick to get road since it only needs two resources to do so 
 
 		//priority 7: trade to get dev cards 
 		if (strategy == 2) {
@@ -727,6 +726,20 @@ public class ArrayBoardGraph : BoardGraph {
 					player.resourceCounts[4] ++ ; 
 				}
 			}
+
+
+			//priority 8: trade to build road when strategy is longest road 
+			if (strategy == 1) {
+
+				//Since strategy is not 2, so we know AI has not traded for dev card yet 
+				//Since trade for settlement session has happened, this trade for road scenario only happens if no trade for settlement 
+				//has happened. 
+				//So the only scenario we want to prevent is when there is already enough to build city but we trade the city materials 
+				//for the road, meh....
+
+
+			}
+			//Now AI is fully traded and optimized for different scenarios 
 
 
 		}

@@ -854,7 +854,10 @@ public class ArrayBoardGraph : BoardGraph {
 			//Build city pointed to by the nextcity 
 		}
 
-		//The second big block deals with the tradeoff between building a road now or saving the resource to build a settlement later
+		//-----------------------------------------------------------------------------------------------------------------------------------
+
+
+		//The second part: deals with the tradeoff between building a road now or saving the resource to build a settlement later
 				if (player.woodcount(player) >= 1 && player.brickcount(player) >= 1) {
 					RoadClass nextroad = BuildRoad(player);
 			        if(nextroad==null){
@@ -884,7 +887,7 @@ public class ArrayBoardGraph : BoardGraph {
 		    	}
 
 
-		//The 3rd part 
+		//The 3rd part deals with getting a dev card when strategy is 2 
 		if (player.wheatcount (player) >= 1 && player.sheepcount (player) >= 1 && player.orecount (player) >= 1 && strategy == 2) {
 		// Get a dev card 		
 	    // Use the dev card right away 

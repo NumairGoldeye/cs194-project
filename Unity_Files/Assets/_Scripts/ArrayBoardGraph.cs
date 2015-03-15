@@ -116,14 +116,32 @@ public class ArrayBoardGraph : BoardGraph {
 		return false;
 	}
 
+	//This function will help the longestroad function keeps track of validness
+	public SettlementClass intersectofroads(RoadClass r1, RoadClass r2){
+		SettlementClass result = new SettlementClass ();
+
+		if (r1.settlement1 == r2.settlement1) {
+			result = r1.settlement1;		
+				} else if (r1.settlement1 == r2.settlement2) {
+			result= r1.settlement1;		
+				} else if (r1.settlement2 == r2.settlement1) {
+			result = r1.settlement2;		
+				} else if (r1.settlement2 == r2.settlement2) {
+			result= r1.settlement2;		
+		}
+		return result; 
+	}
+
 
     public int longestroad(Player player){
 		int result = 0;
 		RoadClass[] playerRoads = player.GetRoads();
 		List<RoadClass> roads = playerRoads.ToList<RoadClass>();
 				///can add an "if" statement here checking if playerRoads is null meaning no road built 
+		// keep track of the intersection of adjacent roads that we had use 
+		List<SettlementClass> intersect = new List<SettlementClass> ();
 		foreach (RoadClass r in roads) {
-			int subresult = longestroadfromone(r, roads);		
+			int subresult = longestroadfromone(r, roads, intersect);		
 		if(subresult > result) {
 				result = subresult;
 			}
@@ -136,7 +154,7 @@ public class ArrayBoardGraph : BoardGraph {
      * This is the recursive function used to calculate the longest road(has to contain two arguments to keep track of the invariance 
      * in the recursive function)
      */
-	private int longestroadfromone(RoadClass rd, List<RoadClass> roads){
+	private int longestroadfromone(RoadClass rd, List<RoadClass> roads, List<SettlementClass> intersection){
 		
 				int longest = 1;
 				// This function means: having rd as road array No.1, find the longest road 
@@ -158,10 +176,13 @@ public class ArrayBoardGraph : BoardGraph {
 								leftroads.Remove (rd);
 
 								//call the recursive to see the sub graph 
-								int sublongest = longestroadfromone (r, leftroads);
+								int sublongest = longestroadfromone (r, leftroads, intersection);
 								//int partialresult = longestroad(left);
 								if (sublongest + 1 > longest) {
 										longest = sublongest + 1; 
+					//In this case, when it is updating the longest, this means that "r" (in adjacent) is the next road that leads to longest road 
+					//We keep track of its connecting node, represented as SettlementClass in the intersection list to check further if it is legitimate 
+
 								}
 						}
 						// if "Contains" bool is false, then it means there is no more adjacent road available, meaning the sublongest is 0, meaning 

@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1001 &1597951
 Prefab:
@@ -387,8 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5272,7 +5271,7 @@ GameObject:
   - 224: {fileID: 117048201}
   - 114: {fileID: 117048203}
   m_Layer: 5
-  m_Name: TargetPlayerTradeCounter
+  m_Name: CurrentPlayerToGetTradeCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10230,9 +10229,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 289226960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 7a451d35c3dbe454b9bac75ca6769b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tradeConsole: {fileID: 924966401}
+  tradeConfirm: {fileID: 1756637071}
+  turnPlayerToGiveCounter: {fileID: 1060552447}
+  turnPlayerToGetCounter: {fileID: 117048203}
+  tradePlayerBox: {fileID: 340366557}
 --- !u!114 &289226963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38107,7 +38111,7 @@ GameObject:
   - 224: {fileID: 1060552445}
   - 114: {fileID: 1060552447}
   m_Layer: 5
-  m_Name: CurrentPlayerTradeCounter
+  m_Name: CurrentPlayerToGiveTradeCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45722,9 +45726,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1281367276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f717b6b42d99a4a9492eb1ed82f83226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tradeConsole: {fileID: 924966401}
+  tradeResponse: {fileID: 1756637071}
+  tradePlayerBox: {fileID: 340366557}
 --- !u!114 &1281367279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64487,9 +64494,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855615477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: aad1dc343248043be978e775502a353e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tradeConsole: {fileID: 924966401}
+  tradeConfirm: {fileID: 1756637071}
+  tradeGiveText: {fileID: 694546488}
+  tradeGetText: {fileID: 877102687}
+  tradePlayerBox: {fileID: 340366557}
+  acceptButton: {fileID: 289226963}
+  turnPlayerToGiveCounter: {fileID: 1060552447}
+  turnPlayerToGetCounter: {fileID: 117048203}
 --- !u!114 &1855615480
 MonoBehaviour:
   m_ObjectHideFlags: 0

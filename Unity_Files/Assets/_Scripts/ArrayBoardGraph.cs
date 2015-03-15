@@ -455,6 +455,8 @@ public class ArrayBoardGraph : BoardGraph {
 				//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 
+
+		//-----------------------------------------------------------------------------------------------------------------------------------
 		//part 0: trade with the house
 
 		//priority 1: trade to get ore for city 
@@ -486,8 +488,38 @@ public class ArrayBoardGraph : BoardGraph {
 			}
 		}
 
+		//priority 2: trade to get wheat for city 
+		if (player.orecount (player) >= 3 && player.wheatcount (player) == 1) {
+			if(player.sheepcount(player)>=4){
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[0] -- ; 
+				player.resourceCounts[4] ++ ; 
+			}else if(player.woodcount(player) >=4){
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[1] --;
+				player.resourceCounts[4] ++ ; 
+			}else if(player.brickcount(player)>=4){
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[2] --;
+				player.resourceCounts[4] ++ ; 
+			}else if(player.orecount(player)>=7){
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[3] --;
+				player.resourceCounts[4] ++ ; 
+			}
+		}
+		//
 
-		
+		//-----------------------------------------------------------------------------------------------------------------------------------
+
 		//The first part, build city 
 		if (player.wheatcount (player) >= 2 && player.orecount (player) >= 3) {
 			SettlementClass nextcity = BuildCity(player);

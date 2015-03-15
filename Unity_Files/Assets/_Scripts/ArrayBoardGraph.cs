@@ -749,12 +749,30 @@ public class ArrayBoardGraph : BoardGraph {
 							player.resourceCounts[2] --;
 							player.resourceCounts[2] --;
 							player.resourceCounts[1] ++ ; 
-						}else if(player.sheepcount(player)>=5){
+						}else if(player.sheepcount(player)>=4){
 							player.resourceCounts[0] --;
 							player.resourceCounts[0] --;
 							player.resourceCounts[0] --;
 							player.resourceCounts[0] --;
 							player.resourceCounts[1] ++ ; 
+						}
+					}
+
+
+					//trade to get brick for road 
+					if ( player.woodcount (player) >=1  && player.brickcount (player) == 0) {
+						if(player.woodcount(player)>=5){
+							player.resourceCounts[1] --;
+							player.resourceCounts[1] --;
+							player.resourceCounts[1] --;
+							player.resourceCounts[1] --;
+							player.resourceCounts[2] ++ ; 
+						}else if(player.sheepcount(player)>=4){
+							player.resourceCounts[0] --;
+							player.resourceCounts[0] --;
+							player.resourceCounts[0] --;
+							player.resourceCounts[0] --;
+							player.resourceCounts[2] ++ ; 
 						}
 					}
 

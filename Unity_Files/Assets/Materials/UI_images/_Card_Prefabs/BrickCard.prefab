@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11494724}
   - 114: {fileID: 11492934}
   - 95: {fileID: 9551410}
+  - 114: {fileID: 11456582}
   m_Layer: 5
   m_Name: BrickCard
   m_TagString: Untagged
@@ -56,6 +57,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11456582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145eb40bdbe8e4134a620775239779b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: Brick
+  hoverRevealTime: .5
 --- !u!114 &11492934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dType: 0
   rType: 2
+  isDev: 0
 --- !u!222 &22221204
 CanvasRenderer:
   m_ObjectHideFlags: 1

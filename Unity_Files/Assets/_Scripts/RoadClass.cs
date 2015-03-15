@@ -9,6 +9,7 @@ public class RoadClass : MonoBehaviour {
 
 	public SettlementClass settlement1;
 	public SettlementClass settlement2;
+	public AudioSource roadSound;
 
 	public GameObject roadsObject;
 
@@ -20,6 +21,8 @@ public class RoadClass : MonoBehaviour {
 		built = false;
 		makeInvisible();
 		ownerId = -1;
+
+		roadSound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [1]);
 	}
 
 
@@ -101,7 +104,6 @@ public class RoadClass : MonoBehaviour {
 
 	public void buildRoad() {
 		if (!GameManager.Instance.myTurn()) return;
-
 		SetPlayer();
 
 		if (TurnState.CheckSecondRoadBuilt(this)){

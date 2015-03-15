@@ -8,6 +8,7 @@ public class TileClass : MonoBehaviour {
 	public int diceValue;
 	public int tileNumber;
 	public bool hasRobber;
+	private int index;
 
 	private List<SettlementClass> settlements = new List<SettlementClass> ();
 
@@ -95,6 +96,7 @@ public class TileClass : MonoBehaviour {
 		diceValue = diceNumber;
 		displayDiceNumber ();
 		getMaterial ();
+		this.index = index;
 	}
 
 	private void getMaterial () {
@@ -108,12 +110,18 @@ public class TileClass : MonoBehaviour {
 				break;
 			case ResourceType.Ore:
 				renderer.material.color = Color.gray;
+				GameObject Mountain = GameObject.FindGameObjectsWithTag ("Mountain")[0];
+				Mountain.transform.position = transform.position;
+				Mountain.tag = "AssignedMountain";
 				break;
 			case ResourceType.Brick:
 				renderer.material.color = Color.red;
 				break;
 			case ResourceType.Wood:
 				renderer.material.color = new Color(0.4f, 0.2f, 0);
+				GameObject forest = GameObject.FindGameObjectsWithTag ("Forest")[0];
+				forest.transform.position = transform.position;
+				forest.tag = "AssignedForest";
 				break;
 			case ResourceType.None:
 				renderer.material.color = Color.white;

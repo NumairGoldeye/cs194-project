@@ -22,7 +22,7 @@ public class RoadClass : MonoBehaviour {
 		makeInvisible();
 		ownerId = -1;
 
-		roadSound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [1]);
+		roadSound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [2]);
 	}
 
 

@@ -30,8 +30,8 @@ public class SettlementClass : MonoBehaviour {
 		hasCity = false;
 		stealing = false;
 
-		settlementSound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [2]);
-		citySound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [3]);
+		settlementSound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [3]);
+		citySound = (AudioSource)(GameObject.Find ("Music").GetComponents (typeof(AudioSource)) [1]);
 	}
 	
 	private void hideCity() {

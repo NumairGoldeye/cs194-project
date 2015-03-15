@@ -1,4 +1,3 @@
-﻿//using UnityEditor;
 using UnityEngine;
 using System;
 using System.Collections;
@@ -106,8 +105,8 @@ public class ComboBox : MonoBehaviour
 	}
 
 	private GameObject overlayGO;
-	private static Sprite Sprite_UISprite;
-	private static Sprite Sprite_Background;
+//	private static Sprite Sprite_UISprite;
+//	private static Sprite Sprite_Background;
 	private int scrollOffset;
 	private float _scrollbarWidth = 18.0f;
 
@@ -327,6 +326,7 @@ public class ComboBox : MonoBehaviour
 		Items = new ComboBoxItem[0];
 	}
 
+	// TODO: Commenting this out seems to have no effects, but I am suspicious...
 	public void LoadAssets()
 	{
 		while (Sprite_UISprite == null || Sprite_Background == null)
@@ -346,7 +346,7 @@ public class ComboBox : MonoBehaviour
 //				AssetDatabase.LoadAllAssetsAtPath("Resources/unity_builtin_extra");
 		}
 	}
-
+//
 	public void CreateControl()
 	{
 		LoadAssets();
@@ -367,7 +367,7 @@ public class ComboBox : MonoBehaviour
 		comboButtonRectTransform.anchoredPosition = Vector2.zero;
 
 		var comboButtonImage = comboButtonGO.AddComponent<Image>();
-		comboButtonImage.sprite = Sprite_UISprite;
+//		comboButtonImage.sprite = Sprite_UISprite;
 		comboButtonImage.type = Image.Type.Sliced;
 		var comboButtonButton = comboButtonGO.AddComponent<Button>();
 		comboButtonButton.targetGraphic = comboButtonImage;
@@ -460,7 +460,7 @@ public class ComboBox : MonoBehaviour
 
 		var scrollPanelGO = new GameObject("ScrollPanel");
 		var scrollPanelImage = scrollPanelGO.AddComponent<Image>();
-		scrollPanelImage.sprite = Sprite_UISprite;
+//		scrollPanelImage.sprite = Sprite_UISprite;
 		scrollPanelImage.type = Image.Type.Sliced;
 		scrollPanelGO.transform.SetParent(overlayGO.transform);
 		scrollPanelRectTransfrom.pivot = new Vector2(0.5f, 1.0f);
@@ -501,7 +501,7 @@ public class ComboBox : MonoBehaviour
 		var scrollbarGO = new GameObject("Scrollbar");
 		scrollbarGO.transform.SetParent(scrollPanelGO.transform);
 		var scrollbarImage = scrollbarGO.AddComponent<Image>();
-		scrollbarImage.sprite = Sprite_Background;
+//		scrollbarImage.sprite = Sprite_Background;
 		scrollbarImage.type = Image.Type.Sliced;
 		var scrollbarScrollbar = scrollbarGO.AddComponent<Scrollbar>();
 		var scrollbarColors = new ColorBlock();
@@ -531,7 +531,7 @@ public class ComboBox : MonoBehaviour
 		var handleGO = new GameObject("Handle");
 		handleGO.transform.SetParent(slidingAreaGO.transform);
 		var handleImage = handleGO.AddComponent<Image>();
-		handleImage.sprite = Sprite_UISprite;
+//		handleImage.sprite = Sprite_UISprite;
 		handleImage.type = Image.Type.Sliced;
 		handleImage.color = new Color32(255, 255, 255, 150);
 		scrollbarScrollbar.targetGraphic = handleImage;

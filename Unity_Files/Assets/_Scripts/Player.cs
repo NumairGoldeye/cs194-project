@@ -80,6 +80,41 @@ public class Player : MonoBehaviour {
 		Debugger.Log ("PlayerHand", "Player hand initially: " + string.Join(",", Array.ConvertAll<int, string>(resourceCounts, Convert.ToString)));
 	}
 
+	//resource getter for AI to understand what strategy to use for AI itself 
+
+	public int sheetcount(Player player){
+		return resourceCounts[0];
+	}
+
+	
+	public int woodcount(Player player){
+		return resourceCounts[1];
+	}
+
+	
+	public int brickcount(Player player){
+		return resourceCounts[2];
+	}
+
+	
+	public int orecount(Player player){
+		return resourceCounts[3];
+	}
+
+	
+	public int wheatcount(Player player){
+		return resourceCounts[4];
+	}
+
+	//total amount of dev cards equal to largest army potential in AI's eyes 
+	public int largestarmyForAI(){
+		int count = 0;
+
+		foreach(int dev in devCardCounts){
+			count =  count + dev; 
+		}
+		return count;
+	}
 
 	/// <summary>
 	/// More reliable player retrieval. Returns null on failure
@@ -91,7 +126,6 @@ public class Player : MonoBehaviour {
 		}
 		return null;
 	}
-
 	public static Player[] OtherPlayers(Player player){
 		Player[] otherPlayers = new Player[ playerCount - 1 ];
 		int index = 0;
@@ -104,7 +138,6 @@ public class Player : MonoBehaviour {
 		}
 		return otherPlayers;
 	}
-
 //	private static void UpdateIds(){
 //	}
 
@@ -326,6 +359,15 @@ public class Player : MonoBehaviour {
 	public void RemoveVictoryPoint(){
 		victoryPoints--;
 //		TurnState.CheckVictory();
+	}
+
+	public bool HasResources(TradeCounter counter) {
+		foreach (KeyValuePair<ResourceType, int> pair in counter) {
+			if (!HasResourceAmount(pair.Key, pair.Value)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 

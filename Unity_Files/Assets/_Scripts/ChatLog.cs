@@ -92,6 +92,13 @@ public class ChatLog : MonoBehaviour {
 
 	}
 
+	public void AddChatEvent(string s) {
+		messages.Add( new Message(s, MessageType.gameEvent));
+		chatText.text += "\n GameEvent : " + s;
+		FocusChatBox();
+		RealignChatBox();
+	}
+
 	/// <summary>
 	/// Realigns the chat box to the bottom if its surrounding panel. Requires the ContentFitter -> preferredSize 
 	/// attached 

@@ -29,26 +29,24 @@ public static class TradeManager {
 		}
 		player.RemoveResource (toGive, cost);
 		player.AddResource (toGet, 1);
+		// Chris do networking
 
 	}
 
 	public static void tradeBetweenPlayers(
-			Player player1, ResourceType player1ToGive, int player1AmountToGive,
-			Player player2, ResourceType player2ToGive, int player2AmountToGive) {
-		if (!player1.HasResourceAmount (player1ToGive, player1AmountToGive)) {
-			return; // TODO: Throw exception?
-		}
-		if (!player2.HasResourceAmount (player2ToGive, player2AmountToGive)) {
-			return; // TODO: Throw exception?
-		}
-		executeOneWayTrade (player1, player2, player1ToGive, player1AmountToGive);
-		executeOneWayTrade (player2, player1, player2ToGive, player2AmountToGive);
+			Player player1, TradeCounter turnPlayerToGiveCounter,
+			Player player2, TradeCounter turnPlayerToGetCounter) {
+		executeOneWayTrade (player1, player2, turnPlayerToGiveCounter);
+		executeOneWayTrade (player2, player1, turnPlayerToGetCounter);
 
 	}
 
-	private static void executeOneWayTrade(Player giver, Player receiver, ResourceType resource, int amount) {
-		giver.RemoveResource (resource, amount);
-		receiver.AddResource (resource, amount);
+	private static void executeOneWayTrade(Player giver, Player receiver, TradeCounter counter) {
+		foreach (KeyValuePair<ResourceType, int> pair in counter) {
+			giver.RemoveResource (pair.Key, pair.Value);
+			receiver.AddResource (pair.Key, pair.Value);
+			// Chris do networking
+		}
 	}
 		              
 

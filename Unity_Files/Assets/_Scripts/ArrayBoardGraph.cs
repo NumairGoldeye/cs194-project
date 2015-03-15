@@ -457,7 +457,26 @@ public class ArrayBoardGraph : BoardGraph {
 				if (player.woodcount(player) >= 1 && player.brickcount(player) >= 1) {
 					RoadClass nextroad = BuildRoad(player);
 			        if(nextroad==null){
-			          
+			          if(player.sheepcount(player)>=1 && player.wheatcount(player)>=1){
+							SettlementClass nextsettlement = BuildSettlement(player);
+					       if(nextsettlement==null){
+							//build random road 
+					       }else{
+						   //build settlement pointed to by "nextsettlement"
+							}
+
+						}
+					}else{
+				     if(strategy == 2 ){
+						//build a road pointed to by "nextroad"
+						}else{
+						  if(longestroad (player)<=4){
+					      //although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
+						// position 
+
+						//build a road pointed to by "nextroad"
+					      }
+						}
 					}
 		    	}
 

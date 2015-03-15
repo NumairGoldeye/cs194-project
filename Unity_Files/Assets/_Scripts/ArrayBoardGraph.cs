@@ -632,6 +632,43 @@ public class ArrayBoardGraph : BoardGraph {
 			}
 		}
 
+		//no more trade for wood or brick to get road since it only needs two resources to do so 
+
+		//priority 7: trade to get dev cards 
+		if (strategy == 2) {
+		// trade to get sheep for dev card 
+
+			if ( player.wheatcount (player) >=1 && player.orecount (player) >=1 && player.sheepcount (player) == 0) {
+				if(player.wheatcount(player)>=5){
+					player.resourceCounts[4] -- ; 
+					player.resourceCounts[4] -- ; 
+					player.resourceCounts[4] -- ; 
+					player.resourceCounts[4] -- ; 
+					player.resourceCounts[0] ++ ; 
+				}else if(player.brickcount(player)>=4){
+					player.resourceCounts[2] --;
+					player.resourceCounts[2] --;
+					player.resourceCounts[2] --;
+					player.resourceCounts[2] --;
+					player.resourceCounts[0] ++ ; 
+				}else if(player.woodcount(player)>=4){
+					player.resourceCounts[1] --;
+					player.resourceCounts[1] --;
+					player.resourceCounts[1] --;
+					player.resourceCounts[1] --;
+					player.resourceCounts[0] ++ ; 
+				}else if(player.orecount(player)>=5){
+					player.resourceCounts[3] --;
+					player.resourceCounts[3] --;
+					player.resourceCounts[3] --;
+					player.resourceCounts[3] --;
+					player.resourceCounts[0] ++ ; 
+				}
+			}
+
+
+		}
+
 		//-----------------------------------------------------------------------------------------------------------------------------------
 
 		//The first part, build city 

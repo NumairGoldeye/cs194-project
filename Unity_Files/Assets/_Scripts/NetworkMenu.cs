@@ -131,8 +131,7 @@ public class NetworkMenu : MonoBehaviour {
 		GameManager.Instance.myPlayerName = playerName;
 		NetworkConnectionError error = Network.InitializeServer(1000, 6832 ,true);
 	}
-
-	//KEEP These Actions Need to happen when the host starts the game
+	
 	public void GameStart(){
 		
 		//					int startingPlayerID = Random.Range(0, GameManager.Instance.players.Count);
@@ -142,14 +141,6 @@ public class NetworkMenu : MonoBehaviour {
 		GameManager.Instance.syncStartStateWithClients();
 		GameManager.Instance.gameStarted = true;
 		GameManager.Instance.networkView.RPC("startupGame", RPCMode.All);
-		//					GameManager.Instance.graph.getSettlement(4).buildSettlement();
-		//					GameManager.Instance.myPlayer.AddResource(ResourceType.Brick, 1);
-		//					GameManager.Instance.myPlayer.AddResource(ResourceType.Sheep, 1);
-		//					GameManager.Instance.myPlayer.AddResource(ResourceType.Wheat, 1);
-		//					GameManager.Instance.myPlayer.AddResource(ResourceType.Wood, 1);
-		Debugger.Log("PlayerHand", "Player has: " + GameManager.Instance.myPlayer.totalResources.ToString() + " resources");
-		
-		//					Debugger.Log ("PlayerHand", "Players in game: " + GameManager.Instance.players.Count.ToString ());
 	}
 	
 	

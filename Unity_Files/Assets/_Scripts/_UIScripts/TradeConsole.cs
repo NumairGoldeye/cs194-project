@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class TradeConsole : MonoBehaviour {
 
@@ -15,6 +16,8 @@ public class TradeConsole : MonoBehaviour {
 	public ComboBox playerToTradeBox;
 
 	public TradeCounter toGive;
+
+	public List<string> playerNames;
 
 	void Update() {
 		if (playerToTrade.SelectedIndex > 0 && TurnState.currentPlayer.HasResources (toGive)) {
@@ -66,15 +69,15 @@ public class TradeConsole : MonoBehaviour {
 
 	public void ConfigurePlayerTradeConsole() {
 		playerToTradeBox.SelectedIndex = 0;
-		// Currently, the configuration is the same for every player, so
-		// this is a sort of lazy-shortcut to make this only done once.
-		if (playerToTradeBox.Items.Length > 1) return;
-		string[] playerNames = new string[GameManager.Instance.players.Count];
+
+		if (playerNames.Count > 0) return;
+		playerNames = new List<string>();
 		for (int i = 0; i < GameManager.Instance.players.Count; ++i) {
-			playerNames[i] = GameManager.Instance.players[i].playerName;
+			if (GameManager.Instance.players[i].playerId == GameManager.Instance.myPlayer.playerId) continue;
+			playerNames.Add(GameManager.Instance.players[i].playerName);
 		}
-		playerToTradeBox.ItemsToDisplay = GameManager.Instance.players.Count;
-		playerToTradeBox.AddItems(playerNames);
+		playerToTradeBox.ItemsToDisplay = GameManager.Instance.players.Count - 1;
+		playerToTradeBox.AddItems(playerNames.ToArray());
 		playerToTradeBox.Refresh ();
 	}
 	

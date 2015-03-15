@@ -23,7 +23,8 @@ public class TradeConfirm : MonoBehaviour {
 		tradeConsole.Disable ();
 		// Can confirm trade if and only if enough resources. 
 		if (!GameManager.Instance.myTurn()) {
-			if (GameManager.Instance.myPlayer.HasResources (turnPlayerToGetCounter)) {
+			Debugger.Log("Trade", receiveMessage + " & " + giveMessage);
+			if (GameManager.Instance.myPlayer.HasResourcesString(giveMessage)) {
 				acceptButton.gameObject.SetActive (true);
 			} else {
 				acceptButton.gameObject.SetActive (false);
@@ -32,6 +33,7 @@ public class TradeConfirm : MonoBehaviour {
 		} else {
 			playerText.text = "You want to trade with " + targetPlayer.playerName;
 			rejectButton.gameObject.SetActive(false);
+			acceptButton.gameObject.SetActive(false);
 		}
 
 		tradeGiveText.text = "Give: " + giveMessage;
@@ -40,7 +42,8 @@ public class TradeConfirm : MonoBehaviour {
 	}
 
 	public void requestTrade() {
-		targetPlayer = GameManager.Instance.players [tradePlayerBox.SelectedIndex - 1];
+		targetPlayer = Player.FindByPlayerName(Player.FindByPlayerName(tradeConsole.playerNames[tradePlayerBox.SelectedIndex - 1]).playerName);
+
 		GameManager.Instance.networkView.RPC ("requestTrade", targetPlayer.networkPlayer, turnPlayerToGiveCounter.GetText (), turnPlayerToGetCounter.GetText ());
 		Display (turnPlayerToGetCounter.GetText (), turnPlayerToGiveCounter.GetText ());
 	}
@@ -48,7 +51,7 @@ public class TradeConfirm : MonoBehaviour {
 	public void executeTrade() {
 		TradeManager.tradeBetweenPlayers(TurnState.currentPlayer, turnPlayerToGiveCounter, targetPlayer, turnPlayerToGetCounter);
 		playerText.text = "Your trade with " + targetPlayer.playerName + " was accepted";
-		playerText.font.material.color = Color.red;
+//		playerText.font.material.color = Color.red;
 		Wait ();
 		gameObject.SetActive (false);
 		tradeConsole.DisplayTradeOptionConsole ();
@@ -56,13 +59,13 @@ public class TradeConfirm : MonoBehaviour {
 
 	public void rejectTrade() {
 		playerText.text = "Your trade with " + targetPlayer.playerName + " was declined";
-		playerText.font.material.color = Color.red;
+//		playerText.font.material.color = Color.red;
 		Wait ();
 		gameObject.SetActive (false);
 		tradeConsole.DisplayTradeOptionConsole ();
 	}
 
 	private IEnumerator Wait() {
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(3);
 	}
 }

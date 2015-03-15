@@ -21,6 +21,7 @@ public class ConfirmTradeButton : MonoBehaviour {
 	public void ConfirmTrade() {
 		// First element in ComboBox is "None", so need to add 1.
 		GameManager.Instance.networkView.RPC ("executeTrade", TurnState.currentPlayer.networkPlayer);
+		tradeConfirm.SetActive (false);
 	}
 
 }

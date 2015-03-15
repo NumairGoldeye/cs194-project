@@ -18,6 +18,6 @@ public class RejectTradeButton : MonoBehaviour {
 	private void RejectTrade() {
 
 		GameManager.Instance.networkView.RPC ("abortTrade", TurnState.currentPlayer.networkPlayer);
-//		tradeResponse.SetActive (false);
+		tradeResponse.SetActive (false);
 	}
 }

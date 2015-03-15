@@ -740,7 +740,24 @@ public class ArrayBoardGraph : BoardGraph {
 				//So if there are already resources to build city, we only trade the other resources(brick, wood, sheep) for road building 
 				// if there are not enough resources, it is possible that we have one of the wheat and ore tradable to build a road 
 				if(player.orecount(player)>=3 && player.wheatcount(player)>=2){
-				
+				  
+					//trade to get wood for road 
+					if ( player.woodcount (player) ==0  && player.brickcount (player) >= 1) {
+						if(player.brickcount(player)>=5){
+							player.resourceCounts[2] --;
+							player.resourceCounts[2] --;
+							player.resourceCounts[2] --;
+							player.resourceCounts[2] --;
+							player.resourceCounts[1] ++ ; 
+						}else if(player.sheepcount(player)>=5){
+							player.resourceCounts[0] --;
+							player.resourceCounts[0] --;
+							player.resourceCounts[0] --;
+							player.resourceCounts[0] --;
+							player.resourceCounts[1] ++ ; 
+						}
+					}
+
 				
 				}
 

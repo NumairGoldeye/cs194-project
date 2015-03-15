@@ -15,6 +15,8 @@ public class SettlementClass : MonoBehaviour {
 	public int ownerId;
 	private bool stealing;
 	public PortClass port;
+	public AudioSource settlementSound;
+	public AudioSource citySound;
 
 	void Start () {
 		settlement = transform.FindChild("SettlementObject").gameObject;

@@ -438,7 +438,7 @@ public class ArrayBoardGraph : BoardGraph {
 		//initialize strategy as 1, longest road strategy 
 		int strategy = 1; 
 		
-		List <Player> currentplayers = Player.allPlayers; 
+		List <Player> currentplayers = GameManager.Instance.players; 
 		//If the current AI's longestroad is no shorter than the best longestroad - 2, then go for the longest road
 		foreach (Player x in currentplayers) {
 			if (longestroad (player) < longestroad (x) - 2) {

@@ -69,11 +69,11 @@ public class TradeConsole : MonoBehaviour {
 		// Currently, the configuration is the same for every player, so
 		// this is a sort of lazy-shortcut to make this only done once.
 		if (playerToTradeBox.Items.Length > 1) return;
-		string[] playerNames = new string[Player.allPlayers.Count];
-		for (int i = 0; i < Player.allPlayers.Count; ++i) {
-			playerNames[i] = Player.allPlayers[i].playerName;
+		string[] playerNames = new string[GameManager.Instance.players.Count];
+		for (int i = 0; i < GameManager.Instance.players.Count; ++i) {
+			playerNames[i] = GameManager.Instance.players[i].playerName;
 		}
-		playerToTradeBox.ItemsToDisplay = Player.allPlayers.Count;
+		playerToTradeBox.ItemsToDisplay = GameManager.Instance.players.Count;
 		playerToTradeBox.AddItems(playerNames);
 		playerToTradeBox.Refresh ();
 	}

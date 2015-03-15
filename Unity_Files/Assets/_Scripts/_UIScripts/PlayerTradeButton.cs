@@ -27,7 +27,7 @@ public class PlayerTradeButton : MonoBehaviour {
 	
 	void  DisplayTradeConfirm() {
 		tradeConsole.Disable ();
-		Player target = Player.allPlayers [tradePlayerBox.SelectedIndex - 1];
+		Player target = GameManager.Instance.players [tradePlayerBox.SelectedIndex - 1];
 		// Can confirm trade if and only if enough resources. 
 		if (target.HasResources (turnPlayerToGetCounter)) {
 			acceptButton.gameObject.SetActive (true);

@@ -270,7 +270,7 @@ public class TurnState : MonoBehaviour {
 //            TurnState.players[i] = playerObjects[i].GetComponent<Player>();
 //        }
 
-//		Players.players = Player.allPlayers.ToArray();
+//		Players.players = GameManager.Instance.players.ToArray();
 
 //        TurnState.currentPlayer = GameManager.Instance.players[0];
 //        thisCurrentPlayer = TurnState.currentPlayer;

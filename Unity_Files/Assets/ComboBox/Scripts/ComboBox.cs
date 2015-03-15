@@ -329,22 +329,22 @@ public class ComboBox : MonoBehaviour
 	// TODO: Commenting this out seems to have no effects, but I am suspicious...
 	public void LoadAssets()
 	{
-		while (Sprite_UISprite == null || Sprite_Background == null)
-		{
-			var sprites = Resources.FindObjectsOfTypeAll<Sprite>();
-			foreach (var sprite in sprites)
-				switch (sprite.name)
-				{
-					case "UISprite":
-						Sprite_UISprite = sprite;
-						break;
-					case "Background":
-						Sprite_Background = sprite;
-						break;
-				}
-//			if (Sprite_UISprite == null || Sprite_Background == null)
-//				AssetDatabase.LoadAllAssetsAtPath("Resources/unity_builtin_extra");
-		}
+//		while (Sprite_UISprite == null || Sprite_Background == null)
+//		{
+//			var sprites = Resources.FindObjectsOfTypeAll<Sprite>();
+//			foreach (var sprite in sprites)
+//				switch (sprite.name)
+//				{
+//					case "UISprite":
+//						Sprite_UISprite = sprite;
+//						break;
+//					case "Background":
+//						Sprite_Background = sprite;
+//						break;
+//				}
+////			if (Sprite_UISprite == null || Sprite_Background == null)
+////				AssetDatabase.LoadAllAssetsAtPath("Resources/unity_builtin_extra");
+//		}
 	}
 //
 	public void CreateControl()

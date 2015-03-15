@@ -17,7 +17,7 @@ public class RejectTradeButton : MonoBehaviour {
 
 	private void RejectTrade() {
 		Player current = TurnState.currentPlayer;
-		Player target = Player.allPlayers [tradePlayerBox.SelectedIndex - 1];
+		Player target = GameManager.Instance.players [tradePlayerBox.SelectedIndex - 1];
 		ChatLog.Instance.AddChatEvent(
 			"Player " + current.playerName + " " + "rejected trade from " + target.playerName + "!");
 		tradeResponse.SetActive (false);

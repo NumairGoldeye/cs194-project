@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour {
 	private int die1;
 	private int die2;
 	private TileClass tileWithRobber;
-	private Player playerWithLargestArmy = null;
+	public Player playerWithLargestArmy = null;
 
 
 	private int[] tileCounts = {4, 4, 3, 3, 4, 1};
@@ -364,7 +364,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		GameObject.Find("Forests").transform.position = new Vector3(.3f, 0.0f, .25f);
-		GameObject.Find("Mountains").transform.position = new Vector3(.24f, -0.08f, .24f);
+//		GameObject.Find("Mountains").transform.position = new Vector3(.24f, -0.08f, .24f);
 	}
 
 	public void distributeResourcesForSettlement(SettlementClass settlement) {

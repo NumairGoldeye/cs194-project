@@ -142,9 +142,9 @@ public class DevCard : PlayerCard {
 	private static void UpdateLargestArmy(Player p) {
 		p.numUsedKnights++;
 		if (p.numUsedKnights >= LARGEST_ARMY_MIN) {
-			Player playerWithLargestArmy = GameManager.playerWithLargestArmy;
+			Player playerWithLargestArmy = GameManager.Instance.playerWithLargestArmy;
 			if (playerWithLargestArmy == null || p.numUsedKnights > playerWithLargestArmy.numUsedKnights) {
-				GameManager.playerWithLargestArmy = p;
+				GameManager.Instance.playerWithLargestArmy = p;
 				p.AddVictoryPoint(LARGEST_ARMY_VICTORY_POINTS);
 			}
 		}

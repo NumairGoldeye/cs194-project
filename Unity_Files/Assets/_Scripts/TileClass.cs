@@ -110,6 +110,9 @@ public class TileClass : MonoBehaviour {
 				break;
 			case ResourceType.Wheat:
 				renderer.material.color = Color.yellow;
+				GameObject Wheat = GameObject.FindGameObjectsWithTag ("Hay")[0];
+				Wheat.transform.position = transform.position;
+				Wheat.tag = "Assigned";	
 				break;
 			case ResourceType.Ore:
 				renderer.material.color = Color.gray;

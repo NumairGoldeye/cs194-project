@@ -390,9 +390,10 @@ public class GameManager : MonoBehaviour {
 				tile.hasRobber = false;
 			}
 		}
-		GameObject.Find("Forests").transform.position = new Vector3(.3f, 0.0f, .25f);
+		GameObject.Find("Forests").transform.position = new Vector3(.36f, 0.0f, .32f);
 		GameObject.Find("Mountains").transform.position = new Vector3(.25f, -0.15f, .31f);
 		GameObject.Find("Sheeps").transform.position = new Vector3(-.475f, .66f, -.74f);
+		GameObject.Find("Bales").transform.position = new Vector3(.1f, 1.0f, -1.0f);
 	}
 
 	public void distributeResourcesForSettlement(SettlementClass settlement) {

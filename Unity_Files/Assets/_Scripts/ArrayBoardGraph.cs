@@ -494,173 +494,92 @@ public class ArrayBoardGraph : BoardGraph {
 		if (player.orecount (player) == 2 && player.wheatcount (player) >= 2) {
 				if(player.sheepcount(player)>=4){
 				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wheat, player);
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[3] ++ ; 
 			}else if(player.woodcount(player) >=4){
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[3] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wood, player);
 			}else if(player.brickcount(player)>=4){
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[3] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Brick, player);
 			}else if(player.wheatcount(player)>=6){
-				player.resourceCounts[4] --;
-				player.resourceCounts[4] --;
-				player.resourceCounts[4] --;
-				player.resourceCounts[4] --;
-				player.resourceCounts[3] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wheat, player);
 			}
 		}
 
 		//priority 2: trade to get wheat for city 
 		if (player.orecount (player) >= 3 && player.wheatcount (player) == 1) {
 			if(player.sheepcount(player)>=4){
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[4] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Sheep, player);
 			}else if(player.woodcount(player) >=4){
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[4] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Wood, player);
+
 			}else if(player.brickcount(player)>=4){
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[4] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Brick, player);
 			}else if(player.orecount(player)>=7){
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[4] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Ore, player);
 			}
 		}
 		//priority 3: trade to get wood for settlement 
 		if (player.woodcount (player) == 0 && player.wheatcount (player) >= 1 && player.brickcount (player) >= 1 && player.sheepcount (player) >= 1) {
 			if(player.sheepcount(player)>=5){
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[1] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Sheep, player);
 			}else if(player.brickcount(player)>=5){
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[1] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Brick, player);
+
 			}else if(player.wheatcount(player)>=5){
-				player.resourceCounts[4] --;
-				player.resourceCounts[4] --;
-				player.resourceCounts[4] --;
-				player.resourceCounts[4] --;
-				player.resourceCounts[1] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Wheat, player);
+
 			}else if(player.orecount(player)>=4){
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[1] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Ore, player);
+
 			}
 		}
 
 		//priority 4: trade to get wheat for settlement 
 		if (player.woodcount (player) >= 1 && player.wheatcount (player) == 0 && player.brickcount (player) >= 1 && player.sheepcount (player) >= 1) {
 			if(player.sheepcount(player)>=5){
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[0] -- ; 
-				player.resourceCounts[4] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Sheep, player);
+
 			}else if(player.brickcount(player)>=5){
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[4] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Brick, player);
+
 			}else if(player.woodcount(player)>=5){
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[4] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Wood, player);
+
 			}else if(player.orecount(player)>=4){
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[4] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Ore, player);
+
 			}
 		}
 
 		//priority 5: trade to get sheep for settlement 
 		if (player.woodcount (player) >= 1 && player.wheatcount (player) >=1 && player.brickcount (player) >= 1 && player.sheepcount (player) == 0) {
 			if(player.wheatcount(player)>=5){
-				player.resourceCounts[4] -- ; 
-				player.resourceCounts[4] -- ; 
-				player.resourceCounts[4] -- ; 
-				player.resourceCounts[4] -- ; 
-				player.resourceCounts[0] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Wheat, player);
+
 			}else if(player.brickcount(player)>=5){
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[2] --;
-				player.resourceCounts[0] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Brick, player);
+
 			}else if(player.woodcount(player)>=5){
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[0] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Wood, player);
+
 			}else if(player.orecount(player)>=4){
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[0] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Ore, player);
+
 			}
 		}
 
 		//priority 6: trade to get brick for settlement 
 		if (player.woodcount (player) >= 1 && player.wheatcount (player) >=1 && player.brickcount (player) == 0 && player.sheepcount (player) >= 1) {
 			if(player.wheatcount(player)>=5){
-				player.resourceCounts[4] -- ; 
-				player.resourceCounts[4] -- ; 
-				player.resourceCounts[4] -- ; 
-				player.resourceCounts[4] -- ; 
-				player.resourceCounts[2] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wheat, player);
+
 			}else if(player.sheepcount(player)>=5){
-				player.resourceCounts[0] --;
-				player.resourceCounts[0] --;
-				player.resourceCounts[0] --;
-				player.resourceCounts[0] --;
-				player.resourceCounts[2] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Sheep, player);
+
 			}else if(player.woodcount(player)>=5){
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[1] --;
-				player.resourceCounts[2] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wood, player);
+
 			}else if(player.orecount(player)>=4){
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[3] --;
-				player.resourceCounts[2] ++ ; 
+				TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Ore, player);
+
 			}
 		}
 
@@ -671,29 +590,16 @@ public class ArrayBoardGraph : BoardGraph {
 
 			if ( player.wheatcount (player) >=1 && player.orecount (player) >=1 && player.sheepcount (player) == 0) {
 				if(player.wheatcount(player)>=5){
-					player.resourceCounts[4] -- ; 
-					player.resourceCounts[4] -- ; 
-					player.resourceCounts[4] -- ; 
-					player.resourceCounts[4] -- ; 
-					player.resourceCounts[0] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Wheat, player);
+
 				}else if(player.brickcount(player)>=4){
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[0] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Brick, player);
 				}else if(player.woodcount(player)>=4){
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[0] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Wood, player);
+
 				}else if(player.orecount(player)>=5){
-					player.resourceCounts[3] --;
-					player.resourceCounts[3] --;
-					player.resourceCounts[3] --;
-					player.resourceCounts[3] --;
-					player.resourceCounts[0] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Ore, player);
+
 				}
 			}
 
@@ -702,29 +608,17 @@ public class ArrayBoardGraph : BoardGraph {
 			
 			if ( player.wheatcount (player) >=1 && player.orecount (player) == 0 && player.sheepcount (player) >= 1) {
 				if(player.wheatcount(player)>=5){
-					player.resourceCounts[4] -- ; 
-					player.resourceCounts[4] -- ; 
-					player.resourceCounts[4] -- ; 
-					player.resourceCounts[4] -- ; 
-					player.resourceCounts[3] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wheat, player);
+
 				}else if(player.brickcount(player)>=4){
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[3] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Brick, player);
+
 				}else if(player.woodcount(player)>=4){
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[3] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wood, player);
+
 				}else if(player.sheepcount(player)>=5){
-					player.resourceCounts[0] --;
-					player.resourceCounts[0] --;
-					player.resourceCounts[0] --;
-					player.resourceCounts[0] --;
-					player.resourceCounts[3] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Sheep, player);
+
 				}
 			}
 
@@ -733,29 +627,17 @@ public class ArrayBoardGraph : BoardGraph {
 			
 			if ( player.wheatcount (player) >=1 && player.orecount (player) == 0 && player.sheepcount (player) >= 1) {
 				if(player.orecount(player)>=5){
-					player.resourceCounts[3] -- ; 
-					player.resourceCounts[3] -- ; 
-					player.resourceCounts[3] -- ; 
-					player.resourceCounts[3] -- ; 
-					player.resourceCounts[4] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Ore, player);
+
 				}else if(player.brickcount(player)>=4){
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[2] --;
-					player.resourceCounts[4] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Brick, player);
+
 				}else if(player.woodcount(player)>=4){
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[1] --;
-					player.resourceCounts[4] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Wood, player);
+
 				}else if(player.sheepcount(player)>=5){
-					player.resourceCounts[0] --;
-					player.resourceCounts[0] --;
-					player.resourceCounts[0] --;
-					player.resourceCounts[0] --;
-					player.resourceCounts[4] ++ ; 
+					TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Sheep, player);
+
 				}
 			}
 
@@ -776,17 +658,11 @@ public class ArrayBoardGraph : BoardGraph {
 					//trade to get wood for road 
 					if ( player.woodcount (player) ==0  && player.brickcount (player) >= 1) {
 						if(player.brickcount(player)>=5){
-							player.resourceCounts[2] --;
-							player.resourceCounts[2] --;
-							player.resourceCounts[2] --;
-							player.resourceCounts[2] --;
-							player.resourceCounts[1] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Brick, player);
+
 						}else if(player.sheepcount(player)>=4){
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[1] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Sheep, player);
+
 						}
 					}
 
@@ -794,17 +670,11 @@ public class ArrayBoardGraph : BoardGraph {
 					//trade to get brick for road 
 					if ( player.woodcount (player) >=1  && player.brickcount (player) == 0) {
 						if(player.woodcount(player)>=5){
-							player.resourceCounts[1] --;
-							player.resourceCounts[1] --;
-							player.resourceCounts[1] --;
-							player.resourceCounts[1] --;
-							player.resourceCounts[2] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wood, player);
+
 						}else if(player.sheepcount(player)>=4){
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[2] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Sheep, player);
+
 						}
 					}
 
@@ -814,58 +684,35 @@ public class ArrayBoardGraph : BoardGraph {
 					//trade to get wood for road 
 					if ( player.woodcount (player) ==0  && player.brickcount (player) >= 1) {
 						if(player.brickcount(player)>=5){
-							player.resourceCounts[2] --;
-							player.resourceCounts[2] --;
-							player.resourceCounts[2] --;
-							player.resourceCounts[2] --;
-							player.resourceCounts[1] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Brick, player);
+
 						}else if(player.sheepcount(player)>=4){
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[1] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Sheep, player);
+
 						}else if(player.wheatcount(player)>=4){
-							player.resourceCounts[4] --;
-							player.resourceCounts[4] --;
-							player.resourceCounts[4] --;
-							player.resourceCounts[4] --;
-							player.resourceCounts[1] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Wheat, player);
+
+
 						}else if(player.orecount(player)>=4){
-							player.resourceCounts[3] --;
-							player.resourceCounts[3] --;
-							player.resourceCounts[3] --;
-							player.resourceCounts[3] --;
-							player.resourceCounts[1] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Ore, player);
+
 						}
 					}
 
 					//trade to get brick for road 
 					if ( player.woodcount (player) >= 1  && player.brickcount (player) == 0 ) {
 						if(player.woodcount(player)>=5){
-							player.resourceCounts[1] --;
-							player.resourceCounts[1] --;
-							player.resourceCounts[1] --;
-							player.resourceCounts[1] --;
-							player.resourceCounts[2] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wood, player);
+
 						}else if(player.sheepcount(player)>=4){
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[0] --;
-							player.resourceCounts[2] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Sheep, player);
+
 						}else if(player.wheatcount(player)>=4){
-							player.resourceCounts[4] --;
-							player.resourceCounts[4] --;
-							player.resourceCounts[4] --;
-							player.resourceCounts[4] --;
-							player.resourceCounts[2] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wheat, player);
+
 						}else if(player.orecount(player)>=4){
-							player.resourceCounts[3] --;
-							player.resourceCounts[3] --;
-							player.resourceCounts[3] --;
-							player.resourceCounts[3] --;
-							player.resourceCounts[2] ++ ; 
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Ore, player);
+
 						}
 					}
 				}

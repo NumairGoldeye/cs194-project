@@ -106,17 +106,20 @@ public class DevCard : PlayerCard {
 		
 		foreach(Player p in otherPlayers){
 			thisCount = p.GetResourceCount(resource);
+			GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, p.playerId, (int)resource, -1);
 			p.RemoveResource(resource, thisCount);
 			
 			totalResourceCount += thisCount;
 		}
 		// Todo - log which player loses what...
 		mainPlayer.AddResource(resource, totalResourceCount);
+		GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, mainPlayer.playerId, (int)resource, totalResourceCount);
 		return totalResourceCount;
 	}
 	
 	public static int EnactYearOfPlenty(Player mainPlayer, ResourceType resource){
 		mainPlayer.AddResource(resource, 2);
+		GameManager.Instance.networkView.RPC ("syncResources", RPCMode.Others, mainPlayer.playerId, (int)resource, 2);
 		return 2;
 	}
 	
@@ -132,14 +135,14 @@ public class DevCard : PlayerCard {
 		case DevCardType.yearOfPlenty:
 			return EnactYearOfPlenty(p, r);
 		case DevCardType.knight:
-			UpdateLargestArmy(p);
+			GameManager.Instance.networkView.RPC ("updateKnights", RPCMode.All);
 			return 1;
 			
 		}
 		return -1;
 	}
 	
-	private static void UpdateLargestArmy(Player p) {
+	public static void UpdateLargestArmy(Player p) {
 		p.numUsedKnights++;
 		if (p.numUsedKnights >= LARGEST_ARMY_MIN) {
 			Player playerWithLargestArmy = GameManager.Instance.playerWithLargestArmy;

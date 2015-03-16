@@ -143,6 +143,12 @@ public class GameManager : MonoBehaviour {
 	 * ---------------------------------------------------------*/
 
 	[RPC]
+	void updateKnights() {
+		TurnState.currentPlayer.numUsedKnights++;
+		DevCard.UpdateLargestArmy(TurnState.currentPlayer);
+	}
+
+	[RPC]
 	void syncModels(Vector3 forests, Vector3 mountains) {
 		GameObject.Find("Forests").transform.position = forests;
 		GameObject.Find("Mountains").transform.position = mountains;
@@ -276,9 +282,6 @@ public class GameManager : MonoBehaviour {
 	[RPC]
 	void syncResources(int playerID, int resourceType, int count) {
 		GameManager.Instance.players [playerID].AddResource ((ResourceType)resourceType, count);
-		Debugger.Log ("PlayerHand", "Resource Stolen: " + resourceType.ToString ());
-		Debugger.Log ("PlayerHand", "Player: " + playerID.ToString() + " has: " + 
-		              string.Join(",", Array.ConvertAll<int, string>(GameManager.Instance.players[playerID].resourceCounts, Convert.ToString)));
 	}
 
 	[RPC]

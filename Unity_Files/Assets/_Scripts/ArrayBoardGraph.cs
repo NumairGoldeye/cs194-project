@@ -493,6 +493,7 @@ public class ArrayBoardGraph : BoardGraph {
 		//priority 1: trade to get ore for city 
 		if (player.orecount (player) == 2 && player.wheatcount (player) >= 2) {
 				if(player.sheepcount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wheat, player);
 				player.resourceCounts[0] -- ; 
 				player.resourceCounts[0] -- ; 
 				player.resourceCounts[0] -- ; 

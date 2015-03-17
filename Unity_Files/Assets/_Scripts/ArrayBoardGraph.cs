@@ -131,14 +131,32 @@ public class ArrayBoardGraph : BoardGraph {
 		return false;
 	}
 
+	//This function will help the longestroad function keeps track of validness
+	public SettlementClass intersectofroads(RoadClass r1, RoadClass r2){
+		SettlementClass result = new SettlementClass ();
+
+		if (r1.settlement1 == r2.settlement1) {
+			result = r1.settlement1;		
+				} else if (r1.settlement1 == r2.settlement2) {
+			result= r1.settlement1;		
+				} else if (r1.settlement2 == r2.settlement1) {
+			result = r1.settlement2;		
+				} else if (r1.settlement2 == r2.settlement2) {
+			result= r1.settlement2;		
+		}
+		return result; 
+	}
+
 
     public int longestroad(Player player){
 		int result = 0;
 		RoadClass[] playerRoads = player.GetRoads();
 		List<RoadClass> roads = playerRoads.ToList<RoadClass>();
 				///can add an "if" statement here checking if playerRoads is null meaning no road built 
+		// keep track of the intersection of adjacent roads that we had use 
+		List<SettlementClass> intersect = new List<SettlementClass> ();
 		foreach (RoadClass r in roads) {
-			int subresult = longestroadfromone(r, roads);		
+			int subresult = longestroadfromone(r, roads, intersect);		
 		if(subresult > result) {
 				result = subresult;
 			}
@@ -151,7 +169,7 @@ public class ArrayBoardGraph : BoardGraph {
      * This is the recursive function used to calculate the longest road(has to contain two arguments to keep track of the invariance 
      * in the recursive function)
      */
-	private int longestroadfromone(RoadClass rd, List<RoadClass> roads){
+	private int longestroadfromone(RoadClass rd, List<RoadClass> roads, List<SettlementClass> intersection){
 		
 				int longest = 1;
 				// This function means: having rd as road array No.1, find the longest road 
@@ -166,17 +184,23 @@ public class ArrayBoardGraph : BoardGraph {
 
 						//This new road list keeps track of the subgraph when 1 road is deleted from the road list   
 						List<RoadClass> leftroads = new List<RoadClass> (roads);
-
+			// This keeps track of the intersect between the previous road array and the new one adding to list 
+			            SettlementClass intersect = intersectofroads(r, rd);
 						//if one of the adjacent roads is contained in the built road array, then use this as the next road and the leftover road 
 						//array as the total sub array 
-						if (roads.Contains (r)) {     
+						if (roads.Contains (r) && !intersection.Contains(intersect)) {     
 								leftroads.Remove (rd);
 
 								//call the recursive to see the sub graph 
-								int sublongest = longestroadfromone (r, leftroads);
+								int sublongest = longestroadfromone (r, leftroads, intersection);
 								//int partialresult = longestroad(left);
 								if (sublongest + 1 > longest) {
 										longest = sublongest + 1; 
+					//In this case, when it is updating the longest, this means that "r" (in adjacent) is the next road that leads to longest road 
+					//We keep track of its connecting node, represented as SettlementClass in the intersection list to check further if it is legitimate 
+					//Add the intersect to the connecting node array list to fix the bug 
+									intersection.Add(intersect);              
+
 								}
 						}
 						// if "Contains" bool is false, then it means there is no more adjacent road available, meaning the sublongest is 0, meaning 
@@ -254,6 +278,11 @@ public class ArrayBoardGraph : BoardGraph {
 		return result; 
 	}
 
+	//-----------------------------------------------------------------------------------------------------------------------------------
+	//memo: 1. action functions for building city, road, settlement 2. Use dev card functions 
+	//   3. AI initializer: AI's name is computer, text recognition to get into the AI   4. work with Chris to call the final AI brain 
+	//  function at the right place/turn 
+
 	//------ AI related computer mode functions--------
 	// The AI strategy: 
 	// 1. build settlements at where there are the most frequency 
@@ -264,21 +293,6 @@ public class ArrayBoardGraph : BoardGraph {
 	// 6. Trade with players other than the top score player for win-win  
 
 
-
-	// In the beginnning, the AI calls "BuildSettlement" to set 2 settlements of highest frequencies, and build 2 roads randomly
-	//At each turn, the AI calls: 
-	// 0. Update strategy with strateyUpdate, decide 1-3
-	// 1. Check resource cards that he has, get a list of them; 
-	// 2.if they contain "wood, brick" then call "BuildRoad"
-	//								if return null(1. has place to build good set 2. no good road), then do not build road 
-	// 										if contain "wood, brick, sheep, wheat", BuildSettlement (if null, build random road) 
-	//										if not contain, call BuildSettlement to see if null-> build Random Road 
-	//								if return yes, then check strategy, if strategy is not 1 and longestroad is bigger or equal to 4
-	// 										then build road; else do not build, save for future settlement 
-	//3. If contain " 2 wheat 3 ore", build city at all times
-	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
-	//City always trumphs  
-	//full strategy 
 
 	//where to build settlements: 1. first two settlements   2. 3rd settlement and beyond 
 
@@ -307,7 +321,7 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 
 		//This function returns the settlement that is buildable and has the most frequency sum index 
-		//If there is no buildable settlement, then build road 
+		//If there is no buildable settlement, then this returns null which means we should build road 
 		return result;
 	}
 
@@ -457,6 +471,344 @@ public class ArrayBoardGraph : BoardGraph {
 		
 		
 		return strategy;
+	}
+
+	//-----------------------------------------------------------------------------------------------------------------------------------
+
+	//Final Integration function that serves as the AI brain, taking into account turn by turn real time scenario of all other 
+	//players to decide AI's strategy at the turn, and move accordingly to build settlement, road, city or get dev card.
+	//This function should be called in AI's turn  
+
+	
+	
+	// In the beginnning, the AI calls "BuildSettlement" to set 2 settlements of highest frequencies, and build 2 roads randomly
+	//At each turn, the AI calls: 
+	// 0. Update strategy with strateyUpdate, decide 1-3; trade console with the house 
+	// 1. Check resource cards that he has, get a list of them; 
+	//2. If contain " 2 wheat 3 ore", build city at all times
+
+	// 3.if they contain "wood, brick" then call "BuildRoad"
+	//								if return null(1. has place to build good set 2. no good road), then do not build road 
+	// 										if contain "wood, brick, sheep, wheat", BuildSettlement (if null, build random road) 
+	//										if not contain, call BuildSettlement to see if null-> build Random Road 
+	//								if return yes, then check strategy, if strategy is 1 and longestroad is not bigger or equal to 4
+	// 										then build road; else do not build, save for future settlement 
+	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
+	//City always trumphs  
+	//full strategy 
+
+	void AIBrain(Player player){
+				//This gives the current optimal strategy for the AI player 
+				int strategy = strategyUpdate (player);
+
+
+		//-----------------------------------------------------------------------------------------------------------------------------------
+		//part 0: trade with the house
+
+		//priority 1: trade to get ore for city 
+		if (player.orecount (player) == 2 && player.wheatcount (player) >= 2) {
+				if(player.sheepcount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wheat, player);
+			}else if(player.woodcount(player) >=4){
+				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wood, player);
+			}else if(player.brickcount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Brick, player);
+			}else if(player.wheatcount(player)>=6){
+				TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wheat, player);
+			}
+		}
+
+		//priority 2: trade to get wheat for city 
+		if (player.orecount (player) >= 3 && player.wheatcount (player) == 1) {
+			if(player.sheepcount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Sheep, player);
+			}else if(player.woodcount(player) >=4){
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Wood, player);
+
+			}else if(player.brickcount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Brick, player);
+			}else if(player.orecount(player)>=7){
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Ore, player);
+			}
+		}
+		//priority 3: trade to get wood for settlement 
+		if (player.woodcount (player) == 0 && player.wheatcount (player) >= 1 && player.brickcount (player) >= 1 && player.sheepcount (player) >= 1) {
+			if(player.sheepcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Sheep, player);
+			}else if(player.brickcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Brick, player);
+
+			}else if(player.wheatcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Wheat, player);
+
+			}else if(player.orecount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Ore, player);
+
+			}
+		}
+
+		//priority 4: trade to get wheat for settlement 
+		if (player.woodcount (player) >= 1 && player.wheatcount (player) == 0 && player.brickcount (player) >= 1 && player.sheepcount (player) >= 1) {
+			if(player.sheepcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Sheep, player);
+
+			}else if(player.brickcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Brick, player);
+
+			}else if(player.woodcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Wood, player);
+
+			}else if(player.orecount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Ore, player);
+
+			}
+		}
+
+		//priority 5: trade to get sheep for settlement 
+		if (player.woodcount (player) >= 1 && player.wheatcount (player) >=1 && player.brickcount (player) >= 1 && player.sheepcount (player) == 0) {
+			if(player.wheatcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Wheat, player);
+
+			}else if(player.brickcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Brick, player);
+
+			}else if(player.woodcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Wood, player);
+
+			}else if(player.orecount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Ore, player);
+
+			}
+		}
+
+		//priority 6: trade to get brick for settlement 
+		if (player.woodcount (player) >= 1 && player.wheatcount (player) >=1 && player.brickcount (player) == 0 && player.sheepcount (player) >= 1) {
+			if(player.wheatcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wheat, player);
+
+			}else if(player.sheepcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Sheep, player);
+
+			}else if(player.woodcount(player)>=5){
+				TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wood, player);
+
+			}else if(player.orecount(player)>=4){
+				TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Ore, player);
+
+			}
+		}
+
+
+		//priority 7: trade to get dev cards 
+		if (strategy == 2) {
+		// trade to get sheep for dev card 
+
+			if ( player.wheatcount (player) >=1 && player.orecount (player) >=1 && player.sheepcount (player) == 0) {
+				if(player.wheatcount(player)>=5){
+					TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Wheat, player);
+
+				}else if(player.brickcount(player)>=4){
+					TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Brick, player);
+				}else if(player.woodcount(player)>=4){
+					TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Wood, player);
+
+				}else if(player.orecount(player)>=5){
+					TradeManager.TradeWithHouse(ResourceType.Sheep, ResourceType.Ore, player);
+
+				}
+			}
+
+
+			// trade to get ore for dev card 
+			
+			if ( player.wheatcount (player) >=1 && player.orecount (player) == 0 && player.sheepcount (player) >= 1) {
+				if(player.wheatcount(player)>=5){
+					TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wheat, player);
+
+				}else if(player.brickcount(player)>=4){
+					TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Brick, player);
+
+				}else if(player.woodcount(player)>=4){
+					TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Wood, player);
+
+				}else if(player.sheepcount(player)>=5){
+					TradeManager.TradeWithHouse(ResourceType.Ore, ResourceType.Sheep, player);
+
+				}
+			}
+
+			
+			// trade to get wheat for dev card 
+			
+			if ( player.wheatcount (player) >=1 && player.orecount (player) == 0 && player.sheepcount (player) >= 1) {
+				if(player.orecount(player)>=5){
+					TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Ore, player);
+
+				}else if(player.brickcount(player)>=4){
+					TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Brick, player);
+
+				}else if(player.woodcount(player)>=4){
+					TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Wood, player);
+
+				}else if(player.sheepcount(player)>=5){
+					TradeManager.TradeWithHouse(ResourceType.Wheat, ResourceType.Sheep, player);
+
+				}
+			}
+
+
+			//priority 8: trade to build road when strategy is longest road 
+			if (strategy == 1) {
+
+				//Since strategy is not 2, so we know AI has not traded for dev card yet 
+				//Since trade for settlement session has happened, this trade for road scenario only happens if no trade for settlement 
+				//has happened. 
+				//So the only scenario we want to prevent is when there is already enough to build city but we trade the city materials 
+				//for the road, meh....
+
+				//So if there are already resources to build city, we only trade the other resources(brick, wood, sheep) for road building 
+				// if there are not enough resources, it is possible that we have one of the wheat and ore tradable to build a road 
+				if(player.orecount(player)>=3 && player.wheatcount(player)>=2){
+				  
+					//trade to get wood for road 
+					if ( player.woodcount (player) ==0  && player.brickcount (player) >= 1) {
+						if(player.brickcount(player)>=5){
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Brick, player);
+
+						}else if(player.sheepcount(player)>=4){
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Sheep, player);
+
+						}
+					}
+
+
+					//trade to get brick for road 
+					if ( player.woodcount (player) >=1  && player.brickcount (player) == 0) {
+						if(player.woodcount(player)>=5){
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wood, player);
+
+						}else if(player.sheepcount(player)>=4){
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Sheep, player);
+
+						}
+					}
+
+				
+				}else{
+				  
+					//trade to get wood for road 
+					if ( player.woodcount (player) ==0  && player.brickcount (player) >= 1) {
+						if(player.brickcount(player)>=5){
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Brick, player);
+
+						}else if(player.sheepcount(player)>=4){
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Sheep, player);
+
+						}else if(player.wheatcount(player)>=4){
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Wheat, player);
+
+
+						}else if(player.orecount(player)>=4){
+							TradeManager.TradeWithHouse(ResourceType.Wood, ResourceType.Ore, player);
+
+						}
+					}
+
+					//trade to get brick for road 
+					if ( player.woodcount (player) >= 1  && player.brickcount (player) == 0 ) {
+						if(player.woodcount(player)>=5){
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wood, player);
+
+						}else if(player.sheepcount(player)>=4){
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Sheep, player);
+
+						}else if(player.wheatcount(player)>=4){
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Wheat, player);
+
+						}else if(player.orecount(player)>=4){
+							TradeManager.TradeWithHouse(ResourceType.Brick, ResourceType.Ore, player);
+
+						}
+					}
+				}
+
+			}
+			//Now AI is fully traded and optimized for different scenarios: 
+			// city first always, settlement always second then 
+			// based on strategy:  1 for trading for road, 2 for trading for dev card 
+
+
+		}
+
+		//-----------------------------------------------------------------------------------------------------------------------------------
+
+		//The first part, build city 
+		if (player.wheatcount (player) >= 2 && player.orecount (player) >= 3) {
+			SettlementClass nextcity = BuildCity(player);
+			//Build city pointed to by the nextcity 
+		}
+
+		//-----------------------------------------------------------------------------------------------------------------------------------
+
+
+		//The second part: deals with the tradeoff between building a road now or saving the resource to build a settlement later
+				if (player.woodcount(player) >= 1 && player.brickcount(player) >= 1) {
+					RoadClass nextroad = BuildRoad(player);
+			        if(nextroad==null){
+			          if(player.sheepcount(player)>=1 && player.wheatcount(player)>=1){
+							SettlementClass nextsettlement = BuildSettlement(player);
+					       if(nextsettlement==null){
+							//build random road 
+					       }else{
+						   //build settlement pointed to by "nextsettlement"
+							}
+
+						}
+					}else{
+				     if(strategy == 1 ){
+					//build a road pointed to by "nextroad"
+				    	}else{
+						  if(longestroad (player)<=4){
+					      //although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
+						// position 
+
+						//build a road pointed to by "nextroad"
+
+						//else then no need to build road, save for future settlement
+					      }
+						}
+					}
+		    	}
+
+
+		//The 3rd part deals with getting a dev card when strategy is 2 
+		if (player.wheatcount (player) >= 1 && player.sheepcount (player) >= 1 && player.orecount (player) >= 1 && strategy == 2) {
+		// Get a dev card 		
+	    // Use the dev card right away 
+		}
+
+		//The 4th part where AI does not use longest road or largest army strategy, just go buid settlement and city; note that buildcity 
+		//function is always called in the beginning so we only worry about building settlements; in this case since we already discard the
+		//other two strategies, we assume that there is not much value in building road, but instead we only build settelments as long as 
+		//there is still buildablesettlement positions left
+		if (strategy == 3) {
+			SettlementClass nextleftset = BuildSettlement(player);
+			if (nextleftset ==  null){
+				RoadClass nextleftroad = BuildRoad(player);
+
+				if(nextleftroad){
+				//build a road pointed to by nextleftroad, else leave it there 
+				}
+
+				}else{
+				//build a settlement at position nextleftset
+			}
+		}
+
+
+
+
+
 	}
 
 }

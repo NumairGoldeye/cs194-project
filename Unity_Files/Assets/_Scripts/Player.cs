@@ -83,7 +83,7 @@ public class Player : MonoBehaviour {
 
 	//resource getter for AI to understand what strategy to use for AI itself 
 
-	public int sheetcount(Player player){
+	public int sheepcount(Player player){
 		return resourceCounts[0];
 	}
 

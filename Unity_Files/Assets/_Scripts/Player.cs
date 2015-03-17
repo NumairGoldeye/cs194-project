@@ -83,27 +83,27 @@ public class Player : MonoBehaviour {
 
 	//resource getter for AI to understand what strategy to use for AI itself 
 
-	public int sheepcount(Player player){
+	public int sheepcount(){
 		return resourceCounts[0];
 	}
 
 	
-	public int woodcount(Player player){
+	public int woodcount(){
 		return resourceCounts[1];
 	}
 
 	
-	public int brickcount(Player player){
+	public int brickcount(){
 		return resourceCounts[2];
 	}
 
 	
-	public int orecount(Player player){
+	public int orecount(){
 		return resourceCounts[3];
 	}
 
 	
-	public int wheatcount(Player player){
+	public int wheatcount(){
 		return resourceCounts[4];
 	}
 

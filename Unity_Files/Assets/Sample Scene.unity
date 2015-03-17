@@ -5925,7 +5925,7 @@ GameObject:
   - 224: {fileID: 117048201}
   - 114: {fileID: 117048203}
   m_Layer: 5
-  m_Name: CurrentPlayerToGetTradeCounter
+  m_Name: CurrentPlayerToGetResourceCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

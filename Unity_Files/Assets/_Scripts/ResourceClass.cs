@@ -37,16 +37,9 @@ public enum ResourceType {Sheep, Wood, Brick, Ore, Wheat, None};
 public class ResourceClass : PlayerCard{
 
 	// Set in inspector
-
-
 	public override void Start(){
 		base.Start();
 
 		isDev = false;
 	}
-//
-//	void Update(){
-//
-//	}
-
 }

@@ -66,11 +66,6 @@ public class ChatLog : MonoBehaviour {
 //		chatText.text += "\n\n\n";
 		RealignChatBox();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	public void addMessage(string playerName, string message) {
 		messages.Add( new Message(message, MessageType.playerChat));

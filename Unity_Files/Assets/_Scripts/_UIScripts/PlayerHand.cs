@@ -117,12 +117,6 @@ public class PlayerHand : MonoBehaviour {
 		instance = this;
 //		Debugger.Log ("PlayerHand", "Player Hand created");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-//		Debugger.Log ("PlayerHand", name);
-//		Debug.Log(thisPlayer.playerName);
-	}
 
 	public void SelectCard(PlayerCard card){
 		selectedCard = card;

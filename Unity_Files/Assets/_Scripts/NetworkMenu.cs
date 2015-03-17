@@ -25,6 +25,7 @@ public class NetworkMenu : MonoBehaviour {
 	{
 		Debugger.Log ("Network", "Connected To Server");
 		Debugger.Log ("GameList", "Connected To Server");
+		Debugger.Log ("GameLobby", "You Connected");
 		connected = true;
 	}
 
@@ -36,6 +37,7 @@ public class NetworkMenu : MonoBehaviour {
 //		Debugger.Log ("Network", p.playerId.ToString ());
 		//Respond to player with it's information
 		GameManager.Instance.respondToPlayerJoin (player, p.playerId);
+
 
 		if (gameLobby != null){
 			gameLobby.UpdatePlayerList();

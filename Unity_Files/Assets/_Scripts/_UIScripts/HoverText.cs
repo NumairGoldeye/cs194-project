@@ -108,12 +108,7 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 		timeEntered = Time.time;
 
 //		ShowHover();
-
-
-		Debug.Log("Enter");
-
-
-
+//		Debug.Log("Enter");
 	}
 
 	public void OnPointerExit(PointerEventData eventData){

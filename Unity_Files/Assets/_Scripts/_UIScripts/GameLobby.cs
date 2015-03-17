@@ -68,10 +68,14 @@ public class GameLobby : MonoBehaviour {
 	}
 
 	void PopulatePlayerList(){
+
 //		AddPlayerListName("Host: " + GameManager.Instance.myPlayerName);
 
 		foreach(Player p in GameManager.Instance.players){
 //			Debug.Log(p.playerName);
+
+			// Is the first player the host always?
+
 			AddPlayerListName(p.playerName);
 
 		}

@@ -38,7 +38,8 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
 	// Use this for initialization
 	void Start () {
-		prefab =  Resources.LoadAssetAtPath<GameObject>("Assets/Materials/UI_images/HoverText.prefab");
+//		prefab =  Resources.LoadAssetAtPath<GameObject>("Assets/Materials/UI_images/HoverText.prefab");
+		prefab = Resources.Load("HoverText") as GameObject;
 
 		hoverTextObj = Instantiate(prefab) as GameObject;
 		hoverTextObj.transform.SetParent(transform, false);

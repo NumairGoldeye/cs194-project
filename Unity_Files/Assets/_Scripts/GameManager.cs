@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour {
 			TileClass tile = GameManager.Instance.graph.getTile(index);
 			networkView.RPC("syncTileInfo", RPCMode.Others, index, tile.diceValue, Convert.ToInt32(tile.hasRobber), (int)tile.type);
         }
-		networkView.RPC ("syncModels", RPCMode.All, new Vector3(.3f, 0.0f, .25f), new Vector3(.25f, -0.15f, .31f));
+		//networkView.RPC ("syncModels", RPCMode.All, new Vector3(.3f, 0.0f, .25f), new Vector3(.25f, -0.15f, .31f)); unneeded
 	}
 
 	public Player createPlayer(NetworkPlayer p, string playerName)
@@ -390,10 +390,11 @@ public class GameManager : MonoBehaviour {
 				tile.hasRobber = false;
 			}
 		}
-		GameObject.Find("Forests").transform.position = new Vector3(.36f, 0.0f, .32f);
+		GameObject.Find("Forests").transform.position = new Vector3(.38f, 0.0f, .25f);
 		GameObject.Find("Mountains").transform.position = new Vector3(.25f, -0.15f, .31f);
 		GameObject.Find("Sheeps").transform.position = new Vector3(-.475f, .66f, -.74f);
 		GameObject.Find("Bales").transform.position = new Vector3(.1f, 1.0f, -1.0f);
+		GameObject.Find ("BrickPile").transform.position = new Vector3 (1.941f, -1.977f, 2.639f);
 	}
 
 	public void distributeResourcesForSettlement(SettlementClass settlement) {

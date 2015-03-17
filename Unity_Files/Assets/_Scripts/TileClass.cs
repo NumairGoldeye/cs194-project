@@ -122,6 +122,9 @@ public class TileClass : MonoBehaviour {
 				break;
 			case ResourceType.Brick:
 				renderer.material.color = Color.red;
+				GameObject Brick = GameObject.FindGameObjectsWithTag ("Brick")[0];
+				Brick.transform.position = transform.position;
+				Brick.tag = "Assigned";	
 				break;
 			case ResourceType.Wood:
 				renderer.material.color = new Color(0.4f, 0.2f, 0);

@@ -4,6 +4,13 @@ using UnityEngine.EventSystems;
 using System.Collections;
 
 
+
+/*
+
+UI changes to make
+
+ */
+
 /// <summary>
 /// Hover text is a script that you attach to objects to make sure that they have the right text that appears
 /// whe you hover over them...

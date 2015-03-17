@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -7,8 +7,8 @@ public class ConfirmTradeButton : MonoBehaviour {
 	public TradeConsole tradeConsole;
 	public GameObject tradeConfirm;
 
-	public TradeCounter turnPlayerToGiveCounter;
-	public TradeCounter turnPlayerToGetCounter;
+	public ResourceCounter turnPlayerToGiveCounter;
+	public ResourceCounter turnPlayerToGetCounter;
 
 	public ComboBox tradePlayerBox;
 	Button btn;

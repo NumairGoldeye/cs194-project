@@ -35,14 +35,6 @@ public class PlayerCard : MonoBehaviour {
 		animatedIn = false;
 	}
 
-
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
 	public void AnimInBrute(){
 		Debug.Log("FOOOOO");
 		animatedIn = false;

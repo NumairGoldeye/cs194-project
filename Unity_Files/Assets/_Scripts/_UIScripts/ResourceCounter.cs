@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Text;
 
-	public class TradeCounter : MonoBehaviour, IEnumerable {
+	public class ResourceCounter : MonoBehaviour, IEnumerable {
 
 	Dictionary<ResourceType, int> counts;
 

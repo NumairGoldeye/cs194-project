@@ -25,11 +25,6 @@ public class _DevAddResource : MonoBehaviour {
 		btn = gameObject.GetComponent<Button>();
 		btn.onClick.AddListener(ChangeResource);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	void ChangeResource(){
 		player = GameManager.Instance.myPlayer;

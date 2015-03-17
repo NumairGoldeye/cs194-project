@@ -9,12 +9,7 @@ public class TurnButtonControls : MonoBehaviour {
 		public Button BuildButton;
 		public Button EndPhaseButton;
 		public Button DevelopmentCardButton;
-		
-		// Use this for initialization
-		void Start () {
-			
-		}
-		
+
 		// Update is called once per frame
 		void Update () {
 			// Only modify the buttons if the game has started

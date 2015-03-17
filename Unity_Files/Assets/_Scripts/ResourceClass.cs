@@ -23,6 +23,9 @@ using System.Collections;
 ///}
 ///--
 /// </summary>
+// Note: In plain C#, it would have been better to make ResourceType nullable,
+// instead of giving it a "None."  However, Unity does not display the drop-down
+// selector for nullable enums, so we use this strategy instead.
 public enum ResourceType {Sheep, Wood, Brick, Ore, Wheat, None};
 
 
@@ -34,16 +37,9 @@ public enum ResourceType {Sheep, Wood, Brick, Ore, Wheat, None};
 public class ResourceClass : PlayerCard{
 
 	// Set in inspector
-
-
 	public override void Start(){
 		base.Start();
 
 		isDev = false;
 	}
-//
-//	void Update(){
-//
-//	}
-
 }

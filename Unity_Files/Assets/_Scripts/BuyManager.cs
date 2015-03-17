@@ -32,69 +32,60 @@ public static class BuyManager {
 	private static ResourceType ore = ResourceType.Ore;
 	private static ResourceType wheat = ResourceType.Wheat;
 
-	private static Dictionary<BuyableType, Cost> costMap = new Dictionary<BuyableType, Cost>();
+	private static Cost roadCost = new Cost(new ResourceType[] {wood, brick} );
+	private static Cost settlementCost = new Cost(new ResourceType[] {sheep, wheat, brick, wood} );
+	private static Cost cityCost = new Cost(new ResourceType[] {ore, ore, ore, wheat, wheat} );
+	private static Cost devCardCost = new Cost(new ResourceType[] {ore, wheat, sheep} );
 
-	private class Cost {
+	private static Dictionary<BuyableType, Cost> costMap = new Dictionary<BuyableType, Cost>() {
+		{ BuyableType.road, roadCost },
+		{ BuyableType.settlement, settlementCost },
+		{ BuyableType.city, cityCost },
+		{ BuyableType.devCard, devCardCost },
+	};
+
+	public class Cost {
 		// A resourceType index, just like player costs
 		public int[] costs;
-		public BuyableType buyableType;
 
-		public Cost(BuyableType buyable, ResourceType[] resources){
-			costMap.Add(buyable, this);
-
+		public Cost(ResourceType[] resources){
 			costs = new int[5];
-			buyableType = buyable;
-			// Debugger.Log("Charlie", "Cost: " + buyableType.ToString());
 			foreach (ResourceType res in resources){
 				costs[(int)res]++;
-				// Debugger.Log("Charlie", res.ToString());
 			}
-			// Debugger.Log("Charlie", "End Cost");
 		}
 
 		// Returns the number of a specific resource that a player has
 		// returns -1 on terrible terrible failure
 		public int ResourceCount(ResourceType resource){
-			// Debug.Log((int)resource);
 			return costs[(int) resource];
+		}
+
+		public bool Requires(ResourceType resource) {
+			return ResourceCount(resource) > 0;
 		}
 	};
 	
-
-
-	// Well this is roundabout...
-	private static Cost roadCost = new Cost( BuyableType.road, new ResourceType[] {wood, brick} );
-	private static Cost settlementCost = new Cost( BuyableType.settlement, new ResourceType[] {sheep, wheat, brick, wood} );
-	private static Cost cityCost = new Cost( BuyableType.city, new ResourceType[] {ore, ore, ore, wheat, wheat} );
-	private static Cost devCardCost = new Cost( BuyableType.devCard, new ResourceType[] {ore, wheat, sheep} );
-	
-	// private static Cost[] buyableCosts = new Cost[] { roadCost, settlementCost, cityCost, devCardCost};
-
 	public static void Test(Player player){
 		Debugger.Log("Charlie", "Buy city: " + PlayerCanBuy(player, BuyableType.city));
+	}
+
+	public static Cost GetCostFor(BuyableType item) {
+		return costMap[item];
 	}
 
 	// Call this everywhere you need it!
 	// Pass it the player object and the  BuyableType and it will
 	// return you a variable
 	public static bool PlayerCanBuy(Player player, BuyableType buyable){
-		// This code makes sense
-		// foreach(Cost buyableCost in buyableCosts){
-		Cost buyableCost = null;
-		if (costMap.TryGetValue( buyable , out buyableCost)) {
-			// if (buyableCost.buyableType == buyable){
-			foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
-				if (ResourceType.None != res){
-					if (buyableCost.ResourceCount(res) > player.GetResourceCount(res)){
-						return false;
-					}
-						// Debugger.Log(flag, res.ToString() + GetResourceCount(res));
+		foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
+			if (ResourceType.None != res){
+				if (costMap[buyable].ResourceCount(res) > player.GetResourceCount(res)){
+					return false;
 				}
 			}
-			return true;
 		}
-		// You probably messed up 
-		return false;
+		return true;
 	}
 
 
@@ -103,13 +94,9 @@ public static class BuyManager {
 		// if buyable
 		// then figure out the cost
 		// then subtract those from the player
-		Cost buyableCost = null;
-		if (costMap.TryGetValue( buyable , out buyableCost)) {
-			// if (buyableCost.buyableType == buyable){
-			foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
-				if (ResourceType.None != res){
-					player.RemoveResource(res, buyableCost.ResourceCount(res));
-				}
+		foreach(ResourceType res in Enum.GetValues(typeof(ResourceType))){
+			if (ResourceType.None != res){
+				player.RemoveResource(res, costMap[buyable].ResourceCount(res));
 			}
 		}
 

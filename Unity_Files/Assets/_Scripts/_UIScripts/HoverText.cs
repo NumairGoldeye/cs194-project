@@ -27,6 +27,7 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 	RectTransform hoverRectT; //rectransform of hovertext
 
 	public string displayText = "";
+	public bool paragraphStyle = false;
 
 	bool setup = false;
 	bool positioned = false;
@@ -49,6 +50,13 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 		// There should only be one child for the prefab
 		text = hoverTextObj.transform.GetChild(0).GetComponent<Text>();
 
+		LayoutElement layout = text.gameObject.GetComponent<LayoutElement>();
+		if (paragraphStyle){
+			layout.preferredWidth = 180;
+			layout.enabled = true;
+		} else {
+			layout.enabled = false;
+		}
 
 		if (displayText != ""){
 			text.text = displayText;

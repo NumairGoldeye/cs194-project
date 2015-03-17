@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 
 public class CheckBuyButton : MonoBehaviour {
@@ -22,7 +23,11 @@ public class CheckBuyButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		player = TurnState.currentPlayer;
-		btn.interactable = BuyManager.PlayerCanBuy(player, buyType);
+		try {
+			btn.interactable = BuyManager.PlayerCanBuy(player, buyType);
+		} catch (NullReferenceException nullRef){
+
+		}
 	}
 
 	// Most purchases happen after you click the game objects, but for dev cards it does something else

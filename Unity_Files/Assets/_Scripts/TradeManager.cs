@@ -35,14 +35,14 @@ public static class TradeManager {
 	}
 
 	public static void tradeBetweenPlayers(
-			Player player1, TradeCounter turnPlayerToGiveCounter,
-			Player player2, TradeCounter turnPlayerToGetCounter) {
+			Player player1, ResourceCounter turnPlayerToGiveCounter,
+			Player player2, ResourceCounter turnPlayerToGetCounter) {
 		executeOneWayTrade (player1, player2, turnPlayerToGiveCounter);
 		executeOneWayTrade (player2, player1, turnPlayerToGetCounter);
 
 	}
 
-	private static void executeOneWayTrade(Player giver, Player receiver, TradeCounter counter) {
+	private static void executeOneWayTrade(Player giver, Player receiver, ResourceCounter counter) {
 		foreach (KeyValuePair<ResourceType, int> pair in counter) {
 			giver.RemoveResource (pair.Key, pair.Value);
 			receiver.AddResource (pair.Key, pair.Value);

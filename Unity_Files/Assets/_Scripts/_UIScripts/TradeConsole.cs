@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ public class TradeConsole : MonoBehaviour {
 	public ComboBox portToGiveBox;
 	public ComboBox playerToTradeBox;
 
-	public TradeCounter toGive;
+	public ResourceCounter toGive;
 
 	public List<string> playerNames;
 

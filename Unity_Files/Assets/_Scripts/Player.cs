@@ -371,7 +371,7 @@ public class Player : MonoBehaviour {
 //		TurnState.CheckVictory();
 	}
 
-	public bool HasResources(TradeCounter counter) {
+	public bool HasResources(ResourceCounter counter) {
 		foreach (KeyValuePair<ResourceType, int> pair in counter) {
 			if (!HasResourceAmount(pair.Key, pair.Value)) {
 				return false;

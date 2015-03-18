@@ -34,7 +34,9 @@ public class DevConfirmButton : MonoBehaviour {
 		} else if (TurnState.subStateType == TurnSubStateType.roadBuilding){
 			btn.interactable = TurnState.secondRoadBuilt;
 		} else if (TurnState.subStateType == TurnSubStateType.robbering) {
-			btn.gameObject.SetActive(false);
+			btn.interactable = false;
+		} else {
+			btn.interactable = true;
 		}
 	}
 

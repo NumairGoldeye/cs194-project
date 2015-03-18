@@ -81,6 +81,11 @@ public class RoadClass : MonoBehaviour {
 		renderer.material.color = temp;		
 	}
 
+	public void makeVisibleWithCheck(){
+		if (isRoadReadyToBeShown(StandardBoardGraph.Instance.BuildableRoads(GameManager.Instance.myPlayer)) && !built && !visible)
+			makeVisible();
+	}
+
 	public void makeVisible() {
 		visible = true;
 		Color temp = renderer.material.color;

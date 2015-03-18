@@ -220,7 +220,7 @@ public class DevCard : PlayerCard {
 		case DevCardType.roadBuilding:
 			GameObject[] roads = GameObject.FindGameObjectsWithTag("Road");
 			foreach(GameObject r in roads ){
-				r.GetComponent<RoadClass>().makeVisible();
+				r.GetComponent<RoadClass>().makeVisibleWithCheck();
 			}
 			break;
 		case DevCardType.victoryPoint:

@@ -540,7 +540,7 @@ public class ArrayBoardGraph : BoardGraph {
 
 		GameManager.Instance.BroadcastMessage ("rollDice");
 
-		TurnState.stateType = TurnStateType.trade;
+		TurnState.NextTurnState ();
 		//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 
@@ -647,7 +647,7 @@ public class ArrayBoardGraph : BoardGraph {
 
 
 
-		TurnState.stateType = TurnStateType.build;
+		TurnState.NextTurnState ();
 
 		//-----------------------------------------------------------------------------------------------------------------------------------
 

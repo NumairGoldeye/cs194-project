@@ -145,17 +145,22 @@ public class SettlementClass : MonoBehaviour {
 		TurnState.SetSubStateType (TurnSubStateType.none);
 	}
 
-	public void buildSettlement() {
+	public void buildSettlement(bool ai=false) {
 		if (!GameManager.Instance.myTurn()) return;
 		setPlayerSettlement();
 
 		if (!TurnState.freeBuild)
 			BuyManager.PurchaseForPlayer(BuyableType.settlement, TurnState.currentPlayer);
+
 		settlements.BroadcastMessage ("hideSettlement");
+
 		if (StartGameManager.secondPhase) 
 			GameManager.Instance.distributeResourcesForSettlement(this);
+
 		GameManager.Instance.networkView.RPC ("syncSettlementBuild", RPCMode.Others, this.vertexIndex);
-		StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
+
+		if (!ai) StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
+
 	}
 	
 	void OnMouseDown() {

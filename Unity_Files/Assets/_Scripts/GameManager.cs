@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour {
 			networkView.RPC("syncPlayerInfo", RPCMode.Others, p.networkPlayer, p.playerId, p.playerName);
 		}
 		networkView.RPC ("associateWithPlayer", player, playerID); 
-		networkView.RPC ("syncModelPositions", RPCMode.All);
 	}
 
 	public void syncStartStateWithClients()
@@ -91,6 +90,7 @@ public class GameManager : MonoBehaviour {
 			networkView.RPC("syncTileInfo", RPCMode.Others, index, tile.diceValue, Convert.ToInt32(tile.hasRobber), (int)tile.type);
         }
 		//networkView.RPC ("syncModels", RPCMode.All, new Vector3(.3f, 0.0f, .25f), new Vector3(.25f, -0.15f, .31f)); unneeded
+		networkView.RPC ("syncModelPositions", RPCMode.All);
 	}
 
 	public Player createPlayer(NetworkPlayer p, string playerName)

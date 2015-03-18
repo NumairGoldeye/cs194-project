@@ -278,7 +278,7 @@ public class TurnState : MonoBehaviour {
 
 //        thisPlayers = Players.players;
 //		TurnState.pointsToWin = _pointsToWin;
-		TurnState.victoryPanel = _victoryPanel;
+//		TurnState.victoryPanel = _victoryPanel;
 	}
 
 

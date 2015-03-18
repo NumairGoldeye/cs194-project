@@ -138,12 +138,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public static Player[] OtherPlayers(Player player){
-		int count = GameManager.Instance.players.Count;
-		if (count == 0) 
-			return new Player[0];
-
-
-		Player[] otherPlayers = new Player[ GameManager.Instance.players.Count - 1 ];
+		Player[] otherPlayers = new Player[ playerCount - 1 ];
 		int index = 0;
 		foreach(Player p in GameManager.Instance.players){
 			if (p != player && p != null){
@@ -352,16 +347,15 @@ public class Player : MonoBehaviour {
 	}
 
 	public bool RemoveDevCard(DevCardType devCard){
-		Debug.Log("FOOO");
 		devCardCounts[(int)devCard] -= 1;
 		if (devCard == DevCardType.victoryPoint){
 			victoryPoints--;
 		}
 
-//		if (devCard == DevCardType.knight){
-//			numUsedKnights++;
-//			Player.CheckLargestArmy();
-//		}
+		if (devCard == DevCardType.knight){
+			numUsedKnights++;
+			Player.CheckLargestArmy();
+		}
 
 		if (playerId == GameManager.Instance.myPlayer.playerId){
 			hand.RemoveDevCard(devCard, this);
@@ -440,12 +434,9 @@ public class Player : MonoBehaviour {
 		TurnState.CheckVictory();
 	}
 
-	public void RemoveVictoryPoint(int amount = 1){
-		if (amount > victoryPoints) {
-			victoryPoints = 0;
-		} else {
-			victoryPoints -= amount;
-		}
+	public void RemoveVictoryPoint(){
+		victoryPoints--;
+//		TurnState.CheckVictory();
 	}
 
 	public bool HasResources(ResourceCounter counter) {

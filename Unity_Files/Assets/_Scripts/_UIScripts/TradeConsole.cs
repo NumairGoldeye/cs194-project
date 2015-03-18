@@ -88,4 +88,10 @@ public class TradeConsole : MonoBehaviour {
 	public void Disable() {
 		gameObject.SetActive (false);
 	}
+
+	public void EnableIfTradePhase() {
+		if (TurnState.stateType == TurnStateType.trade) {
+			gameObject.SetActive(true);
+		}
+	}
 }

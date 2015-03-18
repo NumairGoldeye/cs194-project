@@ -41,6 +41,8 @@ public class DevCard : PlayerCard {
 	private static Dictionary<DevCardType, string> devCardDescriptions = new Dictionary<DevCardType, string>();
 	
 	private static bool setup = false;
+
+	static TradeConsole tradeConsole;
 	
 	//----- Instance things ---//
 	
@@ -188,7 +190,7 @@ public class DevCard : PlayerCard {
 		
 		btn.onClick.AddListener(UseCard);
 		
-		
+		tradeConsole = GameObject.FindObjectOfType<TradeConsole> ();
 		//		Debug.Log ("Card start");
 	}
 	
@@ -201,8 +203,8 @@ public class DevCard : PlayerCard {
 	
 	
 	void UseCard(){
-		
-		
+		if (tradeConsole == null) tradeConsole = GameObject.FindObjectOfType<TradeConsole> ();
+		if (tradeConsole != null) tradeConsole.gameObject.SetActive (false);
 		// This is volatile...
 		hand.SelectCard(this);
 		hand.popupPanel.SetActive(true);

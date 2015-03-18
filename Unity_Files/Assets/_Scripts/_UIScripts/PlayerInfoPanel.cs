@@ -38,7 +38,7 @@ public class PlayerInfoPanel : MonoBehaviour {
 			//
 		//
 		try {
-			Debugger.Log ("LeaderBoard", player.playerName);
+//			Debugger.Log ("LeaderBoard", player.playerName);
 			
 			playerName.text = player.playerName;
 			knightCount.text = player.numUsedKnights.ToString();

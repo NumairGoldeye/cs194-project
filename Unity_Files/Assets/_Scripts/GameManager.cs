@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour {
 			networkView.RPC("syncPlayerInfo", RPCMode.Others, p.networkPlayer, p.playerId, p.playerName);
 		}
 		networkView.RPC ("associateWithPlayer", player, playerID); 
+		networkView.RPC ("syncModelPositions", RPCMode.All);
 	}
 
 	public void syncStartStateWithClients()
@@ -212,6 +213,15 @@ public class GameManager : MonoBehaviour {
 		tile.hasRobber = Convert.ToBoolean(hasRobber);
 		if (tile.hasRobber) tile.getRobber();
 		tile.assignType(diceValue, (ResourceType)resourceType);
+	}
+
+	[RPC]
+	void syncModelPositions() {
+		GameObject.Find("Forests").transform.position = new Vector3(.38f, 0.0f, .25f);
+		GameObject.Find("Mountains").transform.position = new Vector3(.25f, -0.15f, .31f);
+		GameObject.Find("Sheeps").transform.position = new Vector3(-.475f, .66f, -.74f);
+		GameObject.Find("Bales").transform.position = new Vector3(.1f, 1.0f, -1.0f);
+		GameObject.Find ("BrickPile").transform.position = new Vector3 (1.941f, -1.977f, 2.639f);
 	}
 
 	[RPC]
@@ -390,11 +400,6 @@ public class GameManager : MonoBehaviour {
 				tile.hasRobber = false;
 			}
 		}
-		GameObject.Find("Forests").transform.position = new Vector3(.38f, 0.0f, .25f);
-		GameObject.Find("Mountains").transform.position = new Vector3(.25f, -0.15f, .31f);
-		GameObject.Find("Sheeps").transform.position = new Vector3(-.475f, .66f, -.74f);
-		GameObject.Find("Bales").transform.position = new Vector3(.1f, 1.0f, -1.0f);
-		GameObject.Find ("BrickPile").transform.position = new Vector3 (1.941f, -1.977f, 2.639f);
 	}
 
 	public void distributeResourcesForSettlement(SettlementClass settlement) {

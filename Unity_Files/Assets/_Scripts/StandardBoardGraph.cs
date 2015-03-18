@@ -30,7 +30,7 @@ public class StandardBoardGraph : ArrayBoardGraph {
 
 	public static StandardBoardGraph Instance {
 		get {
-			if (instance == null) {
+			if (null == instance) {
 				instance = new StandardBoardGraph();
 			}
 			return instance;

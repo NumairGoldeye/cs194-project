@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
 	private int die2;
 	private TileClass tileWithRobber;
 	public Player playerWithLargestArmy = null;
+	public Player playerWithLongestRoad = null;
 
 
 	private int[] tileCounts = {4, 4, 3, 3, 4, 1};
@@ -145,6 +146,11 @@ public class GameManager : MonoBehaviour {
 	 * ---------------------------------------------------------*/
 
 	[RPC]
+	void syncVictoryPoint() {
+		TurnState.currentPlayer.victoryPoints++;
+	}
+
+	[RPC]
 	void updateKnights() {
 		DevCard.UpdateLargestArmy(TurnState.currentPlayer);
 	}
@@ -177,7 +183,7 @@ public class GameManager : MonoBehaviour {
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 		if (GameManager.Instance.myTurn()) {
 			RollButton.interactable = true;
-			if (aiPlayer)
+			if (aiPlayer) 
 				graph.AIBrain(myPlayer);
 		}
 //		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
@@ -236,6 +242,7 @@ public class GameManager : MonoBehaviour {
 			if (GameManager.Instance.players[i].playerId == playerID) 
 				GameManager.Instance.players[i].playerName = playerName;
 		}
+		lobby.UpdatePlayerList ();
 	}
 
 	[RPC]

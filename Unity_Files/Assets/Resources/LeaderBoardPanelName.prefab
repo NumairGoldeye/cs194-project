@@ -78,7 +78,7 @@ GameObject:
   - 114: {fileID: 11418912}
   - 114: {fileID: 11425786}
   m_Layer: 5
-  m_Name: LargestArmy
+  m_Name: LargestArmyIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Army size
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11417232
 MonoBehaviour:
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Cards in hand
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11418908
 MonoBehaviour:
@@ -232,7 +234,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -279,12 +281,12 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -302,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Largest Army (2 Victory Points)
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11425788
 MonoBehaviour:
@@ -336,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Longest Road (2 Victory Points)
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11428634
 MonoBehaviour:
@@ -373,7 +377,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: 0
   m_PreferredWidth: -1
-  m_PreferredHeight: 50
+  m_PreferredHeight: 30
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
 --- !u!114 &11462548
@@ -407,7 +411,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -476,8 +480,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -16, y: -9}
-  m_SizeDelta: {x: 41.9000015, y: 25}
+  m_AnchoredPosition: {x: -5.60000038, y: -4.30003119}
+  m_SizeDelta: {x: 43.2999992, y: 14.5}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22417232
 RectTransform:
@@ -512,7 +516,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -9.22753429, y: -1.4066396e-05}
+  m_AnchoredPosition: {x: -7.9000001, y: 6.67570021e-06}
   m_SizeDelta: {x: 18.4549999, y: 17}
   m_Pivot: {x: .499998778, y: .499999762}
 --- !u!224 &22418910
@@ -529,8 +533,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 11.8500242, y: -.600012541}
-  m_SizeDelta: {x: 20.8999996, y: 22.2999992}
+  m_AnchoredPosition: {x: 10.8750029, y: 1.70469284e-05}
+  m_SizeDelta: {x: 18.8500004, y: 14.5}
   m_Pivot: {x: .500000358, y: .499999881}
 --- !u!224 &22418912
 RectTransform:
@@ -546,7 +550,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 46.4000015, y: -9.18350029}
+  m_AnchoredPosition: {x: 49.4000015, y: -4.5}
   m_SizeDelta: {x: 19.3999996, y: 17.7000008}
   m_Pivot: {x: .499998808, y: .499999762}
 --- !u!224 &22418914
@@ -563,8 +567,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -2.00000668, y: 10}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 2.5999999, y: 10.4169998}
+  m_SizeDelta: {x: 145.199997, y: 21.5}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22425786
 RectTransform:
@@ -580,8 +584,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -6.4000001, y: -.600000024}
-  m_SizeDelta: {x: 24.2999992, y: 22.2999992}
+  m_AnchoredPosition: {x: -7.60001564, y: 6.67570021e-06}
+  m_SizeDelta: {x: 18, y: 16.5}
   m_Pivot: {x: .499998808, y: .499999762}
 --- !u!224 &22428632
 RectTransform:
@@ -597,7 +601,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 19.7000008, y: -9}
+  m_AnchoredPosition: {x: 22.7000008, y: -4.30000019}
   m_SizeDelta: {x: 17.2999992, y: 17.3330002}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22468426

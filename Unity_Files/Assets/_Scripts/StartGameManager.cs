@@ -70,8 +70,12 @@ public class StartGameManager {
 		settlements = GameObject.FindGameObjectWithTag("Settlement").transform.parent.gameObject;
 		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
 		if (GameManager.Instance.myTurn()) {
-			settlements.BroadcastMessage("showSettlementStartup");
-			roads.BroadcastMessage("makeInvisible");
+			if (GameManager.Instance.aiPlayer) {
+				GameManager.Instance.graph.AIBrain(GameManager.Instance.myPlayer);
+			} else {
+				settlements.BroadcastMessage("showSettlementStartup");
+				roads.BroadcastMessage("makeInvisible");
+			}
 		}
 		TurnState.freeBuild = true;
 

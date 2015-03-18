@@ -66,9 +66,9 @@ public interface BoardGraph {
 
 	
 	/**
-     * Returns the total length of longest road that belongs to a player 
+     * Returns the total length of longest road that belongs to a given player.
      */
-	int longestroad(Player player);
+	int GetLongestRoadForPlayer(Player player);
 
 	/**
      * Returns the positions that player can build city   

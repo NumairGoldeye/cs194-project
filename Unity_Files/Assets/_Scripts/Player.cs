@@ -333,6 +333,7 @@ public class Player : MonoBehaviour {
 		devCardCounts[(int)devCard] += 1;
 		lastCardTypeDrawn = devCard;
 		if (devCard == DevCardType.victoryPoint){
+			GameManager.Instance.networkView.RPC ("syncVictoryPoint", RPCMode.Others);
 			AddVictoryPoint();
 		}
 
@@ -352,59 +353,12 @@ public class Player : MonoBehaviour {
 			victoryPoints--;
 		}
 
-		if (devCard == DevCardType.knight){
-			numUsedKnights++;
-			Player.CheckLargestArmy();
-		}
-
 		if (playerId == GameManager.Instance.myPlayer.playerId){
 			hand.RemoveDevCard(devCard, this);
 		}
 		return true;
 	}
-
-	public static void CheckLargestArmy(){
-		Player candidate = null;
-		bool found = false;
-
-		Player prevLargestArmyHolder= null;
-		bool prevFound = false;
-
-		int maxCount = 0;
-
-
-
-		foreach(Player p in GameManager.Instance.players){
-			if (p.hasLargestArmy) {
-				maxCount = p.numUsedKnights;
-				prevLargestArmyHolder = p;
-			}
-		}
-
-		foreach(Player p in GameManager.Instance.players){
-			int num = p.numUsedKnights;
-			if (num >= knightsNeededForArmy && num > maxCount && !p.hasLargestArmy){
-				candidate = p;
-				found = true;
-			}
-		}
-
-
-		if (prevFound && found){
-			Debugger.Log ("LeaderBoard", prevLargestArmyHolder.playerName + "no longer has largestArmy");
-			prevLargestArmyHolder.RemoveVictoryPoint();
-			prevLargestArmyHolder.RemoveVictoryPoint();
-			prevLargestArmyHolder.hasLargestArmy = false;
-		}
-		if (found){
-			Debugger.Log ("LeaderBoard", candidate.playerName + " has largestArmy");
-			candidate.hasLargestArmy = true;
-			candidate.AddVictoryPoint(2);
-		}
-
-
-	}
-
+	
 	public void AddRoad(RoadClass newRoad){
 		roads.Add(newRoad);
 	}
@@ -434,9 +388,13 @@ public class Player : MonoBehaviour {
 		TurnState.CheckVictory();
 	}
 
-	public void RemoveVictoryPoint(){
-		victoryPoints--;
-//		TurnState.CheckVictory();
+	public void RemoveVictoryPoint(int amount = 1){
+		// Won't go below zero.
+		if (victoryPoints > amount) {
+			victoryPoints -= amount;
+		} else {
+			victoryPoints = 0;
+		}
 	}
 
 	public bool HasResources(ResourceCounter counter) {

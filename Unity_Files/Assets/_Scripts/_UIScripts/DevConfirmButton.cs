@@ -17,10 +17,10 @@ public class DevConfirmButton : MonoBehaviour {
 	// Set in inspector
 	public GameObject alertPanel;
 	public Text alertPanelTxt;
-
+	
 
 	private static Button btn;
-
+	
 	// Use this for initialization
 	void Start () {
 		btn = gameObject.GetComponent<Button>();

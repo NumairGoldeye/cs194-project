@@ -4,6 +4,13 @@ using UnityEngine.EventSystems;
 using System.Collections;
 
 
+
+/*
+
+UI changes to make
+
+ */
+
 /// <summary>
 /// Hover text is a script that you attach to objects to make sure that they have the right text that appears
 /// whe you hover over them...
@@ -20,6 +27,7 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 	RectTransform hoverRectT; //rectransform of hovertext
 
 	public string displayText = "";
+	public bool paragraphStyle = false;
 
 	bool setup = false;
 	bool positioned = false;
@@ -32,54 +40,62 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 	// Use this for initialization
 	void Start () {
 //		prefab =  Resources.LoadAssetAtPath<GameObject>("Assets/Materials/UI_images/HoverText.prefab");
-//
-//		hoverTextObj = Instantiate(prefab) as GameObject;
-//		hoverTextObj.transform.SetParent(transform, false);
-//
-//		hoverRectT = hoverTextObj.GetComponent<RectTransform>();
-//
-//		// There should only be one child for the prefab
-//		text = hoverTextObj.transform.GetChild(0).GetComponent<Text>();
-//
-//
-//		if (displayText != ""){
-//			text.text = displayText;
-//		} else {
-//			text.text = defaultDisplayText;
-//		}
-//
-//		HideHover();
+		prefab = Resources.Load("HoverText") as GameObject;
+
+		hoverTextObj = Instantiate(prefab) as GameObject;
+		hoverTextObj.transform.SetParent(transform, false);
+
+		hoverRectT = hoverTextObj.GetComponent<RectTransform>();
+
+		// There should only be one child for the prefab
+		text = hoverTextObj.transform.GetChild(0).GetComponent<Text>();
+
+		LayoutElement layout = text.gameObject.GetComponent<LayoutElement>();
+		if (paragraphStyle){
+			layout.preferredWidth = 180;
+			layout.enabled = true;
+		} else {
+			layout.enabled = false;
+		}
+
+		if (displayText != ""){
+			text.text = displayText;
+		} else {
+			text.text = defaultDisplayText;
+		}
+
+		HideHover();
 	}
 
 
 
 	// Update is called once per frame
 	void Update () {
-//		TrySetupLayout();
-//
-//
-//
-//		if (pointerInside && (Time.time - timeEntered) > hoverRevealTime){
-//			ShowHover();
-//		} else {
-//			HideHover();
-//		}
+		TrySetupLayout();
+
+
+
+		if (pointerInside && (Time.time - timeEntered) > hoverRevealTime){
+			ShowHover();
+		} else {
+			HideHover();
+		}
 	}
 
 
 	void TrySetupLayout(){
-//		if (!setup){
-//			if (text.rectTransform.rect.height != 0){
-//				setup = true;
-//			} else {
-//				LayoutRebuilder.MarkLayoutForRebuild (hoverTextObj.transform as RectTransform);
-//			}
-//		}
-//		
-//		if (!positioned && setup){
-//			hoverRectT.anchoredPosition = new Vector2(0, hoverRectT.rect.height + 20.0f );
-//			positioned = true;
-//		}
+		if (!setup){
+			if (text.rectTransform.rect.height != 0){
+				setup = true;
+			} else {
+				LayoutRebuilder.MarkLayoutForRebuild (hoverTextObj.transform as RectTransform);
+			}
+		}
+		
+		if (!positioned && setup){
+			hoverRectT.anchoredPosition = new Vector2(0, hoverRectT.rect.height + 20.0f );
+			positioned = true;
+		}
 	}
 
 
@@ -100,12 +116,7 @@ public class HoverText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 		timeEntered = Time.time;
 
 //		ShowHover();
-
-
-		Debug.Log("Enter");
-
-
-
+//		Debug.Log("Enter");
 	}
 
 	public void OnPointerExit(PointerEventData eventData){

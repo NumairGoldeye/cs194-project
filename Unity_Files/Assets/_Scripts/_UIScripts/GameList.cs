@@ -18,6 +18,7 @@ public class GameList : MonoBehaviour {
 	// Children of these will be the game names
 	public GameObject listPanel;
 	public InputField nameField; // set in inspector
+	public Text nameFieldLabel;
 
 	public HostData chosenGame;
 	public Button joinGameButton; // set in inspector
@@ -95,6 +96,10 @@ public class GameList : MonoBehaviour {
 	// when the join game is joined
 	public void JoinGame(){
 		// Check if they have selected a game and they have a player name
+		if (nameField.text.Equals("")){
+			nameFieldLabel.color = new Color (1f, 0f, 0f);
+		}
+		 
 		if (chosenGame != null && !nameField.text.Equals("")) {
 			GameManager.Instance.myPlayerName = nameField.text;
 			network.Connect(chosenGame);

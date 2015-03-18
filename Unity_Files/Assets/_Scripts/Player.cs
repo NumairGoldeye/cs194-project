@@ -60,6 +60,7 @@ public class Player : MonoBehaviour {
 	public int numUsedKnights = 0;
 	public bool hasLargestArmy = false;
 	public bool hasLongestRoad = false;
+	static int knightsNeededForArmy = 3;
 
 	private List<SettlementClass> settlements;
 	private List<RoadClass> roads;
@@ -226,6 +227,25 @@ public class Player : MonoBehaviour {
 		return result;
 	}
 
+
+	/// <summary>
+	/// Gets the total size of the player hand, for the LeaderBoardPlayerName.cs
+	/// </summary>
+	public int GetTotalHandSize(){
+		int numCards = 0;
+		for(int i = 0; i < devCardCounts.Length; i++){
+			if (devCardCounts[i] > 0)
+				numCards += devCardCounts[i];
+		}
+		for(int i = 0; i < resourceCounts.Length; i++){
+			if (resourceCounts[i] > 0)
+				numCards += resourceCounts[i];
+		}
+
+		return numCards;
+	}
+
+
 	// Call if you want to 
 	// Don't know why i want it to return anything. sigh
 	public bool RemoveResource(ResourceType resource, int amount = 1){
@@ -331,10 +351,58 @@ public class Player : MonoBehaviour {
 		if (devCard == DevCardType.victoryPoint){
 			victoryPoints--;
 		}
+
+		if (devCard == DevCardType.knight){
+			numUsedKnights++;
+			Player.CheckLargestArmy();
+		}
+
 		if (playerId == GameManager.Instance.myPlayer.playerId){
 			hand.RemoveDevCard(devCard, this);
 		}
 		return true;
+	}
+
+	public static void CheckLargestArmy(){
+		Player candidate = null;
+		bool found = false;
+
+		Player prevLargestArmyHolder= null;
+		bool prevFound = false;
+
+		int maxCount = 0;
+
+
+
+		foreach(Player p in GameManager.Instance.players){
+			if (p.hasLargestArmy) {
+				maxCount = p.numUsedKnights;
+				prevLargestArmyHolder = p;
+			}
+		}
+
+		foreach(Player p in GameManager.Instance.players){
+			int num = p.numUsedKnights;
+			if (num >= knightsNeededForArmy && num > maxCount && !p.hasLargestArmy){
+				candidate = p;
+				found = true;
+			}
+		}
+
+
+		if (prevFound && found){
+			Debugger.Log ("LeaderBoard", prevLargestArmyHolder.playerName + "no longer has largestArmy");
+			prevLargestArmyHolder.RemoveVictoryPoint();
+			prevLargestArmyHolder.RemoveVictoryPoint();
+			prevLargestArmyHolder.hasLargestArmy = false;
+		}
+		if (found){
+			Debugger.Log ("LeaderBoard", candidate.playerName + " has largestArmy");
+			candidate.hasLargestArmy = true;
+			candidate.AddVictoryPoint(2);
+		}
+
+
 	}
 
 	public void AddRoad(RoadClass newRoad){

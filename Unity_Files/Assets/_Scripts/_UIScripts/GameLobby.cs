@@ -24,7 +24,7 @@ public class GameLobby : MonoBehaviour {
 	public Button startGameBtn; 
 
 	// Not inspector vals
-
+	int lastCount = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +39,19 @@ public class GameLobby : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		startGameBtn.interactable = !GameManager.Instance.gameStarted && Network.isServer;
+
+
+		int currentCount = GameManager.Instance.players.Count;
+
+		if (currentCount > 0 && lastCount != currentCount){
+			lastCount = currentCount;
+			UpdatePlayerList();
+		}
+
+
+//		if (Input.GetKeyDown("space")){
+//			Debugger.Log("GameLobby", currentCount.ToString());
+//		}
 	}
 
 	public void StartGame(){
@@ -46,17 +59,23 @@ public class GameLobby : MonoBehaviour {
 	}
 	
 	public void UpdatePlayerList(){
-		Debugger.Log("GameLobby", "update player list");
+//		Debugger.Log("GameLobby", "update player list");
+		Player p = GameManager.Instance.myPlayer;
+//		networkView.RPC("syncPlayerInfo", RPCMode.Others, p.networkPlayer, p.playerId, p.playerName);
 
 		ClearPlayerList();
 		PopulatePlayerList();
 	}
 
 	void PopulatePlayerList(){
-		AddPlayerListName("Host: " + GameManager.Instance.myPlayerName);
+
+//		AddPlayerListName("Host: " + GameManager.Instance.myPlayerName);
 
 		foreach(Player p in GameManager.Instance.players){
-			Debug.Log(p.playerName);
+//			Debug.Log(p.playerName);
+
+			// Is the first player the host always?
+
 			AddPlayerListName(p.playerName);
 
 		}

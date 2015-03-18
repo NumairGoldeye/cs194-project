@@ -53,14 +53,17 @@ public class GameList : MonoBehaviour {
 	void PopulateGameList(){
 //		Debugger.Log ("GameList", "try populate");
 
-		if (!network.hostListAvailable) {
-			network.getHostData();
-			return;
-		}
+//		if (!network.hostListAvailable) {
+//			network.getHostData();
+//			return;
+//		}
 
 //		Debugger.Log ("GameList", "populated!");
 
 		HostData[] data = network.getHostData();
+		if (data.Length == 0)
+			return;
+
 		for(int i = 0; i < data.Length; i ++){
 			HostData hd = data[i];
 			Debug.Log(hd.gameName);
@@ -83,7 +86,6 @@ public class GameList : MonoBehaviour {
 
 	public void RefreshList(){
 		updated = false;
-
 //		Debugger.Log("GameList", "refresh!");
 	}
 

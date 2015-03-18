@@ -68,9 +68,9 @@ public class NetworkMenu : MonoBehaviour {
 	{
 		if (message == MasterServerEvent.HostListReceived){
 			hostListAvailable = true;
-			if (gameList != null){
-				gameList.RefreshList();
-			}
+//			if (gameList != null){
+//				gameList.RefreshList();
+//			}
 
 			processHostList();
 			
@@ -119,9 +119,12 @@ public class NetworkMenu : MonoBehaviour {
 
 	public HostData[] getHostData(){
 		if (!hostListAvailable){
-			MasterServer.RequestHostList(gameType);
+
 			Debugger.Log("GameList", "requesting");
 		}
+
+		MasterServer.RequestHostList(gameType);
+//		MasterServer.RequestHostList(gameType);
 		HostData[] hostData = MasterServer.PollHostList ();
 		return hostData;
 	}

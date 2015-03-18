@@ -470,6 +470,7 @@ public class ArrayBoardGraph : BoardGraph {
 	//full strategy 
 
 	public void AIBrain(Player player){
+		Debugger.Log ("Computer", "It's my turn");
 				//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
 				RoadClass[] playerBeginRoads = player.GetRoads ();
 

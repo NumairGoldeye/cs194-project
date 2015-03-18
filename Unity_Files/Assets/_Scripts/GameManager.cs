@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour {
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 		if (GameManager.Instance.myTurn()) {
 			RollButton.interactable = true;
-			if (aiPlayer)
+			if (aiPlayer) 
 				graph.AIBrain(myPlayer);
 		}
 //		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);

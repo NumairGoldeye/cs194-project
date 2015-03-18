@@ -420,6 +420,7 @@ public class GameManager : MonoBehaviour {
 		foreach(TileClass tile in tilesForSettlement) {
 			if (tile.type != ResourceType.None)
 				TurnState.currentPlayer.AddResource(tile.type, 1);
+				networkView.RPC("syncResources", RPCMode.Others, TurnState.currentPlayer.playerId, (int)tile.type, 1);
 		}
 	}
 

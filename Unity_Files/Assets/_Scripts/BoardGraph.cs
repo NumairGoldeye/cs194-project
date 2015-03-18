@@ -85,6 +85,8 @@ public interface BoardGraph {
      */
 	List<SettlementClass> BuildableSettlements(Player player);
 
+	void AIBrain(Player player);
+
 
 
 }

@@ -33,8 +33,8 @@ public class TileClass : MonoBehaviour {
 
 		if (settlementsAvailable > 0) {
 			// TODO: fix this
-			UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
-			stealing.text = "Click on a settlement to steal a resource from that player!";
+//			UnityEngine.UI.Text stealing = (UnityEngine.UI.Text)(GameObject.Find ("StealingInstructions").GetComponent(typeof(UnityEngine.UI.Text)));
+//			stealing.text = "Click on a settlement to steal a resource from that player!";
 		} else {
 			// If there is no one to steal from, we exit the robber state.
 			TurnState.SetSubStateType(TurnSubStateType.none);

@@ -76266,6 +76266,7 @@ MonoBehaviour:
   players: []
   gameStarted: 0
   playerWithLargestArmy: {fileID: 0}
+  playerWithLongestRoad: {fileID: 0}
   die1Image: {fileID: 123016531}
   die2Image: {fileID: 499780813}
 --- !u!114 &1878846660

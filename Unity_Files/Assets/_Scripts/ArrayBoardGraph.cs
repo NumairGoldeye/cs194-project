@@ -148,74 +148,47 @@ public class ArrayBoardGraph : BoardGraph {
 		return result; 
 	}
 
-
-    public int longestroad(Player player){
-		int result = 0;
-		RoadClass[] playerRoads = player.GetRoads();
-		List<RoadClass> roads = playerRoads.ToList<RoadClass>();
-				///can add an "if" statement here checking if playerRoads is null meaning no road built 
-		// keep track of the intersection of adjacent roads that we had use 
-		List<SettlementClass> intersect = new List<SettlementClass> ();
-		foreach (RoadClass r in roads) {
-			int subresult = longestroadfromone(r, roads, intersect);		
-		if(subresult > result) {
-				result = subresult;
-			}
-		}
-		return result; 
-	}
-
-	/**
-     * Returns the total length of longest road that belongs to a list of roads if starting from one specific road  
-     * This is the recursive function used to calculate the longest road(has to contain two arguments to keep track of the invariance 
-     * in the recursive function)
-     */
-	private int longestroadfromone(RoadClass rd, List<RoadClass> roads, List<SettlementClass> intersection){
-		
-				int longest = 1;
-				// This function means: having rd as road array No.1, find the longest road 
-				//keep track of its adjacent roads and checks if any of them is in the built road array, this will be the possible next road
-				// linking to the previous starting road 
-				List<RoadClass> adjacent = new List<RoadClass> ();
-				adjacent = getAdjacentRoads (rd);
-
-
-				//use recursive method to iteratively check longest road 
-				foreach (RoadClass r in adjacent) {
-
-						//This new road list keeps track of the subgraph when 1 road is deleted from the road list   
-						List<RoadClass> leftroads = new List<RoadClass> (roads);
-			// This keeps track of the intersect between the previous road array and the new one adding to list 
-			            SettlementClass intersect = intersectofroads(r, rd);
-						//if one of the adjacent roads is contained in the built road array, then use this as the next road and the leftover road 
-						//array as the total sub array 
-						if (roads.Contains (r) && !intersection.Contains(intersect)) {     
-								leftroads.Remove (rd);
-
-								//call the recursive to see the sub graph 
-								int sublongest = longestroadfromone (r, leftroads, intersection);
-								//int partialresult = longestroad(left);
-								if (sublongest + 1 > longest) {
-										longest = sublongest + 1; 
-					//In this case, when it is updating the longest, this means that "r" (in adjacent) is the next road that leads to longest road 
-					//We keep track of its connecting node, represented as SettlementClass in the intersection list to check further if it is legitimate 
-					//Add the intersect to the connecting node array list to fix the bug 
-									intersection.Add(intersect);              
-
-								}
-						}
-						// if "Contains" bool is false, then it means there is no more adjacent road available, meaning the sublongest is 0, meaning 
-						// that state will have longest as 1; so no need for "else branch".
-				}
 	
-				//This function currently cannot solve an edge case: when player builds 3 roads that are mutually adjacent to each other; in
-				// this case, it will likely be miscounted. 
 
-				// One possible solution: delete the mutually adjacent 3rd edge from the leftover array before entering longestroadfromone recursive
-				//function; however that introduces another edge case which is when the longest road contains a cyclic partial continuous road 
-		return longest; 
+	public int longestroad(Player player) {
+		List<int> possibilities = new List<int> ();
+		foreach (RoadClass road in player.GetRoads()) {
+			possibilities.Add(longestroadHelper(player, road.settlement1, new HashSet<RoadClass>()));
+			possibilities.Add(longestroadHelper(player, road.settlement2, new HashSet<RoadClass>()));
+		}
+		return Max(possibilities);
 	}
 
+	private int longestroadHelper(Player player, SettlementClass current, HashSet<RoadClass> visited) {
+		List<int> possibilities = new List<int> ();
+		foreach (RoadClass road in getConnectedRoads(current)) {
+			if (visited.Contains(road)) continue;
+			if (road.ownerId != TurnState.currentPlayer.playerId) continue;
+			SettlementClass otherEnd = getOtherSettlement(road, current);
+			HashSet<RoadClass> newVisited = new HashSet<RoadClass>(visited);
+			newVisited.Add(road);
+			possibilities.Add(1 + longestroadHelper(player, otherEnd, newVisited));
+		}
+		return Max(possibilities);
+	}
+
+	private SettlementClass getOtherSettlement(RoadClass road, SettlementClass settlement) {
+		if (road.settlement1 != settlement) {
+			return road.settlement1;
+		}
+		return road.settlement2;
+	}
+
+	// May be better way to do this, but encountered some problems using Linq,
+	// faster to just write own.
+	private int Max(List<int> list) {
+		int result = 0;
+		foreach (int elem in list) {
+			if (elem > result) result = elem;
+		}
+		return result;
+	}
+	
 	//buildable city: positions where settlements are there 
 	public List<SettlementClass> BuildableCity(Player player){
 		SettlementClass[] settlements = player.GetSettlements();
@@ -224,8 +197,6 @@ public class ArrayBoardGraph : BoardGraph {
 		return set;
 	}
 
-	
-	
 	public List<RoadClass> BuildableRoads(Player player){
 
 		//case 1: new postions next to built roads

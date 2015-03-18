@@ -218,8 +218,14 @@ public class DevCard : PlayerCard {
 			hand.resourceButtons.SetActive(true);
 			break;
 		case DevCardType.roadBuilding:
+			GameObject[] roads = GameObject.FindGameObjectsWithTag("Road");
+			foreach(GameObject r in roads ){
+				r.GetComponent<RoadClass>().makeVisible();
+			}
 			break;
 		case DevCardType.victoryPoint:
+
+
 			break;
 		case DevCardType.yearOfPlenty:
 			hand.resourceButtons.SetActive(true);

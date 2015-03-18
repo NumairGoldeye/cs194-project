@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: A Victory Point
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11456826
 MonoBehaviour:
@@ -77,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300002, guid: db8ba08bdc8224fe5984cb0faee657ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c09ea92fdee3b494cbfd946533c7517e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

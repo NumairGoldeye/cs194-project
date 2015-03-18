@@ -529,8 +529,11 @@ public class ArrayBoardGraph : BoardGraph {
 			return;
 
 		}
+		TurnState.stateType = TurnStateType.roll;
 
 		GameManager.Instance.BroadcastMessage ("rollDice");
+
+		TurnState.stateType = TurnStateType.trade;
 		//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 
@@ -637,8 +640,9 @@ public class ArrayBoardGraph : BoardGraph {
 
 
 
+		TurnState.stateType = TurnStateType.build;
 
-				//-----------------------------------------------------------------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------------------------------------------------------------
 
 				//The first part, build city 
 				if (player.wheatcount () >= 2 && player.orecount () >= 3) {

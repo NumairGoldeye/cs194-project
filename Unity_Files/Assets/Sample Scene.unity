@@ -67136,7 +67136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisCurrentPlayer: {fileID: 0}
-  _pointsToWin: 4
+  _pointsToWin: 10
   tradeConsole: {fileID: 924966401}
 --- !u!1 &1646062215
 GameObject:

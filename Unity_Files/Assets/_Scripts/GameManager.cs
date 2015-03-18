@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
 	public Player myPlayer;
 	public string myPlayerName = "";
 
+	public Boolean aiPlayer = false;
+
 	public Button RollButton;
 	public TradeConfirm tradeConfirm;
 
@@ -145,7 +147,6 @@ public class GameManager : MonoBehaviour {
 
 	[RPC]
 	void updateKnights() {
-		TurnState.currentPlayer.numUsedKnights++;
 		DevCard.UpdateLargestArmy(TurnState.currentPlayer);
 	}
 
@@ -177,6 +178,9 @@ public class GameManager : MonoBehaviour {
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 		if (GameManager.Instance.myTurn()) {
 			RollButton.interactable = true;
+			if (aiPlayer) {
+				graph.AIBrain(myPlayer);
+			}
 		}
 //		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 	}

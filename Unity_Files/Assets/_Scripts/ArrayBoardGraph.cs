@@ -499,6 +499,7 @@ public class ArrayBoardGraph : BoardGraph {
 	//full strategy 
 
 	public void AIBrain(Player player){
+		Debugger.Log ("Computer", "My turn!");
 		//This gives the current optimal strategy for the AI player 
 		int strategy = strategyUpdate (player);
 

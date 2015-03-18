@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 
 /*
@@ -345,6 +346,15 @@ public class GameManager : MonoBehaviour {
 	}
 
 	/* --------------------------------------------------------------------------------*/
+
+
+	public void checkComputerPlayer() {
+		Regex rgx = new Regex (@".*computer.*");
+		if (rgx.IsMatch(myPlayerName)) {
+			Debugger.Log("Computer", "I am and AI!");
+			aiPlayer = true;
+		}
+	}
 
 	public bool myTurn() {
 		return (GameManager.Instance.gameStarted && TurnState.currentPlayer.playerId == myPlayer.playerId);

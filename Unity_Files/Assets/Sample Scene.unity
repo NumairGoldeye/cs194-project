@@ -12101,7 +12101,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -87.9000015, y: -30.3999996}
+  m_AnchoredPosition: {x: -79.0500336, y: -19.6000061}
   m_SizeDelta: {x: 158.100006, y: 39.2000008}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &299612263
@@ -16402,19 +16402,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 134
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchorMin.x
@@ -16422,7 +16422,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchorMax.x
@@ -16430,7 +16430,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_Pivot.x
@@ -60308,8 +60308,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1840678614}
   m_HandleRect: {fileID: 1840678613}
   m_Direction: 2
-  m_Value: 1
-  m_Size: .99999994
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -83154,7 +83154,7 @@ RectTransform:
   m_RootOrder: 9
   m_AnchorMin: {x: 1, y: .889181912}
   m_AnchorMax: {x: 1, y: .889181912}
-  m_AnchoredPosition: {x: -86.5999985, y: -23.6194992}
+  m_AnchoredPosition: {x: -79, y: -19.9999847}
   m_SizeDelta: {x: 158, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2059252294

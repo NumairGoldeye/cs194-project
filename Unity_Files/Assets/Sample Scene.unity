@@ -8017,7 +8017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2a54edd6af14089a55f02f07529e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugFlag: LeaderBoard
+  debugFlag: Victory
 --- !u!4 &169659237
 Transform:
   m_ObjectHideFlags: 0
@@ -67466,7 +67466,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisCurrentPlayer: {fileID: 0}
   _pointsToWin: 4
-  _victoryPanel: {fileID: 2014482850}
   tradeConsole: {fileID: 924966401}
 --- !u!1 &1646062215
 GameObject:
@@ -76256,6 +76255,7 @@ MonoBehaviour:
   RollButton: {fileID: 399267909}
   tradeConfirm: {fileID: 1756637075}
   lobby: {fileID: 642994999}
+  victoryPanel: {fileID: 0}
   playerColors:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}

@@ -154,7 +154,7 @@ public class RoadClass : MonoBehaviour {
 
 	void OnMouseDown() {
 		if (!visible || built) return;
-		if (GameManager.Instance.myTurn()) {
+		if (GameManager.Instance.gameStarted && GameManager.Instance.myTurn()) {
 			buildRoad();
 		}
 

@@ -53,7 +53,7 @@ public class TileClass : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		if (!GameManager.Instance.myTurn()) return;
+		if (!GameManager.Instance.gameStarted && !GameManager.Instance.myTurn()) return;
 		if (hasRobber) return;
 		if (GameManager.Instance.getDiceRoll() == 7 || TurnState.getSubStateType() == TurnSubStateType.robbering) {
 			receiveRobber ();

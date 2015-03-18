@@ -313,6 +313,7 @@ public class TurnState : MonoBehaviour {
 	/// This will update the UI
 	/// </summary>
 	public static void CheckVictory(){
+		Debugger.Log ("Victory", "Checking victory... " + TurnState.currentPlayer.victoryPoints.ToString ());
 		if (TurnState.currentPlayer.victoryPoints >= pointsToWin){
 			// MainUI hide
 			UIManager.DisableObjs();

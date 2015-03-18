@@ -530,6 +530,7 @@ public class ArrayBoardGraph : BoardGraph {
 
 		}
 
+		GameManager.Instance.BroadcastMessage ("rollDice");
 		//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 

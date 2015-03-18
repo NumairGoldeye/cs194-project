@@ -144,10 +144,14 @@ public class NetworkMenu : MonoBehaviour {
 		GameManager.Instance.gameStarted = true;
 		GameManager.Instance.networkView.RPC("startupGame", RPCMode.All);
 	}
-	
+
 	
 	private void OnGUI()
 	{
+		if (!Debug.isDebugBuild) {
+			return;
+		}
+
 		if (!connected) {
 			//We should rework this GUI so that there are two buttons: Host & Connect
 			// Clicking host will prompt a host name, and connect will display a list of hosted games

@@ -347,15 +347,16 @@ public class Player : MonoBehaviour {
 	}
 
 	public bool RemoveDevCard(DevCardType devCard){
+		Debug.Log("FOOO");
 		devCardCounts[(int)devCard] -= 1;
 		if (devCard == DevCardType.victoryPoint){
 			victoryPoints--;
 		}
 
-		if (devCard == DevCardType.knight){
-			numUsedKnights++;
-			Player.CheckLargestArmy();
-		}
+//		if (devCard == DevCardType.knight){
+//			numUsedKnights++;
+//			Player.CheckLargestArmy();
+//		}
 
 		if (playerId == GameManager.Instance.myPlayer.playerId){
 			hand.RemoveDevCard(devCard, this);

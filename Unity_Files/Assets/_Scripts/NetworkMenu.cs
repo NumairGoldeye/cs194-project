@@ -152,6 +152,7 @@ public class NetworkMenu : MonoBehaviour {
 	
 	private void OnGUI()
 	{
+		return;
 		if (!Debug.isDebugBuild)
 			return;
 

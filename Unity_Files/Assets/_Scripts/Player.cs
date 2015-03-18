@@ -138,7 +138,12 @@ public class Player : MonoBehaviour {
 	}
 
 	public static Player[] OtherPlayers(Player player){
-		Player[] otherPlayers = new Player[ playerCount - 1 ];
+		int count = GameManager.Instance.players.Count;
+		if (count == 0) 
+			return new Player[0];
+
+
+		Player[] otherPlayers = new Player[ GameManager.Instance.players.Count - 1 ];
 		int index = 0;
 		foreach(Player p in GameManager.Instance.players){
 			if (p != player && p != null){

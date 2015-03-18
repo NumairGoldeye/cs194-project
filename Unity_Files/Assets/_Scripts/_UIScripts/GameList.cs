@@ -24,16 +24,18 @@ public class GameList : MonoBehaviour {
 	public Button joinGameButton; // set in inspector
 
 	bool updated = false;
+	bool gameFound = false;
 
 	// Use this for initialization
 	void Start () {
 		network.gameList = this;
 		joinGameButton.onClick.AddListener(JoinGameListener);
+		UpdateGameList();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!updated){
+		if (!updated || !gameFound){
 			UpdateGameList();
 			updated = true;
 		}
@@ -63,6 +65,8 @@ public class GameList : MonoBehaviour {
 		HostData[] data = network.getHostData();
 		if (data.Length == 0)
 			return;
+
+		gameFound = true;
 
 		for(int i = 0; i < data.Length; i ++){
 			HostData hd = data[i];

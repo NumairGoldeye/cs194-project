@@ -525,11 +525,8 @@ public class ArrayBoardGraph : BoardGraph {
 				//Display the road pointed to by randomroad! 
 				randomr.buildRoad();
 			}
-			StartGameManager.NextPlayer();
-			return;
-			
 		}
-		
+		StartGameManager.NextPlayer();
 	}
 
 

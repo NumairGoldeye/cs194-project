@@ -62,8 +62,6 @@ public interface BoardGraph {
 	 * Returns the tile corresponding to the given tile.
 	 */
 	TileClass getTile(int index);
-
-
 	
 	/**
      * Returns the total length of longest road that belongs to a given player.
@@ -79,15 +77,11 @@ public interface BoardGraph {
      */
 	List<RoadClass> BuildableRoads(Player player);
 	
-	
 	/**
      * Returns the positions that player can build settlement  
      */
 	List<SettlementClass> BuildableSettlements(Player player);
 
-	void AIBrain (Player player);
-
-	void AIstart(Player player);
-
+	bool HasNeighboringSettlement(SettlementClass settlement);
 
 }

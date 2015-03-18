@@ -78,14 +78,14 @@ public class SettlementClass : MonoBehaviour {
 	}
 
 	public void toggleSettlements() {
-		if (!visible && !built && !StandardBoardGraph.Instance.hasBuiltNeighbooringSettlement(this) && StandardBoardGraph.Instance.hasConnectingRoad(GameManager.Instance.myPlayer, this))
+		if (!visible && !built && !StandardBoardGraph.Instance.HasNeighboringSettlement(this) && StandardBoardGraph.Instance.hasConnectingRoad(GameManager.Instance.myPlayer, this))
 		    showSettlement();
 		else if (visible && !built)
 			hideSettlement();
 	}
 
 	public void showSettlementStartup() {
-		if (!StandardBoardGraph.Instance.hasBuiltNeighbooringSettlement (this))
+		if (!StandardBoardGraph.Instance.HasNeighboringSettlement(this))
 			showSettlement ();
 	}
 

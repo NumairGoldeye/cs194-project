@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour {
 	//Keep track of my player ID
 	public Player myPlayer;
 	public string myPlayerName = "";
-	public Boolean aiPlayer = false;
 
 	public Button RollButton;
 	public TradeConfirm tradeConfirm;
@@ -178,8 +177,8 @@ public class GameManager : MonoBehaviour {
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 		if (GameManager.Instance.myTurn()) {
 			RollButton.interactable = true;
-			if (aiPlayer) 
-				graph.AIBrain(myPlayer);
+			if (myPlayer.IsAI())
+				myPlayer.brain.PlayTurn();
 		}
 //		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 	}
@@ -351,7 +350,7 @@ public class GameManager : MonoBehaviour {
 		Regex rgx = new Regex (@".*computer.*");
 		if (rgx.IsMatch(myPlayerName)) {
 			Debugger.Log("Computer", "I am and AI!");
-			aiPlayer = true;
+			myPlayer.SetAIBrain(new SimpleRulesAIBrain(myPlayer, graph));
 		}
 	}
 

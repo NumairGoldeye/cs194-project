@@ -71,8 +71,8 @@ public class StartGameManager {
 		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
 		TurnState.freeBuild = true;
 		if (GameManager.Instance.myTurn()) {
-			if (GameManager.Instance.aiPlayer) {
-				GameManager.Instance.graph.AIstart(GameManager.Instance.myPlayer);
+			if (GameManager.Instance.myPlayer.IsAI()) {
+				GameManager.Instance.myPlayer.brain.PerformSetup();
 			} else {
 				settlements.BroadcastMessage("showSettlementStartup");
 				roads.BroadcastMessage("makeInvisible");

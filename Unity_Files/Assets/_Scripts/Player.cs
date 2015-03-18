@@ -61,6 +61,8 @@ public class Player : MonoBehaviour {
 	public int numUsedKnights = 0;
 	public bool hasLargestArmy = false;
 	public bool hasLongestRoad = false;
+	public AIBrain brain = null;
+
 	static int knightsNeededForArmy = 3;
 
 	private List<SettlementClass> settlements;
@@ -443,6 +445,14 @@ public class Player : MonoBehaviour {
 			}
 		}
 		return result;
+	}
+
+	public void SetAIBrain(AIBrain brain) {
+		this.brain = brain;
+	}
+
+	public bool IsAI() {
+		return brain != null;
 	}
 
 

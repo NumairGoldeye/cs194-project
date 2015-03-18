@@ -509,10 +509,7 @@ public class ArrayBoardGraph : BoardGraph {
 		if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count () == 1) {
 			//build a road and a settlement without consuming resources, starting game 
 			//display implementation! 
-			//if(playerBeginRoads.Count () == 1){
-			//	Debugger.Log ("Settlement", "1111111");
-			//}
-
+			
 			SettlementClass firstset = BuildInitialSettlement(player);
 			Debugger.Log("Settlement", firstset);
 			Debugger.Log ("Computer", firstset.vertexIndex.ToString());

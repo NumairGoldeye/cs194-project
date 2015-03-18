@@ -627,8 +627,9 @@ public class ArrayBoardGraph : BoardGraph {
 						SettlementClass nextcity = BuildCity (player);
 						//Build city pointed to by the nextcity 
 						if (BuyManager.PlayerCanBuy (player, BuyableType.city) == true) {
-								BuyManager.PurchaseForPlayer (BuyableType.city, player);
+								
 								//Display the city!!!! pointed to by nextcity  
+								nextcity.upgradeToCity();
 						}
 
 				}
@@ -652,8 +653,8 @@ public class ArrayBoardGraph : BoardGraph {
 														RoadClass randomroad = buildablelist [0];
 														//build a road pointed to by randomroad 
 														if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-																BuyManager.PurchaseForPlayer (BuyableType.road, player);
 																//Display the road pointed to by randomroad! 
+																randomroad.buildRoad();
 							        
 														}
 												}
@@ -662,8 +663,8 @@ public class ArrayBoardGraph : BoardGraph {
 										} else {
 												//build settlement pointed to by "nextsettlement"
 												if (BuyManager.PlayerCanBuy (player, BuyableType.settlement) == true) {
-														BuyManager.PurchaseForPlayer (BuyableType.settlement, player);
 														//Display the settlement pointed to by "nextsettlement"
+														nextsettlement.buildSettlement();
 												}
 					
 
@@ -674,7 +675,6 @@ public class ArrayBoardGraph : BoardGraph {
 										if (strategy == 1) {
 												//build a road pointed to by "nextroad"
 												if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-														BuyManager.PurchaseForPlayer (BuyableType.road, player);
 														//Display the road pointed to by "nextroad"
 														nextroad.buildRoad ();
 												}
@@ -685,7 +685,6 @@ public class ArrayBoardGraph : BoardGraph {
 
 														//build a road pointed to by "nextroad"
 														if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-																BuyManager.PurchaseForPlayer (BuyableType.road, player);
 																//Display the road pointed to by "nextroad"
 																nextroad.buildRoad ();
 																//else then no need to build road, save for future settlement
@@ -696,6 +695,11 @@ public class ArrayBoardGraph : BoardGraph {
 						} else {
 								//when nextroad is not null 
 								//build the road pointed to by nextroad 
+							if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
+							//Display the road pointed to by "nextroad"
+							nextroad.buildRoad ();
+							//else then no need to build road, save for future settlement
+							}
 		
 						}
 				}
@@ -723,7 +727,6 @@ public class ArrayBoardGraph : BoardGraph {
 								if (nextleftroad) {
 										//build a road pointed to by nextleftroad, else leave it there 
 										if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-												BuyManager.PurchaseForPlayer (BuyableType.road, player);
 												//Display the road pointed to by "nextleftroad"
 												nextleftroad.buildRoad ();
 
@@ -732,7 +735,6 @@ public class ArrayBoardGraph : BoardGraph {
 								} else {
 										//build a settlement at position nextleftset
 										if (BuyManager.PlayerCanBuy (player, BuyableType.settlement) == true) {
-												BuyManager.PurchaseForPlayer (BuyableType.settlement, player);
 												//Display the settlement pointed to by "nextleftset"
 												nextleftset.buildSettlement ();
 										}

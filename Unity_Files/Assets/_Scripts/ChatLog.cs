@@ -82,7 +82,7 @@ public class ChatLog : MonoBehaviour {
 	public void AddChatMessage(string s){
 		if (s.Length > 0  && Input.GetKey(KeyCode.Return)){
 			addMessage(TurnState.currentPlayer.playerName, s);
-			GameManager.Instance.networkView.RPC ("syncChatMessage", RPCMode.Others, TurnState.currentPlayer.playerName, s);
+			GameManager.Instance.networkView.RPC ("syncChatMessage", RPCMode.All, GameManager.Instance.myPlayerName, s);
 		}
 
 	}

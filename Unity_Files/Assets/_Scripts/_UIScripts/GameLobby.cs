@@ -46,12 +46,13 @@ public class GameLobby : MonoBehaviour {
 		if (currentCount > 0 && lastCount != currentCount){
 			lastCount = currentCount;
 			UpdatePlayerList();
+			Debugger.Log("GameLobby", "UPdate player list with " + currentCount.ToString());
 		}
 
 
-//		if (Input.GetKeyDown("space")){
-//			Debugger.Log("GameLobby", currentCount.ToString());
-//		}
+		if (Input.GetKeyDown("space")){
+			Debugger.Log("GameLobby", currentCount.ToString());
+		}
 	}
 
 	public void StartGame(){
@@ -60,7 +61,7 @@ public class GameLobby : MonoBehaviour {
 	
 	public void UpdatePlayerList(){
 //		Debugger.Log("GameLobby", "update player list");
-		Player p = GameManager.Instance.myPlayer;
+//		Player p = GameManager.Instance.myPlayer;
 //		networkView.RPC("syncPlayerInfo", RPCMode.Others, p.networkPlayer, p.playerId, p.playerName);
 
 		ClearPlayerList();
@@ -72,7 +73,7 @@ public class GameLobby : MonoBehaviour {
 //		AddPlayerListName("Host: " + GameManager.Instance.myPlayerName);
 
 		foreach(Player p in GameManager.Instance.players){
-//			Debug.Log(p.playerName);
+			Debug.Log(p.playerName);
 
 			// Is the first player the host always?
 

@@ -498,7 +498,19 @@ public class ArrayBoardGraph : BoardGraph {
 	//City always trumphs  
 	//full strategy 
 
-	void AIBrain(Player player){
+	public void AIBrain(Player player){
+		//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
+		RoadClass[] playerBeginRoads = player.GetRoads();
+		List<SettlementClass> playerstartroad = new List<SettlementClass> ();
+		if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count()==1) {
+		//build a road and a settlement without consuming resources, starting game 
+			//display implementation! 
+
+		}
+
+
+
+
 				//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 
@@ -612,6 +624,11 @@ public class ArrayBoardGraph : BoardGraph {
 		if (player.wheatcount() >= 2 && player.orecount() >= 3) {
 			SettlementClass nextcity = BuildCity(player);
 			//Build city pointed to by the nextcity 
+			if(BuyManager.PlayerCanBuy(player, BuyableType.city)){
+				BuyManager.PurchaseForPlayer(BuyableType.city, player);
+				//Display the city!!!! pointed to by nextcity  
+			}
+
 		}
 
 		//-----------------------------------------------------------------------------------------------------------------------------------
@@ -625,21 +642,40 @@ public class ArrayBoardGraph : BoardGraph {
 							SettlementClass nextsettlement = BuildSettlement(player);
 					       if(nextsettlement==null){
 							//build random road 
-					       }else{
-						   //build settlement pointed to by "nextsettlement"
+						List<RoadClass> buildablelist= BuildableRoads(player);
+						if(buildablelist.Count()>0){
+						RoadClass randomroad = buildablelist[0];
+						//build a road pointed to by randomroad 
+							if(BuyManager.PlayerCanBuy(player, BuyableType.road)==true){
+								BuyManager.PurchaseForPlayer(BuyableType.road, player);
+								//Display the road pointed to by randomroad! 
 							}
+						}
+					}else{
+						   //build settlement pointed to by "nextsettlement"
+						if(BuyManager.PlayerCanBuy(player, BuyableType.settlement)==true){
+							BuyManager.PurchaseForPlayer(BuyableType.settlement, player);
+							//Display the settlement pointed to by "nextsettlement"
+						}
+					}
 
 						}
 					}else{
 				     if(strategy == 1 ){
 					//build a road pointed to by "nextroad"
+					   if(BuyManager.PlayerCanBuy(player, BuyableType.road)==true){
+						BuyManager.PurchaseForPlayer(BuyableType.road, player);
+					//Display the road pointed to by "nextroad"
+					}
 				    	}else{
 						  if(longestroad (player)<=4){
 					      //although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
 						// position 
 
 						//build a road pointed to by "nextroad"
-
+						if(BuyManager.PlayerCanBuy(player, BuyableType.road)==true){
+							BuyManager.PurchaseForPlayer(BuyableType.road, player);
+							//Display the road pointed to by "nextroad"
 						//else then no need to build road, save for future settlement
 					      }
 						}
@@ -650,7 +686,11 @@ public class ArrayBoardGraph : BoardGraph {
 		//The 3rd part deals with getting a dev card when strategy is 2 
 		if (player.wheatcount() >= 1 && player.sheepcount() >= 1 && player.orecount() >= 1 && strategy == 2) {
 		// Get a dev card 		
-	    // Use the dev card right away 
+				if(BuyManager.PlayerCanBuy(player, BuyableType.devCard)==true){
+					BuyManager.PurchaseForPlayer(BuyableType.devCard, player);
+					// Use the dev card right away 
+
+				}
 		}
 
 		//The 4th part where AI does not use longest road or largest army strategy, just go buid settlement and city; note that buildcity 
@@ -664,10 +704,17 @@ public class ArrayBoardGraph : BoardGraph {
 
 				if(nextleftroad){
 				//build a road pointed to by nextleftroad, else leave it there 
+						if(BuyManager.PlayerCanBuy(player, BuyableType.road)==true){
+							BuyManager.PurchaseForPlayer(BuyableType.road, player);
+							//Display the road pointed to by "nextleftroad"
 				}
 
 				}else{
 				//build a settlement at position nextleftset
+						if(BuyManager.PlayerCanBuy(player, BuyableType.settlement)==true){
+							BuyManager.PurchaseForPlayer(BuyableType.settlement, player);
+							//Display the settlement pointed to by "nextleftset"
+						}
 			}
 		}
 

@@ -51,6 +51,7 @@ public class NetworkMenu : MonoBehaviour {
 		connected = true;
 		MasterServer.RegisterHost(gameType, gameName);
 		GameManager.Instance.createPlayer (Network.player, GameManager.Instance.myPlayerName);
+		GameManager.Instance.checkComputerPlayer ();
 	}
 
 	private void OnDisconnectedFromServer()

@@ -624,6 +624,11 @@ public class ArrayBoardGraph : BoardGraph {
 		if (player.wheatcount() >= 2 && player.orecount() >= 3) {
 			SettlementClass nextcity = BuildCity(player);
 			//Build city pointed to by the nextcity 
+			if(BuyManager.PlayerCanBuy(player, BuyableType.city)){
+				BuyManager.PurchaseForPlayer(BuyableType.city, player);
+				//Display the city!!!! pointed to by nextcity  
+			}
+
 		}
 
 		//-----------------------------------------------------------------------------------------------------------------------------------
@@ -637,7 +642,16 @@ public class ArrayBoardGraph : BoardGraph {
 							SettlementClass nextsettlement = BuildSettlement(player);
 					       if(nextsettlement==null){
 							//build random road 
-					       }else{
+						List<RoadClass> buildablelist= BuildableRoads(player);
+						if(buildablelist.Count()>0){
+						RoadClass randomroad = buildablelist[0];
+						//build a road pointed to by randomroad 
+							if(BuyManager.PlayerCanBuy(player, BuyableType.road)==true){
+								BuyManager.PurchaseForPlayer(BuyableType.road, player);
+								//Display the road pointed to by randomroad! 
+							}
+						}
+					}else{
 						   //build settlement pointed to by "nextsettlement"
 							}
 

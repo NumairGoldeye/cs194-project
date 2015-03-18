@@ -15,9 +15,7 @@ public class TurnButtonControls : MonoBehaviour {
 			// Only modify the buttons if the game has started
 			if (!GameManager.Instance.gameStarted) return;
 			// If it's my turn, make the turn buttons interactable, otherwise make them not-interactable
-			if(GameManager.Instance.myTurn()) {
-				
-			} else {
+			if(!GameManager.Instance.myTurn()) {
 				RollDice.interactable = false;
 				TradeButton.interactable = false;
 				BuildButton.interactable = false;

@@ -145,6 +145,11 @@ public class GameManager : MonoBehaviour {
 	 * ---------------------------------------------------------*/
 
 	[RPC]
+	void syncVictoryPoint() {
+		TurnState.currentPlayer.victoryPoints++;
+	}
+
+	[RPC]
 	void updateKnights() {
 		DevCard.UpdateLargestArmy(TurnState.currentPlayer);
 	}
@@ -236,6 +241,7 @@ public class GameManager : MonoBehaviour {
 			if (GameManager.Instance.players[i].playerId == playerID) 
 				GameManager.Instance.players[i].playerName = playerName;
 		}
+		lobby.UpdatePlayerList ();
 	}
 
 	[RPC]

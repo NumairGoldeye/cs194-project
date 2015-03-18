@@ -6,7 +6,7 @@ SampleScene.unity: Contains all of the information for the graphics.  A large po
   our work was done in the Unity scene editor -- that work in unity is reflected here. 
   Not meant to be read by humans, but generated and used by Unity.	
   
-Game Setup Files
+Game Setup and Networking Files
 - StartGameManager.cs: Controls the "setup phase" of the game, where players place their
     initial roads and settlements.
 - GameManager.cs: This file handles all of the interraction between the clients. It has a 
@@ -16,6 +16,10 @@ Game Setup Files
   It also sets up the game board tiles and maintains the list of players. Finally, it contains
   information that helps the individual client identify their own player in the game
   and other various pieces of information that are relevant to the player.
+- Other files: There are various networking calls made in files that update the state of the game
+  or the state of players, i.e. adding resources and moving the knight. All of these calls
+  utilize the Game Manager to send the necessary messages to the appropriate clients 
+  and the Game Manager has the corresponding functions that handle these calls.
 
 Board Representation Files: The following section contains the files that
     represent the state of the game board.
@@ -26,12 +30,15 @@ Board Representation Files: The following section contains the files that
     it properly links the proper edges, verticies and tiles to each other.
 - RoadClass.cs, SettlementClass.cs, PortClass.cs, and TileClass.cs: Each of these
     represents the information needed for its respective game element, and contain
-    functions to perform their necessary tasks.
+    functions to perform their necessary tasks. The SettlementClass also represents the 
+    city objects and the logic allowing them to be built.
 
 Game State: These files represent various parts of the state of the game.
 - Player.cs: Represents the state of a player, with things like their resource counts,
     their dev card counts, etc, and various functions to manipulate the state.
-- TurnState.cs: The state of the current turn.  Manages the overall gameplay during a turn.
+- TurnState.cs: The state of the current turn.  Manages the overall gameplay during a turn. 
+  Primarily keeps track of the current player, which is essential to keeping all of the players
+  in sync.
 
 UI:
 - UIManager.cs: Starts the UI for the game and manages when the main parts of it should show up.
@@ -49,7 +56,8 @@ Buying:
 -BuyManager.cs: Manages buying one of the various buyable things in Catan.
 
 Chat:
-- ChatLog.cs: Handles everything related to the Chat Box.
+- ChatLog.cs: Handles everything related to the Chat Box. Has some networking calls that send 
+  the messages to all of the clients.
 
 ComboBox:
 - There is a folder called "ComboBox".  None of this code was written by us (besides a few

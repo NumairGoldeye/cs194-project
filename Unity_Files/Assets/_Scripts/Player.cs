@@ -388,9 +388,13 @@ public class Player : MonoBehaviour {
 		TurnState.CheckVictory();
 	}
 
-	public void RemoveVictoryPoint(){
-		victoryPoints--;
-//		TurnState.CheckVictory();
+	public void RemoveVictoryPoint(int amount = 1){
+		// Won't go below zero.
+		if (victoryPoints > amount) {
+			victoryPoints -= amount;
+		} else {
+			victoryPoints = 0;
+		}
 	}
 
 	public bool HasResources(ResourceCounter counter) {

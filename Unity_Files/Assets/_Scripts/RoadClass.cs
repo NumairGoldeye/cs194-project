@@ -17,6 +17,9 @@ public class RoadClass : MonoBehaviour {
 
 	public int ownerId;
 
+	private static int MIN_LONGEST_ROAD_LENGTH = 5;
+	private static int LONGEST_ROAD_VICTORY_POINTS = 2;
+
 	void Start () {
 		built = false;
 		makeInvisible();
@@ -99,6 +102,7 @@ public class RoadClass : MonoBehaviour {
 		renderer.material.color = TurnState.currentPlayer.playerColor;
 		ownerId = TurnState.currentPlayer.playerId;
 		roadSound.Play ();
+		UpdateLongestRoad();
 	}
 
 	// To be used if somebody changes their mind about a roadbuilding dev card
@@ -127,6 +131,25 @@ public class RoadClass : MonoBehaviour {
 		Debugger.Log ("PlayerHand", "Road owner: " + ownerId.ToString ());
 		GameManager.Instance.networkView.RPC("syncRoadBuild", RPCMode.Others, this.edgeIndex);
 		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
+	}
+
+	// TODO: Does this need to have an RPC?
+	private void UpdateLongestRoad() {
+		int currentPlayerLongestRoad = StandardBoardGraph.Instance.GetLongestRoadForPlayer(TurnState.currentPlayer);
+		if (currentPlayerLongestRoad < MIN_LONGEST_ROAD_LENGTH) return;
+
+		Player oldPlayerWithLongestRoad = GameManager.Instance.playerWithLongestRoad;
+		if (null == oldPlayerWithLongestRoad) {
+			TurnState.currentPlayer.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
+			GameManager.Instance.playerWithLongestRoad = TurnState.currentPlayer;
+		} else {
+			int oldPlayerLongestRoad = StandardBoardGraph.Instance.GetLongestRoadForPlayer(oldPlayerWithLongestRoad);
+			if (currentPlayerLongestRoad > oldPlayerLongestRoad) {
+				TurnState.currentPlayer.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
+				GameManager.Instance.playerWithLongestRoad = TurnState.currentPlayer;
+				oldPlayerWithLongestRoad.RemoveVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
+			}
+		}
 	}
 
 	void OnMouseDown() {

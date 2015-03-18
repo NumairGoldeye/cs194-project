@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
 	private int die2;
 	private TileClass tileWithRobber;
 	public Player playerWithLargestArmy = null;
+	public Player playerWithLongestRoad = null;
 
 
 	private int[] tileCounts = {4, 4, 3, 3, 4, 1};

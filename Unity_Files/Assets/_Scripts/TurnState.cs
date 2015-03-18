@@ -103,7 +103,10 @@ public class TurnState : MonoBehaviour {
 		}
         if (numTurnStates == (int)stateType){
             stateType = (TurnStateType)tsTypes.GetValue(0);
-			Debug.Log("Longest Road: " + StandardBoardGraph.Instance.longestroad(currentPlayer));
+			BoardGraph graph = StandardBoardGraph.Instance;
+			Debug.Log(
+				"Longest Road For " + currentPlayer.playerName + ": " + 
+				graph.GetLongestRoadForPlayer(currentPlayer));
             EndTurn();
         }
     }

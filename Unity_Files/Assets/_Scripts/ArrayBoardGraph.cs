@@ -147,19 +147,17 @@ public class ArrayBoardGraph : BoardGraph {
 		}
 		return result; 
 	}
-
 	
-
-	public int longestroad(Player player) {
+	public int GetLongestRoadForPlayer(Player player) {
 		List<int> possibilities = new List<int> ();
 		foreach (RoadClass road in player.GetRoads()) {
-			possibilities.Add(longestroadHelper(player, road.settlement1, new HashSet<RoadClass>()));
-			possibilities.Add(longestroadHelper(player, road.settlement2, new HashSet<RoadClass>()));
+			possibilities.Add(LongestRoadHelper(player, road.settlement1, new HashSet<RoadClass>()));
+			possibilities.Add(LongestRoadHelper(player, road.settlement2, new HashSet<RoadClass>()));
 		}
 		return Max(possibilities);
 	}
 
-	private int longestroadHelper(Player player, SettlementClass current, HashSet<RoadClass> visited) {
+	private int LongestRoadHelper(Player player, SettlementClass current, HashSet<RoadClass> visited) {
 		List<int> possibilities = new List<int> ();
 		foreach (RoadClass road in getConnectedRoads(current)) {
 			if (visited.Contains(road)) continue;
@@ -167,7 +165,7 @@ public class ArrayBoardGraph : BoardGraph {
 			SettlementClass otherEnd = getOtherSettlement(road, current);
 			HashSet<RoadClass> newVisited = new HashSet<RoadClass>(visited);
 			newVisited.Add(road);
-			possibilities.Add(1 + longestroadHelper(player, otherEnd, newVisited));
+			possibilities.Add(1 + LongestRoadHelper(player, otherEnd, newVisited));
 		}
 		return Max(possibilities);
 	}
@@ -427,7 +425,7 @@ public class ArrayBoardGraph : BoardGraph {
 		List <Player> currentplayers = GameManager.Instance.players; 
 		//If the current AI's longestroad is no shorter than the best longestroad - 2, then go for the longest road
 		foreach (Player x in currentplayers) {
-			if (longestroad (player) < longestroad (x) - 2) {
+			if (GetLongestRoadForPlayer (player) < GetLongestRoadForPlayer (x) - 2) {
 				strategy = 2;
 				break; 
 			}
@@ -663,7 +661,7 @@ public class ArrayBoardGraph : BoardGraph {
 														nextroad.buildRoad ();
 												}
 										} else {
-												if (longestroad (player) <= 4) {
+						if (GetLongestRoadForPlayer (player) <= 4) {
 														//although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
 														// position 
 

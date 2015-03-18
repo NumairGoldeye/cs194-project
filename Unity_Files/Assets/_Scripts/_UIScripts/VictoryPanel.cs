@@ -31,7 +31,7 @@ public class VictoryPanel : MonoBehaviour {
 		
 		string otherPoints = "";
 		
-		foreach(Player p in Player.OtherPlayers(TurnState.winningPlayer)){
+		foreach(Player p in GameManager.Instance.players){
 			otherPoints += p.playerName + ": " + p.victoryPoints + " points \n";
 		}
 		

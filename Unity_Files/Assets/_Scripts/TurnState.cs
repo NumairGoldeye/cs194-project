@@ -72,7 +72,7 @@ public class TurnState : MonoBehaviour {
 
 	public static bool freeBuild;
 	
-	static GameObject victoryPanel;
+	public static GameObject victoryPanel;
 
 
 	// ----- Instance things ----- //
@@ -322,16 +322,13 @@ public class TurnState : MonoBehaviour {
 	/// This will update the UI
 	/// </summary>
 	public static void CheckVictory(){
-		foreach (Player p in GameManager.Instance.players){
-			Debugger.Log("PlayerHand", "Player: " + p.playerId.ToString() + ", Points: " + p.victoryPoints.ToString());
-			if (p.victoryPoints >= pointsToWin){
-				// MainUI hide
-//				UIManager.MainUI.SetActive(false);
-				UIManager.DisableObjs();
-				winningPlayer = p;
-				victoryPanel.SetActive(true);
-				gameOver = true;
-			}
+		if (TurnState.currentPlayer.victoryPoints >= pointsToWin){
+			// MainUI hide
+//			UIManager.MainUI.SetActive(false);
+			UIManager.DisableObjs();
+			winningPlayer = TurnState.currentPlayer;
+			victoryPanel.SetActive(true);
+			gameOver = true;
 		}
 	}
 

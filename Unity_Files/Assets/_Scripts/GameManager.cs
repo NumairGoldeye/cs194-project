@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 
 	public Button RollButton;
 	public TradeConfirm tradeConfirm;
+	public GameLobby lobby;
 
 
 	public Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
@@ -248,6 +249,7 @@ public class GameManager : MonoBehaviour {
 			if (GameManager.Instance.players[i].playerId == playerID) 
 				GameManager.Instance.players[i].playerName = playerName;
 		}
+		lobby.UpdatePlayerList ();
 	}
 
 	[RPC]

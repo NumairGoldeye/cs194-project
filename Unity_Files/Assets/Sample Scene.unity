@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1001 &1597951
 Prefab:
@@ -444,8 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -56024,19 +56025,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 83.5
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -31
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 149
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchorMin.x
@@ -56044,7 +56045,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchorMax.x
@@ -56052,7 +56053,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22468426, guid: 08913332a1dfe4c268768e733ed96544, type: 2}
       propertyPath: m_Pivot.x
@@ -76352,7 +76353,8 @@ MonoBehaviour:
   myPlayerName: 
   aiPlayer: 0
   RollButton: {fileID: 399267909}
-  tradeConfirm: {fileID: 0}
+  tradeConfirm: {fileID: 1756637075}
+  lobby: {fileID: 642994999}
   playerColors:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}

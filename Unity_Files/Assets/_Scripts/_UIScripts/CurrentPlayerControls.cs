@@ -15,18 +15,21 @@ public class CurrentPlayerControls : MonoBehaviour {
 		// Only modify the buttons if the game has started
 		if (!GameManager.Instance.gameStarted) return;
 		// If it's my turn, make the turn buttons interactable, otherwise make them not-interactable
-		if(!GameManager.Instance.myTurn() || TurnState.getSubStateType() == TurnSubStateType.robbering) {
+		if(!GameManager.Instance.myTurn())// TurnState.getSubStateType()) // == TurnSubStateType.robbering) {
+		{
 			RollDice.interactable = false;
 			TradeButton.interactable = false;
 			BuildButton.interactable = false;
 			EndPhaseButton.interactable = false;
 			DevelopmentCardButton.interactable = false;
-		} else if (GameManager.Instance.myTurn() && TurnState.getSubStateType() != TurnSubStateType.robbering) {
-			RollDice.interactable = true;
-			TradeButton.interactable = true;
-			BuildButton.interactable = true;
-			EndPhaseButton.interactable = true;
-			DevelopmentCardButton.interactable = true;
-		}
+		} 
+//		else if (GameManager.Instance.myTurn())// && TurnState.getSubStateType())  // != TurnSubStateType.robbering) {
+//		{
+//			RollDice.interactable = true;
+//			TradeButton.interactable = true;
+//			BuildButton.interactable = true;
+//			EndPhaseButton.interactable = true;
+//			DevelopmentCardButton.interactable = true;
+//		}
 	}
 }

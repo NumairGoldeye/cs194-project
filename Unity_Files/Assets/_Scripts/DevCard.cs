@@ -203,6 +203,9 @@ public class DevCard : PlayerCard {
 	
 	
 	void UseCard(){
+		if (!GameManager.Instance.myTurn()) 
+			return;
+
 		if (tradeConsole == null) tradeConsole = GameObject.FindObjectOfType<TradeConsole> ();
 		if (tradeConsole != null) tradeConsole.gameObject.SetActive (false);
 		// This is volatile...

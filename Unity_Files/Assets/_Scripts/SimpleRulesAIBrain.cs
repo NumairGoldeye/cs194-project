@@ -308,13 +308,13 @@ public class SimpleRulesAIBrain : AIBrain {
 		GameManager.Instance.BroadcastMessage ("rollDice");
 		
 		TurnState.NextTurnState (); 
-		int strategy = GetStrategy(); //This gives the current optimal strategy for the AI player
+		AIStrategy strategy = GetStrategy(); //This gives the current optimal strategy for the AI player
 		PlayTradePhase (player, strategy);
 		PlayBuyPhase (player, strategy);
 		TurnState.EndTurn ();
 	}
 
-	private void PlayTradePhase (Player player, int strategy) {
+	private void PlayTradePhase (Player player, AIStrategy strategy) {
 		TradeForBuilding (player);
 		if (strategy == AIStrategy.LargestArmy) {
 			TradeForDevcard (player);
@@ -399,7 +399,7 @@ public class SimpleRulesAIBrain : AIBrain {
 		}
 	}
 
-	private void PlayBuyPhase (Player player, int strategy) {
+	private void PlayBuyPhase (Player player, AIStrategy strategy) {
 		//The first part, build city 
 		if (player.wheatcount () >= 2 && player.orecount () >= 3) {
 			SettlementClass nextcity = BuildCity ();
@@ -431,7 +431,7 @@ public class SimpleRulesAIBrain : AIBrain {
 		}
 	}
 
-	private void TryToBuildRoad (Player player, int strategy) {
+	private void TryToBuildRoad (Player player, AIStrategy strategy) {
 		RoadClass nextroad = BuildRoad ();
 		if (nextroad == null) {
 			//If capabable of building settlement

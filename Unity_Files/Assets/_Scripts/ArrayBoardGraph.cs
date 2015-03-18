@@ -278,7 +278,7 @@ public class ArrayBoardGraph : BoardGraph {
 	public SettlementClass BuildSettlement(Player player){
 		List<SettlementClass> set = BuildableSettlements(player);
 		int sum = 0;
-		SettlementClass result = new SettlementClass();
+		SettlementClass result = null;
 		foreach (SettlementClass s in set) {
 			List<TileClass> adjacent = getTilesForSettlement(s);
 			int subsum = 0; 
@@ -296,6 +296,38 @@ public class ArrayBoardGraph : BoardGraph {
 		//If there is no buildable settlement, then this returns null which means we should build road 
 		return result;
 	}
+
+
+	public SettlementClass BuildInitialSettlement(Player player){
+		List<SettlementClass> set = new List<SettlementClass>();
+		List<SettlementClass> allset = getSettlements();
+		foreach (SettlementClass temp in allset) {
+			if(!hasBuiltNeighbooringSettlement(temp)){
+				set.Add(temp);
+			}
+		}
+
+
+		int sum = 0;
+		SettlementClass result = null;
+		foreach (SettlementClass s in set) {
+			List<TileClass> adjacent = getTilesForSettlement(s);
+			int subsum = 0; 
+			foreach(TileClass t in adjacent){
+				int f =  frequency(t);
+				subsum = subsum + f;
+			}
+			if(subsum > sum){
+				sum = subsum;
+				result = s;			
+			}
+		}
+		
+		//This function returns the settlement that is buildable and has the most frequency sum index 
+		//If there is no buildable settlement, then this returns null which means we should build road 
+		return result;
+	}
+	
 
 
 
@@ -477,7 +509,11 @@ public class ArrayBoardGraph : BoardGraph {
 				if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count () == 1) {
 						//build a road and a settlement without consuming resources, starting game 
 						//display implementation! 
-					SettlementClass firstset = BuildSettlement(player);
+			SettlementClass firstset = BuildInitialSettlement(player);
+			Debugger.Log("Settlement", firstset);
+			Debugger.Log ("Computer", firstset.vertexIndex.ToString());
+			Debugger.Log("Computer", TurnState.currentPlayer.playerName);
+
 					firstset.buildSettlement();
 			
 					//build random road 

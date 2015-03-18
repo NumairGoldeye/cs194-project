@@ -715,13 +715,10 @@ public class ArrayBoardGraph : BoardGraph {
 							BuyManager.PurchaseForPlayer(BuyableType.settlement, player);
 							//Display the settlement pointed to by "nextleftset"
 						}
+					}
+				}
 			}
 		}
-
-
-
-
-
 	}
 
 	/// <summary>

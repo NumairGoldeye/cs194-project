@@ -15215,6 +15215,7 @@ MonoBehaviour:
   CreateUIInstance: {fileID: 817087588}
   StartUIInstance: {fileID: 111320558}
   MainUIInstance: {fileID: 1641503397}
+  DevConsole: {fileID: 790282292}
   setup: 1
 --- !u!1 &379291156
 GameObject:

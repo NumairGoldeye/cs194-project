@@ -498,7 +498,7 @@ public class ArrayBoardGraph : BoardGraph {
 	//City always trumphs  
 	//full strategy 
 
-	void AIBrain(Player player){
+	public void AIBrain(Player player){
 		//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
 		RoadClass[] playerBeginRoads = player.GetRoads();
 		List<SettlementClass> playerstartroad = new List<SettlementClass> ();

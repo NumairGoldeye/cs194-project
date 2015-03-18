@@ -542,234 +542,211 @@ public class ArrayBoardGraph : BoardGraph {
 
 		TurnState.NextTurnState ();
 		//This gives the current optimal strategy for the AI player 
-				int strategy = strategyUpdate (player);
+		int strategy = strategyUpdate (player);
+		//-----------------------------------------------------------------------------------------------------------------------------------
+		//part 0: trade with the house
+
+		//priority 1: trade to get ore for city 
+		if (player.orecount () == 2 && player.wheatcount () >= 2) {
+				TradeForBuyable (player, ResourceType.Ore, BuyableType.city);
+		}
+
+		//priority 2: trade to get wheat for city 
+		if (player.orecount () >= 3 && player.wheatcount () == 1) {
+				TradeForBuyable (player, ResourceType.Wheat, BuyableType.city);
+		}
+
+		//priority 3: trade to get wood for settlement 
+		if (player.woodcount () == 0 && player.wheatcount () >= 1 && player.brickcount () >= 1 && player.sheepcount () >= 1) {
+				TradeForBuyable (player, ResourceType.Sheep, BuyableType.settlement);
+		}
+
+		//priority 4: trade to get wheat for settlement 
+		if (player.woodcount () >= 1 && player.wheatcount () == 0 && player.brickcount () >= 1 && player.sheepcount () >= 1) {
+				TradeForBuyable (player, ResourceType.Wheat, BuyableType.settlement);
+		}
+
+		//priority 5: trade to get sheep for settlement 
+		if (player.woodcount () >= 1 && player.wheatcount () >= 1 && player.brickcount () >= 1 && player.sheepcount () == 0) {
+				TradeForBuyable (player, ResourceType.Sheep, BuyableType.settlement);
+		}
+
+		//priority 6: trade to get brick for settlement 
+		if (player.woodcount () >= 1 && player.wheatcount () >= 1 && player.brickcount () == 0 && player.sheepcount () >= 1) {
+				TradeForBuyable (player, ResourceType.Brick, BuyableType.settlement);
+		}
 
 
-				//-----------------------------------------------------------------------------------------------------------------------------------
-				//part 0: trade with the house
+		//priority 7: trade to get dev cards 
+		if (strategy == 2) {
+			// trade to get sheep for dev card 
+			if (player.wheatcount () >= 1 && player.orecount () >= 1 && player.sheepcount () == 0) {
+					TradeForBuyable (player, ResourceType.Sheep, BuyableType.devCard);
+			}
+			// trade to get ore for dev card 
+			if (player.wheatcount () >= 1 && player.orecount () == 0 && player.sheepcount () >= 1) {
+					TradeForBuyable (player, ResourceType.Ore, BuyableType.devCard);
+			}
+			// trade to get wheat for dev card 
+			if (player.wheatcount () >= 1 && player.orecount () == 0 && player.sheepcount () >= 1) {
+					TradeForBuyable (player, ResourceType.Wheat, BuyableType.devCard);
+			}
+		}
 
-				//priority 1: trade to get ore for city 
-				if (player.orecount () == 2 && player.wheatcount () >= 2) {
-						TradeForBuyable (player, ResourceType.Ore, BuyableType.city);
+		//priority 8: trade to build road when strategy is longest road 
+		if (strategy == 1) {
+
+			//Since strategy is not 2, so we know AI has not traded for dev card yet 
+			//Since trade for settlement session has happened, this trade for road scenario only happens if no trade for settlement 
+			//has happened. 
+			//So the only scenario we want to prevent is when there is already enough to build city but we trade the city materials 
+			//for the road, meh....
+
+			//So if there are already resources to build city, we only trade the other resources(brick, wood, sheep) for road building 
+			// if there are not enough resources, it is possible that we have one of the wheat and ore tradable to build a road 
+			if (player.orecount () >= 3 && player.wheatcount () >= 2) {
+				//trade to get wood for road 
+				if (player.woodcount () == 0 && player.brickcount () >= 1) {
+						TradeForBuyable (player, ResourceType.Wood, BuyableType.road);
 				}
-
-				//priority 2: trade to get wheat for city 
-				if (player.orecount () >= 3 && player.wheatcount () == 1) {
-						TradeForBuyable (player, ResourceType.Wheat, BuyableType.city);
+				//trade to get brick for road 
+				if (player.woodcount () >= 1 && player.brickcount () == 0) {
+						TradeForBuyable (player, ResourceType.Brick, BuyableType.road);
 				}
-
-				//priority 3: trade to get wood for settlement 
-				if (player.woodcount () == 0 && player.wheatcount () >= 1 && player.brickcount () >= 1 && player.sheepcount () >= 1) {
-						TradeForBuyable (player, ResourceType.Sheep, BuyableType.settlement);
+			} else {
+				//trade to get wood for road 
+				if (player.woodcount () == 0 && player.brickcount () >= 1) {
+						TradeForBuyable (player, ResourceType.Wood, BuyableType.road);
 				}
-
-				//priority 4: trade to get wheat for settlement 
-				if (player.woodcount () >= 1 && player.wheatcount () == 0 && player.brickcount () >= 1 && player.sheepcount () >= 1) {
-						TradeForBuyable (player, ResourceType.Wheat, BuyableType.settlement);
+				//trade to get brick for road 
+				if (player.woodcount () >= 1 && player.brickcount () == 0) {
+						TradeForBuyable (player, ResourceType.Brick, BuyableType.road);
 				}
+			}
 
-				//priority 5: trade to get sheep for settlement 
-				if (player.woodcount () >= 1 && player.wheatcount () >= 1 && player.brickcount () >= 1 && player.sheepcount () == 0) {
-						TradeForBuyable (player, ResourceType.Sheep, BuyableType.settlement);
-				}
-
-				//priority 6: trade to get brick for settlement 
-				if (player.woodcount () >= 1 && player.wheatcount () >= 1 && player.brickcount () == 0 && player.sheepcount () >= 1) {
-						TradeForBuyable (player, ResourceType.Brick, BuyableType.settlement);
-				}
-
-
-				//priority 7: trade to get dev cards 
-				if (strategy == 2) {
-						// trade to get sheep for dev card 
-
-						if (player.wheatcount () >= 1 && player.orecount () >= 1 && player.sheepcount () == 0) {
-								TradeForBuyable (player, ResourceType.Sheep, BuyableType.devCard);
-						}
-
-
-						// trade to get ore for dev card 
-			
-						if (player.wheatcount () >= 1 && player.orecount () == 0 && player.sheepcount () >= 1) {
-								TradeForBuyable (player, ResourceType.Ore, BuyableType.devCard);
-						}
-
-			
-						// trade to get wheat for dev card 
-			
-						if (player.wheatcount () >= 1 && player.orecount () == 0 && player.sheepcount () >= 1) {
-								TradeForBuyable (player, ResourceType.Wheat, BuyableType.devCard);
-						}
-				}
-
-				//priority 8: trade to build road when strategy is longest road 
-				if (strategy == 1) {
-
-						//Since strategy is not 2, so we know AI has not traded for dev card yet 
-						//Since trade for settlement session has happened, this trade for road scenario only happens if no trade for settlement 
-						//has happened. 
-						//So the only scenario we want to prevent is when there is already enough to build city but we trade the city materials 
-						//for the road, meh....
-
-						//So if there are already resources to build city, we only trade the other resources(brick, wood, sheep) for road building 
-						// if there are not enough resources, it is possible that we have one of the wheat and ore tradable to build a road 
-						if (player.orecount () >= 3 && player.wheatcount () >= 2) {
-				  
-								//trade to get wood for road 
-								if (player.woodcount () == 0 && player.brickcount () >= 1) {
-										TradeForBuyable (player, ResourceType.Wood, BuyableType.road);
-								}
-
-
-								//trade to get brick for road 
-								if (player.woodcount () >= 1 && player.brickcount () == 0) {
-										TradeForBuyable (player, ResourceType.Brick, BuyableType.road);
-								}
-
-				
-						} else {
-				  
-								//trade to get wood for road 
-								if (player.woodcount () == 0 && player.brickcount () >= 1) {
-										TradeForBuyable (player, ResourceType.Wood, BuyableType.road);
-								}
-
-								//trade to get brick for road 
-								if (player.woodcount () >= 1 && player.brickcount () == 0) {
-										TradeForBuyable (player, ResourceType.Brick, BuyableType.road);
-								}
-						}
-
-				}
-				//Now AI is fully traded and optimized for different scenarios: 
-				// city first always, settlement always second then 
-				// based on strategy:  1 for trading for road, 2 for trading for dev card 
-
-
+		}
+		//Now AI is fully traded and optimized for different scenarios: 
+		// city first always, settlement always second then 
+		// based on strategy:  1 for trading for road, 2 for trading for dev card 
 
 		TurnState.NextTurnState ();
 
 		//-----------------------------------------------------------------------------------------------------------------------------------
 
-				//The first part, build city 
-				if (player.wheatcount () >= 2 && player.orecount () >= 3) {
-						SettlementClass nextcity = BuildCity (player);
-						//Build city pointed to by the nextcity 
-						if (BuyManager.PlayerCanBuy (player, BuyableType.city) == true) {
-								
-								//Display the city!!!! pointed to by nextcity  
-								nextcity.upgradeToCity();
-						}
+		//The first part, build city 
+		if (player.wheatcount () >= 2 && player.orecount () >= 3) {
+			SettlementClass nextcity = BuildCity (player);
+			//Build city pointed to by the nextcity 
+			if (BuyManager.PlayerCanBuy (player, BuyableType.city) == true) {
+					//Display the city!!!! pointed to by nextcity  
+					nextcity.upgradeToCity();
+			}
+		}
 
-				}
-
-				//-----------------------------------------------------------------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------------------------------------------------------------
 
 
-				//The second part: deals with the tradeoff between building a road now or saving the resource to build a settlement later
-				if (player.woodcount () >= 1 && player.brickcount () >= 1) {
-						RoadClass nextroad = BuildRoad (player);
-						if (nextroad == null) {
-								//If capabable of building settlement
-								if (player.sheepcount () >= 1 && player.wheatcount () >= 1) {
-										SettlementClass nextsettlement = BuildSettlement (player);
-										if (nextsettlement == null) {
-						  
-												//build random road 
-												List<RoadClass> buildablelist = BuildableRoads (player);
+		//The second part: deals with the tradeoff between building a road now or saving the resource to build a settlement later
+		if (player.woodcount () >= 1 && player.brickcount () >= 1) {
+			RoadClass nextroad = BuildRoad (player);
+			if (nextroad == null) {
+				//If capabable of building settlement
+				if (player.sheepcount () >= 1 && player.wheatcount () >= 1) {
+					SettlementClass nextsettlement = BuildSettlement (player);
+					if (nextsettlement == null) {
 
-												if (buildablelist.Count () > 0) {
-														RoadClass randomroad = buildablelist [0];
-														//build a road pointed to by randomroad 
-														if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-																//Display the road pointed to by randomroad! 
-																randomroad.buildRoad();
-							        
-														}
-												}
+							//build random road 
+							List<RoadClass> buildablelist = BuildableRoads (player);
 
+							if (buildablelist.Count () > 0) {
+									RoadClass randomroad = buildablelist [0];
+									//build a road pointed to by randomroad 
+									if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
+											//Display the road pointed to by randomroad! 
+											randomroad.buildRoad ();
 
-										} else {
-												//build settlement pointed to by "nextsettlement"
-												if (BuyManager.PlayerCanBuy (player, BuyableType.settlement) == true) {
-														//Display the settlement pointed to by "nextsettlement"
-														nextsettlement.buildSettlement();
-												}
-					
-
-										}
-		
-								} else {
-										//does not have resources to build settlement, but has resources to build road
-										if (strategy == 1) {
-												//build a road pointed to by "nextroad"
-												if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-														//Display the road pointed to by "nextroad"
-														nextroad.buildRoad ();
-												}
-										} else {
-						if (GetLongestRoadForPlayer (player) <= 4) {
-														//although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
-														// position 
-
-														//build a road pointed to by "nextroad"
-														if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-																//Display the road pointed to by "nextroad"
-																nextroad.buildRoad ();
-																//else then no need to build road, save for future settlement
-														}
-												}
-										}
-								}
-						} else {
-								//when nextroad is not null 
-								//build the road pointed to by nextroad 
-							if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-							//Display the road pointed to by "nextroad"
-							nextroad.buildRoad ();
-							//else then no need to build road, save for future settlement
+									}
 							}
-		
+
+
+					} else {
+						//build settlement pointed to by "nextsettlement"
+						if (BuyManager.PlayerCanBuy (player, BuyableType.settlement) == true) {
+								//Display the settlement pointed to by "nextsettlement"
+								nextsettlement.buildSettlement ();
 						}
+
+
+					}
+
+				} else {
+					//does not have resources to build settlement, but has resources to build road
+					if (strategy == 1) {
+							//build a road pointed to by "nextroad"
+							if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
+									//Display the road pointed to by "nextroad"
+									nextroad.buildRoad ();
+							}
+					} else {
+							if (GetLongestRoadForPlayer (player) <= 4) {
+									//although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
+									// position 
+
+									//build a road pointed to by "nextroad"
+									if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
+											//Display the road pointed to by "nextroad"
+											nextroad.buildRoad ();
+											//else then no need to build road, save for future settlement
+									}
+							}
+					}
 				}
-
-
-				//The 3rd part deals with getting a dev card when strategy is 2 
-				if (player.wheatcount () >= 1 && player.sheepcount () >= 1 && player.orecount () >= 1 && strategy == 2) {
-						// Get a dev card 		
-						if (BuyManager.PlayerCanBuy (player, BuyableType.devCard) == true) {
-								BuyManager.PurchaseForPlayer (BuyableType.devCard, player);
-								// Use the dev card right away 
-
-						}
+			} else {
+				//when nextroad is not null 
+				//build the road pointed to by nextroad 
+				if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
+						//Display the road pointed to by "nextroad"
+						nextroad.buildRoad ();
+						//else then no need to build road, save for future settlement
 				}
+			}
+		}
 
-				//The 4th part where AI does not use longest road or largest army strategy, just go buid settlement and city; note that buildcity 
-				//function is always called in the beginning so we only worry about building settlements; in this case since we already discard the
-				//other two strategies, we assume that there is not much value in building road, but instead we only build settelments as long as 
-				//there is still buildablesettlement positions left
-				if (strategy == 3) {
-						SettlementClass nextleftset = BuildSettlement (player);
-			
-						if (nextleftset == null) {
-								RoadClass nextleftroad = BuildRoad (player);
-								if (nextleftroad) {
-										//build a road pointed to by nextleftroad, else leave it there 
-										if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-												//Display the road pointed to by "nextleftroad"
-												nextleftroad.buildRoad ();
 
-										}
+		//The 3rd part deals with getting a dev card when strategy is 2 
+		if (player.wheatcount () >= 1 && player.sheepcount () >= 1 && player.orecount () >= 1 && strategy == 2) {
+			// Get a dev card 		
+			if (BuyManager.PlayerCanBuy (player, BuyableType.devCard) == true) {
+					BuyManager.PurchaseForPlayer (BuyableType.devCard, player);
+					// Use the dev card right away 
 
-								} else {
-										//build a settlement at position nextleftset
-										if (BuyManager.PlayerCanBuy (player, BuyableType.settlement) == true) {
-												//Display the settlement pointed to by "nextleftset"
-												nextleftset.buildSettlement ();
-										}
-								}
-						}
+			}
+		}
+
+		//The 4th part where AI does not use longest road or largest army strategy, just go buid settlement and city; note that buildcity 
+		//function is always called in the beginning so we only worry about building settlements; in this case since we already discard the
+		//other two strategies, we assume that there is not much value in building road, but instead we only build settelments as long as 
+		//there is still buildablesettlement positions left
+		if (strategy == 3) {
+			SettlementClass nextleftset = BuildSettlement (player);
+			if (nextleftset == null) {
+				RoadClass nextleftroad = BuildRoad (player);
+				if (nextleftroad) {
+					//build a road pointed to by nextleftroad, else leave it there 
+					if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
+						//Display the road pointed to by "nextleftroad"
+						nextleftroad.buildRoad ();
+
+					}
+				} else {
+					//build a settlement at position nextleftset
+					if (BuyManager.PlayerCanBuy (player, BuyableType.settlement) == true) {
+							//Display the settlement pointed to by "nextleftset"
+							nextleftset.buildSettlement ();
+					}
 				}
+			}
+		}
 		TurnState.EndTurn ();
 	}
 

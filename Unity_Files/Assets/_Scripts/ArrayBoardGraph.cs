@@ -758,7 +758,8 @@ public class ArrayBoardGraph : BoardGraph {
 								}
 						}
 				}
-		}
+		StartGameManager.NextPlayer();
+	}
 
 	/// <summary>
 	/// Attempts to execute a trade to get enough of the needed resource to buy

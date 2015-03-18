@@ -509,14 +509,15 @@ public class ArrayBoardGraph : BoardGraph {
 				if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count () == 1) {
 						//build a road and a settlement without consuming resources, starting game 
 						//display implementation! 
+
 			SettlementClass firstset = BuildInitialSettlement(player);
 			Debugger.Log("Settlement", firstset);
 			Debugger.Log ("Computer", firstset.vertexIndex.ToString());
 			Debugger.Log("Computer", TurnState.currentPlayer.playerName);
 
-					firstset.buildSettlement();
-			
-					//build random road 
+			firstset.buildSettlement(true);
+
+			//build random road 
 					List<RoadClass> buildable = BuildableRoads (player);
 			
 					if (buildable.Count () > 0) {
@@ -529,9 +530,6 @@ public class ArrayBoardGraph : BoardGraph {
 					}
 
 				}
-
-
-
 
 				//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);

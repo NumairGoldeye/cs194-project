@@ -128,6 +128,8 @@ public class DevCard : PlayerCard {
 	// To be called by a UI element
 	// Doesn't remove the card - the UI element does that.
 	public static int ExecuteCard(DevCardType cardType){
+		ChatLog.Instance.AddChatMessage(
+			"Player " + TurnState.currentPlayer.playerName + " has played dev card " + cardType);
 		Player p = TurnState.currentPlayer;
 		ResourceType r = TurnState.chosenResource;
 		// probably could just do this with a function map

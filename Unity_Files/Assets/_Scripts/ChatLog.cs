@@ -72,6 +72,9 @@ public class ChatLog : MonoBehaviour {
 		
 		//TODO assign the owner of this game to the chat, not the player
 		chatText.text += "\n" + playerName + ": " + message;
+
+		// Does not work 
+//		if (playerName != GameManager.Instance.myPlayerName)
 		chatInput.text = "";
 		
 		FocusChatBox();

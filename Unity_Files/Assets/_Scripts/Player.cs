@@ -253,8 +253,9 @@ public class Player : MonoBehaviour {
 		//TODO: check if there are enough resources to remove
 		resourceCounts[(int)resource] -= amount;
 		totalResources -= amount;
-		if (playerId == GameManager.Instance.myPlayer.playerId)
-			hand.RemoveResourceCard(resource, this, amount);
+		if (playerId == GameManager.Instance.myPlayer.playerId) {
+			hand.RemoveResourceCard (resource, this, amount);
+		}
 		return true;
 	}
 

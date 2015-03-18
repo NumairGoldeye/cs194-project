@@ -376,7 +376,7 @@ public class ArrayBoardGraph : BoardGraph {
 			// we choose to build a road to extend buildable settlement for higher frequency 
 			List<RoadClass> buildable = BuildableRoads(player);
 			//the new buildable frequency is updated by the new settlement position the new road connects to 
-			RoadClass roadbuild = new RoadClass();
+			RoadClass roadbuild = null;
 			int freqtarget = 5;
 			//examine each possible buildable road
 			foreach(RoadClass r in buildable){
@@ -501,37 +501,44 @@ public class ArrayBoardGraph : BoardGraph {
 	//City always trumphs  
 	//full strategy 
 
-	public void AIBrain(Player player){
-		for (int i = 0; i < player.resourceCounts.Count(); ++i) {
-			player.resourceCounts[i] += 3;
-		}
-		Debugger.Log ("Computer", "It's my turn");
-				//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
-				RoadClass[] playerBeginRoads = player.GetRoads ();
-
+	//To be called in the beginning two rounds 
+	public void AIstart(Player player){
+		//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
+		RoadClass[] playerBeginRoads = player.GetRoads ();
+		
 		if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count () == 1) {
-						//build a road and a settlement without consuming resources, starting game 
-						//display implementation! 
-
+			//build a road and a settlement without consuming resources, starting game 
+			//display implementation! 
+			
 			SettlementClass firstset = BuildInitialSettlement(player);
 			Debugger.Log("Settlement", firstset);
 			Debugger.Log ("Computer", firstset.vertexIndex.ToString());
 			Debugger.Log("Computer", TurnState.currentPlayer.playerName);
-
+			
 			firstset.buildSettlement(true);
-
+			
 			//build random road 
-					List<RoadClass> buildable = BuildableRoads (player);
-					if (buildable.Count () > 0) {
-						RoadClass randomr = buildable[0];
-						//build a road pointed to by randomroad 
-						//Display the road pointed to by randomroad! 
-						randomr.buildRoad();
+			List<RoadClass> buildable = BuildableRoads (player);
+			if (buildable.Count () > 0) {
+				RoadClass randomr = buildable[0];
+				//build a road pointed to by randomroad 
+				//Display the road pointed to by randomroad! 
+				randomr.buildRoad();
 			}
 			StartGameManager.NextPlayer();
 			return;
-
+			
 		}
+		
+	}
+
+
+	public void AIBrain(Player player){
+		//for (int i = 0; i < player.resourceCounts.Count(); ++i) {
+		//	player.resourceCounts[i] += 3;
+		//}
+		//Debugger.Log ("Computer", "It's my turn");
+				
 		TurnState.stateType = TurnStateType.roll;
 
 		GameManager.Instance.BroadcastMessage ("rollDice");

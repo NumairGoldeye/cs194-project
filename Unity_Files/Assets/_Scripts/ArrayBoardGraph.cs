@@ -472,12 +472,24 @@ public class ArrayBoardGraph : BoardGraph {
 	public void AIBrain(Player player){
 				//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
 				RoadClass[] playerBeginRoads = player.GetRoads ();
-				List<SettlementClass> playerstartroad = new List<SettlementClass> ();
 
 				if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count () == 1) {
 						//build a road and a settlement without consuming resources, starting game 
 						//display implementation! 
-
+					SettlementClass firstset = BuildSettlement(player);
+					firstset.buildSettlement();
+			
+					//build random road 
+					List<RoadClass> buildable = BuildableRoads (player);
+			
+					if (buildable.Count () > 0) {
+						RoadClass randomr = buildable[0];
+						//build a road pointed to by randomroad 
+						if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
+							//Display the road pointed to by randomroad! 
+							randomr.buildRoad();
+						}
+					}
 
 				}
 

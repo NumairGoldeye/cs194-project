@@ -103,35 +103,35 @@ public class TileClass : MonoBehaviour {
 
 		switch (type) {
 			case ResourceType.Sheep:
-				string name = "tile_images/sheep00" + Random.Range(1, 5).ToString();
+				string name = "tile_images/sheep00" + Random.Range(1, 4).ToString();
 				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject sheep = GameObject.FindGameObjectsWithTag ("Sheep")[0];					
 				sheep.transform.position = transform.position;
 				sheep.tag = "Assigned";
 				break;
 			case ResourceType.Wheat:
-				name = "tile_images/wheat00" + Random.Range(1, 5).ToString();
+				name = "tile_images/wheat00" + Random.Range(1, 3).ToString();
 				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject Wheat = GameObject.FindGameObjectsWithTag ("Hay")[0];
 				Wheat.transform.position = transform.position;
 				Wheat.tag = "Assigned";	
 				break;
 			case ResourceType.Ore:
-				name = "tile_images/ore00" + Random.Range(1, 4).ToString();
+				name = "tile_images/ore00" + Random.Range(1, 2).ToString();
 				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject Mountain = GameObject.FindGameObjectsWithTag ("Mountain")[0];
 				Mountain.transform.position = transform.position;
 				Mountain.tag = "Assigned";
 				break;
 			case ResourceType.Brick:
-				name = "tile_images/brick00" + Random.Range(1, 4).ToString();
+				name = "tile_images/brick00" + Random.Range(1, 3).ToString();
 				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject Brick = GameObject.FindGameObjectsWithTag ("Brick")[0];
 				Brick.transform.position = transform.position;
 				Brick.tag = "Assigned";	
 				break;
 			case ResourceType.Wood:
-				name = "tile_images/wood00" + Random.Range(1, 5).ToString();
+				name = "tile_images/wood00" + Random.Range(1, 3).ToString();
 				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject forest = GameObject.FindGameObjectsWithTag ("Forest")[0];					
 				forest.transform.position = transform.position;

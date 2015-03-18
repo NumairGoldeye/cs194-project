@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1001 &1597951
 Prefab:
@@ -384,7 +383,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400278, guid: 99186d3c1e3c6442289e09706aae15b7, type: 2}
   m_PrefabInternal: {fileID: 2073070043}
   m_GameObject: {fileID: 7111331}
-  m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
+  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: -.707107008}
   m_LocalPosition: {x: 0, y: -.125, z: 0}
   m_LocalScale: {x: .075000003, y: .075000003, z: .075000003}
   m_Children: []
@@ -449,8 +448,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -23988,7 +23987,7 @@ Transform:
   m_PrefabParentObject: {fileID: 435430, guid: 5234bf6d60cfe784ab2247af66ad5c87, type: 2}
   m_PrefabInternal: {fileID: 228924081}
   m_GameObject: {fileID: 578893412}
-  m_LocalRotation: {x: 0, y: -.926528633, z: 0, w: .376224399}
+  m_LocalRotation: {x: 0, y: -.926528573, z: 0, w: .376224369}
   m_LocalPosition: {x: .260419577, y: -.516306162, z: .658233523}
   m_LocalScale: {x: .0799999982, y: .0799999982, z: .0799999982}
   m_Children: []
@@ -46925,7 +46924,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400278, guid: 99186d3c1e3c6442289e09706aae15b7, type: 2}
   m_PrefabInternal: {fileID: 2077158952}
   m_GameObject: {fileID: 1130329172}
-  m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
+  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: -.707107008}
   m_LocalPosition: {x: -.0949999988, y: -.125, z: .174999997}
   m_LocalScale: {x: .075000003, y: .075000003, z: .075000003}
   m_Children: []
@@ -60330,7 +60329,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1840678614}
   m_HandleRect: {fileID: 1840678613}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -76301,6 +76300,7 @@ MonoBehaviour:
   players: []
   gameStarted: 0
   playerWithLargestArmy: {fileID: 0}
+  playerWithLongestRoad: {fileID: 0}
   die1Image: {fileID: 123016531}
   die2Image: {fileID: 499780813}
 --- !u!114 &1878846660

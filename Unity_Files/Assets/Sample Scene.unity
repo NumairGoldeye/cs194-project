@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1001 &1597951
 Prefab:
@@ -449,8 +448,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -15209,6 +15208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d881ae5371cd549cba3eeacb2eeed955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settlements: {fileID: 1447773772}
   disableOnStart:
   - {fileID: 435299510}
   - {fileID: 27176710}

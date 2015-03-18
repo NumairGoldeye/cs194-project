@@ -157,12 +157,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	[RPC]
-	void syncModels(Vector3 forests, Vector3 mountains) {
-		GameObject.Find("Forests").transform.position = forests;
-		GameObject.Find("Mountains").transform.position = mountains;
-	}
-
-	[RPC]
 	void requestTrade(string receiveText, string giveText) {
 		tradeConfirm.Display (receiveText, giveText);
 		Debugger.Log ("Trade", "Trade requested");

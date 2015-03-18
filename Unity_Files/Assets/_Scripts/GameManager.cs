@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour {
 
 	[RPC]
 	void syncVictoryPoint(int amount) {
-		TurnState.currentPlayer.victoryPoints += amount;
+		TurnState.currentPlayer.AddVictoryPoint ();
 	}
 
 	[RPC]

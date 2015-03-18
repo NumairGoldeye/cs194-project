@@ -770,7 +770,7 @@ public class ArrayBoardGraph : BoardGraph {
 								}
 						}
 				}
-		StartGameManager.NextPlayer();
+		TurnState.EndTurn ();
 	}
 
 	/// <summary>

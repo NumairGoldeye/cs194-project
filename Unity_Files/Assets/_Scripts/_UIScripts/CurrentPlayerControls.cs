@@ -21,6 +21,12 @@ public class CurrentPlayerControls : MonoBehaviour {
 			BuildButton.interactable = false;
 			EndPhaseButton.interactable = false;
 			DevelopmentCardButton.interactable = false;
+		} else if (GameManager.Instance.myTurn() && TurnState.getSubStateType() != TurnSubStateType.robbering) {
+			RollDice.interactable = true;
+			TradeButton.interactable = true;
+			BuildButton.interactable = true;
+			EndPhaseButton.interactable = true;
+			DevelopmentCardButton.interactable = true;
 		}
 	}
 }

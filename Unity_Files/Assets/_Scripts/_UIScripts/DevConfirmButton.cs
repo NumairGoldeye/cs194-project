@@ -35,8 +35,6 @@ public class DevConfirmButton : MonoBehaviour {
 			btn.interactable = TurnState.secondRoadBuilt;
 		} else if (TurnState.subStateType == TurnSubStateType.robbering) {
 			btn.interactable = false;
-		} else {
-			btn.interactable = true;
 		}
 	}
 

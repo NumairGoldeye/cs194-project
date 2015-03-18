@@ -69949,7 +69949,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 27.500061, y: -17.8290253}
+  m_AnchoredPosition: {x: 5, y: 44}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1722942743
@@ -71620,7 +71620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: .694117665}
+  m_Color: {r: 0, g: 0, b: 0, a: .894117653}
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0

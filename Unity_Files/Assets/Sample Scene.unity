@@ -3304,7 +3304,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 90c90f6d319ec4fb4ba985f3118871ea, type: 3}
+    m_Font: {fileID: 12800000, guid: 84b6db863f1de465a9b824350f0679e0, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -28520,7 +28520,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 90c90f6d319ec4fb4ba985f3118871ea, type: 3}
+    m_Font: {fileID: 12800000, guid: 84b6db863f1de465a9b824350f0679e0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -72733,7 +72733,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 90c90f6d319ec4fb4ba985f3118871ea, type: 3}
+    m_Font: {fileID: 12800000, guid: 84b6db863f1de465a9b824350f0679e0, type: 3}
     m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
@@ -76255,7 +76255,7 @@ MonoBehaviour:
   RollButton: {fileID: 399267909}
   tradeConfirm: {fileID: 1756637075}
   lobby: {fileID: 642994999}
-  victoryPanel: {fileID: 0}
+  victoryPanel: {fileID: 2014482854}
   playerColors:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}

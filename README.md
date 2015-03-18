@@ -7,11 +7,15 @@ SampleScene.unity: Contains all of the information for the graphics.  A large po
   Not meant to be read by humans, but generated and used by Unity.	
   
 Game Setup Files
-- CreateGameManager.cs: TODO: ??????????????
 - StartGameManager.cs: Controls the "setup phase" of the game, where players place their
     initial roads and settlements.
-- GameManager.cs: Sets up the board tiles and ports.  TODO: Maybe change the name of this file, since it
-    only sets up the board.
+- GameManager.cs: This file handles all of the interraction between the clients. It has a 
+  networkView component attached to it (Unity specific) that allows it to send networking 
+  calls to the other players. All of the functions that handle respond to these networking
+  calls are in this file and allow us to maintain a synchronized state among the players.
+  It also sets up the game board tiles and maintains the list of players. Finally, it contains
+  information that helps the individual client identify their own player in the game
+  and other various pieces of information that are relevant to the player.
 
 Board Representation Files: The following section contains the files that
     represent the state of the game board.

@@ -131,7 +131,7 @@ public class TurnState : MonoBehaviour {
 		ClearRoadBuilding();
 		ResetSubStateType2();
 		UIManager.DisableObjs();
-		if (GameManager.Instance.myPlayer.playerName != "AI") GameManager.Instance.myPlayer.UpdateHand();
+		if (GameManager.Instance.myPlayer.playerName != "computer") GameManager.Instance.myPlayer.UpdateHand();
 	}
 
 	static void ClearRoadBuilding(){

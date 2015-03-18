@@ -337,7 +337,7 @@ public class ArrayBoardGraph : BoardGraph {
 	public SettlementClass BuildCity(Player player){
 		SettlementClass[] settlements = player.GetSettlements();
 		List<SettlementClass> set = settlements.ToList<SettlementClass>();
-		SettlementClass result = new SettlementClass();
+		SettlementClass result = null;
 		int sum = 0;
 		foreach (SettlementClass s in set) {
 			List<TileClass> adjacent = getTilesForSettlement(s);

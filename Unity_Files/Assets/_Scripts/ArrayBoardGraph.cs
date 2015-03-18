@@ -502,7 +502,7 @@ public class ArrayBoardGraph : BoardGraph {
 	//full strategy 
 
 	public void AIBrain(Player player){
-		for (int i = 0; i < player.resourceCounts.Count; ++i) {
+		for (int i = 0; i < player.resourceCounts.Count(); ++i) {
 			player.resourceCounts[i] += 3;
 		}
 		Debugger.Log ("Computer", "It's my turn");

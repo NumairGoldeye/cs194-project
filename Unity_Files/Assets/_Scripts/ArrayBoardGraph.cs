@@ -633,34 +633,19 @@ public class ArrayBoardGraph : BoardGraph {
 					}else{
 				     if(strategy == 1 ){
 					//build a road pointed to by "nextroad"
-					if(BuyManager.PlayerCanBuy(player, BuyableType.road)==true){
-						
-						//build a road pointed to by nextroad, else leave it there 
-						//buy
-						BuyManager.PurchaseForPlayer(BuyableType.road, player);
-						//display the road at index nextleftroad
-						//implement here..!
-					}
-				}else{
+				    	}else{
 						  if(longestroad (player)<=4){
 					      //although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
 						// position 
 
 						//build a road pointed to by "nextroad"
-						if(BuyManager.PlayerCanBuy(player, BuyableType.road)==true){
-							
-							//build a road pointed to by nextroad, else leave it there 
-							//buy
-							BuyManager.PurchaseForPlayer(BuyableType.road, player);
-							//display the road at index nextleftroad
-							//implement here..!
-							}
+
 						//else then no need to build road, save for future settlement
-					      }	
-						}	
-					}	
-		    	}	
-			
+					      }
+						}
+					}
+		    	}
+
 
 		//The 3rd part deals with getting a dev card when strategy is 2 
 		if (player.wheatcount() >= 1 && player.sheepcount() >= 1 && player.orecount() >= 1 && strategy == 2) {
@@ -678,28 +663,11 @@ public class ArrayBoardGraph : BoardGraph {
 				RoadClass nextleftroad = BuildRoad(player);
 
 				if(nextleftroad){
-					if(BuyManager.PlayerCanBuy(player, BuyableType.road)==true){
-
-						//build a road pointed to by nextleftroad, else leave it there 
-						//buy
-						BuyManager.PurchaseForPlayer(BuyableType.road, player);
-						//display the road at index nextleftroad 
-						//implement here..!
-
-					}
+				//build a road pointed to by nextleftroad, else leave it there 
 				}
 
 				}else{
 				//build a settlement at position nextleftset
-				if(BuyManager.PlayerCanBuy(player, BuyableType.settlement)==true){
-				//buy
-					BuyManager.PurchaseForPlayer(BuyableType.settlement, player);
-					//display the settlement at position nextleftset 
-					//implement here..!
-
-					
-				}
-
 			}
 		}
 

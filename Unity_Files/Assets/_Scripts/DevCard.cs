@@ -149,6 +149,9 @@ public class DevCard : PlayerCard {
 			if (playerWithLargestArmy == null || p.numUsedKnights > playerWithLargestArmy.numUsedKnights) {
 				GameManager.Instance.playerWithLargestArmy = p;
 				p.AddVictoryPoint(LARGEST_ARMY_VICTORY_POINTS);
+				if (playerWithLargestArmy != null) {
+					playerWithLargestArmy.RemoveVictoryPoint(LARGEST_ARMY_VICTORY_POINTS);
+				}
 			}
 		}
 	}

@@ -103,37 +103,43 @@ public class TileClass : MonoBehaviour {
 
 		switch (type) {
 			case ResourceType.Sheep:
-				renderer.material.color = Color.green;
+				string name = "tile_images/sheep00" + Random.Range(1, 5).ToString();
+				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject sheep = GameObject.FindGameObjectsWithTag ("Sheep")[0];					
 				sheep.transform.position = transform.position;
 				sheep.tag = "Assigned";
 				break;
 			case ResourceType.Wheat:
-				renderer.material.color = Color.yellow;
+				name = "tile_images/wheat00" + Random.Range(1, 5).ToString();
+				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject Wheat = GameObject.FindGameObjectsWithTag ("Hay")[0];
 				Wheat.transform.position = transform.position;
 				Wheat.tag = "Assigned";	
 				break;
 			case ResourceType.Ore:
-				renderer.material.color = Color.gray;
+				name = "tile_images/ore00" + Random.Range(1, 4).ToString();
+				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject Mountain = GameObject.FindGameObjectsWithTag ("Mountain")[0];
 				Mountain.transform.position = transform.position;
 				Mountain.tag = "Assigned";
 				break;
 			case ResourceType.Brick:
-				renderer.material.color = Color.red;
+				name = "tile_images/brick00" + Random.Range(1, 4).ToString();
+				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject Brick = GameObject.FindGameObjectsWithTag ("Brick")[0];
 				Brick.transform.position = transform.position;
 				Brick.tag = "Assigned";	
 				break;
 			case ResourceType.Wood:
-				renderer.material.color = new Color(0.4f, 0.2f, 0);
+				name = "tile_images/wood00" + Random.Range(1, 5).ToString();
+				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				GameObject forest = GameObject.FindGameObjectsWithTag ("Forest")[0];					
 				forest.transform.position = transform.position;
 				forest.tag = "Assigned";
 				break;
 			case ResourceType.None:
-				renderer.material.color = Color.white;
+				name = "tile_images/desert";
+				renderer.material.mainTexture = Resources.Load(name) as Texture;
 				break;
 		}
 	}

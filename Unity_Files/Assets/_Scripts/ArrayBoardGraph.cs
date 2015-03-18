@@ -163,6 +163,8 @@ public class ArrayBoardGraph : BoardGraph {
 			if (visited.Contains(road)) continue;
 			if (road.ownerId != TurnState.currentPlayer.playerId) continue;
 			SettlementClass otherEnd = getOtherSettlement(road, current);
+			// If there is another player's settlement in the way, don't count it.
+			if (otherEnd.getPlayer() != null & otherEnd.getPlayer != TurnState.currentPlayer) continue;
 			HashSet<RoadClass> newVisited = new HashSet<RoadClass>(visited);
 			newVisited.Add(road);
 			possibilities.Add(1 + LongestRoadHelper(player, otherEnd, newVisited));

@@ -78,7 +78,7 @@ GameObject:
   - 114: {fileID: 11418912}
   - 114: {fileID: 11425786}
   m_Layer: 5
-  m_Name: LargestArmy
+  m_Name: LargestArmyIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Army size
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11417232
 MonoBehaviour:
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Cards in hand
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11418908
 MonoBehaviour:
@@ -284,7 +286,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -302,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Largest Army (2 Victory Points)
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11425788
 MonoBehaviour:
@@ -336,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Longest Road (2 Victory Points)
+  paragraphStyle: 0
   hoverRevealTime: .5
 --- !u!114 &11428634
 MonoBehaviour:
@@ -563,8 +567,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -2.00000668, y: 10}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 5.4000001, y: 10}
+  m_SizeDelta: {x: 145.199997, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22425786
 RectTransform:

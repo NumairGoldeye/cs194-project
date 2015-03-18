@@ -36,12 +36,12 @@ public class LeaderBoardPanel : MonoBehaviour {
 
 			//repopulates it
 			foreach( Player p in GameManager.Instance.players){
-				if (p != GameManager.Instance.myPlayer){
+//				if (p != GameManager.Instance.myPlayer){
 					GameObject child = Instantiate(leaderBoardPlayerNamePrefab, Vector3.zero, Quaternion.identity) as GameObject;
 					child.transform.SetParent(transform);
 
 					child.GetComponent<LeaderBoardPlayerName>().SetPlayer(p);	
-				}
+//				}
 			}
 
 			count = currentCount;

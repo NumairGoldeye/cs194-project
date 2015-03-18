@@ -74,27 +74,48 @@ public class ChatLog : MonoBehaviour {
 		chatText.text += "\n" + playerName + ": " + message;
 
 		// Does not work 
-//		if (playerName != GameManager.Instance.myPlayerName)
-		chatInput.text = "";
+		if (playerName == GameManager.Instance.myPlayerName){
+			chatInput.text = "";
+		}
 		
 		FocusChatBox();
-		
 		RealignChatBox();
 	}
 
 	public void AddChatMessage(string s){
 		if (s.Length > 0  && Input.GetKey(KeyCode.Return)){
-			GameManager.Instance.networkView.RPC ("syncChatMessage", RPCMode.All, GameManager.Instance.myPlayerName, s);
+			SendChatMessage(s, GameManager.Instance.myPlayerName);
 		}
-
 	}
 
-	public void AddChatEvent(string s) {
+	void SendChatMessage(string s, string playerName){
+		GameManager.Instance.networkView.RPC ("syncChatMessage", RPCMode.All, playerName, s);
+	}
+
+
+	/// <summary>
+	/// Use this to say things like "gained wheat"
+	/// </summary>
+	/// <param name="player">Player.</param>
+	/// <param name="s">S.</param>
+	private void AddChatEvent(Player player, string s) {
 		messages.Add( new Message(s, MessageType.gameEvent));
-		chatText.text += "\n GameEvent : " + s;
+		SendChatMessage(s, player.playerName);
+
+
 		FocusChatBox();
 		RealignChatBox();
 	}
+
+
+	public void ChatGainedResource(Player p, ResourceType r, int amount = 1){
+		AddChatEvent(p, " has gained " + amount.ToString() + " " + r.ToString());
+	}
+
+	public void ChatRolledDice(int num){
+
+	}
+
 
 	/// <summary>
 	/// Realigns the chat box to the bottom if its surrounding panel. Requires the ContentFitter -> preferredSize 

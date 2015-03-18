@@ -50,6 +50,7 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	public PlayerHand hand;
 
+
 	// Each index corresponds to a the ResourceType by enum
 	// resourceCounts[0] should be the number of sheep
 	public int[] resourceCounts;
@@ -333,7 +334,7 @@ public class Player : MonoBehaviour {
 		devCardCounts[(int)devCard] += 1;
 		lastCardTypeDrawn = devCard;
 		if (devCard == DevCardType.victoryPoint){
-			GameManager.Instance.networkView.RPC ("syncVictoryPoint", RPCMode.Others);
+			GameManager.Instance.networkView.RPC ("syncVictoryPoint", RPCMode.Others, 1);
 			AddVictoryPoint();
 		}
 
@@ -386,6 +387,10 @@ public class Player : MonoBehaviour {
 	public void AddVictoryPoint(int amount = 1){
 		victoryPoints +=  amount;
 		TurnState.CheckVictory();
+		if (TurnState.gameOver) {
+			GameManager.Instance.victoryPanel.gameObject.SetActive(true);
+			GameManager.Instance.victoryPanel.Setup ();
+		}
 	}
 
 	public void RemoveVictoryPoint(int amount = 1){

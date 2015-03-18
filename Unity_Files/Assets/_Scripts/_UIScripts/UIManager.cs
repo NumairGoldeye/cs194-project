@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour {
 	public static GameObject CreateUI; // Creating the games...
 	public static GameObject StartUI; // GameStart UI - first cities and roads etc.
 	public static GameObject MainUI; // Gameplay UI -
+
 	public static MajorUIState state = MajorUIState.start;
 
 	public static Dictionary<MajorUIState, GameObject> stateUIObjectMap;
@@ -30,6 +31,8 @@ public class UIManager : MonoBehaviour {
 	public GameObject CreateUIInstance; // Creating the games...
 	public GameObject StartUIInstance; // GameStart UI - first cities and roads etc.
 	public GameObject MainUIInstance; // Gameplay UI - 
+
+	public GameObject DevConsole;// set inspector
 	public bool setup = false;
 
 	/// <summary>
@@ -94,7 +97,9 @@ public class UIManager : MonoBehaviour {
 		UIManager.EnableObjs();
 		UIManager.UpdateMajorUI();
 
-
+//		if (Debug.isDebugBuild){
+//			DevConsole.SetActive(false);
+//		}
 	}
 	
 	// Update is called once per frame

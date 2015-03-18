@@ -159,7 +159,7 @@ public class SettlementClass : MonoBehaviour {
 	}
 	
 	void OnMouseDown() {
-		if (!GameManager.Instance.myTurn()) return;
+		if (!GameManager.Instance.gameStarted && !GameManager.Instance.myTurn()) return;
 		if (!built) {
 			if (!visible) return;
 			buildSettlement();

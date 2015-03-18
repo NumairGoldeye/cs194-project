@@ -20,13 +20,9 @@ public class VictoryPanel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!set){
-			set = true;
-			Setup();
-		}
 	}
 
-	void Setup(){
+	public void Setup(){
 		victoryTitleTxt.text = TurnState.winningPlayer.playerName + " has won!";
 		
 		string otherPoints = "";
@@ -36,6 +32,8 @@ public class VictoryPanel : MonoBehaviour {
 		}
 		
 		victoryTxt.text = otherPoints;
+
+		Debugger.Log ("Victory", victoryTxt.text);
 	}
 
 

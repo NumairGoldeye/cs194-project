@@ -72,15 +72,12 @@ public class TurnState : MonoBehaviour {
 
 	public static bool freeBuild;
 	
-	public static GameObject victoryPanel;
-
 
 	// ----- Instance things ----- //
 
     // Just for public inspector stuff
     public Player thisCurrentPlayer; 
 	public int _pointsToWin = 10;
-	public GameObject _victoryPanel;
 	public TradeConsole tradeConsole;
 
 	public static void Startup(){
@@ -281,7 +278,6 @@ public class TurnState : MonoBehaviour {
 
 //        thisPlayers = Players.players;
 //		TurnState.pointsToWin = _pointsToWin;
-//		TurnState.victoryPanel = _victoryPanel;
 	}
 
 
@@ -313,24 +309,14 @@ public class TurnState : MonoBehaviour {
     }
 
 	/// <summary>
-	/// Wrapper function for stati
-	/// </summary>
-	public void CheckVictoryWrapper(){
-		TurnState.CheckVictory();
-	}
-
-
-	/// <summary>
 	/// Call this after victory points are awarded
 	/// This will update the UI
 	/// </summary>
 	public static void CheckVictory(){
 		if (TurnState.currentPlayer.victoryPoints >= pointsToWin){
 			// MainUI hide
-//			UIManager.MainUI.SetActive(false);
 			UIManager.DisableObjs();
 			winningPlayer = TurnState.currentPlayer;
-			victoryPanel.SetActive(true);
 			gameOver = true;
 		}
 	}

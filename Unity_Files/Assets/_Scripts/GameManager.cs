@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 	public Button RollButton;
 	public TradeConfirm tradeConfirm;
 	public GameLobby lobby;
+	public VictoryPanel victoryPanel;
 
 	public Color[] playerColors = new Color[]{Color.blue, Color.red, Color.cyan, Color.green, Color.yellow, Color.magenta};
 	public List<Player> players = new List<Player>();
@@ -146,8 +147,8 @@ public class GameManager : MonoBehaviour {
 	 * ---------------------------------------------------------*/
 
 	[RPC]
-	void syncVictoryPoint() {
-		TurnState.currentPlayer.victoryPoints++;
+	void syncVictoryPoint(int amount) {
+		TurnState.currentPlayer.victoryPoints += amount;
 	}
 
 	[RPC]

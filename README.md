@@ -54,3 +54,7 @@ ComboBox:
 
 AI: 
 - ArrayBoardGraph.cs: the data structure of the board representation and graph algorithms for complex AI functions. The second half of the file includes an implementation of AI ("computer") mode that takes into account specific turn by turn strategy to optimize AI's winning strategy according to the board structure, the resources he has, and other opponents' current strategies. These AI alagorithms direct the computer mode when and where to build, what overall strategies to use, and when and what to trade with the house at the AI's turn.  
+
+User Feedback
+- Regarding the UI "the colors [of the hexagons on the board] are derpy". We fixed this by
+    scanning all of the real board's tiles and using them instead of monocolor hexagons.

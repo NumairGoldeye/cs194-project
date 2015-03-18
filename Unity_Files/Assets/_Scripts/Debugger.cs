@@ -68,13 +68,13 @@ public class Debugger : MonoBehaviour {
 		lastFlag = temp;
 	}
 
-	public static void Log(string flag, string message){
+	public static void Log(string flag, object message){
 		if (flag == currentFlag || currentFlag == allFlag){
 			Debug.Log(message);
 		}
 	}
 
-	public static void LogError(string flag, string message){
+	public static void LogError(string flag, object message){
 		if (flag == currentFlag || currentFlag == allFlag){
 			Debug.LogError(message);
 		}
@@ -86,7 +86,7 @@ public class Debugger : MonoBehaviour {
 	// 	}
 	// }
 
-	public static void LogWarning(string flag, string message){
+	public static void LogWarning(string flag, object message){
 		if (flag == currentFlag || currentFlag == allFlag){
 			Debug.LogWarning(message);
 		}

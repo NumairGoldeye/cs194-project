@@ -72,7 +72,7 @@ public class StartGameManager {
 		TurnState.freeBuild = true;
 		if (GameManager.Instance.myTurn()) {
 			if (GameManager.Instance.aiPlayer) {
-				GameManager.Instance.graph.AIBrain(GameManager.Instance.myPlayer);
+				GameManager.Instance.graph.AIstart(GameManager.Instance.myPlayer);
 			} else {
 				settlements.BroadcastMessage("showSettlementStartup");
 				roads.BroadcastMessage("makeInvisible");

@@ -87,5 +87,7 @@ public interface BoardGraph {
 
 	void AIBrain (Player player);
 
+	void AIstart(Player player);
+
 
 }

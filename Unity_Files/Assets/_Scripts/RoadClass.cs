@@ -113,7 +113,11 @@ public class RoadClass : MonoBehaviour {
 	}
 
 	public void buildRoad() {
-		if (!GameManager.Instance.myTurn()) return;
+		if (!GameManager.Instance.myTurn ()) {
+			Debug.Log("NOT YOUR TURN");
+			return;
+		}
+
 		SetPlayer();
 
 		if (TurnState.CheckSecondRoadBuilt(this)){

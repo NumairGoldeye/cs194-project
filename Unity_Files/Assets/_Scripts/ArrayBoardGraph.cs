@@ -506,7 +506,7 @@ public class ArrayBoardGraph : BoardGraph {
 				//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
 				RoadClass[] playerBeginRoads = player.GetRoads ();
 
-				if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count () == 1) {
+		if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count () == 1) {
 						//build a road and a settlement without consuming resources, starting game 
 						//display implementation! 
 
@@ -519,19 +519,18 @@ public class ArrayBoardGraph : BoardGraph {
 
 			//build random road 
 					List<RoadClass> buildable = BuildableRoads (player);
-			
 					if (buildable.Count () > 0) {
 						RoadClass randomr = buildable[0];
 						//build a road pointed to by randomroad 
-						if (BuyManager.PlayerCanBuy (player, BuyableType.road) == true) {
-							//Display the road pointed to by randomroad! 
-							randomr.buildRoad();
-						}
-					}
+						//Display the road pointed to by randomroad! 
+						randomr.buildRoad();
+			}
+			StartGameManager.NextPlayer();
+			return;
 
-				}
+		}
 
-				//This gives the current optimal strategy for the AI player 
+		//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 
 

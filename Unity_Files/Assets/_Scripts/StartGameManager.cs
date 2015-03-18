@@ -67,7 +67,7 @@ public class StartGameManager {
 		UIManager.ChangeMajorUIState(MajorUIState.start);
 		UIManager.UpdateMajorUI();
 
-		settlements = GameObject.FindGameObjectWithTag("Settlement").transform.parent.gameObject;
+		settlements = UIManager.instance.settlements;
 		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
 		TurnState.freeBuild = true;
 		if (GameManager.Instance.myTurn()) {

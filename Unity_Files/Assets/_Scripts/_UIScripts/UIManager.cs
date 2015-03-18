@@ -12,6 +12,7 @@ using System.Collections.Generic;
 public enum MajorUIState {create, start, play};
 
 public class UIManager : MonoBehaviour {
+	public GameObject settlements;
 
 	public GameObject[] disableOnStart = new GameObject[8];
 	public GameObject[] enableOnStart = new GameObject[8];

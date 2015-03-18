@@ -499,6 +499,18 @@ public class ArrayBoardGraph : BoardGraph {
 	//full strategy 
 
 	void AIBrain(Player player){
+		//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
+		RoadClass[] playerBeginRoads = player.GetRoads();
+		List<SettlementClass> playerstartroad = new List<SettlementClass> ();
+		if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count()==1) {
+		//build a road and a settlement without consuming resources, starting game 
+			//display implementation! 
+
+		}
+
+
+
+
 				//This gives the current optimal strategy for the AI player 
 				int strategy = strategyUpdate (player);
 

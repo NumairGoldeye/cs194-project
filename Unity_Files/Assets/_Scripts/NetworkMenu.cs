@@ -194,7 +194,7 @@ public class NetworkMenu : MonoBehaviour {
 			Player player = GameManager.Instance.players.Find(x => x.playerId == GameManager.Instance.myPlayer.playerId);
 			GUILayout.Label("Name: " + player.playerName + ", ID: " + player.playerId);
 		}
-//	}
+	}
 
 
 }

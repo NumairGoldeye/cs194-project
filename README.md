@@ -57,4 +57,4 @@ AI:
 
 User Feedback
 - Regarding the UI "the colors [of the hexagons on the board] are derpy". We fixed this by
-    scanning all of the real board's tiles and using them instead of monocolor hexagons.
+    scanning all of the real board's tiles and using them instead of monocolor hexagons. 

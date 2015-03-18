@@ -11714,7 +11714,7 @@ RectTransform:
   m_Children:
   - {fileID: 216397166}
   m_Father: {fileID: 1756637072}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -75, y: -50}
@@ -29063,7 +29063,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1756637072}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 10}
@@ -37076,7 +37076,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1756637072}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: -20}
@@ -38815,7 +38815,6 @@ RectTransform:
   - {fileID: 351827023}
   - {fileID: 1432530177}
   - {fileID: 2028024719}
-  - {fileID: 1722942742}
   m_Father: {fileID: 1641503398}
   m_RootOrder: 8
   m_AnchorMin: {x: .5, y: .5}
@@ -53820,7 +53819,7 @@ RectTransform:
   m_Children:
   - {fileID: 676808198}
   m_Father: {fileID: 1756637072}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 75, y: -50}
@@ -69876,11 +69875,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 924966400}
-  m_RootOrder: 3
+  m_Father: {fileID: 1756637072}
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 323, y: -55}
+  m_AnchoredPosition: {x: 27.500061, y: -17.8290253}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1722942743
@@ -71526,6 +71525,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1722942742}
   - {fileID: 694546487}
   - {fileID: 877102686}
   - {fileID: 289226961}
@@ -71578,7 +71578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tradeConsole: {fileID: 924966401}
-  playerText: {fileID: 0}
+  playerText: {fileID: 1722942744}
   tradeGiveText: {fileID: 694546488}
   tradeGetText: {fileID: 877102687}
   tradePlayerBox: {fileID: 340366557}

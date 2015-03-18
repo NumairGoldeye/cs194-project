@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using System.Text.RegularExpressions;
 
 
 /*
@@ -20,8 +19,6 @@ public class GameManager : MonoBehaviour {
 	//Keep track of my player ID
 	public Player myPlayer;
 	public string myPlayerName = "";
-
-	public Boolean aiPlayer = false;
 
 	public Button RollButton;
 	public TradeConfirm tradeConfirm;
@@ -94,7 +91,6 @@ public class GameManager : MonoBehaviour {
 			networkView.RPC("syncTileInfo", RPCMode.Others, index, tile.diceValue, Convert.ToInt32(tile.hasRobber), (int)tile.type);
         }
 		//networkView.RPC ("syncModels", RPCMode.All, new Vector3(.3f, 0.0f, .25f), new Vector3(.25f, -0.15f, .31f)); unneeded
-		networkView.RPC ("syncModelPositions", RPCMode.All);
 	}
 
 	public Player createPlayer(NetworkPlayer p, string playerName)
@@ -149,6 +145,7 @@ public class GameManager : MonoBehaviour {
 
 	[RPC]
 	void updateKnights() {
+		TurnState.currentPlayer.numUsedKnights++;
 		DevCard.UpdateLargestArmy(TurnState.currentPlayer);
 	}
 
@@ -180,9 +177,6 @@ public class GameManager : MonoBehaviour {
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 		if (GameManager.Instance.myTurn()) {
 			RollButton.interactable = true;
-			if (aiPlayer) {
-				graph.AIBrain(myPlayer);
-			}
 		}
 //		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 	}
@@ -219,15 +213,6 @@ public class GameManager : MonoBehaviour {
 		tile.hasRobber = Convert.ToBoolean(hasRobber);
 		if (tile.hasRobber) tile.getRobber();
 		tile.assignType(diceValue, (ResourceType)resourceType);
-	}
-
-	[RPC]
-	void syncModelPositions() {
-		GameObject.Find("Forests").transform.position = new Vector3(.38f, 0.0f, .25f);
-		GameObject.Find("Mountains").transform.position = new Vector3(.25f, -0.15f, .31f);
-		GameObject.Find("Sheeps").transform.position = new Vector3(-.475f, .66f, -.74f);
-		GameObject.Find("Bales").transform.position = new Vector3(.1f, 1.0f, -1.0f);
-		GameObject.Find ("BrickPile").transform.position = new Vector3 (1.941f, -1.977f, 2.639f);
 	}
 
 	[RPC]
@@ -349,15 +334,6 @@ public class GameManager : MonoBehaviour {
 
 	/* --------------------------------------------------------------------------------*/
 
-
-	public void checkComputerPlayer() {
-		Regex rgx = new Regex (@".*computer.*");
-		if (rgx.IsMatch(myPlayerName)) {
-			Debugger.Log("Computer", "I am and AI!");
-			aiPlayer = true;
-		}
-	}
-
 	public bool myTurn() {
 		return (GameManager.Instance.gameStarted && TurnState.currentPlayer.playerId == myPlayer.playerId);
 	}
@@ -416,6 +392,11 @@ public class GameManager : MonoBehaviour {
 				tile.hasRobber = false;
 			}
 		}
+		GameObject.Find("Forests").transform.position = new Vector3(.38f, 0.0f, .25f);
+		GameObject.Find("Mountains").transform.position = new Vector3(.25f, -0.15f, .31f);
+		GameObject.Find("Sheeps").transform.position = new Vector3(-.475f, .66f, -.74f);
+		GameObject.Find("Bales").transform.position = new Vector3(.1f, 1.0f, -1.0f);
+		GameObject.Find ("BrickPile").transform.position = new Vector3 (1.941f, -1.977f, 2.639f);
 	}
 
 	public void distributeResourcesForSettlement(SettlementClass settlement) {

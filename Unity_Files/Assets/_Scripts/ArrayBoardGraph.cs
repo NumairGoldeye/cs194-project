@@ -498,10 +498,9 @@ public class ArrayBoardGraph : BoardGraph {
 	//City always trumphs  
 	//full strategy 
 
-	public void AIBrain(Player player){
-		Debugger.Log ("Computer", "My turn!");
-		//This gives the current optimal strategy for the AI player 
-		int strategy = strategyUpdate (player);
+	void AIBrain(Player player){
+				//This gives the current optimal strategy for the AI player 
+				int strategy = strategyUpdate (player);
 
 
 		//-----------------------------------------------------------------------------------------------------------------------------------
@@ -619,33 +618,33 @@ public class ArrayBoardGraph : BoardGraph {
 
 
 		//The second part: deals with the tradeoff between building a road now or saving the resource to build a settlement later
-		if (player.woodcount() >= 1 && player.brickcount() >= 1) {
-			RoadClass nextroad = BuildRoad(player);
-	        if(nextroad==null){
-	          if(player.sheepcount()>=1 && player.wheatcount()>=1){
-					SettlementClass nextsettlement = BuildSettlement(player);
-			       if(nextsettlement==null){
-					//build random road 
-			       }else{
-				   //build settlement pointed to by "nextsettlement"
+				if (player.woodcount() >= 1 && player.brickcount() >= 1) {
+					RoadClass nextroad = BuildRoad(player);
+			        if(nextroad==null){
+			          if(player.sheepcount()>=1 && player.wheatcount()>=1){
+							SettlementClass nextsettlement = BuildSettlement(player);
+					       if(nextsettlement==null){
+							//build random road 
+					       }else{
+						   //build settlement pointed to by "nextsettlement"
+							}
+
+						}
+					}else{
+				     if(strategy == 1 ){
+					//build a road pointed to by "nextroad"
+				    	}else{
+						  if(longestroad (player)<=4){
+					      //although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
+						// position 
+
+						//build a road pointed to by "nextroad"
+
+						//else then no need to build road, save for future settlement
+					      }
+						}
 					}
-
-				}
-			}else{
-		     if(strategy == 1 ){
-			//build a road pointed to by "nextroad"
-		    	}else{
-				  if(longestroad (player)<=4){
-			      //although in this case longest road is not the strategy, AI needs to extend road reach for better settlement 
-				// position 
-
-				//build a road pointed to by "nextroad"
-
-				//else then no need to build road, save for future settlement
-			      }
-				}
-			}
-    	}
+		    	}
 
 
 		//The 3rd part deals with getting a dev card when strategy is 2 
@@ -671,6 +670,11 @@ public class ArrayBoardGraph : BoardGraph {
 				//build a settlement at position nextleftset
 			}
 		}
+
+
+
+
+
 	}
 
 	/// <summary>

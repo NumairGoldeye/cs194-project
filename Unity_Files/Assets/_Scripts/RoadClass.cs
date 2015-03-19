@@ -136,20 +136,38 @@ public class RoadClass : MonoBehaviour {
 		 StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 	}
 
-	// TODO: Does this need to have an RPC?
 	private void UpdateLongestRoad() {
-		int currentPlayerLongestRoad = StandardBoardGraph.Instance.GetLongestRoadForPlayer(TurnState.currentPlayer);
+//		KeyValuePair<Player, int> best = new KeyValuePair<Player, int> (null, -1);
+//		foreach (Player candidate in GameManager.Instance.players) {
+//			int length = GameManager.Instance.graph.GetLongestRoadForPlayer(candidate);
+//			if (length > best.Value) {
+//				best = new KeyValuePair<Player, int>(candidate, length);
+//			}
+//		}
+//		if (best.Key == null) return;
+//		if (best.Value >= MIN_LONGEST_ROAD_LENGTH) {
+//			Player oldPlayerWithOldLongestRoad = GameManager.Instance.playerWithLongestRoad;
+//			oldPlayerWithOldLongestRoad.RemoveVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
+//			GameManager.Instance.playerWithLongestRoad = best.Key;
+//			best.Key.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
+//		}
+
+		Player player = TurnState.currentPlayer;
+		int currentPlayerLongestRoad = StandardBoardGraph.Instance.GetLongestRoadForPlayer(player);
+		Debug.Log ("LongestRoad For Player: " + player.playerName + ": " + currentPlayerLongestRoad);
 		if (currentPlayerLongestRoad < MIN_LONGEST_ROAD_LENGTH) return;
 
-		Player oldPlayerWithLongestRoad = GameManager.Instance.playerWithLongestRoad;
-		if (null == oldPlayerWithLongestRoad) {
-			TurnState.currentPlayer.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
-			GameManager.Instance.playerWithLongestRoad = TurnState.currentPlayer;
+		int oldPlayerWithLongestRoadId = GameManager.Instance.playerWithLongestRoadId;
+		Player oldPlayerWithLongestRoad = Player.FindByPlayerId(oldPlayerWithLongestRoadId);
+		if (-1 == oldPlayerWithLongestRoadId) {
+			player.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
+			GameManager.Instance.playerWithLongestRoadId = player.playerId;
 		} else {
+			if (player == oldPlayerWithLongestRoad) return; // Already has longest road!
 			int oldPlayerLongestRoad = StandardBoardGraph.Instance.GetLongestRoadForPlayer(oldPlayerWithLongestRoad);
 			if (currentPlayerLongestRoad > oldPlayerLongestRoad) {
-				TurnState.currentPlayer.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
-				GameManager.Instance.playerWithLongestRoad = TurnState.currentPlayer;
+				player.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
+				GameManager.Instance.playerWithLongestRoadId = player.playerId;
 				oldPlayerWithLongestRoad.RemoveVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
 			}
 		}

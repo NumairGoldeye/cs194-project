@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour {
 	private int die1;
 	private int die2;
 	private TileClass tileWithRobber;
-	public Player playerWithLargestArmy = null;
-	public Player playerWithLongestRoad = null;
+	public int playerWithLargestArmyId = -1;
+	public int playerWithLongestRoadId = -1;
 
 
 	private int[] tileCounts = {4, 4, 3, 3, 4, 1};

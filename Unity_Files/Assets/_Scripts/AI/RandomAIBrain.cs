@@ -75,7 +75,7 @@ public class RandomAIBrain : AbstractAIBrain {
 		if (!BuyManager.PlayerCanBuy (player, BuyableType.road)) return;
 		List<RoadClass> possibleRoads = graph.BuildableRoads(player);
 		if (possibleRoads.Count == 0) return;
-		RandomRoad(possibleRoads).buildRoad();
+		RandomRoad(possibleRoads).buildRoad(false);
 		ChatLog.Instance.AddChatMessage("AI built a road!");
 	}
 

@@ -112,7 +112,7 @@ public class RoadClass : MonoBehaviour {
 		built = false;
 	}
 
-	public void buildRoad() {
+	public void buildRoad(bool toNextPhase=true) {
 		if (!GameManager.Instance.myTurn ()) {
 			Debug.Log("NOT YOUR TURN");
 			return;
@@ -133,7 +133,7 @@ public class RoadClass : MonoBehaviour {
 		}
 		Debugger.Log ("PlayerHand", "Road owner: " + ownerId.ToString ());
 		GameManager.Instance.networkView.RPC("syncRoadBuild", RPCMode.Others, this.edgeIndex);
-		StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
+		 StartGameManager.NextPhase(); // TODO figure out how to move this out of here...
 	}
 
 	// TODO: Does this need to have an RPC?

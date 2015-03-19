@@ -8,10 +8,10 @@ public abstract class AbstractAIBrain : AIBrain {
 		PlayRollPhase();
 
 		SetupTurn();
-		TurnState.NextTurnState (); 
+		TurnState.stateType = TurnStateType.trade; 
 
 		PlayTradePhase();
-		TurnState.NextTurnState ();
+		TurnState.stateType = TurnStateType.build; 
 
 		PlayBuyPhase();
 

@@ -16,6 +16,8 @@ NOTES
   - The game will end at 10 victory points.  You can make this faster by clicking the "+" for Victory Point on the Dev Console.
   - The commit statistics page says Khalil/NumairGoldeye just has a few commits; for some reason it only shows some of them, but there are a lot more.
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Rundown of the most important files.
 
 Unity Files/Assets/SampleScene.unity: Contains all of the information for the graphics.  A large portion of

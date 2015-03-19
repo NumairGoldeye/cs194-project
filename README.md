@@ -8,18 +8,21 @@ Instructions:
   4. Once the above is done, on the other computer, click "Join Game".  Type in a different name in the box.  Then, click on the name of the gave you created in the previous step.  If you don't see it, hit "Refresh" until you do.
   5. On the Host, click "Start"
   6. Now you can play through a game!
+  7. Refresh the page if you want to start over.
 
 NOTES
   - It is possible to try a single-player game.  To do so, just skip step 4.  Some features, like trading with other players, won't work in this mode, but you will still be able to play repeated turns.
   - There is a console that allows you to cheat and give yourself resources and development cards by clicking the "plus", and remove them with the "minus"
   - The game will end at 10 victory points.  You can make this faster by clicking the "+" for Victory Point on the Dev Console.
 
-Rundown of the most important files:
+Rundown of the most important files.
 
-SampleScene.unity: Contains all of the information for the graphics.  A large portion of
+Unity Files/Assets/SampleScene.unity: Contains all of the information for the graphics.  A large portion of
   our work was done in the Unity scene editor -- that work in unity is reflected here. 
   Not meant to be read by humans, but generated and used by Unity.	
-  
+ 
+The following are all Scripts, located in Unity Files/Assets/_Scripts/ and its subdirectories:
+
 Game Setup and Networking Files
 - StartGameManager.cs: Controls the "setup phase" of the game, where players place their
     initial roads and settlements.
@@ -80,6 +83,7 @@ ComboBox:
 
 AI: 
 - The AI is close to working, but not quite there.  To see the work we've done, look at the files in the AI folder.
+- To see what is there so far, create a game, but make one of the player's name "computer" (exactly, case-sensitive).      That player will act automatically for a while, but eventually stop.
 - AIBrain.cs: Interface with necessary AI functions
 - AbstractAIBrain.cs: A little bit of implementation, makes it easy to subclass.
 - RandomAIBrain.cs: An AIBrain that randomly chooses where to place objects.  Also cheats and gives itself extra resources

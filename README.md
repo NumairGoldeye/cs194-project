@@ -65,7 +65,11 @@ ComboBox:
     http://forum.unity3d.com/threads/a-working-stylable-combo-box-drop-down-list.264167/#post-1913899
 
 AI: 
-- ArrayBoardGraph.cs: the data structure of the board representation and graph algorithms for complex AI functions. The second half of the file includes an implementation of AI ("computer") mode that takes into account specific turn by turn strategy to optimize AI's winning strategy according to the board structure, the resources he has, and other opponents' current strategies. These AI alagorithms direct the computer mode when and where to build, what overall strategies to use, and when and what to trade with the house at the AI's turn.  
+- The AI is close to working, but not quite there.  To see the work we've done, look at the files in the AI folder.
+- AIBrain.cs: Interface with necessary AI functions
+- AbstractAIBrain.cs: A little bit of implementation, makes it easy to subclass.
+- RandomAIBrain.cs: An AIBrain that randomly chooses where to place objects.  Also cheats and gives itself extra resources
+- SimpleRulesBasedAIBrain.cs: AIBrain that determines where best to place objects based on a few rules.
 
 User Feedback
 - Regarding the UI "the colors [of the hexagons on the board] are derpy". We fixed this by

@@ -71,7 +71,7 @@ Trading:
     contains the logic for its corresponding button in the trade console.
 
 Buying:
--BuyManager.cs: Manages buying one of the various buyable things in Catan.
+- BuyManager.cs: Manages buying one of the various buyable things in Catan.
 
 Chat:
 - ChatLog.cs: Handles everything related to the Chat Box. Has some networking calls that send 

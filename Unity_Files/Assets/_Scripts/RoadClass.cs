@@ -128,7 +128,6 @@ public class RoadClass : MonoBehaviour {
 				Debugger.Log ("foo", "bar"); 
 
 		}
-		
 		if (!TurnState.freeBuild){
 			BuyManager.PurchaseForPlayer (BuyableType.road, TurnState.currentPlayer);
 		}

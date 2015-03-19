@@ -3,5 +3,6 @@ using System.Collections;
 
 public interface AIBrain {
 	void PlayTurn();
-	void PerformSetup();
+	void SetupSettlement();
+	void SetupRoad();
 }

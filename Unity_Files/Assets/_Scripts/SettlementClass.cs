@@ -145,7 +145,7 @@ public class SettlementClass : MonoBehaviour {
 		TurnState.SetSubStateType (TurnSubStateType.none);
 	}
 
-	public void buildSettlement(bool ai=false) {
+	public void buildSettlement() {
 		if (!GameManager.Instance.myTurn()) return;
 		setPlayerSettlement();
 
@@ -159,7 +159,7 @@ public class SettlementClass : MonoBehaviour {
 
 		GameManager.Instance.networkView.RPC ("syncSettlementBuild", RPCMode.Others, this.vertexIndex);
 
-		if (!ai) StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
+		StartGameManager.NextPhase(); // TODO figure out how to move this out of here... 
 
 	}
 	

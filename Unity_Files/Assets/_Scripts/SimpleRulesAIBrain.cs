@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 public class SimpleRulesAIBrain : AIBrain {
 
@@ -39,7 +40,81 @@ public class SimpleRulesAIBrain : AIBrain {
 	//to build settlement and city in the future. 
 	
 	//This function searches through all the buildable settlement positions and identifies the one with most frequency. \
+	//-----------------------------------------------------------------------------------------------------------------------------------
 	
+	//Final Integration function that serves as the AI brain, taking into account turn by turn real time scenario of all other 
+	//players to decide AI's strategy at the turn, and move accordingly to build settlement, road, city or get dev card.
+	//This function should be called in AI's turn  
+	
+	
+	
+	// In the beginnning, the AI calls "BuildSettlement" to set 2 settlements of highest frequencies, and build 2 roads randomly
+	//At each turn, the AI calls: 
+	// 0. Update strategy with strateyUpdate, decide 1-3; trade console with the house 
+	// 1. Check resource cards that he has, get a list of them; 
+	//2. If contain " 2 wheat 3 ore", build city at all times
+	
+	// 3.if they contain "wood, brick" then call "BuildRoad"
+	//								if return null(1. has place to build good set 2. no good road), then do not build road 
+	// 										if contain "wood, brick, sheep, wheat", BuildSettlement (if null, build random road) 
+	//										if not contain, call BuildSettlement to see if null-> build Random Road 
+	//								if return yes, then check strategy, if strategy is 1 and longestroad is not bigger or equal to 4
+	// 										then build road; else do not build, save for future settlement 
+	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
+	//City always trumphs  
+	//full strategy 
+	
+	//To be called in the beginning two rounds 
+	public void SetupRoad(){
+		RoadClass firstRoad = DecideInitialRoad ();
+		firstRoad.buildRoad();
+	}
+
+	public void SetupSettlement() {
+		SettlementClass firstSet = DecideInitialSettlement();
+		firstSet.buildSettlement();	
+	}
+
+	
+	public void PlayTurn(){
+		//for (int i = 0; i < player.resourceCounts.Count(); ++i) {
+		//	player.resourceCounts[i] += 3;
+		//}
+		//Debugger.Log ("Computer", "It's my turn");
+		Player player = this.player;
+		AIStrategy strategy = GetStrategy(); //This gives the current optimal strategy for the AI player
+		PlayRollPhase();
+		PlayTradePhase(player, strategy);
+		PlayBuyPhase(player, strategy);
+		TurnState.EndTurn();
+	}
+	
+	private RoadClass DecideInitialRoad() {
+		List<RoadClass> buildable = this.graph.BuildableRoads(this.player);
+		RoadClass randomr = buildable[0];
+		return randomr;
+	}
+
+	private void PlayRollPhase() {
+		TurnState.stateType = TurnStateType.roll;
+		GameManager.Instance.BroadcastMessage ("rollDice");
+		TurnState.NextTurnState (); 
+	}
+	
+	private void PlayTradePhase (Player player, AIStrategy strategy) {
+		TradeForBuilding (player);
+		if (strategy == AIStrategy.LargestArmy) {
+			TradeForDevcard (player);
+		}
+		if (strategy == AIStrategy.LongestRoad) {
+			TradeForLongestRoad (player);
+		}
+		//Now AI is fully traded and optimized for different scenarios: 
+		// city first always, settlement always second then 
+		// based on strategy:  1 for trading for road, 2 for trading for dev card 
+		TurnState.NextTurnState ();
+	}
+
 	
 	
 	private SettlementClass BuildSettlement(){
@@ -65,7 +140,7 @@ public class SimpleRulesAIBrain : AIBrain {
 	}
 	
 	
-	private SettlementClass BuildInitialSettlement(){
+	private SettlementClass DecideInitialSettlement(){
 		List<SettlementClass> set = new List<SettlementClass>();
 		List<SettlementClass> allset = this.graph.getSettlements();
 		foreach (SettlementClass temp in allset) {
@@ -244,89 +319,6 @@ public class SimpleRulesAIBrain : AIBrain {
 		return strategy;
 	}
 	
-	//-----------------------------------------------------------------------------------------------------------------------------------
-	
-	//Final Integration function that serves as the AI brain, taking into account turn by turn real time scenario of all other 
-	//players to decide AI's strategy at the turn, and move accordingly to build settlement, road, city or get dev card.
-	//This function should be called in AI's turn  
-	
-	
-	
-	// In the beginnning, the AI calls "BuildSettlement" to set 2 settlements of highest frequencies, and build 2 roads randomly
-	//At each turn, the AI calls: 
-	// 0. Update strategy with strateyUpdate, decide 1-3; trade console with the house 
-	// 1. Check resource cards that he has, get a list of them; 
-	//2. If contain " 2 wheat 3 ore", build city at all times
-	
-	// 3.if they contain "wood, brick" then call "BuildRoad"
-	//								if return null(1. has place to build good set 2. no good road), then do not build road 
-	// 										if contain "wood, brick, sheep, wheat", BuildSettlement (if null, build random road) 
-	//										if not contain, call BuildSettlement to see if null-> build Random Road 
-	//								if return yes, then check strategy, if strategy is 1 and longestroad is not bigger or equal to 4
-	// 										then build road; else do not build, save for future settlement 
-	//4. If contain "1 wheat 1 sheep 1 ore" and strategy is 2 then get dev card 
-	//City always trumphs  
-	//full strategy 
-	
-	//To be called in the beginning two rounds 
-	public void PerformSetup(){
-		//In the beginning, when the roads number is 0 or 1, build a settlement and build a road 
-		RoadClass[] playerBeginRoads = player.GetRoads ();
-		
-		if (playerBeginRoads.Count () == 0 || playerBeginRoads.Count () == 1) {
-			//build a road and a settlement without consuming resources, starting game 
-			//display implementation! 
-			
-			SettlementClass firstset = BuildInitialSettlement();
-			Debugger.Log("Settlement", firstset);
-			Debugger.Log ("Computer", firstset.vertexIndex.ToString());
-			Debugger.Log("Computer", TurnState.currentPlayer.playerName);
-			
-			firstset.buildSettlement(true);
-			
-			//build random road 
-			List<RoadClass> buildable = this.graph.BuildableRoads(this.player);
-			if (buildable.Count () > 0) {
-				RoadClass randomr = buildable[0];
-				//build a road pointed to by randomroad 
-				//Display the road pointed to by randomroad! 
-				randomr.buildRoad();
-			}
-		}
-		StartGameManager.NextPlayer();
-	}
-	
-	
-	public void PlayTurn(){
-		//for (int i = 0; i < player.resourceCounts.Count(); ++i) {
-		//	player.resourceCounts[i] += 3;
-		//}
-		//Debugger.Log ("Computer", "It's my turn");
-		Player player = this.player;
-		TurnState.stateType = TurnStateType.roll;
-		
-		GameManager.Instance.BroadcastMessage ("rollDice");
-		
-		TurnState.NextTurnState (); 
-		AIStrategy strategy = GetStrategy(); //This gives the current optimal strategy for the AI player
-		PlayTradePhase (player, strategy);
-		PlayBuyPhase (player, strategy);
-		TurnState.EndTurn ();
-	}
-
-	private void PlayTradePhase (Player player, AIStrategy strategy) {
-		TradeForBuilding (player);
-		if (strategy == AIStrategy.LargestArmy) {
-			TradeForDevcard (player);
-		}
-		if (strategy == AIStrategy.LongestRoad) {
-			TradeForLongestRoad (player);
-		}
-		//Now AI is fully traded and optimized for different scenarios: 
-		// city first always, settlement always second then 
-		// based on strategy:  1 for trading for road, 2 for trading for dev card 
-		TurnState.NextTurnState ();
-	}
 
 	private void TradeForBuilding (Player player) {
 		//priority 1: trade to get ore for city 
@@ -523,7 +515,7 @@ public class SimpleRulesAIBrain : AIBrain {
 			return;
 		}
 		foreach (ResourceType tradeCandidate in Enum.GetValues(typeof(ResourceType))) {
-			if (tradeCandidate == neededResource) continue; // Would be pointless trade.
+			if (tradeCandidate == neededResource || tradeCandidate == ResourceType.None) continue; // Would be pointless trade.
 			int tradeCost = player.getTradeRatioFor(tradeCandidate);
 			int numNeededForBuild = cost.ResourceCount(tradeCandidate);
 			if (player.HasResourceAmount(tradeCandidate, numNeededForBuild + tradeCost)) { // Has enough to spare.

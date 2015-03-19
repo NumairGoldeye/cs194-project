@@ -58,6 +58,8 @@ public static class BuyManager {
 		// Returns the number of a specific resource that a player has
 		// returns -1 on terrible terrible failure
 		public int ResourceCount(ResourceType resource){
+			Debug.Log ((int)resource);
+			Debug.Log (resource);
 			return costs[(int) resource];
 		}
 

@@ -89,6 +89,9 @@ public class TurnState : MonoBehaviour {
 		freeBuild = false;
 
 		ResetTurn();
+		if (currentPlayer.IsAI()) {
+			currentPlayer.brain.PlayTurn();
+		}
 	}
 
     public static void NextTurnState(){

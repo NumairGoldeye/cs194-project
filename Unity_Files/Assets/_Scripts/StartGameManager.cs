@@ -71,11 +71,11 @@ public class StartGameManager {
 		roads = GameObject.FindGameObjectWithTag("Road").transform.parent.gameObject;
 		TurnState.freeBuild = true;
 		if (GameManager.Instance.myTurn()) {
+			settlements.BroadcastMessage("showSettlementStartup");
+			roads.BroadcastMessage("makeInvisible");
 			if (GameManager.Instance.myPlayer.IsAI()) {
-				GameManager.Instance.myPlayer.brain.PerformSetup();
-			} else {
-				settlements.BroadcastMessage("showSettlementStartup");
-				roads.BroadcastMessage("makeInvisible");
+				startedUp = true;
+				GameManager.Instance.myPlayer.brain.SetupSettlement();
 			}
 		}
 
@@ -108,12 +108,15 @@ public class StartGameManager {
 		if (finished) return;
 		Startup();
 
+
 		if (!builtSettlement){
 			// After the current player has built a settlement
 			settlements.BroadcastMessage("hideSettlement");
 			roads.BroadcastMessage("toggleRoadStartup");
 			builtSettlement = true;
-
+			if (GameManager.Instance.myPlayer.IsAI()) {
+				GameManager.Instance.myPlayer.brain.SetupRoad();
+			}
 			// Hand out resources for that settlement
 
 		} else {

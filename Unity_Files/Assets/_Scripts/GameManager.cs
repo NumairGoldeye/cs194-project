@@ -176,9 +176,11 @@ public class GameManager : MonoBehaviour {
 		TurnState.currentPlayer = GameManager.Instance.players[playerID];
 		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 		if (GameManager.Instance.myTurn()) {
-			RollButton.interactable = true;
-			if (myPlayer.IsAI())
+			if (myPlayer.IsAI()) {
 				myPlayer.brain.PlayTurn();
+			} else {
+				RollButton.interactable = true;
+			}
 		}
 //		Debugger.Log ("PlayerHand", "Changing current player to " + TurnState.currentPlayer.playerName);
 	}
@@ -324,6 +326,9 @@ public class GameManager : MonoBehaviour {
 			StartGameManager.settlements.BroadcastMessage("showSettlementStartup");
 			StartGameManager.roads.BroadcastMessage("makeInvisible");
 			StartGameManager.builtSettlement = false;
+			if (myPlayer.IsAI()) {
+				myPlayer.brain.SetupSettlement();
+			}
 		}
 	}
 

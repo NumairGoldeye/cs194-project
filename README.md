@@ -14,6 +14,7 @@ NOTES
   - It is possible to try a single-player game.  To do so, just skip step 4.  Some features, like trading with other players, won't work in this mode, but you will still be able to play repeated turns.
   - There is a console that allows you to cheat and give yourself resources and development cards by clicking the "plus", and remove them with the "minus"
   - The game will end at 10 victory points.  You can make this faster by clicking the "+" for Victory Point on the Dev Console.
+  - The commit statistics page says Khalil/NumairGoldeye just has a few commits; for some reason it only shows some of them, but there are a lot more.
 
 Rundown of the most important files.
 

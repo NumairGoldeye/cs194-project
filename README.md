@@ -86,7 +86,8 @@ ComboBox:
 
 AI: 
 - The AI is close to working, but not quite there.  To see the work we've done, look at the files in the AI folder.
-- To see what is there so far, create a game, but make one of the player's name "computer" (exactly, case-sensitive).      That player will act automatically for a while, but eventually stop.
+- To see what is there so far, create a game, but make one of the player's name "computer" (exactly, case-sensitive).
+    That player will act automatically for a while, but eventually stop.
 - AIBrain.cs: Interface with necessary AI functions
 - AbstractAIBrain.cs: A little bit of implementation, makes it easy to subclass.
 - RandomAIBrain.cs: An AIBrain that randomly chooses where to place objects.  Also cheats and gives itself extra resources

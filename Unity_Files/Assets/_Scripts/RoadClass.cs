@@ -163,7 +163,7 @@ public class RoadClass : MonoBehaviour {
 			player.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);
 			GameManager.Instance.playerWithLongestRoadId = player.playerId;
 		} else {
-			if (player == oldPlayerWithLongestRoad) return; // Already has longest road!
+			if (player.playerId == oldPlayerWithLongestRoadId) return; // Already has longest road!
 			int oldPlayerLongestRoad = StandardBoardGraph.Instance.GetLongestRoadForPlayer(oldPlayerWithLongestRoad);
 			if (currentPlayerLongestRoad > oldPlayerLongestRoad) {
 				player.AddVictoryPoint(LONGEST_ROAD_VICTORY_POINTS);

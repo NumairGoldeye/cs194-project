@@ -355,7 +355,7 @@ public class GameManager : MonoBehaviour {
 		Regex rgx = new Regex (@".*computer.*");
 		if (rgx.IsMatch(myPlayerName)) {
 			Debugger.Log("Computer", "I am and AI!");
-			myPlayer.SetAIBrain(new SimpleRulesAIBrain(myPlayer, graph));
+			myPlayer.SetAIBrain(new RandomAIBrain(myPlayer, graph));
 		}
 	}
 

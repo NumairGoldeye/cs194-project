@@ -52,7 +52,7 @@ Board Representation Files: The following section contains the files that
     represents the information needed for its respective game element, and contain
     functions to perform their necessary tasks. The SettlementClass also represents the 
     city objects and the logic allowing them to be built.
-
+    
 Game State: These files represent various parts of the state of the game.
 - Player.cs: Represents the state of a player, with things like their resource counts,
     their dev card counts, etc, and various functions to manipulate the state.
@@ -96,3 +96,21 @@ AI:
 User Feedback
 - Regarding the UI "the colors [of the hexagons on the board] are derpy". We fixed this by
     scanning all of the real board's tiles and using them instead of monocolor hexagons. 
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Notes on the visuals
+
+Unity handles all of the rendering. 
+
+Textures and materials had to be created, using a combination of Autodesk 3ds Max and Meshlab
+
+All tiles have a texture on them and have 3d models stationed on top.
+
+The textures for the tiles were created by scanning tiles from the actual game, mapping the image to objects and 
+converting it to a texture (in 3ds max).
+
+The models were either downloaded, or created (bricks and trees). Unfortunately, the models are not easily
+viewable outside of the game. This is especially the case as most of the 3d objects are actually combinations 
+of many objects, combined in the unity editor.

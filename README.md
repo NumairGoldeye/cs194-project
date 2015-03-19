@@ -1,5 +1,19 @@
 This project was created in Unity, which handled much of the graphics creation.
 
+Instructions:
+  1. This app will best be viewed in Firefox, and best with 2 different computers.
+  2. Navigate both computers to https://s3-us-west-2.amazonaws.com/settlersofcatan/Web_Player.html
+      (you may need to give the plugins permission to run).
+  3. On one computer, click "Start Game".  Enter a name for your user, and for the game. We will call this computer the "Host"
+  4. Once the above is done, on the other computer, click "Join Game".  Type in a different name in the box.  Then, click on the name of the gave you created in the previous step.  If you don't see it, hit "Refresh" until you do.
+  5. On the Host, click "Start"
+  6. Now you can play through a game!
+
+NOTES
+  - It is possible to try a single-player game.  To do so, just skip step 4.  Some features, like trading with other players, won't work in this mode, but you will still be able to play repeated turns.
+  - There is a console that allows you to cheat and give yourself resources and development cards by clicking the "plus", and remove them with the "minus"
+  - The game will end at 10 victory points.  You can make this faster by clicking the "+" for Victory Point on the Dev Console.
+
 Rundown of the most important files:
 
 SampleScene.unity: Contains all of the information for the graphics.  A large portion of

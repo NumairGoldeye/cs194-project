@@ -277,7 +277,7 @@ public class GameManager : MonoBehaviour {
 		GameManager.Instance.die1 = die1;
 		GameManager.Instance.die2 = die2;
 		diceRoll = die1 + die2;
-		if (diceRoll == 7 && myTurn()) {
+		if (diceRoll == 7 && myTurn() && !myPlayer.IsAI()) { // AI doesn't robber yet...
 			TurnState.SetSubStateType(TurnSubStateType.robbering);
 		}
 		displayDice (die1, die2);

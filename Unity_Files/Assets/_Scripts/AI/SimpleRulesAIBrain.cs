@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-public class SimpleRulesAIBrain : AIBrain {
+public class SimpleRulesAIBrain : AbstractAIBrain {
 
 	private enum AIStrategy { LongestRoad, LargestArmy, Build }
 
 	Player player;
 	BoardGraph graph;
+
+	private AIStrategy strategy;
 
 	public SimpleRulesAIBrain(Player player, BoardGraph graph) {
 		this.player = player;
@@ -65,28 +67,27 @@ public class SimpleRulesAIBrain : AIBrain {
 	//full strategy 
 	
 	//To be called in the beginning two rounds 
-	public void SetupRoad(){
+	public override void SetupRoad(){
 		RoadClass firstRoad = DecideInitialRoad ();
 		firstRoad.buildRoad();
 	}
 
-	public void SetupSettlement() {
+	public override void SetupSettlement() {
 		SettlementClass firstSet = DecideInitialSettlement();
 		firstSet.buildSettlement();	
 	}
 
 	
-	public void PlayTurn(){
-		//for (int i = 0; i < player.resourceCounts.Count(); ++i) {
-		//	player.resourceCounts[i] += 3;
-		//}
-		//Debugger.Log ("Computer", "It's my turn");
-		Player player = this.player;
-		AIStrategy strategy = GetStrategy(); //This gives the current optimal strategy for the AI player
-		PlayRollPhase();
-		PlayTradePhase(player, strategy);
-		PlayBuyPhase(player, strategy);
-		TurnState.EndTurn();
+	protected override void SetupTurn(){
+		strategy = GetStrategy(); //This gives the current optimal strategy for the AI player
+		player.AddResource (ResourceType.Brick, 5);
+		player.AddResource (ResourceType.Sheep, 5);
+		player.AddResource (ResourceType.Ore, 5);
+		player.AddResource (ResourceType.Wheat, 5);
+	}
+
+	protected override void TearDownTurn() { 
+		// No need to do anything.
 	}
 	
 	private RoadClass DecideInitialRoad() {
@@ -95,13 +96,7 @@ public class SimpleRulesAIBrain : AIBrain {
 		return randomr;
 	}
 
-	private void PlayRollPhase() {
-		TurnState.stateType = TurnStateType.roll;
-		GameManager.Instance.BroadcastMessage ("rollDice");
-		TurnState.NextTurnState (); 
-	}
-	
-	private void PlayTradePhase (Player player, AIStrategy strategy) {
+	protected override void PlayTradePhase () {
 		TradeForBuilding (player);
 		if (strategy == AIStrategy.LargestArmy) {
 			TradeForDevcard (player);
@@ -112,7 +107,6 @@ public class SimpleRulesAIBrain : AIBrain {
 		//Now AI is fully traded and optimized for different scenarios: 
 		// city first always, settlement always second then 
 		// based on strategy:  1 for trading for road, 2 for trading for dev card 
-		TurnState.NextTurnState ();
 	}
 
 	
@@ -391,12 +385,12 @@ public class SimpleRulesAIBrain : AIBrain {
 		}
 	}
 
-	private void PlayBuyPhase (Player player, AIStrategy strategy) {
+	protected override void PlayBuyPhase () {
 		//The first part, build city 
 		if (player.wheatcount () >= 2 && player.orecount () >= 3) {
 			SettlementClass nextcity = BuildCity ();
 			//Build city pointed to by the nextcity 
-			if (BuyManager.PlayerCanBuy (player, BuyableType.city) == true) {
+			if (nextcity != null && BuyManager.PlayerCanBuy (player, BuyableType.city) == true) {
 				//Display the city!!!! pointed to by nextcity  
 				nextcity.upgradeToCity ();
 			}

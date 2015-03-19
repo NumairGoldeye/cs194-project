@@ -175,7 +175,7 @@ public class Player : MonoBehaviour {
 		resourceCounts[(int)resource] += amount;
 		totalResources += amount;
 
-		if (playerId == GameManager.Instance.myPlayer.playerId && StartGameManager.finished){
+		if (playerId == GameManager.Instance.myPlayer.playerId && StartGameManager.finished && !IsAI()){
 			hand.AddResourceCard(resource, this, amount);
 		}
 
@@ -255,7 +255,7 @@ public class Player : MonoBehaviour {
 		//TODO: check if there are enough resources to remove
 		resourceCounts[(int)resource] -= amount;
 		totalResources -= amount;
-		if (playerId == GameManager.Instance.myPlayer.playerId) {
+		if (playerId == GameManager.Instance.myPlayer.playerId && !IsAI()) {
 			hand.RemoveResourceCard (resource, this, amount);
 		}
 		return true;
@@ -341,7 +341,7 @@ public class Player : MonoBehaviour {
 			AddVictoryPoint();
 		}
 
-		if (playerId == GameManager.Instance.myPlayer.playerId){
+		if (playerId == GameManager.Instance.myPlayer.playerId && !IsAI()){
 //			Debug.Log("foo");
 			hand.AddDevCard(devCard, this);
 		} else {
@@ -357,7 +357,7 @@ public class Player : MonoBehaviour {
 			victoryPoints--;
 		}
 
-		if (playerId == GameManager.Instance.myPlayer.playerId){
+		if (playerId == GameManager.Instance.myPlayer.playerId && !IsAI()){
 			hand.RemoveDevCard(devCard, this);
 		}
 		return true;
@@ -429,7 +429,7 @@ public class Player : MonoBehaviour {
 	/// Call this whenever the cards or resouces are updated
 	/// </summary>
 	public void UpdateHand(){
-		hand.UpdateHand();
+		if (!IsAI()) hand.UpdateHand();
 	}
 
 	// public CityClass[] GetCities(){

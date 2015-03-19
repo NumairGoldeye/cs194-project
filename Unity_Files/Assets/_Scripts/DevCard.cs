@@ -155,9 +155,12 @@ public class DevCard : PlayerCard {
 		if (p.numUsedKnights >= LARGEST_ARMY_MIN) {
 			int playerWithLargestArmyId = GameManager.Instance.playerWithLargestArmyId;
 			Player playerWithLargestArmy = Player.FindByPlayerId(playerWithLargestArmyId);
-			if (-1 == playerWithLargestArmyId || p.numUsedKnights > playerWithLargestArmy.numUsedKnights) {
-				GameManager.Instance.playerWithLargestArmyId = p.playerId;
+			GameManager.Instance.playerWithLargestArmyId = p.playerId;
+			if (-1 == playerWithLargestArmyId) {
 				p.AddVictoryPoint(LARGEST_ARMY_VICTORY_POINTS);
+			} else if (p.numUsedKnights > playerWithLargestArmy.numUsedKnights) {
+				p.AddVictoryPoint(LARGEST_ARMY_VICTORY_POINTS);
+				playerWithLargestArmy.RemoveVictoryPoint(LARGEST_ARMY_VICTORY_POINTS);
 			}
 		}
 	}

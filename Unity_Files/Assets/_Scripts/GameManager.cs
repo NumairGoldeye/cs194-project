@@ -277,7 +277,7 @@ public class GameManager : MonoBehaviour {
 		GameManager.Instance.die1 = die1;
 		GameManager.Instance.die2 = die2;
 		diceRoll = die1 + die2;
-		if (diceRoll == 7 && myTurn() && !myPlayer.IsAI()) { // AI doesn't robber yet...
+		if (diceRoll == 7 && myTurn() && !myPlayer.IsAI()) { // TODO:AI doesn't robber yet...
 			TurnState.SetSubStateType(TurnSubStateType.robbering);
 		}
 		displayDice (die1, die2);
@@ -291,8 +291,7 @@ public class GameManager : MonoBehaviour {
 	[RPC]
 	void syncRobberMove(int index) {
 		TileClass tile = graph.getTile (index);
-		GameManager.Instance.removeRobber ();
-		tile.getRobber ();
+		tile.receiveRobber ();
 	}
 
 	[RPC]
